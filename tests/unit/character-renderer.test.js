@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { computeOpaqueBounds } from '../../src/scene/character-renderer.js';
+import { computeOpaqueBounds, performanceCue } from '../../src/scene/character-renderer.js';
 
 test('sprite normalization measures the visible person instead of transparent canvas padding', () => {
   const width = 12;
@@ -16,4 +16,11 @@ test('sprite normalization ignores fully transparent images and faint edge noise
   const pixels = new Uint8ClampedArray(6 * 5 * 4);
   pixels[3] = 4;
   assert.equal(computeOpaqueBounds(pixels, 6, 5), null);
+});
+
+test('performance cue has a deterministic attack at the shared transport beat', () => {
+  const node = { animation: 'drum', beatPeriod: 0.5, beatOffset: 0 };
+  assert.equal(performanceCue(node, 0).attack, 1);
+  assert.equal(performanceCue(node, 500).attack, 1);
+  assert.ok(performanceCue(node, 250).attack < 0.01);
 });

@@ -27,6 +27,9 @@ export class AudioEngine extends EventTarget {
     this.nodes = nodes;
     this.context = null;
     this.master = null;
+    this.compressor = null;
+    this.reverb = null;
+    this.reverbReturn = null;
     this.analyser = null;
     this.meterData = null;
     this.groupNodes = new Map();
@@ -36,6 +39,7 @@ export class AudioEngine extends EventTarget {
     this.errors = [];
     this.state = 'idle';
     this.lastMix = {};
+    this.transportStartTime = null;
   }
 
   async init() {
@@ -57,11 +61,29 @@ export class AudioEngine extends EventTarget {
     try {
       this.context = new AudioContextConstructor({ latencyHint: 'interactive' });
       this.master = this.context.createGain();
-      this.master.gain.value = this.muted ? 0 : 0.74;
+      this.master.gain.value = this.muted ? 0 : 0.86;
+      this.compressor = typeof this.context.createDynamicsCompressor === 'function'
+        ? this.context.createDynamicsCompressor()
+        : null;
+      if (this.compressor) {
+        this.compressor.threshold.value = -19;
+        this.compressor.knee.value = 16;
+        this.compressor.ratio.value = 5.5;
+        this.compressor.attack.value = 0.004;
+        this.compressor.release.value = 0.28;
+      }
       this.analyser = this.context.createAnalyser();
       this.analyser.fftSize = 256;
       this.meterData = new Float32Array(this.analyser.fftSize);
-      this.master.connect(this.analyser).connect(this.context.destination);
+      if (this.compressor) this.master.connect(this.compressor).connect(this.analyser).connect(this.context.destination);
+      else this.master.connect(this.analyser).connect(this.context.destination);
+      if (typeof this.context.createConvolver === 'function') {
+        this.reverb = this.context.createConvolver();
+        this.reverb.buffer = this.#createHallImpulse(2.35);
+        this.reverbReturn = this.context.createGain();
+        this.reverbReturn.gain.value = 0.32;
+        this.reverb.connect(this.reverbReturn).connect(this.master);
+      }
       const loaded = [];
       for (const group of this.groups) {
         try {
@@ -74,18 +96,26 @@ export class AudioEngine extends EventTarget {
         }
       }
       const startTime = this.context.currentTime + 0.09;
+      this.transportStartTime = startTime;
       for (const { group, buffer } of loaded) {
         const source = this.context.createBufferSource();
         source.buffer = buffer;
         source.loop = true;
         const gain = this.context.createGain();
         const panner = typeof this.context.createStereoPanner === 'function' ? this.context.createStereoPanner() : null;
-        gain.gain.value = group.id === 'ambience' ? 0.13 : 0.0001;
+        const send = this.reverb ? this.context.createGain() : null;
+        gain.gain.value = group.id === 'ambience' ? (group.gain ?? 0.055) : 0.0001;
         source.connect(gain);
-        if (panner) gain.connect(panner).connect(this.master);
-        else gain.connect(this.master);
+        if (panner) {
+          gain.connect(panner).connect(this.master);
+          if (send) panner.connect(send).connect(this.reverb);
+        } else {
+          gain.connect(this.master);
+          if (send) gain.connect(send).connect(this.reverb);
+        }
+        if (send) send.gain.value = group.reverbSend ?? 0.25;
         source.start(startTime);
-        this.groupNodes.set(group.id, { source, gain, panner, group });
+        this.groupNodes.set(group.id, { source, gain, panner, send, group });
       }
       this.started = true;
       this.state = this.errors.length ? 'ready-with-errors' : 'ready';
@@ -115,6 +145,11 @@ export class AudioEngine extends EventTarget {
         entry.panner.pan.cancelScheduledValues(now);
         entry.panner.pan.setTargetAtTime(id === 'ambience' ? 0 : spatial.pan, now, 0.08);
       }
+      if (entry.send) {
+        const wet = (entry.group.reverbSend ?? 0.25) * (id === 'ambience' ? 1 : 0.68 + groupIntensity * 0.32);
+        entry.send.gain.cancelScheduledValues(now);
+        entry.send.gain.setTargetAtTime(wet, now, 0.12);
+      }
     }
     this.lastMix = Object.fromEntries([...mix].map(([id, value]) => [id, { ...value }]));
   }
@@ -124,7 +159,7 @@ export class AudioEngine extends EventTarget {
     if (!this.master || !this.context) return;
     const now = this.context.currentTime;
     this.master.gain.cancelScheduledValues(now);
-    this.master.gain.setTargetAtTime(this.muted ? 0 : 0.74, now, 0.05);
+    this.master.gain.setTargetAtTime(this.muted ? 0 : 0.86, now, 0.05);
   }
 
   async resume() {
@@ -174,6 +209,30 @@ export class AudioEngine extends EventTarget {
     return Math.sqrt(squares / this.meterData.length);
   }
 
+  visualTimeMs(fallbackNow = 0) {
+    if (!this.context || this.transportStartTime == null || this.context.currentTime < this.transportStartTime) return fallbackNow;
+    return (this.context.currentTime - this.transportStartTime) * 1000;
+  }
+
+  #createHallImpulse(durationSeconds) {
+    const sampleRate = this.context.sampleRate;
+    const length = Math.max(1, Math.round(sampleRate * durationSeconds));
+    const impulse = this.context.createBuffer(2, length, sampleRate);
+    for (let channel = 0; channel < 2; channel += 1) {
+      const data = impulse.getChannelData(channel);
+      let state = 0x9e3779b9 ^ (channel * 0x85ebca6b);
+      for (let index = 0; index < length; index += 1) {
+        state ^= state << 13; state ^= state >>> 17; state ^= state << 5;
+        const noise = ((state >>> 0) / 0xffffffff) * 2 - 1;
+        const time = index / sampleRate;
+        const early = index === Math.round(sampleRate * (0.021 + channel * 0.004))
+          || index === Math.round(sampleRate * (0.047 + channel * 0.006));
+        data[index] = noise * Math.exp(-time * 2.65) * (0.34 + 0.66 * Math.exp(-time * 8)) + (early ? 0.42 : 0);
+      }
+    }
+    return impulse;
+  }
+
   snapshot() {
     return {
       state: this.state,
@@ -183,6 +242,11 @@ export class AudioEngine extends EventTarget {
       loadedGroups: this.groupNodes.size,
       requestedGroups: this.groups.length,
       outputLevel: this.outputLevel(),
+      transportSeconds: this.transportStartTime == null || !this.context
+        ? 0
+        : Math.max(0, this.context.currentTime - this.transportStartTime),
+      distinctVoiceCount: Math.max(0, this.groups.length - (this.groups.some((group) => group.id === 'ambience') ? 1 : 0)),
+      hallReverb: Boolean(this.reverb),
       spatialMix: structuredClone(this.lastMix),
       errors: [...this.errors],
     };

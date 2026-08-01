@@ -1,20 +1,20 @@
-PASS health endpoint before E2E: {"app": "han-orchestra-installation", "baseline": "ac76d30", "ok": true, "uptimeSeconds": 0.1, "version": "2.2.0-p0-fix2"}
+PASS health endpoint before E2E: {"app": "han-orchestra-installation", "baseline": "ac76d30", "ok": true, "uptimeSeconds": 0.2, "version": "3.0.0-v2"}
 PASS permission denial returns false: [false, false, false]
 PASS parallel permission requests are deduplicated: {"getUserMediaCalls": 1, "message": "摄像头权限被永久拒绝。请在浏览器地址栏允许摄像头后手动重试。", "permanentError": true, "reconnectAttempts": 0, "reconnectFailuresTotal": 0, "reconnectSuccesses": 0, "retryable": false, "source": "hardware", "sourceGeneration": 1, "state": "error", "transportState": "error"}
 PASS permission denial leaves renderer alive: {"camera": {"getUserMediaCalls": 1, "message": "摄像头权限被永久拒绝。请在浏览器地址栏允许摄像头后手动重试。", "permanentError": true, "reconnectAttempts": 0, "reconnectFailuresTotal": 0, "reconnectSuccesses": 0, "retryable": false, "source": "hardware", "sourceGeneration": 1, "state": "error", "transportState": "error"}, "drawn": 63, "errors": []}
 PHASE primary behavior suite
 PASS bootstrap has no boot error
 PASS 63 scene nodes: 63
-PASS curated solo sprite set is loaded without missing files: {"configured": 8, "loaded": 8}
+PASS V2 varied sprite set is loaded without missing files: {"configured": 47, "loaded": 47}
 PASS asset diversity metadata records 32 genuinely different base silhouettes: {"distinctBaseSilhouetteCount": 32, "independentHighResSourceCount": 8, "muralDerivedDistinctSourceCount": 24, "runtimeSpriteCount": 60}
 PASS dense landscape visual structure: {"centralStagePanelCount": 5, "centralStagePresent": true, "horizontalBeamCount": 8, "leftBorderPresent": true, "orientation": "landscape", "panelCount": 63, "rightBorderPresent": true, "sideBorderCount": 2, "version": 3}
 PASS trigger partition complete: {"counts": [10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000], "expected": 10000, "holes": 0, "maxDeviation": 0, "overlaps": 0, "valid": true}
 PHASE fresh-page 63-node stress suite
-PASS 12-second 63-node stress keeps every node active: {"active": 63, "fps": 119.64107676969093, "heap": 4379096, "runtimeErrors": []}
-PASS 12-second 63-node stress has no runtime errors: {"active": 63, "fps": 119.64107676969093, "heap": 4379096, "runtimeErrors": []}
-PASS stress FPS does not collapse: {"average": 120.03, "median": 120, "minimum": 119.64, "samplesBelow12": 0, "tailAverage": 119.83}
-PASS short stress has no sustained >96 MiB heap growth: {"first": 3946040, "growthBytes": 433056, "last": 4379096}
-PASS auto demo activates a local subset: {"active": 7, "coverageCells": 8}
+PASS 12-second 63-node stress keeps every node active: {"active": 63, "fps": 119.85617259288844, "heap": 5175069, "runtimeErrors": []}
+PASS 12-second 63-node stress has no runtime errors: {"active": 63, "fps": 119.85617259288844, "heap": 5175069, "runtimeErrors": []}
+PASS stress FPS does not collapse: {"average": 120.04, "median": 120, "minimum": 119.66, "samplesBelow12": 0, "tailAverage": 120.03}
+PASS short stress has no sustained >96 MiB heap growth: {"first": 5108961, "growthBytes": 66108, "last": 5175069}
+PASS auto demo activates a local subset: {"active": 9, "coverageCells": 10}
 PASS mouse precisely selects one real visual panel: {"active": [27], "coverage": 1, "target": [27]}
 PASS multi-touch expands but does not flood coverage: {"double": 14, "single": 1}
 PASS wake-all reaches 63/63: 63
@@ -27,7 +27,7 @@ PASS responsive 390x844: {"drawn": 63, "orientation": "portrait", "rect": {"heig
 PASS 390x844 uses portrait scene: portrait
 PASS mobile control panel stays within viewport: {"bottom": 837, "clientHeight": 785, "height": 787, "left": 7, "overflowY": "auto", "right": 383, "scrollHeight": 1705, "top": 50, "width": 376}
 PASS mobile panel can scroll: {"bottom": 837, "clientHeight": 785, "height": 787, "left": 7, "overflowY": "auto", "right": 383, "scrollHeight": 1705, "top": 50, "width": 376}
-PASS operator panel exposes recognition and audio diagnostics: {"audio": "running · 9/9 · 0.9%", "canvas": true, "testAudio": true}
+PASS operator panel exposes recognition and audio diagnostics: {"audio": "running · 19/19 · 1.3%", "canvas": true, "testAudio": true}
 PASS valid 3x3 homography accepted: {"result": {"area": 0.7506875000000001, "cameraToPlane": [1.219601977421478, 0.04963496419738576, -0.10203530497148297, 0.055091444644760075, 1.3064542587185994, -0.12198819885625475, 0.003847407245524925, 0.12784139853618956, 1], "errors": [], "maxError": 3.1401849173675503e-16, "planeToCamera": [0.8214494429671103, -0.038945501037084426, 0.07906595290673556, -0.03452244232440541, 0.7580381202281133, 0.08894919702007752, 0.0012529467689328562, -0.09675881423083554, 0.9883244113341945], "valid": true}, "verification": {"corners": [{"x": 0, "y": 0}, {"x": 1, "y": 0}, {"x": 1, "y": 1}, {"x": 0, "y": 1}], "maxRoundTripError": 3.7238012298709097e-16, "valid": true}}
 PASS homography discrete error below 1e-6: 3.7238012298709097e-16
 PASS calibration rebuilds pixel mapping: {"after": 4, "before": 3}
@@ -36,4 +36,4 @@ PASS invalid calibration preserves prior valid quad: [{"x": 0.08, "y": 0.09}, {"
 PASS no external network requests: []
 PASS no console/page errors: []
 PASS final renderer still draws 63 nodes: 63
-E2E PASSED: 36 behavioral checks in 23.363s
+E2E PASSED: 36 behavioral checks in 24.987s

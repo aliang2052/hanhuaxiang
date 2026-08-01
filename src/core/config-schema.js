@@ -111,7 +111,7 @@ export function validateSceneConfig(scene) {
   if (scene.version !== 3) errors.push('scene.version 必须为 3');
   if (scene.trigger?.rows !== 7 || scene.trigger?.cols !== 9) errors.push('触发平面必须是 9×7 / 63 区');
   if (!Array.isArray(scene.nodes) || scene.nodes.length !== 63) errors.push('nodes 必须包含 63 项');
-  if (!Array.isArray(scene.audioGroups) || scene.audioGroups.length < 2) errors.push('audioGroups 无效');
+  if (!Array.isArray(scene.audioGroups) || scene.audioGroups.length < 17) errors.push('V2 audioGroups 必须包含环境声和至少 16 个独立声部');
 
   const assetStats = scene.assetStats;
   if (!assetStats

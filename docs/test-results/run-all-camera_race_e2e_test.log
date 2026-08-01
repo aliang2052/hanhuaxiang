@@ -1,4 +1,4 @@
-PASS camera race health endpoint: {"app": "han-orchestra-installation", "baseline": "ac76d30", "ok": true, "uptimeSeconds": 0.1, "version": "2.2.0-p0-fix2"}
+PASS camera race health endpoint: {"app": "han-orchestra-installation", "baseline": "ac76d30", "ok": true, "uptimeSeconds": 0.2, "version": "3.0.0-v2"}
 PASS first hardware request is pending: {"getUserMediaCalls": 1, "message": "正在请求摄像头。", "permanentError": false, "reconnectAttempts": 0, "reconnectFailuresTotal": 0, "reconnectSuccesses": 0, "retryable": false, "source": "hardware", "sourceGeneration": 1, "state": "requesting", "transportState": "requesting"}
 PASS intermediate simulated source starts: true
 PASS second hardware selection starts a new request: {"getUserMediaCalls": 2, "message": "正在请求摄像头。", "permanentError": false, "reconnectAttempts": 0, "reconnectFailuresTotal": 0, "reconnectSuccesses": 0, "retryable": false, "source": "hardware", "sourceGeneration": 3, "state": "requesting", "transportState": "requesting"}
@@ -8,4 +8,4 @@ PASS old stream is stopped and cannot pollute the current video: {"currentIsNew"
 PASS rapid source race leaves one live hardware session and renderer alive: {"camera": {"getUserMediaCalls": 2, "message": "人物模型已就绪（MediaPipe Selfie Segmenter Landscape / CPU）。", "permanentError": false, "reconnectAttempts": 0, "reconnectFailuresTotal": 0, "reconnectSuccesses": 0, "retryable": false, "source": "hardware", "sourceGeneration": 3, "state": "ready", "transportState": "live"}, "drawn": 63}
 PASS camera race has no external requests: []
 PASS camera race has no console/page errors: []
-CAMERA RACE E2E PASSED: 10 checks in 2.754s
+CAMERA RACE E2E PASSED: 10 checks in 3.196s

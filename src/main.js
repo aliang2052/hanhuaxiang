@@ -13,7 +13,7 @@ import { TriggerPlane } from './trigger/trigger-plane.js';
 import { OperatorUI } from './ui/operator-ui.js';
 import { RecognitionMonitor } from './ui/recognition-monitor.js';
 
-const APP_VERSION = '2.2.0-p0-fix2';
+const APP_VERSION = '3.0.0-v2';
 const BASELINE = 'ac76d30';
 
 async function loadJson(url) {
@@ -123,7 +123,8 @@ class HanOrchestraApp {
     if (this.assetLoadResult.errors.length) {
       this.ui.message(`有 ${this.assetLoadResult.errors.length} 个素材加载失败；作品会继续运行。`, 'warning');
     } else {
-      this.ui.message(`63 个视觉节点、${this.sceneConfig.assetStats.distinctBaseSilhouetteCount} 个基础源与 ${this.assetLoadResult.loaded} 个运行时素材已就绪。`, 'success');
+      const voiceCount = Math.max(0, this.sceneConfig.audioGroups.filter((group) => group.id !== 'ambience').length);
+      this.ui.message(`V2 已就绪：63 个空间节点、${this.assetLoadResult.loaded} 套人物构图、${voiceCount} 个独立声部。`, 'success');
     }
     this.ready = true;
     this.raf = requestAnimationFrame((now) => this.#loop(now));
@@ -371,7 +372,9 @@ class HanOrchestraApp {
     this.lastNow = now;
     this.lastInputSnapshot = this.input.update(now, dt);
     const trigger = this.hysteresis.update(this.lastInputSnapshot.coverages, dt, now);
-    this.lastRenderSnapshot = this.sceneRenderer.render(now, trigger.visual, {
+    this.audio.update(trigger.visual, this.lastInputSnapshot.coverages, this.viewport.orientation);
+    const performanceNow = this.audio.visualTimeMs(now);
+    this.lastRenderSnapshot = this.sceneRenderer.render(performanceNow, trigger.visual, {
       showGrid: this.settings.showGrid,
       showLabels: this.settings.showLabels,
       coverages: this.lastInputSnapshot.coverages,
@@ -380,7 +383,6 @@ class HanOrchestraApp {
         : null,
       planeToCamera: this.calibration.mapping.planeToCamera,
     });
-    this.audio.update(trigger.visual, this.lastInputSnapshot.coverages, this.viewport.orientation);
 
     this.fpsFrames += 1;
     if (now - this.fpsClock >= 500) {

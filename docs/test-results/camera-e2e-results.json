@@ -1,23 +1,23 @@
 {
   "ok": true,
-  "timestampUtc": "2026-08-01T11:16:51Z",
-  "durationSeconds": 14.881,
+  "timestampUtc": "2026-08-01T13:48:15Z",
+  "durationSeconds": 15.09,
   "platform": "macOS-15.7.5-x86_64-i386-64bit-Mach-O",
   "python": "3.14.2 (main, Dec  5 2025, 16:49:16) [Clang 17.0.0 (clang-1700.4.4.1)]",
   "browserExecutable": "/Users/sniper/Library/Caches/ms-playwright/chromium-1234/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
-  "baseUrl": "http://127.0.0.1:58541",
+  "baseUrl": "http://127.0.0.1:62260",
   "health": {
     "ok": true,
     "app": "han-orchestra-installation",
-    "version": "2.2.0-p0-fix2",
+    "version": "3.0.0-v2",
     "baseline": "ac76d30",
-    "uptimeSeconds": 0.1
+    "uptimeSeconds": 0.2
   },
   "checks": [
     {
       "name": "camera E2E health endpoint",
       "ok": true,
-      "detail": "{\"app\": \"han-orchestra-installation\", \"baseline\": \"ac76d30\", \"ok\": true, \"uptimeSeconds\": 0.1, \"version\": \"2.2.0-p0-fix2\"}"
+      "detail": "{\"app\": \"han-orchestra-installation\", \"baseline\": \"ac76d30\", \"ok\": true, \"uptimeSeconds\": 0.2, \"version\": \"3.0.0-v2\"}"
     },
     {
       "name": "one camera-start click completes background capture in camera mode",
@@ -70,13 +70,13 @@
   "externalRequests": [],
   "camera": {
     "captured": {
-      "version": "2.2.0-p0-fix2",
+      "version": "3.0.0-v2",
       "baseline": "ac76d30",
       "ready": true,
       "entered": true,
       "configVersion": 3,
       "sceneNodeCount": 63,
-      "distinctSpriteFiles": 8,
+      "distinctSpriteFiles": 47,
       "assetStats": {
         "runtimeSpriteCount": 60,
         "distinctBaseSilhouetteCount": 32,
@@ -94,7 +94,7 @@
         "sideBorderCount": 2,
         "horizontalBeamCount": 8
       },
-      "loadedSpriteFiles": 8,
+      "loadedSpriteFiles": 47,
       "assetErrors": [],
       "mode": "camera",
       "camera": {
@@ -124,7 +124,7 @@
         "semanticPersonOnly": true,
         "silhouetteMask": true
       },
-      "processingMs": 3.3000001907348633,
+      "processingMs": 2.3000001907348633,
       "foregroundPixels": 0,
       "coverages": [
         0,
@@ -261,7 +261,7 @@
         0,
         0
       ],
-      "fps": 119.85617259288844,
+      "fps": 120.26813880126187,
       "viewport": {
         "cssWidth": 640,
         "cssHeight": 400,
@@ -431,9 +431,12 @@
         "contextState": "running",
         "started": true,
         "muted": false,
-        "loadedGroups": 9,
-        "requestedGroups": 9,
-        "outputLevel": 0.010231548521208358,
+        "loadedGroups": 19,
+        "requestedGroups": 19,
+        "outputLevel": 0.005680670387003647,
+        "transportSeconds": 5.334,
+        "distinctVoiceCount": 18,
+        "hallReverb": true,
         "spatialMix": {
           "ambience": {
             "intensity": 0,
@@ -443,7 +446,7 @@
             "intensity": 0,
             "pan": 0
           },
-          "flute": {
+          "dizi": {
             "intensity": 0,
             "pan": 0
           },
@@ -451,23 +454,63 @@
             "intensity": 0,
             "pan": 0
           },
-          "bells": {
+          "bronze-bells": {
             "intensity": 0,
             "pan": 0
           },
-          "erhu": {
+          "bowed-string": {
             "intensity": 0,
             "pan": 0
           },
-          "drum": {
+          "war-drum": {
             "intensity": 0,
             "pan": 0
           },
-          "dancer": {
+          "sleeve-dance": {
             "intensity": 0,
             "pan": 0
           },
-          "attendant": {
+          "processional": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "sheng": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "panpipe": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "se": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "clapper": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "cymbal": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "rattle": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "frame-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "stone-chime": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "grand-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "horn": {
             "intensity": 0,
             "pan": 0
           }
@@ -480,18 +523,18 @@
       "lastMessageLevel": "success",
       "runtimeErrors": [],
       "memory": {
-        "usedJSHeapSize": 11113239,
-        "totalJSHeapSize": 16341859
+        "usedJSHeapSize": 11751433,
+        "totalJSHeapSize": 16334493
       }
     },
     "single": {
-      "version": "2.2.0-p0-fix2",
+      "version": "3.0.0-v2",
       "baseline": "ac76d30",
       "ready": true,
       "entered": true,
       "configVersion": 3,
       "sceneNodeCount": 63,
-      "distinctSpriteFiles": 8,
+      "distinctSpriteFiles": 47,
       "assetStats": {
         "runtimeSpriteCount": 60,
         "distinctBaseSilhouetteCount": 32,
@@ -509,7 +552,7 @@
         "sideBorderCount": 2,
         "horizontalBeamCount": 8
       },
-      "loadedSpriteFiles": 8,
+      "loadedSpriteFiles": 47,
       "assetErrors": [],
       "mode": "camera",
       "camera": {
@@ -626,8 +669,8 @@
         0,
         0,
         0,
-        0.9538103342056274,
-        0.9538103342056274,
+        0.9540982246398926,
+        0.9540982246398926,
         0,
         0,
         0,
@@ -638,9 +681,9 @@
         0,
         0,
         0,
-        0.9538103342056274,
-        0.9538103342056274,
-        0.9538103342056274,
+        0.9540982246398926,
+        0.9540982246398926,
+        0.9540982246398926,
         0,
         0,
         0,
@@ -651,8 +694,8 @@
         0,
         0,
         0,
-        0.9538103342056274,
-        0.9538103342056274,
+        0.9540982246398926,
+        0.9540982246398926,
         0,
         0,
         0,
@@ -663,8 +706,8 @@
         0,
         0,
         0,
-        0.9538103342056274,
-        0.9538103342056274,
+        0.9540982246398926,
+        0.9540982246398926,
         0,
         0,
         0,
@@ -686,7 +729,7 @@
         0,
         0
       ],
-      "fps": 119.9842643587727,
+      "fps": 120,
       "viewport": {
         "cssWidth": 640,
         "cssHeight": 400,
@@ -856,45 +899,88 @@
         "contextState": "running",
         "started": true,
         "muted": false,
-        "loadedGroups": 9,
-        "requestedGroups": 9,
-        "outputLevel": 0.04655327667492699,
+        "loadedGroups": 19,
+        "requestedGroups": 19,
+        "outputLevel": 0.019076622774452375,
+        "transportSeconds": 5.8406666666666665,
+        "distinctVoiceCount": 18,
+        "hallReverb": true,
         "spatialMix": {
           "ambience": {
             "intensity": 0,
             "pan": 0
           },
           "qin": {
-            "intensity": 0.9538103342056274,
-            "pan": -0.09455873715856357
+            "intensity": 0,
+            "pan": 0
           },
-          "flute": {
-            "intensity": 0.9538103342056274,
-            "pan": -0.23228959999999996
+          "dizi": {
+            "intensity": 0,
+            "pan": 0
           },
           "pipa": {
-            "intensity": 0,
-            "pan": 0
-          },
-          "bells": {
-            "intensity": 0.9538103342056274,
-            "pan": -0.03025102999999997
-          },
-          "erhu": {
-            "intensity": 0.9538103342056274,
-            "pan": -0.19891765000000003
-          },
-          "drum": {
-            "intensity": 0,
-            "pan": 0
-          },
-          "dancer": {
-            "intensity": 0.25125328942340475,
-            "pan": 0
-          },
-          "attendant": {
-            "intensity": 0.36203980767828897,
+            "intensity": 0.3621490828598591,
             "pan": -0.30769762
+          },
+          "bronze-bells": {
+            "intensity": 0.25132912569400134,
+            "pan": 0
+          },
+          "bowed-string": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "war-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "sleeve-dance": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "processional": {
+            "intensity": 0.9540982246398926,
+            "pan": -0.21268668
+          },
+          "sheng": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "panpipe": {
+            "intensity": 0.9540982246398926,
+            "pan": -0.18514861999999996
+          },
+          "se": {
+            "intensity": 0.9540982246398926,
+            "pan": 0
+          },
+          "clapper": {
+            "intensity": 0.9540982246398926,
+            "pan": -0.14639582999999995
+          },
+          "cymbal": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "rattle": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "frame-drum": {
+            "intensity": 0.7063152209943928,
+            "pan": -0.22229052
+          },
+          "stone-chime": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "grand-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "horn": {
+            "intensity": 0,
+            "pan": 0
           }
         },
         "errors": []
@@ -905,18 +991,18 @@
       "lastMessageLevel": "success",
       "runtimeErrors": [],
       "memory": {
-        "usedJSHeapSize": 9928343,
-        "totalJSHeapSize": 15026519
+        "usedJSHeapSize": 7153819,
+        "totalJSHeapSize": 11925459
       }
     },
     "static": {
-      "version": "2.2.0-p0-fix2",
+      "version": "3.0.0-v2",
       "baseline": "ac76d30",
       "ready": true,
       "entered": true,
       "configVersion": 3,
       "sceneNodeCount": 63,
-      "distinctSpriteFiles": 8,
+      "distinctSpriteFiles": 47,
       "assetStats": {
         "runtimeSpriteCount": 60,
         "distinctBaseSilhouetteCount": 32,
@@ -934,7 +1020,7 @@
         "sideBorderCount": 2,
         "horizontalBeamCount": 8
       },
-      "loadedSpriteFiles": 8,
+      "loadedSpriteFiles": 47,
       "assetErrors": [],
       "mode": "camera",
       "camera": {
@@ -964,7 +1050,7 @@
         "semanticPersonOnly": true,
         "silhouetteMask": true
       },
-      "processingMs": 2.1999998092651367,
+      "processingMs": 2,
       "foregroundPixels": 2712,
       "coverages": [
         0,
@@ -1111,7 +1197,7 @@
         0,
         0
       ],
-      "fps": 120.00786936848336,
+      "fps": 119.97600479904054,
       "viewport": {
         "cssWidth": 640,
         "cssHeight": 400,
@@ -1281,45 +1367,88 @@
         "contextState": "running",
         "started": true,
         "muted": false,
-        "loadedGroups": 9,
-        "requestedGroups": 9,
-        "outputLevel": 0.09039251407281554,
+        "loadedGroups": 19,
+        "requestedGroups": 19,
+        "outputLevel": 0.022133940050428964,
+        "transportSeconds": 9.861999999999998,
+        "distinctVoiceCount": 18,
+        "hallReverb": true,
         "spatialMix": {
           "ambience": {
             "intensity": 0,
             "pan": 0
           },
           "qin": {
-            "intensity": 1,
-            "pan": -0.09455873715856358
+            "intensity": 0,
+            "pan": 0
           },
-          "flute": {
-            "intensity": 1,
-            "pan": -0.23228959999999996
+          "dizi": {
+            "intensity": 0,
+            "pan": 0
           },
           "pipa": {
-            "intensity": 0,
-            "pan": 0
+            "intensity": 0.3795721169028963,
+            "pan": -0.30769762
           },
-          "bells": {
-            "intensity": 1,
-            "pan": -0.03025102999999997
-          },
-          "erhu": {
-            "intensity": 1,
-            "pan": -0.19891765
-          },
-          "drum": {
-            "intensity": 0,
-            "pan": 0
-          },
-          "dancer": {
+          "bronze-bells": {
             "intensity": 0.26342059884752544,
             "pan": 0
           },
-          "attendant": {
-            "intensity": 0.3795721169028963,
-            "pan": -0.30769762
+          "bowed-string": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "war-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "sleeve-dance": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "processional": {
+            "intensity": 1,
+            "pan": -0.21268668
+          },
+          "sheng": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "panpipe": {
+            "intensity": 1,
+            "pan": -0.18514861999999996
+          },
+          "se": {
+            "intensity": 1,
+            "pan": 0
+          },
+          "clapper": {
+            "intensity": 1,
+            "pan": -0.14639582999999995
+          },
+          "cymbal": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "rattle": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "frame-drum": {
+            "intensity": 0.7402961275407246,
+            "pan": -0.22229052000000002
+          },
+          "stone-chime": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "grand-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "horn": {
+            "intensity": 0,
+            "pan": 0
           }
         },
         "errors": []
@@ -1330,18 +1459,18 @@
       "lastMessageLevel": "success",
       "runtimeErrors": [],
       "memory": {
-        "usedJSHeapSize": 7264723,
-        "totalJSHeapSize": 12720503
+        "usedJSHeapSize": 13186455,
+        "totalJSHeapSize": 16768899
       }
     },
     "double": {
-      "version": "2.2.0-p0-fix2",
+      "version": "3.0.0-v2",
       "baseline": "ac76d30",
       "ready": true,
       "entered": true,
       "configVersion": 3,
       "sceneNodeCount": 63,
-      "distinctSpriteFiles": 8,
+      "distinctSpriteFiles": 47,
       "assetStats": {
         "runtimeSpriteCount": 60,
         "distinctBaseSilhouetteCount": 32,
@@ -1359,7 +1488,7 @@
         "sideBorderCount": 2,
         "horizontalBeamCount": 8
       },
-      "loadedSpriteFiles": 8,
+      "loadedSpriteFiles": 47,
       "assetErrors": [],
       "mode": "camera",
       "camera": {
@@ -1389,7 +1518,7 @@
         "semanticPersonOnly": true,
         "silhouetteMask": true
       },
-      "processingMs": 2.200000047683716,
+      "processingMs": 2.0999999046325684,
       "foregroundPixels": 5000,
       "coverages": [
         0,
@@ -1490,8 +1619,8 @@
         1,
         0,
         0,
-        0.9428027272224426,
-        0.9428027272224426,
+        0.9431236386299133,
+        0.9431236386299133,
         0,
         0,
         0,
@@ -1502,9 +1631,9 @@
         1,
         1,
         0,
-        0.9428027272224426,
-        0.9428027272224426,
-        0.9428027272224426,
+        0.9431236386299133,
+        0.9431236386299133,
+        0.9431236386299133,
         0,
         0,
         0,
@@ -1514,8 +1643,8 @@
         1,
         1,
         0,
-        0.9428027272224426,
-        0.9428027272224426,
+        0.9431236386299133,
+        0.9431236386299133,
         0,
         0,
         0,
@@ -1526,9 +1655,9 @@
         1,
         1,
         0,
-        0.9428027272224426,
-        0.9428027272224426,
-        0.9428027272224426,
+        0.9431236386299133,
+        0.9431236386299133,
+        0.9431236386299133,
         0,
         0,
         0,
@@ -1546,7 +1675,7 @@
         0,
         0
       ],
-      "fps": 120.38681665679873,
+      "fps": 120.14969470159525,
       "viewport": {
         "cssWidth": 640,
         "cssHeight": 400,
@@ -1716,45 +1845,88 @@
         "contextState": "running",
         "started": true,
         "muted": false,
-        "loadedGroups": 9,
-        "requestedGroups": 9,
-        "outputLevel": 0.05618890236374776,
+        "loadedGroups": 19,
+        "requestedGroups": 19,
+        "outputLevel": 0.10130236422205373,
+        "transportSeconds": 10.341999999999999,
+        "distinctVoiceCount": 18,
+        "hallReverb": true,
         "spatialMix": {
           "ambience": {
             "intensity": 0,
             "pan": 0
           },
           "qin": {
-            "intensity": 1,
-            "pan": -0.049095566198914545
+            "intensity": 0.22455325900420095,
+            "pan": 0.4085581431620376
           },
-          "flute": {
-            "intensity": 1,
-            "pan": -0.08084412271773714
+          "dizi": {
+            "intensity": 0,
+            "pan": 0
           },
           "pipa": {
-            "intensity": 0.9428027272224426,
-            "pan": 0.4663214652908968
+            "intensity": 0.9431236386299133,
+            "pan": 0.27174351667788904
           },
-          "bells": {
-            "intensity": 1,
-            "pan": -0.03025102999999997
-          },
-          "erhu": {
-            "intensity": 1,
-            "pan": 0.0794074715875476
-          },
-          "drum": {
-            "intensity": 0.9428027272224426,
-            "pan": 0.45959360000000005
-          },
-          "dancer": {
+          "bronze-bells": {
             "intensity": 0.26342059884752544,
             "pan": 0
           },
-          "attendant": {
-            "intensity": 0.9428027272224426,
-            "pan": 0.2802221225726617
+          "bowed-string": {
+            "intensity": 0.9431236386299133,
+            "pan": 0.30769761999999995
+          },
+          "war-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "sleeve-dance": {
+            "intensity": 0.31135534942258175,
+            "pan": 0.40572861999999993
+          },
+          "processional": {
+            "intensity": 1,
+            "pan": -0.21268668
+          },
+          "sheng": {
+            "intensity": 0.9431236386299133,
+            "pan": 0.4054194800000001
+          },
+          "panpipe": {
+            "intensity": 1,
+            "pan": -0.18514861999999996
+          },
+          "se": {
+            "intensity": 1,
+            "pan": 0
+          },
+          "clapper": {
+            "intensity": 1,
+            "pan": -0.14639582999999995
+          },
+          "cymbal": {
+            "intensity": 0.9431236386299133,
+            "pan": 0.3438161600000001
+          },
+          "rattle": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "frame-drum": {
+            "intensity": 0.9431236386299133,
+            "pan": 0.17913506486029349
+          },
+          "stone-chime": {
+            "intensity": 0.9431236386299133,
+            "pan": 0.4368672999999999
+          },
+          "grand-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "horn": {
+            "intensity": 0,
+            "pan": 0
           }
         },
         "errors": []
@@ -1765,18 +1937,18 @@
       "lastMessageLevel": "success",
       "runtimeErrors": [],
       "memory": {
-        "usedJSHeapSize": 7032074,
-        "totalJSHeapSize": 12489858
+        "usedJSHeapSize": 12219677,
+        "totalJSHeapSize": 16993797
       }
     },
     "light": {
-      "version": "2.2.0-p0-fix2",
+      "version": "3.0.0-v2",
       "baseline": "ac76d30",
       "ready": true,
       "entered": true,
       "configVersion": 3,
       "sceneNodeCount": 63,
-      "distinctSpriteFiles": 8,
+      "distinctSpriteFiles": 47,
       "assetStats": {
         "runtimeSpriteCount": 60,
         "distinctBaseSilhouetteCount": 32,
@@ -1794,7 +1966,7 @@
         "sideBorderCount": 2,
         "horizontalBeamCount": 8
       },
-      "loadedSpriteFiles": 8,
+      "loadedSpriteFiles": 47,
       "assetErrors": [],
       "mode": "camera",
       "camera": {
@@ -1824,7 +1996,7 @@
         "semanticPersonOnly": true,
         "silhouetteMask": true
       },
-      "processingMs": 2.299999952316284,
+      "processingMs": 2.1999998092651367,
       "foregroundPixels": 0,
       "coverages": [
         0,
@@ -1901,49 +2073,49 @@
         0,
         0,
         0,
-        0.19193917512893677,
-        0.19193917512893677,
+        0.1886819452047348,
+        0.1886819452047348,
         0,
         0,
-        0.1863808035850525,
-        0.1863808035850525,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0.19193917512893677,
-        0.19193917512893677,
-        0.19193917512893677,
-        0,
-        0.1863808035850525,
-        0.1863808035850525,
-        0.1863808035850525,
+        0.18349424004554749,
+        0.18349424004554749,
         0,
         0,
         0,
         0,
         0,
         0,
-        0.19193917512893677,
-        0.19193917512893677,
+        0.1886819452047348,
+        0.1886819452047348,
+        0.1886819452047348,
         0,
-        0.1863808035850525,
-        0.1863808035850525,
-        0,
-        0,
-        0,
-        0,
+        0.18349424004554749,
+        0.18349424004554749,
+        0.18349424004554749,
         0,
         0,
         0,
-        0.19193917512893677,
-        0.19193917512893677,
         0,
-        0.1863808035850525,
-        0.1863808035850525,
-        0.1863808035850525,
+        0,
+        0,
+        0.1886819452047348,
+        0.1886819452047348,
+        0,
+        0.18349424004554749,
+        0.18349424004554749,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.1886819452047348,
+        0.1886819452047348,
+        0,
+        0.18349424004554749,
+        0.18349424004554749,
+        0.18349424004554749,
         0,
         0,
         0,
@@ -1961,7 +2133,7 @@
         0,
         0
       ],
-      "fps": 119.9842643587727,
+      "fps": 119.84282907662083,
       "viewport": {
         "cssWidth": 640,
         "cssHeight": 400,
@@ -2131,9 +2303,12 @@
         "contextState": "running",
         "started": true,
         "muted": false,
-        "loadedGroups": 9,
-        "requestedGroups": 9,
-        "outputLevel": 0.023451748301534518,
+        "loadedGroups": 19,
+        "requestedGroups": 19,
+        "outputLevel": 0.010420192092657219,
+        "transportSeconds": 11.323333333333334,
+        "distinctVoiceCount": 18,
+        "hallReverb": true,
         "spatialMix": {
           "ambience": {
             "intensity": 0,
@@ -2143,7 +2318,7 @@
             "intensity": 0,
             "pan": 0
           },
-          "flute": {
+          "dizi": {
             "intensity": 0,
             "pan": 0
           },
@@ -2151,23 +2326,63 @@
             "intensity": 0,
             "pan": 0
           },
-          "bells": {
+          "bronze-bells": {
             "intensity": 0,
             "pan": 0
           },
-          "erhu": {
+          "bowed-string": {
             "intensity": 0,
             "pan": 0
           },
-          "drum": {
+          "war-drum": {
             "intensity": 0,
             "pan": 0
           },
-          "dancer": {
+          "sleeve-dance": {
             "intensity": 0,
             "pan": 0
           },
-          "attendant": {
+          "processional": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "sheng": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "panpipe": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "se": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "clapper": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "cymbal": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "rattle": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "frame-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "stone-chime": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "grand-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "horn": {
             "intensity": 0,
             "pan": 0
           }
@@ -2180,19 +2395,19 @@
       "lastMessageLevel": "success",
       "runtimeErrors": [],
       "memory": {
-        "usedJSHeapSize": 14769258,
-        "totalJSHeapSize": 18947502
+        "usedJSHeapSize": 11480361,
+        "totalJSHeapSize": 15416917
       }
     }
   },
   "finalState": {
-    "version": "2.2.0-p0-fix2",
+    "version": "3.0.0-v2",
     "baseline": "ac76d30",
     "ready": true,
     "entered": true,
     "configVersion": 3,
     "sceneNodeCount": 63,
-    "distinctSpriteFiles": 8,
+    "distinctSpriteFiles": 47,
     "assetStats": {
       "runtimeSpriteCount": 60,
       "distinctBaseSilhouetteCount": 32,
@@ -2210,7 +2425,7 @@
       "sideBorderCount": 2,
       "horizontalBeamCount": 8
     },
-    "loadedSpriteFiles": 8,
+    "loadedSpriteFiles": 47,
     "assetErrors": [],
     "mode": "camera",
     "camera": {
@@ -2240,7 +2455,7 @@
       "semanticPersonOnly": true,
       "silhouetteMask": true
     },
-    "processingMs": 2.0999999046325684,
+    "processingMs": 1.9000000953674316,
     "foregroundPixels": 0,
     "coverages": [
       0,
@@ -2317,49 +2532,49 @@
       0,
       0,
       0,
-      0.18915431201457977,
-      0.18915431201457977,
+      0.18587283790111542,
+      0.18587283790111542,
       0,
       0,
-      0.1836765855550766,
-      0.1836765855550766,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0.18915431201457977,
-      0.18915431201457977,
-      0.18915431201457977,
-      0,
-      0.1836765855550766,
-      0.1836765855550766,
-      0.1836765855550766,
+      0.1807623654603958,
+      0.1807623654603958,
       0,
       0,
       0,
       0,
       0,
       0,
-      0.18915431201457977,
-      0.18915431201457977,
+      0.18587283790111542,
+      0.18587283790111542,
+      0.18587283790111542,
       0,
-      0.1836765855550766,
-      0.1836765855550766,
-      0,
-      0,
-      0,
-      0,
+      0.1807623654603958,
+      0.1807623654603958,
+      0.1807623654603958,
       0,
       0,
       0,
-      0.18915431201457977,
-      0.18915431201457977,
       0,
-      0.1836765855550766,
-      0.1836765855550766,
-      0.1836765855550766,
+      0,
+      0,
+      0.18587283790111542,
+      0.18587283790111542,
+      0,
+      0.1807623654603958,
+      0.1807623654603958,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.18587283790111542,
+      0.18587283790111542,
+      0,
+      0.1807623654603958,
+      0.1807623654603958,
+      0.1807623654603958,
       0,
       0,
       0,
@@ -2377,7 +2592,7 @@
       0,
       0
     ],
-    "fps": 119.9842643587727,
+    "fps": 119.84282907662083,
     "viewport": {
       "cssWidth": 640,
       "cssHeight": 400,
@@ -2547,9 +2762,12 @@
       "contextState": "running",
       "started": true,
       "muted": false,
-      "loadedGroups": 9,
-      "requestedGroups": 9,
-      "outputLevel": 0.021769586368259444,
+      "loadedGroups": 19,
+      "requestedGroups": 19,
+      "outputLevel": 0.007880672954220506,
+      "transportSeconds": 11.334,
+      "distinctVoiceCount": 18,
+      "hallReverb": true,
       "spatialMix": {
         "ambience": {
           "intensity": 0,
@@ -2559,7 +2777,7 @@
           "intensity": 0,
           "pan": 0
         },
-        "flute": {
+        "dizi": {
           "intensity": 0,
           "pan": 0
         },
@@ -2567,23 +2785,63 @@
           "intensity": 0,
           "pan": 0
         },
-        "bells": {
+        "bronze-bells": {
           "intensity": 0,
           "pan": 0
         },
-        "erhu": {
+        "bowed-string": {
           "intensity": 0,
           "pan": 0
         },
-        "drum": {
+        "war-drum": {
           "intensity": 0,
           "pan": 0
         },
-        "dancer": {
+        "sleeve-dance": {
           "intensity": 0,
           "pan": 0
         },
-        "attendant": {
+        "processional": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "sheng": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "panpipe": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "se": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "clapper": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "cymbal": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "rattle": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "frame-drum": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "stone-chime": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "grand-drum": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "horn": {
           "intensity": 0,
           "pan": 0
         }
@@ -2596,8 +2854,8 @@
     "lastMessageLevel": "success",
     "runtimeErrors": [],
     "memory": {
-      "usedJSHeapSize": 13516042,
-      "totalJSHeapSize": 19178154
+      "usedJSHeapSize": 12000709,
+      "totalJSHeapSize": 15647569
     }
   }
 }

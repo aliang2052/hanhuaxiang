@@ -103,7 +103,7 @@ export class DecorativeRenderer {
     const scale = Math.min(1, Math.sqrt(maxCachePixels / Math.max(1, width * height)));
     const cacheWidth = Math.max(1, Math.round(width * scale));
     const cacheHeight = Math.max(1, Math.round(height * scale));
-    const key = `${cacheWidth}x${cacheHeight}:${orientation}:v3`;
+    const key = `${cacheWidth}x${cacheHeight}:${orientation}:v4`;
     if (!this.cache || this.cacheKey !== key) {
       const cache = makeCanvas(cacheWidth, cacheHeight);
       const cacheContext = cache.getContext('2d');
@@ -120,7 +120,7 @@ export class DecorativeRenderer {
     ctx.drawImage(this.cache, 0, 0, width, height);
     ctx.save();
     ctx.globalCompositeOperation = 'multiply';
-    ctx.globalAlpha = 0.028 + Math.sin(now * 0.00019) * 0.006;
+    ctx.globalAlpha = 0.045 + Math.sin(now * 0.00019) * 0.008;
     const wash = ctx.createLinearGradient(0, 0, width, height);
     wash.addColorStop(0, 'rgba(104,79,51,.42)');
     wash.addColorStop(0.48, 'rgba(132,66,48,.22)');
@@ -151,22 +151,22 @@ export class DecorativeRenderer {
       const scale = Math.max(width / this.texture.width, height / this.texture.height);
       const drawWidth = this.texture.width * scale;
       const drawHeight = this.texture.height * scale;
-      ctx.globalAlpha = 0.42;
-      ctx.filter = 'grayscale(1) contrast(.92) brightness(1.05)';
+      ctx.globalAlpha = 0.54;
+      ctx.filter = 'sepia(.34) grayscale(.62) contrast(1.12) brightness(.88)';
       ctx.drawImage(this.texture, (width - drawWidth) / 2, (height - drawHeight) / 2, drawWidth, drawHeight);
       ctx.filter = 'none';
     }
     const vertical = ctx.createLinearGradient(0, 0, 0, height);
-    vertical.addColorStop(0, 'rgba(240,234,218,.42)');
-    vertical.addColorStop(0.45, 'rgba(216,206,184,.28)');
-    vertical.addColorStop(1, 'rgba(190,180,158,.46)');
+    vertical.addColorStop(0, 'rgba(224,200,157,.31)');
+    vertical.addColorStop(0.45, 'rgba(198,166,119,.18)');
+    vertical.addColorStop(1, 'rgba(150,116,75,.28)');
     ctx.globalAlpha = 1;
     ctx.fillStyle = vertical;
     ctx.fillRect(0, 0, width, height);
     const radial = ctx.createRadialGradient(width * 0.5, height * 0.46, 0, width * 0.5, height * 0.46, Math.max(width, height) * 0.66);
-    radial.addColorStop(0, 'rgba(255,250,232,.13)');
+    radial.addColorStop(0, 'rgba(255,226,178,.09)');
     radial.addColorStop(0.72, 'rgba(70,58,43,.025)');
-    radial.addColorStop(1, 'rgba(33,30,25,.12)');
+    radial.addColorStop(1, 'rgba(33,24,17,.19)');
     ctx.fillStyle = radial;
     ctx.fillRect(0, 0, width, height);
     ctx.restore();

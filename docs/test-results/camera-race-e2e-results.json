@@ -1,22 +1,22 @@
 {
   "ok": true,
-  "timestampUtc": "2026-08-01T11:16:31Z",
-  "durationSeconds": 2.754,
+  "timestampUtc": "2026-08-01T13:47:54Z",
+  "durationSeconds": 3.196,
   "platform": "macOS-15.7.5-x86_64-i386-64bit-Mach-O",
   "python": "3.14.2 (main, Dec  5 2025, 16:49:16) [Clang 17.0.0 (clang-1700.4.4.1)]",
   "browserExecutable": "/Users/sniper/Library/Caches/ms-playwright/chromium-1234/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
   "health": {
     "ok": true,
     "app": "han-orchestra-installation",
-    "version": "2.2.0-p0-fix2",
+    "version": "3.0.0-v2",
     "baseline": "ac76d30",
-    "uptimeSeconds": 0.1
+    "uptimeSeconds": 0.2
   },
   "checks": [
     {
       "name": "camera race health endpoint",
       "ok": true,
-      "detail": "{\"app\": \"han-orchestra-installation\", \"baseline\": \"ac76d30\", \"ok\": true, \"uptimeSeconds\": 0.1, \"version\": \"2.2.0-p0-fix2\"}"
+      "detail": "{\"app\": \"han-orchestra-installation\", \"baseline\": \"ac76d30\", \"ok\": true, \"uptimeSeconds\": 0.2, \"version\": \"3.0.0-v2\"}"
     },
     {
       "name": "first hardware request is pending",
@@ -65,20 +65,20 @@
     }
   ],
   "warnings": [
-    "warning: W0801 11:16:31.334000 2196592 gl_context.cc:1119] OpenGL error checking is disabled",
-    "warning: W0801 11:16:31.360999 2196592 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors."
+    "warning: W0801 13:47:54.700999 2196592 gl_context.cc:1119] OpenGL error checking is disabled",
+    "warning: W0801 13:47:54.729999 2196592 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors."
   ],
   "consoleErrors": [],
   "externalRequests": [],
   "race": {
     "final": {
-      "version": "2.2.0-p0-fix2",
+      "version": "3.0.0-v2",
       "baseline": "ac76d30",
       "ready": true,
       "entered": true,
       "configVersion": 3,
       "sceneNodeCount": 63,
-      "distinctSpriteFiles": 8,
+      "distinctSpriteFiles": 47,
       "assetStats": {
         "runtimeSpriteCount": 60,
         "distinctBaseSilhouetteCount": 32,
@@ -96,7 +96,7 @@
         "sideBorderCount": 2,
         "horizontalBeamCount": 8
       },
-      "loadedSpriteFiles": 8,
+      "loadedSpriteFiles": 47,
       "assetErrors": [],
       "mode": "camera",
       "camera": {
@@ -126,7 +126,7 @@
         "semanticPersonOnly": true,
         "silhouetteMask": true
       },
-      "processingMs": 47.5,
+      "processingMs": 57.700000047683716,
       "foregroundPixels": 0,
       "coverages": [
         0,
@@ -263,7 +263,7 @@
         0,
         0
       ],
-      "fps": 73.9704118352659,
+      "fps": 63.88500698742263,
       "viewport": {
         "cssWidth": 1100,
         "cssHeight": 700,
@@ -434,8 +434,11 @@
         "started": false,
         "muted": false,
         "loadedGroups": 0,
-        "requestedGroups": 9,
+        "requestedGroups": 19,
         "outputLevel": 0,
+        "transportSeconds": 0,
+        "distinctVoiceCount": 18,
+        "hallReverb": true,
         "spatialMix": {},
         "errors": []
       },
@@ -445,8 +448,8 @@
       "lastMessageLevel": "warning",
       "runtimeErrors": [],
       "memory": {
-        "usedJSHeapSize": 12345188,
-        "totalJSHeapSize": 16045480
+        "usedJSHeapSize": 13156467,
+        "totalJSHeapSize": 17413571
       }
     },
     "streamIdentity": {

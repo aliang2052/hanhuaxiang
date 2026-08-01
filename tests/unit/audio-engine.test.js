@@ -49,3 +49,9 @@ test('spatial audio follows the covered visual node and scales with overlap', ()
   assert.equal(mix.get('right').intensity, 0);
   assert.equal(mix.get('right').pan, 0);
 });
+
+test('audio snapshot reports independent voices separately from ambience', () => {
+  const engine = new AudioEngine([{ id: 'ambience' }, { id: 'qin' }, { id: 'drum' }], []);
+  assert.equal(engine.snapshot().distinctVoiceCount, 2);
+  assert.equal(engine.visualTimeMs(1234), 1234);
+});
