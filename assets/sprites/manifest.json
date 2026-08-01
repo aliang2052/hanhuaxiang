@@ -1,0 +1,50 @@
+{
+  "qin": {
+    "file": "assets/sprites/qin.png",
+    "width": 900,
+    "height": 639,
+    "aspect": 1.408450704225352
+  },
+  "flute": {
+    "file": "assets/sprites/flute.png",
+    "width": 649,
+    "height": 900,
+    "aspect": 0.7211111111111111
+  },
+  "pipa": {
+    "file": "assets/sprites/pipa.png",
+    "width": 900,
+    "height": 639,
+    "aspect": 1.408450704225352
+  },
+  "bells": {
+    "file": "assets/sprites/bells.png",
+    "width": 900,
+    "height": 639,
+    "aspect": 1.408450704225352
+  },
+  "erhu": {
+    "file": "assets/sprites/erhu.png",
+    "width": 900,
+    "height": 639,
+    "aspect": 1.408450704225352
+  },
+  "drum": {
+    "file": "assets/sprites/drum.png",
+    "width": 900,
+    "height": 639,
+    "aspect": 1.408450704225352
+  },
+  "dancer": {
+    "file": "assets/sprites/dancer.png",
+    "width": 900,
+    "height": 637,
+    "aspect": 1.41287284144427
+  },
+  "attendant": {
+    "file": "assets/sprites/attendant.png",
+    "width": 651,
+    "height": 900,
+    "aspect": 0.7233333333333334
+  }
+}

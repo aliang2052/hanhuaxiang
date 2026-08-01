@@ -1,0 +1,73 @@
+{
+  "checks": {
+    "load_63_cells": {
+      "ready": true,
+      "running": false,
+      "mode": "auto",
+      "activeCount": 0,
+      "fps": 0,
+      "audioReady": false,
+      "cameraReady": false,
+      "backgroundReady": false,
+      "errors": [],
+      "cellCount": 63
+    },
+    "auto_demo_audio_and_fps": {
+      "ready": true,
+      "running": true,
+      "mode": "auto",
+      "activeCount": 24,
+      "fps": 58.37522296092105,
+      "audioReady": true,
+      "cameraReady": false,
+      "backgroundReady": false,
+      "errors": [],
+      "cellCount": 63
+    },
+    "pointer_person_cluster": {
+      "ready": true,
+      "running": true,
+      "mode": "pointer",
+      "activeCount": 12,
+      "fps": 56.76289328576059,
+      "audioReady": true,
+      "cameraReady": false,
+      "backgroundReady": false,
+      "errors": [],
+      "cellCount": 63
+    },
+    "wake_all_63": {
+      "ready": true,
+      "running": true,
+      "mode": "pointer",
+      "activeCount": 63,
+      "fps": 47.02448516296411,
+      "audioReady": true,
+      "cameraReady": false,
+      "backgroundReady": false,
+      "errors": [],
+      "cellCount": 63
+    },
+    "calibration_panel": "visible and closable",
+    "offline_requests": {
+      "requestCount": 21,
+      "external": []
+    },
+    "console": {
+      "errors": [],
+      "warnings": []
+    },
+    "mobile_390x844": {
+      "ready": true,
+      "running": true,
+      "mode": "auto",
+      "activeCount": 29,
+      "fps": 56.76289328576063,
+      "audioReady": false,
+      "cameraReady": false,
+      "backgroundReady": false,
+      "errors": [],
+      "cellCount": 63
+    }
+  }
+}
