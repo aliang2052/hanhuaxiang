@@ -1,0 +1,959 @@
+{
+  "schemaVersion": 1,
+  "baseline": "ac76d30",
+  "packageVersion": "2.2.0-p0-fix2",
+  "fileCount": 190,
+  "totalBytes": 62907680,
+  "files": [
+    {
+      "path": ".gitignore",
+      "size": 126,
+      "sha256": "2b8667a3a12690dff5323be179bf65e12533c5f79364fe9b12aebd65e0ca8f6d"
+    },
+    {
+      "path": "ASSET_NOTES.md",
+      "size": 4251,
+      "sha256": "e26e306fc906f58814356b359d66b73a04342d2f983784282a1832fa89507938"
+    },
+    {
+      "path": "BASELINE_DELETIONS.txt",
+      "size": 568,
+      "sha256": "c0b0594ab199541f0157eb8bb33ec267d6cb892fc6e7b0a5a991ba93febe6798"
+    },
+    {
+      "path": "CHANGESET.txt",
+      "size": 2327,
+      "sha256": "4be13118870c2c00b7931512b6a76d671d26e80f6a39d887b9edf4f3b4074dd8"
+    },
+    {
+      "path": "PRO_IMPLEMENTATION_REPORT.md",
+      "size": 13467,
+      "sha256": "e4b0f3bb9d6bdc2d84c5fed6869044bdd7014123fa56bbc677694e2fe31bb902"
+    },
+    {
+      "path": "README.md",
+      "size": 8871,
+      "sha256": "1aad04fd35684c17da3bbfc68ec6e93313ab9c811972fdbd3e1985ba81631c36"
+    },
+    {
+      "path": "assets/audio/ambience.wav",
+      "size": 705644,
+      "sha256": "96540ee39e42fa33b62e8cad43c51e85b91f82365867b25d6d62fd5fd12aebff"
+    },
+    {
+      "path": "assets/audio/attendant.wav",
+      "size": 705644,
+      "sha256": "2a1be347ea6b689b971e245177c0244e493c7f23e2a1236f8871571a133597fe"
+    },
+    {
+      "path": "assets/audio/bells.wav",
+      "size": 705644,
+      "sha256": "8ac86c6ef66257d46c048bbea98664fba1948648bcefc475fdee993beb27963b"
+    },
+    {
+      "path": "assets/audio/dancer.wav",
+      "size": 705644,
+      "sha256": "978fde6b3ac7922afc58d1549321b831ef8d1f57db6683f45121fc63417866c2"
+    },
+    {
+      "path": "assets/audio/drum.wav",
+      "size": 705644,
+      "sha256": "5edf61bb4c25d39ef550c5781a06e9b614b571fcd7929df8c2dc75d8eb256dcf"
+    },
+    {
+      "path": "assets/audio/erhu.wav",
+      "size": 705644,
+      "sha256": "4d518d731ea54740cf4fe68d2ce9e6d90648776d4b3be458e8f9554872df35c8"
+    },
+    {
+      "path": "assets/audio/flute.wav",
+      "size": 705644,
+      "sha256": "20de418299315afecd870be39a969c9bd45a68f558aae9f4a70ccba748234439"
+    },
+    {
+      "path": "assets/audio/pipa.wav",
+      "size": 705644,
+      "sha256": "83ff5b810aee0b9f59696a82a149224ab36a927c2ee3531c062a60fe348fe5cc"
+    },
+    {
+      "path": "assets/audio/qin.wav",
+      "size": 705644,
+      "sha256": "befe4df747ae4d6c0a2fe08f2063eeded6880e27623bd7c0455c392c5087aafa"
+    },
+    {
+      "path": "assets/background/mural-texture.jpg",
+      "size": 1143572,
+      "sha256": "ab340e03c3022fd5082eb44514e1273ff00857006741e87c399d67162fe916d9"
+    },
+    {
+      "path": "assets/favicon.svg",
+      "size": 231,
+      "sha256": "f1107d023e93673a94d57abb069e337d8fd9f9a04f19c11d3f8f39fb3c2f8406"
+    },
+    {
+      "path": "assets/source-highres/attendant.png",
+      "size": 3070500,
+      "sha256": "ccac589b1e067ffdd3564816507984ee84c0e03275f292239fd6bfc1b3da22d8"
+    },
+    {
+      "path": "assets/source-highres/base-mural.png",
+      "size": 3641956,
+      "sha256": "11869c7afc0356ea38376dc24af3c75661ea53d27449bbf01d69370d3db34d40"
+    },
+    {
+      "path": "assets/source-highres/bells.png",
+      "size": 2835065,
+      "sha256": "e7a366f3e6d5548284d213295dd38f7821b6aedd0913ab3a66faa71fbd7b7cf3"
+    },
+    {
+      "path": "assets/source-highres/dancer.png",
+      "size": 2793446,
+      "sha256": "9d5da27bb6adbb972dc3cb26ee29a674fade3b44725e7a7a7b340c339cf6284a"
+    },
+    {
+      "path": "assets/source-highres/drum.png",
+      "size": 3047927,
+      "sha256": "a2cfc17624e4f890296e4a605cd7d598c1fd683b01248db47d8f88ac3d498121"
+    },
+    {
+      "path": "assets/source-highres/erhu.png",
+      "size": 2699948,
+      "sha256": "96165a8b869bae111edf81e03e047fcc99e552b968edc2e512231f75b5afa3f6"
+    },
+    {
+      "path": "assets/source-highres/flute.png",
+      "size": 2969604,
+      "sha256": "2981ca4229acfe5544aa9b653cc705f52de186b192c8b171eefd9a57c8a0cff7"
+    },
+    {
+      "path": "assets/source-highres/mural-crops/manifest.json",
+      "size": 12459,
+      "sha256": "79a3602cfa43f0a41875616c3dec51aaadfd7c373bc6f78061cb26c4654a45ad"
+    },
+    {
+      "path": "assets/source-highres/mural-crops/mural-acrobat-ribbon.png",
+      "size": 92725,
+      "sha256": "db7db9b3b067ae24b6e2cc95db1ebb0e171711d20932533f73cf33dd769c55f1"
+    },
+    {
+      "path": "assets/source-highres/mural-crops/mural-banquet-duo.png",
+      "size": 92730,
+      "sha256": "fe81a49c9709a89f26c250622cfc7073575d1f38c7215ea78294e8fe1cfd6603"
+    },
+    {
+      "path": "assets/source-highres/mural-crops/mural-banquet-table.png",
+      "size": 199997,
+      "sha256": "1a63f63790f62dab0d01b95e5ea455733a49b8b42a45136e1088e7ad0a11fe79"
+    },
+    {
+      "path": "assets/source-highres/mural-crops/mural-bell-rack-ensemble.png",
+      "size": 149848,
+      "sha256": "358ebbbb0315c3dbb3796d32cd67192bfbe61465c0fb6e637bf92aa10c725765"
+    },
+    {
+      "path": "assets/source-highres/mural-crops/mural-bell-striker.png",
+      "size": 67391,
+      "sha256": "4fe93fe1ec98f649e7a92f01f94108c2e26e04091851d99891fd2601f8fc71a4"
+    },
+    {
+      "path": "assets/source-highres/mural-crops/mural-bowed-string.png",
+      "size": 83354,
+      "sha256": "f042d0a7155bc472ff6caa7cfa431bd5d11809c540f9103a8f00b6d00255981a"
+    },
+    {
+      "path": "assets/source-highres/mural-crops/mural-cup-kneeler-left.png",
+      "size": 62577,
+      "sha256": "86b4be720cff0440b96fcbd1ce9771f91e75eb710d0374c9769a918b294bfba4"
+    },
+    {
+      "path": "assets/source-highres/mural-crops/mural-cup-kneeler-right.png",
+      "size": 78244,
+      "sha256": "fd0fc12c217e230872e11c27f96939d14a8a6d587e76eda05a08dd8da25e5885"
+    },
+    {
+      "path": "assets/source-highres/mural-crops/mural-cymbal-dancer.png",
+      "size": 79507,
+      "sha256": "7501937ccdd1d1158d8789545ceaf451ac7f07bed2d3f695cfe28d1b025f13a8"
+    },
+    {
+      "path": "assets/source-highres/mural-crops/mural-dance-banquet-group.png",
+      "size": 199144,
+      "sha256": "de90e130883ec1b5b43190e3b53be3b407cc71f9323fa421580b52979ad90625"
+    },
+    {
+      "path": "assets/source-highres/mural-crops/mural-drum-player.png",
+      "size": 75924,
+      "sha256": "8579b5321efa4c4fd55746ef4d662431b0879713ffaf596cd0a8a1c5c8a89db9"
+    },
+    {
+      "path": "assets/source-highres/mural-crops/mural-grand-drum-duo.png",
+      "size": 130049,
+      "sha256": "0dad17b571c36056f17664da3b42061359937e52b257306035ab53378bf461ba"
+    },
+    {
+      "path": "assets/source-highres/mural-crops/mural-horn-standing.png",
+      "size": 75735,
+      "sha256": "bca50dfdd47d31bb140dcd36b92203d9b5d8d3d5da36f07761d1b00a61604a39"
+    },
+    {
+      "path": "assets/source-highres/mural-crops/mural-left-attendant.png",
+      "size": 56119,
+      "sha256": "d01a6c6e6406e36d9767829a80b50d7472fbbfc8506880de2e57af0a97f99108"
+    },
+    {
+      "path": "assets/source-highres/mural-crops/mural-panpipe-seated.png",
+      "size": 79582,
+      "sha256": "324d986f70224caf9735f7894b13cec37a8658cb6cda2bc04686ddf88e2f3d9f"
+    },
+    {
+      "path": "assets/source-highres/mural-crops/mural-pipa-seated.png",
+      "size": 86564,
+      "sha256": "dda262d5d109722bee23d406f08a6f307a538f27fbe7d9f582e47425c9224aab"
+    },
+    {
+      "path": "assets/source-highres/mural-crops/mural-qin-platform.png",
+      "size": 97415,
+      "sha256": "ab6ce4ac96f9426e44cd0d672971f77ceb4bd8131cb1f1f872cc261885cd061f"
+    },
+    {
+      "path": "assets/source-highres/mural-crops/mural-ribbon-duo-left.png",
+      "size": 93946,
+      "sha256": "390700bd3d5ee9ede2bd22ff62fdaaaa29e33c39d20189bd33b5d8a7ba4c5f4b"
+    },
+    {
+      "path": "assets/source-highres/mural-crops/mural-right-procession.png",
+      "size": 91872,
+      "sha256": "8c1ea4bf4943ebff7143b0d03ca3868319125e931bd07cbc51dc74a8f39bf346"
+    },
+    {
+      "path": "assets/source-highres/mural-crops/mural-ritual-trio.png",
+      "size": 134294,
+      "sha256": "d450467ef3d24cdfc0cc9abbdffa2949f7b69220998d680a7b610c00cf78465d"
+    },
+    {
+      "path": "assets/source-highres/mural-crops/mural-sleeve-dancer.png",
+      "size": 99430,
+      "sha256": "9be02f2679315a5292edbc5ed49146c88e55ff99611428ac5a54fbd7cfd27951"
+    },
+    {
+      "path": "assets/source-highres/mural-crops/mural-standing-reed.png",
+      "size": 87407,
+      "sha256": "d9d9ad187da6e1baa4897c5fdf55cc08dcbad16687d38999ab24a56058be7ac0"
+    },
+    {
+      "path": "assets/source-highres/mural-crops/mural-standing-server.png",
+      "size": 73559,
+      "sha256": "2762fe875cdda6d58e22947d795516d8324bb5a2437c59ceedf21d2b7a27eb0a"
+    },
+    {
+      "path": "assets/source-highres/mural-crops/mural-tray-procession.png",
+      "size": 71834,
+      "sha256": "19f4edbbc4cd5ce5916574b0bb3242221e2c4e10ce8cb8725ba4c15360fa5aa0"
+    },
+    {
+      "path": "assets/source-highres/pipa.png",
+      "size": 2751351,
+      "sha256": "77a5e791de891b7ccc52f4760e8af56cc0e671fbafb7ca973b941915aa717118"
+    },
+    {
+      "path": "assets/source-highres/qin.png",
+      "size": 2912650,
+      "sha256": "e79741235c9b8c576e0d79ade9fba95fe4d0989590871a2b1a9f76b76fbe253a"
+    },
+    {
+      "path": "assets/sprites/manifest.json",
+      "size": 26206,
+      "sha256": "86ba5f412aa194fdd6ca21c0d8c984db0555144d0e0da744e80cce0a4a1be7af"
+    },
+    {
+      "path": "assets/sprites/variants/duo-01-qin-standing-reed.png",
+      "size": 603527,
+      "sha256": "617390662ac97bc6eba8f3a4ede9daf4af2466da55b0a636082071f757e563a1"
+    },
+    {
+      "path": "assets/sprites/variants/duo-02-pipa-seated-bell-striker.png",
+      "size": 164970,
+      "sha256": "78dfff1fc05fa6b716ec82a2838bcd314bf69e9f30b8ad5694320d31a30f4ac9"
+    },
+    {
+      "path": "assets/sprites/variants/duo-03-bowed-string-panpipe-seated.png",
+      "size": 172654,
+      "sha256": "95298f00e2f8bf415952a7073df1734e5ceaeea62ca66ca0f1766ab7b8155ffc"
+    },
+    {
+      "path": "assets/sprites/variants/duo-04-grand-drum-duo-cymbal-dancer.png",
+      "size": 224308,
+      "sha256": "7db2e94e0219f7f2cadf10b51ed50f493e63345be117022ab2ae1bfac69ccd49"
+    },
+    {
+      "path": "assets/sprites/variants/duo-05-ribbon-duo-left-tray-procession.png",
+      "size": 172283,
+      "sha256": "db51f8a2c76923d0cc6df413cef752af3b07ba6198ca3990859c2e4e021f9be5"
+    },
+    {
+      "path": "assets/sprites/variants/duo-06-cup-kneeler-left-cup-kneeler-right.png",
+      "size": 145739,
+      "sha256": "670aa19f9183c0271a31cf85ba0ac45faaf8d51619fed56c154a4af97e363c2e"
+    },
+    {
+      "path": "assets/sprites/variants/duo-07-acrobat-ribbon-standing-server.png",
+      "size": 177143,
+      "sha256": "bb01d50477f553a0b9e57b9a6bdd0133fc82859d6cca8ba5846bc900da01092a"
+    },
+    {
+      "path": "assets/sprites/variants/duo-08-dancer-sleeve-dancer.png",
+      "size": 528507,
+      "sha256": "b9286eab1ecf96c3f19a222256f0e4f88fbfeea7893c8bc8243e310f5616b432"
+    },
+    {
+      "path": "assets/sprites/variants/duo-09-flute-horn-standing.png",
+      "size": 346378,
+      "sha256": "3011d5fdea4c92051e18364ac0b6dfcf7a42072f26dd124ff1ffca548c51d456"
+    },
+    {
+      "path": "assets/sprites/variants/duo-10-pipa-banquet-duo.png",
+      "size": 491121,
+      "sha256": "567f99db3936bb8e486666793eed07c8448e42fa1f26985249cacbb30a859c42"
+    },
+    {
+      "path": "assets/sprites/variants/duo-11-drum-drum-player.png",
+      "size": 657080,
+      "sha256": "972083b934612c21edbd98a63196780fd2f51edafabcb1fd28a5d59b76406820"
+    },
+    {
+      "path": "assets/sprites/variants/duo-12-attendant-left-attendant.png",
+      "size": 353333,
+      "sha256": "f58166967b6d0d654d29157b4fda7805f3b45c01185043834cdc7e2bb2198572"
+    },
+    {
+      "path": "assets/sprites/variants/ensemble-01.png",
+      "size": 191160,
+      "sha256": "5c50344e412ea3154b3cbe9c609fdfb6c47786bf0cf3150b217714e4f8982ee3"
+    },
+    {
+      "path": "assets/sprites/variants/ensemble-02.png",
+      "size": 217942,
+      "sha256": "257b403105ad19845464960908de31c9cc0fdd7325f930e59a54ba8a4747352a"
+    },
+    {
+      "path": "assets/sprites/variants/ensemble-03.png",
+      "size": 173756,
+      "sha256": "c4f80d1db3d2367456b7a0124c60e3bbe3db80f5d71c81df8797a1d1e41176ac"
+    },
+    {
+      "path": "assets/sprites/variants/ensemble-04.png",
+      "size": 249544,
+      "sha256": "8d3144eb3ecfc0a57bf1278bb635feb8f3a54d9500d7da67e73f6c0e4861f0ae"
+    },
+    {
+      "path": "assets/sprites/variants/ensemble-05.png",
+      "size": 202159,
+      "sha256": "48671e5d739a8ecee3fc10e3631265fc816f526b93e258b62abb17401513af10"
+    },
+    {
+      "path": "assets/sprites/variants/ensemble-06.png",
+      "size": 517302,
+      "sha256": "b0e9e39d7db78c3541f197208b977413a5907b2faf68d8c465e7c1f083449f84"
+    },
+    {
+      "path": "assets/sprites/variants/ensemble-07.png",
+      "size": 319854,
+      "sha256": "e90103c2cc615aa6b941494b5f00679430ba075ab99230051230ccffa162dcf5"
+    },
+    {
+      "path": "assets/sprites/variants/ensemble-08.png",
+      "size": 321090,
+      "sha256": "618dfd3bf80e5a8131b13fd5cf56c21bab08066eb7f52f542d3fd0879a4ddba0"
+    },
+    {
+      "path": "assets/sprites/variants/solo-independent-attendant.png",
+      "size": 317928,
+      "sha256": "e92b03b739b16cd7331b4f4a4270d4fe43bfe5ddbb3d2b5de76754dfc840b2f8"
+    },
+    {
+      "path": "assets/sprites/variants/solo-independent-bells.png",
+      "size": 384021,
+      "sha256": "1cd54515ed69190278610d3f2689a24bc83a7ee33cc47c06f4510d60a2e6254b"
+    },
+    {
+      "path": "assets/sprites/variants/solo-independent-dancer.png",
+      "size": 370852,
+      "sha256": "783296ca044cdc0bd918ea8291344e20c4d3886dc9177a0861328ef4df3fd414"
+    },
+    {
+      "path": "assets/sprites/variants/solo-independent-drum.png",
+      "size": 494027,
+      "sha256": "6094d33dfd7a72c962a5c642c7c7da11b7c426f2bd4af906557a848c00256519"
+    },
+    {
+      "path": "assets/sprites/variants/solo-independent-erhu.png",
+      "size": 325446,
+      "sha256": "ec6774c47ba3ee22ac7452838cee24644bfad53856c103debb7d4baba448ab0b"
+    },
+    {
+      "path": "assets/sprites/variants/solo-independent-flute.png",
+      "size": 289602,
+      "sha256": "9a7dc71c904433ca4b855990896022b34441b8fc9acc8ce829972f69f3598fbe"
+    },
+    {
+      "path": "assets/sprites/variants/solo-independent-pipa.png",
+      "size": 340765,
+      "sha256": "bff140440a5d2dd4a5d18553e43da7dbd7364da80fa9f3e6bce04ada663df043"
+    },
+    {
+      "path": "assets/sprites/variants/solo-independent-qin.png",
+      "size": 441134,
+      "sha256": "45636b2aa835800a1084e8a53f08d6692ec038035003bf18a38a1334b5d8260d"
+    },
+    {
+      "path": "assets/sprites/variants/solo-mural-acrobat-ribbon.png",
+      "size": 92432,
+      "sha256": "203a9d099e7d273f299d3257c9ed8fbc61b25c8e7a3678c353de13b2dffee72b"
+    },
+    {
+      "path": "assets/sprites/variants/solo-mural-banquet-duo.png",
+      "size": 92511,
+      "sha256": "444d760225254ab49c9c67fbf67ea07f133a16556fbed73171ca4ee2582e06f9"
+    },
+    {
+      "path": "assets/sprites/variants/solo-mural-banquet-table.png",
+      "size": 199857,
+      "sha256": "21187d1e097be1428eac8ba439b8aaac80d93c5f1f6a0e05c32d2b578e1fc17e"
+    },
+    {
+      "path": "assets/sprites/variants/solo-mural-bell-rack-ensemble.png",
+      "size": 149550,
+      "sha256": "701fcdf4ecaa31b704046a05a704ed8e63ee4e7efaf916839c4ee76b85349071"
+    },
+    {
+      "path": "assets/sprites/variants/solo-mural-bell-striker.png",
+      "size": 67178,
+      "sha256": "c306fa97c7f32d9c8aef065375bb428cd11c913e06ce9623388f17d7bdd8a0b7"
+    },
+    {
+      "path": "assets/sprites/variants/solo-mural-bowed-string.png",
+      "size": 83070,
+      "sha256": "521f5bef5df8d26c1fd0c9d7a0f7ad203d99def82870a6d2288d4192f2d0c1a5"
+    },
+    {
+      "path": "assets/sprites/variants/solo-mural-cup-kneeler-left.png",
+      "size": 62374,
+      "sha256": "684af8204cf316d56fd149442f10afa4f6b43482d405bfca01969614a83e09b1"
+    },
+    {
+      "path": "assets/sprites/variants/solo-mural-cup-kneeler-right.png",
+      "size": 78016,
+      "sha256": "226536f35ea06b63423e1cf2685833174fb4411501ed8156c2757fbd19798c87"
+    },
+    {
+      "path": "assets/sprites/variants/solo-mural-cymbal-dancer.png",
+      "size": 79284,
+      "sha256": "e65004dab5f3ad48e1d2c9e078737c1fb5db73158a84af02dc20b3cfe634b693"
+    },
+    {
+      "path": "assets/sprites/variants/solo-mural-dance-banquet-group.png",
+      "size": 198892,
+      "sha256": "2087ad161df6612db8afcd00910cb6c60eacd3ef5cf12bdc35e5c3ff65ec2f74"
+    },
+    {
+      "path": "assets/sprites/variants/solo-mural-drum-player.png",
+      "size": 75648,
+      "sha256": "a00076645df731b2502bd05087f2e6e1f6cfa18a0f3e139a3edb9ea47b206490"
+    },
+    {
+      "path": "assets/sprites/variants/solo-mural-grand-drum-duo.png",
+      "size": 129783,
+      "sha256": "f123a208ac31a65cc7255f2e85529af939ed2ac1bf2020ad527afcd73bea6095"
+    },
+    {
+      "path": "assets/sprites/variants/solo-mural-horn-standing.png",
+      "size": 75514,
+      "sha256": "569f99dcefab0466745bdc3aa394bd2a6161d44400ed7b7ab96aed97e855179b"
+    },
+    {
+      "path": "assets/sprites/variants/solo-mural-left-attendant.png",
+      "size": 55897,
+      "sha256": "05cd78727a055d0e6181ae9f19be5b1c8b929c8198f09370b28d7d1b953e391c"
+    },
+    {
+      "path": "assets/sprites/variants/solo-mural-panpipe-seated.png",
+      "size": 79366,
+      "sha256": "42644f9708265a68667c7a3ae759eaa9508b1491202c23537eb94a07a134e04b"
+    },
+    {
+      "path": "assets/sprites/variants/solo-mural-pipa-seated.png",
+      "size": 86288,
+      "sha256": "9976aaf6ba75d5ea356ea021d33d64caf0365f945004a672b4929ae9b03aa069"
+    },
+    {
+      "path": "assets/sprites/variants/solo-mural-qin-platform.png",
+      "size": 97167,
+      "sha256": "c75b2db44098ea318086b8ca5869a1a5facc558dac591aa6ea0dfd40444d44a1"
+    },
+    {
+      "path": "assets/sprites/variants/solo-mural-ribbon-duo-left.png",
+      "size": 93710,
+      "sha256": "f7635f5dc06345e37d9f30a4f2a8587e60d7ca44107e009da53ef68eb1176536"
+    },
+    {
+      "path": "assets/sprites/variants/solo-mural-right-procession.png",
+      "size": 91606,
+      "sha256": "a4812035ceb01b18f51b5ecf4fac03338ee1537c55a9a2f4ffe3c39595017e74"
+    },
+    {
+      "path": "assets/sprites/variants/solo-mural-ritual-trio.png",
+      "size": 134030,
+      "sha256": "899cb10e34a83cc82faa7c755402397c58222ea0e8d28d8f9aaa1049804b3647"
+    },
+    {
+      "path": "assets/sprites/variants/solo-mural-sleeve-dancer.png",
+      "size": 99189,
+      "sha256": "d90a4618b22b8b25e7d69cff1e7db9419e008c683a094a0da8196fb24a3d57f2"
+    },
+    {
+      "path": "assets/sprites/variants/solo-mural-standing-reed.png",
+      "size": 87159,
+      "sha256": "73724e8f613540ea0df3525dc69d6f55f3690608dcddd495195eed61f82ba81a"
+    },
+    {
+      "path": "assets/sprites/variants/solo-mural-standing-server.png",
+      "size": 73265,
+      "sha256": "8af5c6c86468244f4a9b859bae4ccf05c864cbc621b9fa2fd204ba09d9ee5867"
+    },
+    {
+      "path": "assets/sprites/variants/solo-mural-tray-procession.png",
+      "size": 71628,
+      "sha256": "1350bd12729db196e5724ee30a36c91ca0111f0b7d8f7d33e2849cdbf1cecf84"
+    },
+    {
+      "path": "assets/sprites/variants/trio-01.png",
+      "size": 255218,
+      "sha256": "84cf8a726365e4014eea164d924f18cd4a6b78f9caaed2c2284e8aed41caf0a2"
+    },
+    {
+      "path": "assets/sprites/variants/trio-02.png",
+      "size": 259753,
+      "sha256": "c42a7739e51a718f450fcdf360940cd892af3d9dec14f515433357668dc116ba"
+    },
+    {
+      "path": "assets/sprites/variants/trio-03.png",
+      "size": 303166,
+      "sha256": "460965ba9b648818679cbaf997ce719cb47a62ebe61d7d4de5e69c7c98d926c4"
+    },
+    {
+      "path": "assets/sprites/variants/trio-04.png",
+      "size": 222359,
+      "sha256": "1d0722008e138a6c575cd77a876075bca28e97909c27e76b9decd6bf8ef28c5b"
+    },
+    {
+      "path": "assets/sprites/variants/trio-05.png",
+      "size": 212942,
+      "sha256": "f5867fd4800b5d24d8e63356a5e6d47a15e33c7cd55fb40cfea0a3915e0b2731"
+    },
+    {
+      "path": "assets/sprites/variants/trio-06.png",
+      "size": 244941,
+      "sha256": "f82a1e050f29abf047ad7e004b059c7e05e3c8ec13d4d057d5a69574e2ffbaa4"
+    },
+    {
+      "path": "assets/sprites/variants/trio-07.png",
+      "size": 253850,
+      "sha256": "3c05460dfc1babd5605acc92a9374e6875410ce7597684a93da67667d2368ebc"
+    },
+    {
+      "path": "assets/sprites/variants/trio-08.png",
+      "size": 583855,
+      "sha256": "d6c741f36529299d5eee71a71d80443b49803a434beec8c5dbc15d8b7960cdaf"
+    },
+    {
+      "path": "config/scene.json",
+      "size": 54523,
+      "sha256": "6397e3e66275db6eea9515566698623469fd8c786023550aac5cd3437297f6f5"
+    },
+    {
+      "path": "docs/CHATGPT_PRO_TASK.md",
+      "size": 6281,
+      "sha256": "0686db59664aa9649bb3a00fd13d19b3c70675c4653efd2586bf840af213b6c4"
+    },
+    {
+      "path": "docs/CODEX_ACCEPTANCE_REPORT.md",
+      "size": 3528,
+      "sha256": "32cb535d6cb94947f86a845e440ea1ab6f0586d30d0542b5c1d3f81bda95d8e5"
+    },
+    {
+      "path": "docs/screenshots/asset-contact-sheet.jpg",
+      "size": 621675,
+      "sha256": "d37b57a860d9f69bb4d16667703f12de3c9e0f55a61320302815e9962c93ca01"
+    },
+    {
+      "path": "docs/screenshots/e2e-all-awake.png",
+      "size": 3083592,
+      "sha256": "496562f2cc867d87d0f2322baf5f1a1f72f36e5d36245025c76fab787b314466"
+    },
+    {
+      "path": "docs/screenshots/e2e-auto-1920x1200.png",
+      "size": 2811665,
+      "sha256": "1a690d3e5b8201e64e30f4811437ddf8142c76d679419a077abb29dfdce13ca8"
+    },
+    {
+      "path": "docs/screenshots/e2e-calibration-debug.png",
+      "size": 388688,
+      "sha256": "c9a586799103e26d73070d5af37acfa8162bfdf90393853c8473c7ea68a7df33"
+    },
+    {
+      "path": "docs/screenshots/e2e-camera-permission-denied.png",
+      "size": 1484484,
+      "sha256": "2f9651f2df91209e15ba1328c62cade3841cb011530167390a7515089a234cbf"
+    },
+    {
+      "path": "docs/screenshots/e2e-camera-simulated.png",
+      "size": 460654,
+      "sha256": "c0f67871b3fe64266e3091bfd961fb029ab989e867d7515b158b38e06fb8f1b0"
+    },
+    {
+      "path": "docs/screenshots/e2e-mobile-390x844.png",
+      "size": 118305,
+      "sha256": "448bb5c0e3505a1f090397af20c66f0e4e1c0d02086308d32df030de6a6cba8a"
+    },
+    {
+      "path": "docs/screenshots/e2e-pointer.png",
+      "size": 2856389,
+      "sha256": "594212b3897c20124993d4935c8676d8ddb5d405fd40d0bf5b210ef80e931e59"
+    },
+    {
+      "path": "docs/test-results/asset-rebuild-results.json",
+      "size": 38645,
+      "sha256": "6c6dbf2585b35dfd851fa8069afc646a7cb59fda4a5dc206ec75b6cbda12015f"
+    },
+    {
+      "path": "docs/test-results/camera-e2e-results.json",
+      "size": 43823,
+      "sha256": "4e60fb892f5da6e937971450b829de15030602c6356b23d194b9f230fb830a11"
+    },
+    {
+      "path": "docs/test-results/camera-e2e-server.log",
+      "size": 176,
+      "sha256": "f3b86ac502dda8860624d70c99b1ddb72c5baffde279ea0f279f7003f46e1c5f"
+    },
+    {
+      "path": "docs/test-results/camera-race-e2e-results.json",
+      "size": 9785,
+      "sha256": "612cf2e199d063dfd5f1e261f762c8e53f83d5fef806e2e8adeb17545fdf36e5"
+    },
+    {
+      "path": "docs/test-results/camera-race-e2e-server.log",
+      "size": 176,
+      "sha256": "03098ef843d173e4d31fa253778a0ba7721d19a1b13c9940d0ce578a3fcb4ff2"
+    },
+    {
+      "path": "docs/test-results/e2e-results.json",
+      "size": 30205,
+      "sha256": "5df3c69cc75198527210393ba65485b88b96a1955cd16813ec643ed1ee963af1"
+    },
+    {
+      "path": "docs/test-results/e2e-server.log",
+      "size": 176,
+      "sha256": "04b3d68131161879aa6c6842c5ee61e8d7e56a46c93748147f28f0a5f312915f"
+    },
+    {
+      "path": "docs/test-results/reconnect-e2e-results.json",
+      "size": 29384,
+      "sha256": "44138423d7d9f81b623ec1076cf28f52143509c897af67ecdbb7b370eb78585d"
+    },
+    {
+      "path": "docs/test-results/reconnect-e2e-server.log",
+      "size": 176,
+      "sha256": "f67b40d57bc2c530001c9b124233bb0a0b84c37d9292f86f414dbde7545001c7"
+    },
+    {
+      "path": "docs/test-results/soak-short-results.json",
+      "size": 9563,
+      "sha256": "b87648ea9c5c29bc4c1ca399383afe19c09a6c08b9e3590e055663ea2aef6d72"
+    },
+    {
+      "path": "index.html",
+      "size": 8641,
+      "sha256": "344adbdde19196b28eeee14ab9564d36dcdbf32769f59e22657bf2a2dcecc9d2"
+    },
+    {
+      "path": "package-lock.json",
+      "size": 282,
+      "sha256": "3324848402dd59bff069f927bce42c3f094f73b58a49cb9d862ad34a1c8d3a51"
+    },
+    {
+      "path": "package.json",
+      "size": 1228,
+      "sha256": "f2a9d52c61644c3417115e76e1add0e31e54a030a377cf9e1396831d821fe5e6"
+    },
+    {
+      "path": "requirements-build.txt",
+      "size": 28,
+      "sha256": "2f9c2373746a116bc6da037400dad5f94e2263533e73b3d5a66b4c048b99164c"
+    },
+    {
+      "path": "requirements-dev.txt",
+      "size": 45,
+      "sha256": "72e2ddd85770e6231342883c5ad42541aaa0f98482df1169a6f253b59d71d908"
+    },
+    {
+      "path": "server.js",
+      "size": 6649,
+      "sha256": "f8fb7453059cf5c3e912b12365ad4ce43a21150edbcd846d04c75f30150b204d"
+    },
+    {
+      "path": "src/audio/audio-engine.js",
+      "size": 4410,
+      "sha256": "975b0c9aa3a93e042417013d3e974469493073e9e3d4257080d610b173a764c0"
+    },
+    {
+      "path": "src/calibration/calibration-controller.js",
+      "size": 5888,
+      "sha256": "09e49d0137bac99c3448b79bcb061d592d5594b773f76f25109134de3a2a4637"
+    },
+    {
+      "path": "src/calibration/calibration-view.js",
+      "size": 7495,
+      "sha256": "97ac5145ac102eee58800c4b131d7c22c2a1b690b3dc3153fe5068f2bb8c8ef3"
+    },
+    {
+      "path": "src/config/config-store.js",
+      "size": 5693,
+      "sha256": "d6e5d0ef0024db7d13c19cb47a44aa8859034429278b5f7c903f4ebf6287faa5"
+    },
+    {
+      "path": "src/core/config-schema.js",
+      "size": 6925,
+      "sha256": "01c302eb67beb744616929fc0a5cc6ec8ea4274569a0299e76c11e0751d7aaa8"
+    },
+    {
+      "path": "src/core/homography.js",
+      "size": 7614,
+      "sha256": "5f97bf28b2209c95fcc1d3ca02a63853db44010a252e36be12cd3deb29205b28"
+    },
+    {
+      "path": "src/core/math.js",
+      "size": 3858,
+      "sha256": "31dc6daa039d306e67afee6a3bde25e228cfe2e489bb4c88c9e3eb598d844f86"
+    },
+    {
+      "path": "src/input/camera-controller.js",
+      "size": 12931,
+      "sha256": "887faf5cf58888f743a0c02efe0e399238ba38aa5d6982b8d16109aa9f2a7561"
+    },
+    {
+      "path": "src/input/foreground-segmenter.js",
+      "size": 9775,
+      "sha256": "2be6f2ea89ef459316e997eb16ad4538eee164bc40426ffd7ee1e561c1741ec0"
+    },
+    {
+      "path": "src/input/input-controller.js",
+      "size": 10885,
+      "sha256": "7a5f9a485ab290ef5dd5650290d742f682e20d0efc2b08e9029ab0820a8edca6"
+    },
+    {
+      "path": "src/input/pointer-input.js",
+      "size": 2035,
+      "sha256": "d7b74db9d2a05d35492a29ac4c925960d32bb72772ad03e91a1bd1d47f1e930a"
+    },
+    {
+      "path": "src/input/simulated-camera.js",
+      "size": 3953,
+      "sha256": "d54d07d9403953745c773f68dafefa8b003e81f6c12574d74472c91ec6a49cb6"
+    },
+    {
+      "path": "src/main.js",
+      "size": 18988,
+      "sha256": "c5fca5efbc2a1f0fd6b4b0eeb392e58fad788901265da3e0263fc5bd767cbef2"
+    },
+    {
+      "path": "src/scene/character-renderer.js",
+      "size": 12597,
+      "sha256": "dffafe3584337153ce6670dab938c4196072198269a9b63212b883f8236bd28e"
+    },
+    {
+      "path": "src/scene/decorative-renderer.js",
+      "size": 16582,
+      "sha256": "4a30060f16b5f3299d24c3c05c6258e2af7c11fded43a2ae0d598a496d969176"
+    },
+    {
+      "path": "src/scene/scene-layout.js",
+      "size": 5845,
+      "sha256": "af3a60f24321e81584cc0f2c11c30deb8e12fd401144e149f5306ef1415fad2c"
+    },
+    {
+      "path": "src/scene/scene-renderer.js",
+      "size": 2975,
+      "sha256": "cb98699f973a2931bbba599c4a4d93210da48ad7408ec114719332a59f0ff6e5"
+    },
+    {
+      "path": "src/scene/viewport.js",
+      "size": 3054,
+      "sha256": "732d04c8dbaae754cd938f7dcea349eb8752121a10da825324d235697cbb9f7e"
+    },
+    {
+      "path": "src/trigger/coverage-engine.js",
+      "size": 2474,
+      "sha256": "413b0fa440415c4a30345a1356e284c5652045d0a29f6255002de2489251c7af"
+    },
+    {
+      "path": "src/trigger/hysteresis.js",
+      "size": 3044,
+      "sha256": "45f9c8737889d1abcc9d8a10a776db106334a9bd145dd68c9c9969451bc06954"
+    },
+    {
+      "path": "src/trigger/trigger-plane.js",
+      "size": 1908,
+      "sha256": "07ff2fd370ce411f490c5e03ef2e4e108ff6469776c57b4f7c0288f43c9736d1"
+    },
+    {
+      "path": "src/ui/operator-ui.js",
+      "size": 8479,
+      "sha256": "582d4fd2591b071832b4629ab87b791293247a40a2eea370d29bfff8141bf28e"
+    },
+    {
+      "path": "start.bat",
+      "size": 321,
+      "sha256": "128bfb9ff49364a5d2511f5fa1f691acba42ee73cbbd9c3ad21b8980e9d87c45"
+    },
+    {
+      "path": "start.command",
+      "size": 336,
+      "sha256": "982375a06529c8838b874debd3bb7ed595175463833313e0d55b4064dad4aadb"
+    },
+    {
+      "path": "start.sh",
+      "size": 338,
+      "sha256": "2abda1039def68f01620a04d4455268d05103826c04b484e8714c1cbabd2e205"
+    },
+    {
+      "path": "styles.css",
+      "size": 9517,
+      "sha256": "87e620a493c833c34054a340037c7d0767bfcb48ac7e56f18c2ad6bf3577b2cf"
+    },
+    {
+      "path": "tests/asset_verify_preservation.py",
+      "size": 1971,
+      "sha256": "d3fcf39346564200414e5e561bab5023b7bb454bd489dfab3841d3ed9172dd04"
+    },
+    {
+      "path": "tests/e2e/camera_combined_e2e_test.py",
+      "size": 5230,
+      "sha256": "1f93fb3774c06711ca5c084574a45d8aadd1567ad74cd3bf2f1b2a9bdfb4850d"
+    },
+    {
+      "path": "tests/e2e/camera_e2e_test.py",
+      "size": 8258,
+      "sha256": "123368282ec803e34459162fbe3919554477a29c4419ea6e391eaf02cfcc9345"
+    },
+    {
+      "path": "tests/e2e/camera_race_e2e_test.py",
+      "size": 8276,
+      "sha256": "69271398f175608c2783a8b5bd93e759dad796b6b9080294c7dd4f9cb57604b0"
+    },
+    {
+      "path": "tests/e2e/cooldown.py",
+      "size": 294,
+      "sha256": "c05417f85544436d9a61fe5569c62ecf3f88b0b9a7f12d65a428411529966f05"
+    },
+    {
+      "path": "tests/e2e/e2e_test.py",
+      "size": 22742,
+      "sha256": "29fc4d8f7338eef0daf196ac63bfd504f46f686d8f45605d3696b061c7d12b23"
+    },
+    {
+      "path": "tests/e2e/reconnect_e2e_test.py",
+      "size": 6360,
+      "sha256": "ea2813b077039e8b03223e49f32a6119dc94e61334e75fc99f24242b4b441ca6"
+    },
+    {
+      "path": "tests/e2e/run_all.py",
+      "size": 2978,
+      "sha256": "426d3578b7afee2089c1d10617ea2b8f9ecc82a76b17435ad46858d182772229"
+    },
+    {
+      "path": "tests/e2e/soak_test.py",
+      "size": 10422,
+      "sha256": "ca3f5db4faa712cb1c55e26de5434d933036e545f0523adb005333a1b0210deb"
+    },
+    {
+      "path": "tests/server.test.js",
+      "size": 1583,
+      "sha256": "e033480fcf51cf43e8c57189df99271f575b1f971f36e70f70dda10eb62d8c51"
+    },
+    {
+      "path": "tests/unit/camera-controller.test.js",
+      "size": 6363,
+      "sha256": "390abdd003d11f7a14ddd23ac89b521856b5a04050e1dcf51daf08080dc67c06"
+    },
+    {
+      "path": "tests/unit/config-store.test.js",
+      "size": 1163,
+      "sha256": "40cb3438f47b950a5b946e3fb4c152b07c1d3491acbf80ff89185cac9f063c8a"
+    },
+    {
+      "path": "tests/unit/config.test.js",
+      "size": 1666,
+      "sha256": "8a32009fca88c9d9930fb9b1c702adfd78f469965b45d6922bfbeeda5e44ebef"
+    },
+    {
+      "path": "tests/unit/coordinates.test.js",
+      "size": 816,
+      "sha256": "a6673153e5df68d7736738e27a59ced2de1dddf2592b198a6b61e1541398986f"
+    },
+    {
+      "path": "tests/unit/foreground-segmenter.test.js",
+      "size": 2231,
+      "sha256": "27c4d12d0af78259bab0d35d6d2555e34a3a37033d50f2ceaf7a4c3e08926deb"
+    },
+    {
+      "path": "tests/unit/homography.test.js",
+      "size": 2055,
+      "sha256": "47f54ea0dda27b2e9bb072532a3def13c6fc5d87422b1554061dc956605ba144"
+    },
+    {
+      "path": "tests/unit/hysteresis.test.js",
+      "size": 1142,
+      "sha256": "3a050ba9ad208ce70ab03604ab883485c4b2efc758076b4b6d83e34d153a3d49"
+    },
+    {
+      "path": "tests/unit/scene-layout.test.js",
+      "size": 1247,
+      "sha256": "a69105040756dbb48d60b4659f351b0333f71e13ec6d026c66c415cbc3fba731"
+    },
+    {
+      "path": "tests/unit/trigger.test.js",
+      "size": 1453,
+      "sha256": "e5e47613c9cb91e73d6ac48a38e4d74080ac65ff7ee502769a65ab7d45b26529"
+    },
+    {
+      "path": "tools/build_assets.py",
+      "size": 38212,
+      "sha256": "6e9e48b5a4817a0038332f6f19beaed62d68790c08a149953ebdc34238ce3715"
+    },
+    {
+      "path": "tools/build_manifest.py",
+      "size": 4259,
+      "sha256": "ba69cfc66fc9e41d3a3b627ec84043592879f7da65b12194f4e0825066a4cb15"
+    },
+    {
+      "path": "tools/check-syntax.js",
+      "size": 938,
+      "sha256": "bac282a18494afde1c5c8d33dbdb62066d9b0ff55d712ee4302c9d1c3cbad297"
+    },
+    {
+      "path": "tools/clean-legacy.js",
+      "size": 1059,
+      "sha256": "a8066389fc5d0a044d038a7adf2fc76899dae9e9629730b25d884edcfb9f23b2"
+    },
+    {
+      "path": "tools/preflight.js",
+      "size": 1067,
+      "sha256": "c513430e9f76c1aa5138fd94c2b39892b89ab25742a16b9699b609b6dc1813e3"
+    },
+    {
+      "path": "tools/verify_asset_rebuild.py",
+      "size": 11518,
+      "sha256": "9e4c89c201e90e388577879a2b2f16c4a18c6b124f91bae5d21597448990e5b7"
+    }
+  ]
+}

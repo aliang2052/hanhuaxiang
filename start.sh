@@ -1,9 +1,11 @@
-#!/usr/bin/env bash
-set -e
-cd "$(dirname "$0")"
-PORT=4173
-node server.js --port=${PORT} &
-SERVER_PID=$!
-sleep 0.8
-if command -v xdg-open >/dev/null 2>&1; then xdg-open "http://localhost:${PORT}" >/dev/null 2>&1 || true; fi
-wait ${SERVER_PID}
+#!/usr/bin/env sh
+set -eu
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+cd "$SCRIPT_DIR"
+PORT_VALUE=${PORT:-4173}
+if ! command -v node >/dev/null 2>&1; then
+  echo "未找到 Node.js。请安装 Node.js 18 或更高版本。" >&2
+  exit 1
+fi
+node tools/preflight.js "--port=$PORT_VALUE"
+exec node server.js "--port=$PORT_VALUE"

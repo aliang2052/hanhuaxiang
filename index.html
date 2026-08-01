@@ -3,109 +3,180 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#1d1c18" />
+  <meta name="theme-color" content="#24221d" />
   <meta name="color-scheme" content="dark" />
-  <title>汉画像·百戏乐舞｜63格实时互动乐队</title>
+  <title>汉画像·百戏乐舞｜全屏实时互动乐队</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main id="stage" aria-label="汉画像互动乐队">
-    <canvas id="artCanvas" width="1920" height="1080"></canvas>
+  <main id="stage" aria-label="汉画像互动乐队全屏舞台">
+    <canvas id="artCanvas" aria-label="互动画像石主画面"></canvas>
 
     <section id="intro" class="intro-card" aria-live="polite">
-      <div class="seal">樂</div>
+      <div class="seal" aria-hidden="true">樂</div>
       <p class="eyebrow">LIVING PORTRAIT STONE</p>
       <h1>汉画像·百戏乐舞</h1>
-      <p class="intro-copy">你的身体会唤醒 63 个格子里的乐师、舞者与礼乐声部。</p>
-      <button id="enterButton" class="primary">进入作品</button>
-      <p class="small">默认先进入自动演示；切换“摄像头”后，可采集空场背景并进行真人触发。</p>
+      <p class="intro-copy">身体经过不同空间，会逐步唤醒画像石中的乐师、舞者和礼乐声部。</p>
+      <button id="enterButton" class="primary" type="button">进入作品</button>
+      <p class="small">作品会铺满当前浏览器窗口。默认进入自动演示，操作员可切换指针、模拟摄像头或实体摄像头。</p>
     </section>
 
-    <div id="topBar" class="top-bar hidden-ui">
+    <header id="topBar" class="top-bar operator-ui" aria-label="运行状态">
       <div class="brand"><span class="brand-seal">樂</span><span>汉画像·百戏乐舞</span></div>
       <div class="status-row">
-        <span id="modeStatus" class="status-pill">自动演示</span>
+        <span id="modeStatus" class="status-pill">初始化</span>
+        <span id="cameraStatus" class="status-pill">摄像头：未启动</span>
         <span id="activeStatus" class="status-pill">0 / 63</span>
         <span id="fpsStatus" class="status-pill">0 FPS</span>
       </div>
-    </div>
+    </header>
 
-    <aside id="controlPanel" class="control-panel hidden-ui" aria-label="控制面板" hidden>
+    <aside id="controlPanel" class="control-panel operator-ui" aria-label="操作员控制面板" hidden>
       <div class="panel-head">
         <div>
-          <div class="panel-kicker">INSTALLATION CONTROL</div>
-          <h2>运行与标定</h2>
+          <p class="panel-kicker">INSTALLATION CONTROL</p>
+          <h2>运行、输入与标定</h2>
         </div>
-        <button id="closePanel" class="icon-button" title="关闭面板">×</button>
+        <button id="closePanel" class="icon-button" type="button" aria-label="关闭控制面板">×</button>
       </div>
 
-      <label class="field">
-        <span>触发来源</span>
-        <select id="modeSelect">
-          <option value="auto">自动演示</option>
-          <option value="pointer">鼠标 / 触摸</option>
-          <option value="camera">摄像头</option>
-        </select>
-      </label>
+      <div class="field-row">
+        <label class="field">
+          <span>触发来源</span>
+          <select id="modeSelect">
+            <option value="auto">自动演示</option>
+            <option value="pointer">鼠标 / 多点触摸</option>
+            <option value="camera">摄像头</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>摄像头来源</span>
+          <select id="cameraSourceSelect">
+            <option value="simulated">内置模拟摄像头</option>
+            <option value="hardware">实体摄像头</option>
+          </select>
+        </label>
+      </div>
 
       <div class="button-grid">
-        <button id="cameraButton">开启摄像头</button>
-        <button id="captureBackgroundButton">采集空场背景</button>
-        <button id="debugButton">摄像头标定</button>
-        <button id="fullscreenButton">全屏投影</button>
+        <button id="cameraButton" type="button">启动摄像头</button>
+        <button id="captureBackgroundButton" type="button">采集空场背景</button>
+        <button id="debugButton" type="button">打开调试与标定</button>
+        <button id="fullscreenButton" type="button">全屏投影</button>
       </div>
 
-      <label class="slider-field">
-        <span>前景灵敏度 <output id="diffThresholdOutput">54</output></span>
-        <input id="diffThreshold" type="range" min="18" max="120" value="54" />
-      </label>
-      <label class="slider-field">
-        <span>格子开启阈值 <output id="onThresholdOutput">7%</output></span>
-        <input id="onThreshold" type="range" min="1" max="30" value="7" />
-      </label>
-      <label class="slider-field">
-        <span>格子关闭阈值 <output id="offThresholdOutput">3%</output></span>
-        <input id="offThreshold" type="range" min="1" max="20" value="3" />
-      </label>
+      <section id="simulationControls" class="panel-section">
+        <h3>模拟摄像头验收</h3>
+        <label class="field">
+          <span>模拟场景</span>
+          <select id="simulationScenarioSelect">
+            <option value="empty">空场</option>
+            <option value="single">单人</option>
+            <option value="double">双人</option>
+            <option value="moving">移动人物</option>
+            <option value="light-shift">整体光照变化</option>
+          </select>
+        </label>
+        <button id="simulateDisconnectButton" type="button">模拟断线并自动恢复</button>
+      </section>
 
-      <div class="toggle-grid">
-        <label><input id="mirrorToggle" type="checkbox" checked /> 镜像摄像头</label>
-        <label><input id="gridToggle" type="checkbox" /> 显示触发格</label>
-        <label><input id="labelsToggle" type="checkbox" /> 显示编号</label>
-        <label><input id="muteToggle" type="checkbox" /> 静音</label>
-      </div>
+      <section class="panel-section">
+        <h3>触发参数</h3>
+        <label class="slider-field">
+          <span>前景灵敏度 <output id="diffThresholdOutput">48</output></span>
+          <input id="diffThreshold" type="range" min="12" max="140" value="48" />
+        </label>
+        <label class="slider-field">
+          <span>格子开启阈值 <output id="onThresholdOutput">6.5%</output></span>
+          <input id="onThreshold" type="range" min="1" max="35" step="0.5" value="6.5" />
+        </label>
+        <label class="slider-field">
+          <span>格子关闭阈值 <output id="offThresholdOutput">2.8%</output></span>
+          <input id="offThreshold" type="range" min="0.5" max="25" step="0.1" value="2.8" />
+        </label>
+        <div class="toggle-grid">
+          <label><input id="mirrorToggle" type="checkbox" checked /> 镜像实体摄像头</label>
+          <label><input id="gridToggle" type="checkbox" /> 显示触发平面</label>
+          <label><input id="labelsToggle" type="checkbox" /> 显示编号</label>
+          <label><input id="muteToggle" type="checkbox" /> 静音</label>
+        </div>
+      </section>
+
+      <section class="panel-section">
+        <h3>Homography 标定预设</h3>
+        <label class="field">
+          <span>当前预设</span>
+          <select id="presetSelect"></select>
+        </label>
+        <div class="inline-form">
+          <input id="presetNameInput" type="text" maxlength="80" placeholder="新预设名称" />
+          <button id="savePresetButton" type="button">保存</button>
+        </div>
+        <div class="button-grid compact">
+          <button id="resetCalibrationButton" type="button">重置四角</button>
+          <button id="exportCalibrationButton" type="button">导出标定</button>
+          <button id="importCalibrationButton" type="button">导入标定</button>
+          <input id="importCalibrationInput" type="file" accept="application/json,.json" hidden />
+        </div>
+      </section>
 
       <div class="button-grid bottom-actions">
-        <button id="wakeAllButton">唤醒全乐队</button>
-        <button id="resetButton">恢复默认设置</button>
+        <button id="wakeAllButton" type="button">唤醒全乐队</button>
+        <button id="recoverButton" type="button">一键恢复运行</button>
+        <button id="resetButton" type="button">恢复默认设置</button>
+        <button id="hideUiButton" type="button">隐藏操作界面</button>
       </div>
-      <p id="panelMessage" class="panel-message">空格：播放/暂停自动演示　D：标定　H：隐藏界面　F：全屏</p>
+      <p id="panelMessage" class="panel-message" data-level="info">H：隐藏界面　D：调试标定　F：全屏　M：静音　A：唤醒全部</p>
     </aside>
 
-    <section id="debugView" class="debug-view" hidden>
+    <section id="debugView" class="debug-view" hidden aria-label="摄像头调试和标定">
       <div class="debug-head">
         <div>
-          <p>CAMERA CALIBRATION</p>
-          <h2>摄像头与 63 格触发区</h2>
+          <p>CAMERA / MASK / HOMOGRAPHY</p>
+          <h2>输入调试与 3×3 投影标定</h2>
         </div>
-        <button id="closeDebug" class="icon-button">×</button>
+        <button id="closeDebug" class="icon-button" type="button" aria-label="关闭调试界面">×</button>
       </div>
-      <canvas id="debugCanvas" width="960" height="540"></canvas>
-      <div class="debug-copy">
-        <p><strong>使用步骤：</strong>固定摄像头 → 确保画面无人 → 点击“采集空场背景” → 人进入后红色前景应覆盖身体。拖动四个角点可标定有效区域。</p>
-        <div class="debug-buttons">
-          <button id="debugCaptureButton">采集空场背景</button>
-          <button id="resetQuadButton">重置四角</button>
+
+      <div class="debug-grid">
+        <figure>
+          <figcaption>原始输入、连通区域与标定网格</figcaption>
+          <canvas id="rawDebugCanvas" width="720" height="405"></canvas>
+        </figure>
+        <figure>
+          <figcaption>过滤后的前景 Mask</figcaption>
+          <canvas id="maskDebugCanvas" width="720" height="405"></canvas>
+        </figure>
+        <figure class="coverage-figure">
+          <figcaption>63 格实时覆盖率</figcaption>
+          <canvas id="coverageDebugCanvas" width="900" height="560"></canvas>
+        </figure>
+        <dl class="debug-metrics">
+          <div><dt>摄像头</dt><dd id="debugMetricCamera">—</dd></div>
+          <div><dt>渲染帧率</dt><dd id="debugMetricFps">—</dd></div>
+          <div><dt>前景处理</dt><dd id="debugMetricLatency">—</dd></div>
+          <div><dt>连通区域</dt><dd id="debugMetricComponents">—</dd></div>
+          <div><dt>前景像素</dt><dd id="debugMetricForeground">—</dd></div>
+          <div><dt>全局亮度差</dt><dd id="debugMetricLight">—</dd></div>
+          <div><dt>标定状态</dt><dd id="debugMetricCalibration">—</dd></div>
+        </dl>
+      </div>
+
+      <div class="debug-footer">
+        <p>拖动红色四角；无效、自相交、越界或面积过小的配置会被拒绝，并保留上一次有效 Homography。</p>
+        <div class="debug-actions">
+          <button id="debugCaptureButton" type="button">采集空场背景</button>
+          <button id="debugResetCalibrationButton" type="button">重置四角</button>
         </div>
       </div>
     </section>
 
-    <button id="openPanel" class="floating-control hidden-ui" title="打开控制面板">控</button>
-    <button id="audioButton" class="floating-audio hidden-ui" title="声音开关">声</button>
+    <button id="openPanel" class="floating-control operator-ui" type="button" title="打开控制面板">控</button>
+    <button id="audioButton" class="floating-audio operator-ui" type="button" title="声音开关">声</button>
 
     <video id="cameraVideo" autoplay muted playsinline></video>
-    <canvas id="inputCanvas" width="192" height="108"></canvas>
   </main>
-  <script type="module" src="src/app.js"></script>
+  <script type="module" src="src/main.js"></script>
 </body>
 </html>

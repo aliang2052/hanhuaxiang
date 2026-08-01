@@ -1,12 +1,27 @@
 {
   "name": "han-orchestra-installation",
-  "version": "1.0.0",
+  "version": "2.2.0-p0-fix2",
   "private": true,
-  "description": "63-cell offline interactive Han portrait-stone orchestra",
+  "type": "module",
+  "description": "Fullscreen offline 63-zone interactive Han portrait-stone orchestra",
   "scripts": {
+    "preflight": "node tools/preflight.js",
     "start": "node server.js",
-    "check": "node --check server.js && node --check src/app.js",
-    "test": "python3 tests/smoke_test.py"
+    "clean:legacy": "node tools/clean-legacy.js",
+    "clean:legacy:check": "node tools/clean-legacy.js --check",
+    "check": "node tools/check-syntax.js",
+    "test:unit": "node --test tests/unit/*.test.js",
+    "test:server": "node --test tests/server.test.js",
+    "test:e2e": "python3 tests/e2e/run_all.py",
+    "test": "npm run check && npm run test:unit && npm run test:server",
+    "assets": "python3 tools/build_assets.py --all",
+    "assets:visuals": "python3 tools/build_assets.py --visuals",
+    "assets:verify": "python3 tools/verify_asset_rebuild.py",
+    "test:all": "npm test && npm run test:asset-preservation && npm run test:e2e",
+    "manifest": "python3 tools/build_manifest.py",
+    "manifest:verify": "python3 tools/build_manifest.py --verify",
+    "test:asset-preservation": "python3 tests/asset_verify_preservation.py",
+    "test:soak": "python3 tests/e2e/soak_test.py"
   },
   "engines": {
     "node": ">=18"

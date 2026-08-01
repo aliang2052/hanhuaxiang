@@ -1,0 +1,464 @@
+{
+  "version": 1,
+  "count": 24,
+  "independentSourceCount": 8,
+  "totalDistinctBaseSilhouetteCount": 32,
+  "assets": [
+    {
+      "id": "mural-qin-platform",
+      "kind": "se",
+      "label": "瑟",
+      "audioGroup": "qin",
+      "animation": "harp",
+      "color": "#5d765f",
+      "file": "assets/source-highres/mural-crops/mural-qin-platform.png",
+      "sourceFile": "assets/source-highres/base-mural.png",
+      "cropBox": [
+        18,
+        236,
+        292,
+        535
+      ],
+      "provenance": "deterministic-distinct-crop-from-project-owned-mural",
+      "width": 310,
+      "height": 335
+    },
+    {
+      "id": "mural-standing-reed",
+      "kind": "sheng",
+      "label": "笙",
+      "audioGroup": "flute",
+      "animation": "reed",
+      "color": "#73764f",
+      "file": "assets/source-highres/mural-crops/mural-standing-reed.png",
+      "sourceFile": "assets/source-highres/base-mural.png",
+      "cropBox": [
+        258,
+        205,
+        471,
+        535
+      ],
+      "provenance": "deterministic-distinct-crop-from-project-owned-mural",
+      "width": 249,
+      "height": 366
+    },
+    {
+      "id": "mural-pipa-seated",
+      "kind": "pipa",
+      "label": "琵琶",
+      "audioGroup": "pipa",
+      "animation": "pluck",
+      "color": "#6e6686",
+      "file": "assets/source-highres/mural-crops/mural-pipa-seated.png",
+      "sourceFile": "assets/source-highres/base-mural.png",
+      "cropBox": [
+        488,
+        235,
+        716,
+        526
+      ],
+      "provenance": "deterministic-distinct-crop-from-project-owned-mural",
+      "width": 264,
+      "height": 327
+    },
+    {
+      "id": "mural-bell-rack-ensemble",
+      "kind": "bells",
+      "label": "钟磬",
+      "audioGroup": "bells",
+      "animation": "strike",
+      "color": "#8e654f",
+      "file": "assets/source-highres/mural-crops/mural-bell-rack-ensemble.png",
+      "sourceFile": "assets/source-highres/base-mural.png",
+      "cropBox": [
+        650,
+        205,
+        1034,
+        535
+      ],
+      "provenance": "deterministic-distinct-crop-from-project-owned-mural",
+      "width": 420,
+      "height": 366
+    },
+    {
+      "id": "mural-bell-striker",
+      "kind": "bells",
+      "label": "钟磬",
+      "audioGroup": "bells",
+      "animation": "strike",
+      "color": "#8e654f",
+      "file": "assets/source-highres/mural-crops/mural-bell-striker.png",
+      "sourceFile": "assets/source-highres/base-mural.png",
+      "cropBox": [
+        754,
+        261,
+        960,
+        529
+      ],
+      "provenance": "deterministic-distinct-crop-from-project-owned-mural",
+      "width": 242,
+      "height": 304
+    },
+    {
+      "id": "mural-bowed-string",
+      "kind": "erhu",
+      "label": "弦乐",
+      "audioGroup": "erhu",
+      "animation": "bow",
+      "color": "#55727a",
+      "file": "assets/source-highres/mural-crops/mural-bowed-string.png",
+      "sourceFile": "assets/source-highres/base-mural.png",
+      "cropBox": [
+        968,
+        226,
+        1193,
+        529
+      ],
+      "provenance": "deterministic-distinct-crop-from-project-owned-mural",
+      "width": 261,
+      "height": 339
+    },
+    {
+      "id": "mural-panpipe-seated",
+      "kind": "panpipe",
+      "label": "排箫",
+      "audioGroup": "flute",
+      "animation": "panpipe",
+      "color": "#7d7956",
+      "file": "assets/source-highres/mural-crops/mural-panpipe-seated.png",
+      "sourceFile": "assets/source-highres/base-mural.png",
+      "cropBox": [
+        1206,
+        236,
+        1410,
+        529
+      ],
+      "provenance": "deterministic-distinct-crop-from-project-owned-mural",
+      "width": 240,
+      "height": 329
+    },
+    {
+      "id": "mural-grand-drum-duo",
+      "kind": "gong",
+      "label": "建鼓",
+      "audioGroup": "drum",
+      "animation": "gong",
+      "color": "#875a37",
+      "file": "assets/source-highres/mural-crops/mural-grand-drum-duo.png",
+      "sourceFile": "assets/source-highres/base-mural.png",
+      "cropBox": [
+        1372,
+        201,
+        1665,
+        541
+      ],
+      "provenance": "deterministic-distinct-crop-from-project-owned-mural",
+      "width": 329,
+      "height": 376
+    },
+    {
+      "id": "mural-drum-player",
+      "kind": "drum",
+      "label": "鼓",
+      "audioGroup": "drum",
+      "animation": "drum",
+      "color": "#805c35",
+      "file": "assets/source-highres/mural-crops/mural-drum-player.png",
+      "sourceFile": "assets/source-highres/base-mural.png",
+      "cropBox": [
+        1490,
+        228,
+        1668,
+        535
+      ],
+      "provenance": "deterministic-distinct-crop-from-project-owned-mural",
+      "width": 214,
+      "height": 343
+    },
+    {
+      "id": "mural-left-attendant",
+      "kind": "attendant",
+      "label": "侍",
+      "audioGroup": "attendant",
+      "animation": "serve",
+      "color": "#60755d",
+      "file": "assets/source-highres/mural-crops/mural-left-attendant.png",
+      "sourceFile": "assets/source-highres/base-mural.png",
+      "cropBox": [
+        0,
+        523,
+        145,
+        813
+      ],
+      "provenance": "deterministic-distinct-crop-from-project-owned-mural",
+      "width": 181,
+      "height": 326
+    },
+    {
+      "id": "mural-ribbon-duo-left",
+      "kind": "dancer",
+      "label": "舞",
+      "audioGroup": "dancer",
+      "animation": "dance",
+      "color": "#735f80",
+      "file": "assets/source-highres/mural-crops/mural-ribbon-duo-left.png",
+      "sourceFile": "assets/source-highres/base-mural.png",
+      "cropBox": [
+        104,
+        498,
+        350,
+        812
+      ],
+      "provenance": "deterministic-distinct-crop-from-project-owned-mural",
+      "width": 282,
+      "height": 350
+    },
+    {
+      "id": "mural-cymbal-dancer",
+      "kind": "cymbal",
+      "label": "铙钹",
+      "audioGroup": "bells",
+      "animation": "cymbal",
+      "color": "#8b684e",
+      "file": "assets/source-highres/mural-crops/mural-cymbal-dancer.png",
+      "sourceFile": "assets/source-highres/base-mural.png",
+      "cropBox": [
+        290,
+        500,
+        505,
+        808
+      ],
+      "provenance": "deterministic-distinct-crop-from-project-owned-mural",
+      "width": 251,
+      "height": 344
+    },
+    {
+      "id": "mural-tray-procession",
+      "kind": "procession",
+      "label": "仪仗",
+      "audioGroup": "attendant",
+      "animation": "procession",
+      "color": "#5d735d",
+      "file": "assets/source-highres/mural-crops/mural-tray-procession.png",
+      "sourceFile": "assets/source-highres/base-mural.png",
+      "cropBox": [
+        428,
+        492,
+        606,
+        812
+      ],
+      "provenance": "deterministic-distinct-crop-from-project-owned-mural",
+      "width": 214,
+      "height": 356
+    },
+    {
+      "id": "mural-cup-kneeler-left",
+      "kind": "banquet",
+      "label": "宴饮",
+      "audioGroup": "attendant",
+      "animation": "banquet",
+      "color": "#756b56",
+      "file": "assets/source-highres/mural-crops/mural-cup-kneeler-left.png",
+      "sourceFile": "assets/source-highres/base-mural.png",
+      "cropBox": [
+        548,
+        540,
+        735,
+        811
+      ],
+      "provenance": "deterministic-distinct-crop-from-project-owned-mural",
+      "width": 223,
+      "height": 307
+    },
+    {
+      "id": "mural-banquet-table",
+      "kind": "banquet",
+      "label": "宴饮",
+      "audioGroup": "attendant",
+      "animation": "banquet",
+      "color": "#756b56",
+      "file": "assets/source-highres/mural-crops/mural-banquet-table.png",
+      "sourceFile": "assets/source-highres/base-mural.png",
+      "cropBox": [
+        626,
+        486,
+        1092,
+        823
+      ],
+      "provenance": "deterministic-distinct-crop-from-project-owned-mural",
+      "width": 502,
+      "height": 373
+    },
+    {
+      "id": "mural-banquet-duo",
+      "kind": "banquet",
+      "label": "宴饮",
+      "audioGroup": "attendant",
+      "animation": "banquet",
+      "color": "#756b56",
+      "file": "assets/source-highres/mural-crops/mural-banquet-duo.png",
+      "sourceFile": "assets/source-highres/base-mural.png",
+      "cropBox": [
+        698,
+        520,
+        960,
+        811
+      ],
+      "provenance": "deterministic-distinct-crop-from-project-owned-mural",
+      "width": 298,
+      "height": 327
+    },
+    {
+      "id": "mural-cup-kneeler-right",
+      "kind": "banquet",
+      "label": "宴饮",
+      "audioGroup": "attendant",
+      "animation": "banquet",
+      "color": "#756b56",
+      "file": "assets/source-highres/mural-crops/mural-cup-kneeler-right.png",
+      "sourceFile": "assets/source-highres/base-mural.png",
+      "cropBox": [
+        945,
+        520,
+        1135,
+        811
+      ],
+      "provenance": "deterministic-distinct-crop-from-project-owned-mural",
+      "width": 226,
+      "height": 327
+    },
+    {
+      "id": "mural-standing-server",
+      "kind": "attendant",
+      "label": "侍",
+      "audioGroup": "attendant",
+      "animation": "serve",
+      "color": "#60755d",
+      "file": "assets/source-highres/mural-crops/mural-standing-server.png",
+      "sourceFile": "assets/source-highres/base-mural.png",
+      "cropBox": [
+        1046,
+        478,
+        1206,
+        818
+      ],
+      "provenance": "deterministic-distinct-crop-from-project-owned-mural",
+      "width": 196,
+      "height": 376
+    },
+    {
+      "id": "mural-acrobat-ribbon",
+      "kind": "acrobat",
+      "label": "百戏",
+      "audioGroup": "dancer",
+      "animation": "acrobat",
+      "color": "#6e617e",
+      "file": "assets/source-highres/mural-crops/mural-acrobat-ribbon.png",
+      "sourceFile": "assets/source-highres/base-mural.png",
+      "cropBox": [
+        1110,
+        497,
+        1329,
+        814
+      ],
+      "provenance": "deterministic-distinct-crop-from-project-owned-mural",
+      "width": 255,
+      "height": 353
+    },
+    {
+      "id": "mural-sleeve-dancer",
+      "kind": "dancer",
+      "label": "舞",
+      "audioGroup": "dancer",
+      "animation": "dance",
+      "color": "#735f80",
+      "file": "assets/source-highres/mural-crops/mural-sleeve-dancer.png",
+      "sourceFile": "assets/source-highres/base-mural.png",
+      "cropBox": [
+        1248,
+        486,
+        1492,
+        817
+      ],
+      "provenance": "deterministic-distinct-crop-from-project-owned-mural",
+      "width": 280,
+      "height": 367
+    },
+    {
+      "id": "mural-right-procession",
+      "kind": "procession",
+      "label": "仪仗",
+      "audioGroup": "attendant",
+      "animation": "procession",
+      "color": "#5d735d",
+      "file": "assets/source-highres/mural-crops/mural-right-procession.png",
+      "sourceFile": "assets/source-highres/base-mural.png",
+      "cropBox": [
+        1444,
+        491,
+        1672,
+        820
+      ],
+      "provenance": "deterministic-distinct-crop-from-project-owned-mural",
+      "width": 264,
+      "height": 365
+    },
+    {
+      "id": "mural-horn-standing",
+      "kind": "horn",
+      "label": "角",
+      "audioGroup": "flute",
+      "animation": "horn",
+      "color": "#786f53",
+      "file": "assets/source-highres/mural-crops/mural-horn-standing.png",
+      "sourceFile": "assets/source-highres/base-mural.png",
+      "cropBox": [
+        250,
+        210,
+        455,
+        515
+      ],
+      "provenance": "deterministic-distinct-crop-from-project-owned-mural",
+      "width": 241,
+      "height": 341
+    },
+    {
+      "id": "mural-ritual-trio",
+      "kind": "procession",
+      "label": "仪仗",
+      "audioGroup": "attendant",
+      "animation": "procession",
+      "color": "#5d735d",
+      "file": "assets/source-highres/mural-crops/mural-ritual-trio.png",
+      "sourceFile": "assets/source-highres/base-mural.png",
+      "cropBox": [
+        414,
+        491,
+        732,
+        824
+      ],
+      "provenance": "deterministic-distinct-crop-from-project-owned-mural",
+      "width": 354,
+      "height": 369
+    },
+    {
+      "id": "mural-dance-banquet-group",
+      "kind": "dancer",
+      "label": "舞",
+      "audioGroup": "dancer",
+      "animation": "dance",
+      "color": "#735f80",
+      "file": "assets/source-highres/mural-crops/mural-dance-banquet-group.png",
+      "sourceFile": "assets/source-highres/base-mural.png",
+      "cropBox": [
+        1080,
+        470,
+        1510,
+        832
+      ],
+      "provenance": "deterministic-distinct-crop-from-project-owned-mural",
+      "width": 466,
+      "height": 398
+    }
+  ]
+}

@@ -1,50 +1,1022 @@
 {
-  "qin": {
-    "file": "assets/sprites/qin.png",
-    "width": 900,
-    "height": 639,
-    "aspect": 1.408450704225352
-  },
-  "flute": {
-    "file": "assets/sprites/flute.png",
-    "width": 649,
-    "height": 900,
-    "aspect": 0.7211111111111111
-  },
-  "pipa": {
-    "file": "assets/sprites/pipa.png",
-    "width": 900,
-    "height": 639,
-    "aspect": 1.408450704225352
-  },
-  "bells": {
-    "file": "assets/sprites/bells.png",
-    "width": 900,
-    "height": 639,
-    "aspect": 1.408450704225352
-  },
-  "erhu": {
-    "file": "assets/sprites/erhu.png",
-    "width": 900,
-    "height": 639,
-    "aspect": 1.408450704225352
-  },
-  "drum": {
-    "file": "assets/sprites/drum.png",
-    "width": 900,
-    "height": 639,
-    "aspect": 1.408450704225352
-  },
-  "dancer": {
-    "file": "assets/sprites/dancer.png",
-    "width": 900,
-    "height": 637,
-    "aspect": 1.41287284144427
-  },
-  "attendant": {
-    "file": "assets/sprites/attendant.png",
-    "width": 651,
-    "height": 900,
-    "aspect": 0.7233333333333334
-  }
+  "version": 3,
+  "count": 60,
+  "distinctBaseSilhouetteCount": 32,
+  "independentHighResSourceCount": 8,
+  "muralDerivedDistinctSourceCount": 24,
+  "assets": [
+    {
+      "id": "solo-independent-qin",
+      "file": "assets/sprites/variants/solo-independent-qin.png",
+      "kind": "qin",
+      "label": "琴",
+      "audioGroup": "qin",
+      "animation": "pluck",
+      "color": "#657b61",
+      "composition": "solo",
+      "derivedFrom": [
+        "independent-qin"
+      ],
+      "mirrored": false,
+      "width": 960,
+      "height": 677
+    },
+    {
+      "id": "solo-independent-flute",
+      "file": "assets/sprites/variants/solo-independent-flute.png",
+      "kind": "flute",
+      "label": "笛",
+      "audioGroup": "flute",
+      "animation": "flute",
+      "color": "#80755b",
+      "composition": "solo",
+      "derivedFrom": [
+        "independent-flute"
+      ],
+      "mirrored": false,
+      "width": 545,
+      "height": 760
+    },
+    {
+      "id": "solo-independent-pipa",
+      "file": "assets/sprites/variants/solo-independent-pipa.png",
+      "kind": "pipa",
+      "label": "琵琶",
+      "audioGroup": "pipa",
+      "animation": "pluck",
+      "color": "#6e6686",
+      "composition": "solo",
+      "derivedFrom": [
+        "independent-pipa"
+      ],
+      "mirrored": false,
+      "width": 960,
+      "height": 677
+    },
+    {
+      "id": "solo-independent-bells",
+      "file": "assets/sprites/variants/solo-independent-bells.png",
+      "kind": "bells",
+      "label": "钟磬",
+      "audioGroup": "bells",
+      "animation": "strike",
+      "color": "#8e654f",
+      "composition": "solo",
+      "derivedFrom": [
+        "independent-bells"
+      ],
+      "mirrored": false,
+      "width": 960,
+      "height": 677
+    },
+    {
+      "id": "solo-independent-erhu",
+      "file": "assets/sprites/variants/solo-independent-erhu.png",
+      "kind": "erhu",
+      "label": "弦乐",
+      "audioGroup": "erhu",
+      "animation": "bow",
+      "color": "#55727a",
+      "composition": "solo",
+      "derivedFrom": [
+        "independent-erhu"
+      ],
+      "mirrored": false,
+      "width": 960,
+      "height": 677
+    },
+    {
+      "id": "solo-independent-drum",
+      "file": "assets/sprites/variants/solo-independent-drum.png",
+      "kind": "drum",
+      "label": "鼓",
+      "audioGroup": "drum",
+      "animation": "drum",
+      "color": "#805c35",
+      "composition": "solo",
+      "derivedFrom": [
+        "independent-drum"
+      ],
+      "mirrored": false,
+      "width": 960,
+      "height": 677
+    },
+    {
+      "id": "solo-independent-dancer",
+      "file": "assets/sprites/variants/solo-independent-dancer.png",
+      "kind": "dancer",
+      "label": "舞",
+      "audioGroup": "dancer",
+      "animation": "dance",
+      "color": "#735f80",
+      "composition": "solo",
+      "derivedFrom": [
+        "independent-dancer"
+      ],
+      "mirrored": false,
+      "width": 960,
+      "height": 675
+    },
+    {
+      "id": "solo-independent-attendant",
+      "file": "assets/sprites/variants/solo-independent-attendant.png",
+      "kind": "attendant",
+      "label": "侍",
+      "audioGroup": "attendant",
+      "animation": "serve",
+      "color": "#60755d",
+      "composition": "solo",
+      "derivedFrom": [
+        "independent-attendant"
+      ],
+      "mirrored": false,
+      "width": 546,
+      "height": 760
+    },
+    {
+      "id": "solo-mural-qin-platform",
+      "file": "assets/sprites/variants/solo-mural-qin-platform.png",
+      "kind": "se",
+      "label": "瑟",
+      "audioGroup": "qin",
+      "animation": "harp",
+      "color": "#5d765f",
+      "composition": "solo",
+      "derivedFrom": [
+        "mural-qin-platform"
+      ],
+      "mirrored": false,
+      "width": 302,
+      "height": 327
+    },
+    {
+      "id": "solo-mural-standing-reed",
+      "file": "assets/sprites/variants/solo-mural-standing-reed.png",
+      "kind": "sheng",
+      "label": "笙",
+      "audioGroup": "flute",
+      "animation": "reed",
+      "color": "#73764f",
+      "composition": "solo",
+      "derivedFrom": [
+        "mural-standing-reed"
+      ],
+      "mirrored": false,
+      "width": 241,
+      "height": 358
+    },
+    {
+      "id": "solo-mural-pipa-seated",
+      "file": "assets/sprites/variants/solo-mural-pipa-seated.png",
+      "kind": "pipa",
+      "label": "琵琶",
+      "audioGroup": "pipa",
+      "animation": "pluck",
+      "color": "#6e6686",
+      "composition": "solo",
+      "derivedFrom": [
+        "mural-pipa-seated"
+      ],
+      "mirrored": false,
+      "width": 256,
+      "height": 319
+    },
+    {
+      "id": "solo-mural-bell-rack-ensemble",
+      "file": "assets/sprites/variants/solo-mural-bell-rack-ensemble.png",
+      "kind": "bells",
+      "label": "钟磬",
+      "audioGroup": "bells",
+      "animation": "strike",
+      "color": "#8e654f",
+      "composition": "solo",
+      "derivedFrom": [
+        "mural-bell-rack-ensemble"
+      ],
+      "mirrored": false,
+      "width": 412,
+      "height": 358
+    },
+    {
+      "id": "solo-mural-bell-striker",
+      "file": "assets/sprites/variants/solo-mural-bell-striker.png",
+      "kind": "bells",
+      "label": "钟磬",
+      "audioGroup": "bells",
+      "animation": "strike",
+      "color": "#8e654f",
+      "composition": "solo",
+      "derivedFrom": [
+        "mural-bell-striker"
+      ],
+      "mirrored": false,
+      "width": 234,
+      "height": 296
+    },
+    {
+      "id": "solo-mural-bowed-string",
+      "file": "assets/sprites/variants/solo-mural-bowed-string.png",
+      "kind": "erhu",
+      "label": "弦乐",
+      "audioGroup": "erhu",
+      "animation": "bow",
+      "color": "#55727a",
+      "composition": "solo",
+      "derivedFrom": [
+        "mural-bowed-string"
+      ],
+      "mirrored": false,
+      "width": 253,
+      "height": 331
+    },
+    {
+      "id": "solo-mural-panpipe-seated",
+      "file": "assets/sprites/variants/solo-mural-panpipe-seated.png",
+      "kind": "panpipe",
+      "label": "排箫",
+      "audioGroup": "flute",
+      "animation": "panpipe",
+      "color": "#7d7956",
+      "composition": "solo",
+      "derivedFrom": [
+        "mural-panpipe-seated"
+      ],
+      "mirrored": false,
+      "width": 232,
+      "height": 321
+    },
+    {
+      "id": "solo-mural-grand-drum-duo",
+      "file": "assets/sprites/variants/solo-mural-grand-drum-duo.png",
+      "kind": "gong",
+      "label": "建鼓",
+      "audioGroup": "drum",
+      "animation": "gong",
+      "color": "#875a37",
+      "composition": "solo",
+      "derivedFrom": [
+        "mural-grand-drum-duo"
+      ],
+      "mirrored": false,
+      "width": 321,
+      "height": 368
+    },
+    {
+      "id": "solo-mural-drum-player",
+      "file": "assets/sprites/variants/solo-mural-drum-player.png",
+      "kind": "drum",
+      "label": "鼓",
+      "audioGroup": "drum",
+      "animation": "drum",
+      "color": "#805c35",
+      "composition": "solo",
+      "derivedFrom": [
+        "mural-drum-player"
+      ],
+      "mirrored": false,
+      "width": 206,
+      "height": 335
+    },
+    {
+      "id": "solo-mural-left-attendant",
+      "file": "assets/sprites/variants/solo-mural-left-attendant.png",
+      "kind": "attendant",
+      "label": "侍",
+      "audioGroup": "attendant",
+      "animation": "serve",
+      "color": "#60755d",
+      "composition": "solo",
+      "derivedFrom": [
+        "mural-left-attendant"
+      ],
+      "mirrored": false,
+      "width": 173,
+      "height": 318
+    },
+    {
+      "id": "solo-mural-ribbon-duo-left",
+      "file": "assets/sprites/variants/solo-mural-ribbon-duo-left.png",
+      "kind": "dancer",
+      "label": "舞",
+      "audioGroup": "dancer",
+      "animation": "dance",
+      "color": "#735f80",
+      "composition": "solo",
+      "derivedFrom": [
+        "mural-ribbon-duo-left"
+      ],
+      "mirrored": false,
+      "width": 274,
+      "height": 342
+    },
+    {
+      "id": "solo-mural-cymbal-dancer",
+      "file": "assets/sprites/variants/solo-mural-cymbal-dancer.png",
+      "kind": "cymbal",
+      "label": "铙钹",
+      "audioGroup": "bells",
+      "animation": "cymbal",
+      "color": "#8b684e",
+      "composition": "solo",
+      "derivedFrom": [
+        "mural-cymbal-dancer"
+      ],
+      "mirrored": false,
+      "width": 243,
+      "height": 336
+    },
+    {
+      "id": "solo-mural-tray-procession",
+      "file": "assets/sprites/variants/solo-mural-tray-procession.png",
+      "kind": "procession",
+      "label": "仪仗",
+      "audioGroup": "attendant",
+      "animation": "procession",
+      "color": "#5d735d",
+      "composition": "solo",
+      "derivedFrom": [
+        "mural-tray-procession"
+      ],
+      "mirrored": false,
+      "width": 206,
+      "height": 348
+    },
+    {
+      "id": "solo-mural-cup-kneeler-left",
+      "file": "assets/sprites/variants/solo-mural-cup-kneeler-left.png",
+      "kind": "banquet",
+      "label": "宴饮",
+      "audioGroup": "attendant",
+      "animation": "banquet",
+      "color": "#756b56",
+      "composition": "solo",
+      "derivedFrom": [
+        "mural-cup-kneeler-left"
+      ],
+      "mirrored": false,
+      "width": 215,
+      "height": 299
+    },
+    {
+      "id": "solo-mural-banquet-table",
+      "file": "assets/sprites/variants/solo-mural-banquet-table.png",
+      "kind": "banquet",
+      "label": "宴饮",
+      "audioGroup": "attendant",
+      "animation": "banquet",
+      "color": "#756b56",
+      "composition": "solo",
+      "derivedFrom": [
+        "mural-banquet-table"
+      ],
+      "mirrored": false,
+      "width": 498,
+      "height": 369
+    },
+    {
+      "id": "solo-mural-banquet-duo",
+      "file": "assets/sprites/variants/solo-mural-banquet-duo.png",
+      "kind": "banquet",
+      "label": "宴饮",
+      "audioGroup": "attendant",
+      "animation": "banquet",
+      "color": "#756b56",
+      "composition": "solo",
+      "derivedFrom": [
+        "mural-banquet-duo"
+      ],
+      "mirrored": false,
+      "width": 290,
+      "height": 319
+    },
+    {
+      "id": "solo-mural-cup-kneeler-right",
+      "file": "assets/sprites/variants/solo-mural-cup-kneeler-right.png",
+      "kind": "banquet",
+      "label": "宴饮",
+      "audioGroup": "attendant",
+      "animation": "banquet",
+      "color": "#756b56",
+      "composition": "solo",
+      "derivedFrom": [
+        "mural-cup-kneeler-right"
+      ],
+      "mirrored": false,
+      "width": 218,
+      "height": 319
+    },
+    {
+      "id": "solo-mural-standing-server",
+      "file": "assets/sprites/variants/solo-mural-standing-server.png",
+      "kind": "attendant",
+      "label": "侍",
+      "audioGroup": "attendant",
+      "animation": "serve",
+      "color": "#60755d",
+      "composition": "solo",
+      "derivedFrom": [
+        "mural-standing-server"
+      ],
+      "mirrored": false,
+      "width": 188,
+      "height": 368
+    },
+    {
+      "id": "solo-mural-acrobat-ribbon",
+      "file": "assets/sprites/variants/solo-mural-acrobat-ribbon.png",
+      "kind": "acrobat",
+      "label": "百戏",
+      "audioGroup": "dancer",
+      "animation": "acrobat",
+      "color": "#6e617e",
+      "composition": "solo",
+      "derivedFrom": [
+        "mural-acrobat-ribbon"
+      ],
+      "mirrored": false,
+      "width": 247,
+      "height": 345
+    },
+    {
+      "id": "solo-mural-sleeve-dancer",
+      "file": "assets/sprites/variants/solo-mural-sleeve-dancer.png",
+      "kind": "dancer",
+      "label": "舞",
+      "audioGroup": "dancer",
+      "animation": "dance",
+      "color": "#735f80",
+      "composition": "solo",
+      "derivedFrom": [
+        "mural-sleeve-dancer"
+      ],
+      "mirrored": false,
+      "width": 272,
+      "height": 359
+    },
+    {
+      "id": "solo-mural-right-procession",
+      "file": "assets/sprites/variants/solo-mural-right-procession.png",
+      "kind": "procession",
+      "label": "仪仗",
+      "audioGroup": "attendant",
+      "animation": "procession",
+      "color": "#5d735d",
+      "composition": "solo",
+      "derivedFrom": [
+        "mural-right-procession"
+      ],
+      "mirrored": false,
+      "width": 256,
+      "height": 357
+    },
+    {
+      "id": "solo-mural-horn-standing",
+      "file": "assets/sprites/variants/solo-mural-horn-standing.png",
+      "kind": "horn",
+      "label": "角",
+      "audioGroup": "flute",
+      "animation": "horn",
+      "color": "#786f53",
+      "composition": "solo",
+      "derivedFrom": [
+        "mural-horn-standing"
+      ],
+      "mirrored": false,
+      "width": 233,
+      "height": 333
+    },
+    {
+      "id": "solo-mural-ritual-trio",
+      "file": "assets/sprites/variants/solo-mural-ritual-trio.png",
+      "kind": "procession",
+      "label": "仪仗",
+      "audioGroup": "attendant",
+      "animation": "procession",
+      "color": "#5d735d",
+      "composition": "solo",
+      "derivedFrom": [
+        "mural-ritual-trio"
+      ],
+      "mirrored": false,
+      "width": 346,
+      "height": 361
+    },
+    {
+      "id": "solo-mural-dance-banquet-group",
+      "file": "assets/sprites/variants/solo-mural-dance-banquet-group.png",
+      "kind": "dancer",
+      "label": "舞",
+      "audioGroup": "dancer",
+      "animation": "dance",
+      "color": "#735f80",
+      "composition": "solo",
+      "derivedFrom": [
+        "mural-dance-banquet-group"
+      ],
+      "mirrored": false,
+      "width": 460,
+      "height": 392
+    },
+    {
+      "id": "duo-01-qin-standing-reed",
+      "file": "assets/sprites/variants/duo-01-qin-standing-reed.png",
+      "kind": "qin",
+      "label": "琴",
+      "audioGroup": "qin",
+      "animation": "pluck",
+      "color": "#657b61",
+      "composition": "duo",
+      "derivedFrom": [
+        "independent-qin",
+        "mural-standing-reed"
+      ],
+      "mirrored": false,
+      "width": 904,
+      "height": 733
+    },
+    {
+      "id": "duo-02-pipa-seated-bell-striker",
+      "file": "assets/sprites/variants/duo-02-pipa-seated-bell-striker.png",
+      "kind": "pipa",
+      "label": "琵琶",
+      "audioGroup": "pipa",
+      "animation": "pluck",
+      "color": "#6e6686",
+      "composition": "duo",
+      "derivedFrom": [
+        "mural-pipa-seated",
+        "mural-bell-striker"
+      ],
+      "mirrored": false,
+      "width": 663,
+      "height": 332
+    },
+    {
+      "id": "duo-03-bowed-string-panpipe-seated",
+      "file": "assets/sprites/variants/duo-03-bowed-string-panpipe-seated.png",
+      "kind": "erhu",
+      "label": "弦乐",
+      "audioGroup": "erhu",
+      "animation": "bow",
+      "color": "#55727a",
+      "composition": "duo",
+      "derivedFrom": [
+        "mural-bowed-string",
+        "mural-panpipe-seated"
+      ],
+      "mirrored": false,
+      "width": 660,
+      "height": 344
+    },
+    {
+      "id": "duo-04-grand-drum-duo-cymbal-dancer",
+      "file": "assets/sprites/variants/duo-04-grand-drum-duo-cymbal-dancer.png",
+      "kind": "gong",
+      "label": "建鼓",
+      "audioGroup": "drum",
+      "animation": "gong",
+      "color": "#875a37",
+      "composition": "duo",
+      "derivedFrom": [
+        "mural-grand-drum-duo",
+        "mural-cymbal-dancer"
+      ],
+      "mirrored": false,
+      "width": 698,
+      "height": 379
+    },
+    {
+      "id": "duo-05-ribbon-duo-left-tray-procession",
+      "file": "assets/sprites/variants/duo-05-ribbon-duo-left-tray-procession.png",
+      "kind": "dancer",
+      "label": "舞",
+      "audioGroup": "dancer",
+      "animation": "dance",
+      "color": "#735f80",
+      "composition": "duo",
+      "derivedFrom": [
+        "mural-ribbon-duo-left",
+        "mural-tray-procession"
+      ],
+      "mirrored": false,
+      "width": 658,
+      "height": 354
+    },
+    {
+      "id": "duo-06-cup-kneeler-left-cup-kneeler-right",
+      "file": "assets/sprites/variants/duo-06-cup-kneeler-left-cup-kneeler-right.png",
+      "kind": "banquet",
+      "label": "宴饮",
+      "audioGroup": "attendant",
+      "animation": "banquet",
+      "color": "#756b56",
+      "composition": "duo",
+      "derivedFrom": [
+        "mural-cup-kneeler-left",
+        "mural-cup-kneeler-right"
+      ],
+      "mirrored": false,
+      "width": 635,
+      "height": 326
+    },
+    {
+      "id": "duo-07-acrobat-ribbon-standing-server",
+      "file": "assets/sprites/variants/duo-07-acrobat-ribbon-standing-server.png",
+      "kind": "acrobat",
+      "label": "百戏",
+      "audioGroup": "dancer",
+      "animation": "acrobat",
+      "color": "#6e617e",
+      "composition": "duo",
+      "derivedFrom": [
+        "mural-acrobat-ribbon",
+        "mural-standing-server"
+      ],
+      "mirrored": false,
+      "width": 636,
+      "height": 372
+    },
+    {
+      "id": "duo-08-dancer-sleeve-dancer",
+      "file": "assets/sprites/variants/duo-08-dancer-sleeve-dancer.png",
+      "kind": "dancer",
+      "label": "舞",
+      "audioGroup": "dancer",
+      "animation": "dance",
+      "color": "#735f80",
+      "composition": "duo",
+      "derivedFrom": [
+        "independent-dancer",
+        "mural-sleeve-dancer"
+      ],
+      "mirrored": false,
+      "width": 861,
+      "height": 733
+    },
+    {
+      "id": "duo-09-flute-horn-standing",
+      "file": "assets/sprites/variants/duo-09-flute-horn-standing.png",
+      "kind": "flute",
+      "label": "笛",
+      "audioGroup": "flute",
+      "animation": "flute",
+      "color": "#80755b",
+      "composition": "duo",
+      "derivedFrom": [
+        "independent-flute",
+        "mural-horn-standing"
+      ],
+      "mirrored": false,
+      "width": 694,
+      "height": 740
+    },
+    {
+      "id": "duo-10-pipa-banquet-duo",
+      "file": "assets/sprites/variants/duo-10-pipa-banquet-duo.png",
+      "kind": "pipa",
+      "label": "琵琶",
+      "audioGroup": "pipa",
+      "animation": "pluck",
+      "color": "#6e6686",
+      "composition": "duo",
+      "derivedFrom": [
+        "independent-pipa",
+        "mural-banquet-duo"
+      ],
+      "mirrored": false,
+      "width": 927,
+      "height": 733
+    },
+    {
+      "id": "duo-11-drum-drum-player",
+      "file": "assets/sprites/variants/duo-11-drum-drum-player.png",
+      "kind": "drum",
+      "label": "鼓",
+      "audioGroup": "drum",
+      "animation": "drum",
+      "color": "#805c35",
+      "composition": "duo",
+      "derivedFrom": [
+        "independent-drum",
+        "mural-drum-player"
+      ],
+      "mirrored": false,
+      "width": 888,
+      "height": 733
+    },
+    {
+      "id": "duo-12-attendant-left-attendant",
+      "file": "assets/sprites/variants/duo-12-attendant-left-attendant.png",
+      "kind": "attendant",
+      "label": "侍",
+      "audioGroup": "attendant",
+      "animation": "serve",
+      "color": "#60755d",
+      "composition": "duo",
+      "derivedFrom": [
+        "independent-attendant",
+        "mural-left-attendant"
+      ],
+      "mirrored": false,
+      "width": 644,
+      "height": 742
+    },
+    {
+      "id": "trio-01",
+      "file": "assets/sprites/variants/trio-01.png",
+      "kind": "se",
+      "label": "瑟",
+      "audioGroup": "qin",
+      "animation": "harp",
+      "color": "#5d765f",
+      "composition": "trio",
+      "derivedFrom": [
+        "mural-qin-platform",
+        "mural-standing-reed",
+        "mural-pipa-seated"
+      ],
+      "mirrored": false,
+      "width": 960,
+      "height": 383
+    },
+    {
+      "id": "trio-02",
+      "file": "assets/sprites/variants/trio-02.png",
+      "kind": "bells",
+      "label": "钟磬",
+      "audioGroup": "bells",
+      "animation": "strike",
+      "color": "#8e654f",
+      "composition": "trio",
+      "derivedFrom": [
+        "mural-bell-rack-ensemble",
+        "mural-bell-striker",
+        "mural-bowed-string"
+      ],
+      "mirrored": false,
+      "width": 960,
+      "height": 312
+    },
+    {
+      "id": "trio-03",
+      "file": "assets/sprites/variants/trio-03.png",
+      "kind": "panpipe",
+      "label": "排箫",
+      "audioGroup": "flute",
+      "animation": "panpipe",
+      "color": "#7d7956",
+      "composition": "trio",
+      "derivedFrom": [
+        "mural-panpipe-seated",
+        "mural-grand-drum-duo",
+        "mural-drum-player"
+      ],
+      "mirrored": false,
+      "width": 960,
+      "height": 412
+    },
+    {
+      "id": "trio-04",
+      "file": "assets/sprites/variants/trio-04.png",
+      "kind": "attendant",
+      "label": "侍",
+      "audioGroup": "attendant",
+      "animation": "serve",
+      "color": "#60755d",
+      "composition": "trio",
+      "derivedFrom": [
+        "mural-left-attendant",
+        "mural-ribbon-duo-left",
+        "mural-cymbal-dancer"
+      ],
+      "mirrored": false,
+      "width": 957,
+      "height": 390
+    },
+    {
+      "id": "trio-05",
+      "file": "assets/sprites/variants/trio-05.png",
+      "kind": "procession",
+      "label": "仪仗",
+      "audioGroup": "attendant",
+      "animation": "procession",
+      "color": "#5d735d",
+      "composition": "trio",
+      "derivedFrom": [
+        "mural-tray-procession",
+        "mural-cup-kneeler-left",
+        "mural-banquet-duo"
+      ],
+      "mirrored": false,
+      "width": 960,
+      "height": 338
+    },
+    {
+      "id": "trio-06",
+      "file": "assets/sprites/variants/trio-06.png",
+      "kind": "banquet",
+      "label": "宴饮",
+      "audioGroup": "attendant",
+      "animation": "banquet",
+      "color": "#756b56",
+      "composition": "trio",
+      "derivedFrom": [
+        "mural-cup-kneeler-right",
+        "mural-standing-server",
+        "mural-acrobat-ribbon"
+      ],
+      "mirrored": false,
+      "width": 960,
+      "height": 408
+    },
+    {
+      "id": "trio-07",
+      "file": "assets/sprites/variants/trio-07.png",
+      "kind": "dancer",
+      "label": "舞",
+      "audioGroup": "dancer",
+      "animation": "dance",
+      "color": "#735f80",
+      "composition": "trio",
+      "derivedFrom": [
+        "mural-sleeve-dancer",
+        "mural-right-procession",
+        "mural-horn-standing"
+      ],
+      "mirrored": false,
+      "width": 960,
+      "height": 392
+    },
+    {
+      "id": "trio-08",
+      "file": "assets/sprites/variants/trio-08.png",
+      "kind": "erhu",
+      "label": "弦乐",
+      "audioGroup": "erhu",
+      "animation": "bow",
+      "color": "#55727a",
+      "composition": "trio",
+      "derivedFrom": [
+        "independent-erhu",
+        "independent-dancer",
+        "mural-dance-banquet-group"
+      ],
+      "mirrored": false,
+      "width": 960,
+      "height": 605
+    },
+    {
+      "id": "ensemble-01",
+      "file": "assets/sprites/variants/ensemble-01.png",
+      "kind": "se",
+      "label": "瑟",
+      "audioGroup": "qin",
+      "animation": "harp",
+      "color": "#5d765f",
+      "composition": "ensemble",
+      "derivedFrom": [
+        "mural-qin-platform",
+        "mural-standing-reed",
+        "mural-pipa-seated",
+        "mural-bell-striker"
+      ],
+      "mirrored": false,
+      "width": 960,
+      "height": 287
+    },
+    {
+      "id": "ensemble-02",
+      "file": "assets/sprites/variants/ensemble-02.png",
+      "kind": "bells",
+      "label": "钟磬",
+      "audioGroup": "bells",
+      "animation": "strike",
+      "color": "#8e654f",
+      "composition": "ensemble",
+      "derivedFrom": [
+        "mural-bell-rack-ensemble",
+        "mural-bowed-string",
+        "mural-panpipe-seated",
+        "mural-grand-drum-duo"
+      ],
+      "mirrored": false,
+      "width": 960,
+      "height": 254
+    },
+    {
+      "id": "ensemble-03",
+      "file": "assets/sprites/variants/ensemble-03.png",
+      "kind": "dancer",
+      "label": "舞",
+      "audioGroup": "dancer",
+      "animation": "dance",
+      "color": "#735f80",
+      "composition": "ensemble",
+      "derivedFrom": [
+        "mural-ribbon-duo-left",
+        "mural-cymbal-dancer",
+        "mural-tray-procession",
+        "mural-left-attendant"
+      ],
+      "mirrored": false,
+      "width": 960,
+      "height": 280
+    },
+    {
+      "id": "ensemble-04",
+      "file": "assets/sprites/variants/ensemble-04.png",
+      "kind": "banquet",
+      "label": "宴饮",
+      "audioGroup": "attendant",
+      "animation": "banquet",
+      "color": "#756b56",
+      "composition": "ensemble",
+      "derivedFrom": [
+        "mural-cup-kneeler-left",
+        "mural-banquet-table",
+        "mural-cup-kneeler-right",
+        "mural-standing-server"
+      ],
+      "mirrored": false,
+      "width": 960,
+      "height": 305
+    },
+    {
+      "id": "ensemble-05",
+      "file": "assets/sprites/variants/ensemble-05.png",
+      "kind": "acrobat",
+      "label": "百戏",
+      "audioGroup": "dancer",
+      "animation": "acrobat",
+      "color": "#6e617e",
+      "composition": "ensemble",
+      "derivedFrom": [
+        "mural-acrobat-ribbon",
+        "mural-sleeve-dancer",
+        "mural-right-procession",
+        "mural-horn-standing"
+      ],
+      "mirrored": false,
+      "width": 960,
+      "height": 292
+    },
+    {
+      "id": "ensemble-06",
+      "file": "assets/sprites/variants/ensemble-06.png",
+      "kind": "qin",
+      "label": "琴",
+      "audioGroup": "qin",
+      "animation": "pluck",
+      "color": "#657b61",
+      "composition": "ensemble",
+      "derivedFrom": [
+        "independent-qin",
+        "independent-flute",
+        "independent-pipa",
+        "independent-erhu",
+        "independent-attendant"
+      ],
+      "mirrored": false,
+      "width": 960,
+      "height": 414
+    },
+    {
+      "id": "ensemble-07",
+      "file": "assets/sprites/variants/ensemble-07.png",
+      "kind": "drum",
+      "label": "鼓",
+      "audioGroup": "drum",
+      "animation": "drum",
+      "color": "#805c35",
+      "composition": "ensemble",
+      "derivedFrom": [
+        "independent-drum",
+        "mural-drum-player",
+        "mural-grand-drum-duo",
+        "mural-cymbal-dancer"
+      ],
+      "mirrored": false,
+      "width": 960,
+      "height": 409
+    },
+    {
+      "id": "ensemble-08",
+      "file": "assets/sprites/variants/ensemble-08.png",
+      "kind": "procession",
+      "label": "仪仗",
+      "audioGroup": "attendant",
+      "animation": "procession",
+      "color": "#5d735d",
+      "composition": "ensemble",
+      "derivedFrom": [
+        "mural-ritual-trio",
+        "mural-banquet-duo",
+        "mural-dance-banquet-group",
+        "independent-dancer"
+      ],
+      "mirrored": false,
+      "width": 960,
+      "height": 422
+    }
+  ]
 }

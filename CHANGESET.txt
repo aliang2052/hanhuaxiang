@@ -1,0 +1,83 @@
+P0 fix2 changeset relative to baseline ac76d30
+
+Status codes follow git status --short. Binary assets are included in the full ZIP and binary patch.
+
+ M ASSET_NOTES.md
+ M MANIFEST.sha256
+ M README.md
+ M assets/audio/ambience.wav
+ M assets/audio/attendant.wav
+ M assets/audio/dancer.wav
+ M assets/audio/drum.wav
+ M assets/audio/erhu.wav
+ D assets/mural-base.jpg
+ D assets/sprites/attendant.png
+ D assets/sprites/bells.png
+ D assets/sprites/dancer.png
+ D assets/sprites/drum.png
+ D assets/sprites/erhu.png
+ D assets/sprites/flute.png
+ M assets/sprites/manifest.json
+ D assets/sprites/pipa.png
+ D assets/sprites/qin.png
+ D config/cells.json
+ D docs/DELIVERY_REPORT.md
+ D docs/preview-all.png
+ D docs/preview-auto.png
+ D docs/preview-calibration.png
+ D docs/preview-mobile.png
+ D docs/preview-pointer.png
+ D docs/smoke-test-results.json
+ D docs/sprite-contact-sheet.jpg
+ M index.html
+ M package.json
+ M requirements-dev.txt
+ M server.js
+ D src/app.js
+ M start.bat
+ M start.command
+ M start.sh
+ M styles.css
+ D tests/smoke_test.py
+ M tools/build_assets.py
+?? .gitignore
+?? BASELINE_DELETIONS.txt
+?? CHANGESET.txt
+?? MANIFEST.json
+?? PRO_IMPLEMENTATION_REPORT.md
+?? assets/background/
+?? assets/favicon.svg
+?? assets/source-highres/mural-crops/
+?? assets/sprites/variants/
+?? config/scene.json
+?? docs/CHATGPT_PRO_TASK.md
+?? docs/screenshots/
+?? docs/test-results/
+?? package-lock.json
+?? requirements-build.txt
+?? src/audio/
+?? src/calibration/
+?? src/config/
+?? src/core/
+?? src/input/
+?? src/main.js
+?? src/scene/
+?? src/trigger/
+?? src/ui/
+?? tests/asset_verify_preservation.py
+?? tests/e2e/
+?? tests/server.test.js
+?? tests/unit/
+?? tools/build_manifest.py
+?? tools/check-syntax.js
+?? tools/clean-legacy.js
+?? tools/preflight.js
+?? tools/verify_asset_rebuild.py
+
+Key quantitative changes:
+- 63 dense landscape architectural panels; 5 central-stage panels; bilateral ornament bands; 8 beams.
+- 32 distinct base silhouettes/scenes (8 independent high-resolution sources + 24 distinct mural regions).
+- 60 runtime sprite PNGs used by 63 nodes.
+- Persistent camera reconnect loop, generation cancellation, timeout/play cleanup, race E2E.
+- Non-destructive cross-platform semantic asset verification for 98 generated outputs.
+- Configurable soak test; 15-second short run recorded, 60-minute command provided but not claimed as run.

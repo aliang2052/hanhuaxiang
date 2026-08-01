@@ -1,0 +1,441 @@
+{
+  "ok": true,
+  "timestampUtc": "2026-08-01T04:57:23Z",
+  "durationSeconds": 1.979,
+  "platform": "Linux-6.12.13-x86_64-with-glibc2.41",
+  "python": "3.13.5 (main, May  5 2026, 21:05:52) [GCC 14.2.0]",
+  "browserExecutable": "/usr/bin/chromium",
+  "health": {
+    "ok": true,
+    "app": "han-orchestra-installation",
+    "version": "2.2.0-p0-fix2",
+    "baseline": "ac76d30",
+    "uptimeSeconds": 0.1
+  },
+  "checks": [
+    {
+      "name": "camera race health endpoint",
+      "ok": true,
+      "detail": "{\"app\": \"han-orchestra-installation\", \"baseline\": \"ac76d30\", \"ok\": true, \"uptimeSeconds\": 0.1, \"version\": \"2.2.0-p0-fix2\"}"
+    },
+    {
+      "name": "first hardware request is pending",
+      "ok": true,
+      "detail": "{\"getUserMediaCalls\": 1, \"message\": \"正在请求摄像头。\", \"permanentError\": false, \"reconnectAttempts\": 0, \"reconnectFailuresTotal\": 0, \"reconnectSuccesses\": 0, \"retryable\": false, \"source\": \"hardware\", \"sourceGeneration\": 1, \"state\": \"requesting\", \"transportState\": \"requesting\"}"
+    },
+    {
+      "name": "intermediate simulated source starts",
+      "ok": true,
+      "detail": "true"
+    },
+    {
+      "name": "second hardware selection starts a new request",
+      "ok": true,
+      "detail": "{\"getUserMediaCalls\": 2, \"message\": \"正在请求摄像头。\", \"permanentError\": false, \"reconnectAttempts\": 0, \"reconnectFailuresTotal\": 0, \"reconnectSuccesses\": 0, \"retryable\": false, \"source\": \"hardware\", \"sourceGeneration\": 3, \"state\": \"requesting\", \"transportState\": \"requesting\"}"
+    },
+    {
+      "name": "stale first hardware request resolves false",
+      "ok": true,
+      "detail": "false"
+    },
+    {
+      "name": "current second hardware request resolves true",
+      "ok": true,
+      "detail": "true"
+    },
+    {
+      "name": "old stream is stopped and cannot pollute the current video",
+      "ok": true,
+      "detail": "{\"currentIsNew\": true, \"newTrack\": \"live\", \"oldTrack\": \"ended\"}"
+    },
+    {
+      "name": "rapid source race leaves one live hardware session and renderer alive",
+      "ok": true,
+      "detail": "{\"camera\": {\"getUserMediaCalls\": 2, \"message\": \"\", \"permanentError\": false, \"reconnectAttempts\": 0, \"reconnectFailuresTotal\": 0, \"reconnectSuccesses\": 0, \"retryable\": false, \"source\": \"hardware\", \"sourceGeneration\": 3, \"state\": \"live\", \"transportState\": \"live\"}, \"drawn\": 63}"
+    },
+    {
+      "name": "camera race has no external requests",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "camera race has no console/page errors",
+      "ok": true,
+      "detail": "[]"
+    }
+  ],
+  "warnings": [],
+  "consoleErrors": [],
+  "externalRequests": [],
+  "race": {
+    "final": {
+      "version": "2.2.0-p0-fix2",
+      "baseline": "ac76d30",
+      "ready": true,
+      "entered": true,
+      "configVersion": 3,
+      "sceneNodeCount": 63,
+      "distinctSpriteFiles": 60,
+      "assetStats": {
+        "runtimeSpriteCount": 60,
+        "distinctBaseSilhouetteCount": 32,
+        "independentHighResSourceCount": 8,
+        "muralDerivedDistinctSourceCount": 24
+      },
+      "sceneStructure": {
+        "version": 3,
+        "orientation": "landscape",
+        "panelCount": 63,
+        "centralStagePresent": true,
+        "centralStagePanelCount": 5,
+        "leftBorderPresent": true,
+        "rightBorderPresent": true,
+        "sideBorderCount": 2,
+        "horizontalBeamCount": 8
+      },
+      "loadedSpriteFiles": 60,
+      "assetErrors": [],
+      "mode": "camera",
+      "camera": {
+        "source": "hardware",
+        "state": "live",
+        "transportState": "live",
+        "message": "",
+        "reconnectAttempts": 0,
+        "reconnectFailuresTotal": 0,
+        "reconnectSuccesses": 0,
+        "retryable": false,
+        "permanentError": false,
+        "sourceGeneration": 3,
+        "getUserMediaCalls": 2
+      },
+      "backgroundReady": false,
+      "capturingBackground": false,
+      "captureProgress": 0,
+      "componentCount": 0,
+      "processingMs": 0,
+      "foregroundPixels": 0,
+      "coverages": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "positiveCoverageCount": 0,
+      "pointerCount": 0,
+      "activeCount": 0,
+      "activeIds": [],
+      "visual": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.892524003982544,
+        0.892524003982544,
+        0,
+        0,
+        0,
+        0,
+        0.892524003982544,
+        0.892524003982544,
+        0,
+        0.892524003982544,
+        0.892524003982544,
+        0,
+        0,
+        0,
+        0,
+        0.892524003982544,
+        0.892524003982544,
+        0,
+        0.892524003982544,
+        0.892524003982544,
+        0,
+        0,
+        0,
+        0,
+        0.892524003982544,
+        0.892524003982544,
+        0,
+        0,
+        0.7514773607254028,
+        0,
+        0,
+        0,
+        0,
+        0.833604097366333,
+        0.833604097366333,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fps": 3.4758428918990356,
+      "viewport": {
+        "cssWidth": 1100,
+        "cssHeight": 700,
+        "backingWidth": 1100,
+        "backingHeight": 700,
+        "backingPixels": 770000,
+        "scale": 1,
+        "aspect": 1.5714285714285714,
+        "orientation": "landscape",
+        "revision": 1
+      },
+      "orientation": "landscape",
+      "rendererDrawn": 63,
+      "calibration": {
+        "activeName": "默认全画面",
+        "quad": [
+          {
+            "x": 0.035,
+            "y": 0.04
+          },
+          {
+            "x": 0.965,
+            "y": 0.04
+          },
+          {
+            "x": 0.965,
+            "y": 0.96
+          },
+          {
+            "x": 0.035,
+            "y": 0.96
+          }
+        ],
+        "presets": [
+          {
+            "name": "默认全画面",
+            "quad": [
+              {
+                "x": 0.035,
+                "y": 0.04
+              },
+              {
+                "x": 0.965,
+                "y": 0.04
+              },
+              {
+                "x": 0.965,
+                "y": 0.96
+              },
+              {
+                "x": 0.035,
+                "y": 0.96
+              }
+            ],
+            "updatedAt": "reproducible-default"
+          }
+        ],
+        "maxError": 4.965068306494546e-16,
+        "valid": true,
+        "errors": [],
+        "verification": {
+          "maxRoundTripError": 6.280369834735101e-16,
+          "valid": true,
+          "corners": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 1
+            },
+            {
+              "x": 0,
+              "y": 1
+            }
+          ]
+        }
+      },
+      "coverageMapping": {
+        "width": 240,
+        "height": 135,
+        "revision": 1,
+        "mappedPixels": 28000,
+        "emptyCells": 0,
+        "minCellArea": 408,
+        "maxCellArea": 450
+      },
+      "triggerPartition": {
+        "holes": 0,
+        "overlaps": 0,
+        "counts": [
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000,
+          10000
+        ],
+        "expected": 10000,
+        "maxDeviation": 0,
+        "valid": true
+      },
+      "audio": {
+        "state": "loading",
+        "started": false,
+        "muted": false,
+        "loadedGroups": 0,
+        "requestedGroups": 9,
+        "errors": []
+      },
+      "debugOpen": false,
+      "uiHidden": false,
+      "lastMessage": "正在请求摄像头。",
+      "lastMessageLevel": "warning",
+      "runtimeErrors": [],
+      "memory": {
+        "usedJSHeapSize": 5429520,
+        "totalJSHeapSize": 8775000
+      }
+    },
+    "streamIdentity": {
+      "currentIsNew": true,
+      "oldTrack": "ended",
+      "newTrack": "live"
+    }
+  }
+}

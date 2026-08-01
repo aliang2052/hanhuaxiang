@@ -1,0 +1,1161 @@
+{
+  "ok": true,
+  "timestampUtc": "2026-08-01T04:52:59Z",
+  "durationSeconds": 14.292,
+  "python": "3.13.5 (main, May  5 2026, 21:05:52) [GCC 14.2.0]",
+  "numpy": "2.3.5",
+  "pillow": "12.2.0",
+  "outputCount": 98,
+  "semanticMismatches": [],
+  "samePlatformRebuildByteMismatches": [],
+  "strictShippedByteMismatches": [],
+  "worktreeUnchanged": true,
+  "manifestFilesUnchanged": true,
+  "gitStatusAvailable": true,
+  "manifestVerification": "Manifest verification passed: 188 files, 62909599 bytes.",
+  "contract": {
+    "png": "exact decoded RGBA pixel hash across shipped output and both rebuilds",
+    "jpeg": "cross-platform semantic hash from 128x72 block-averaged 5-bit decoded RGB",
+    "wavAndJson": "byte SHA-256 across shipped output and both rebuilds",
+    "samePlatform": "all generated outputs byte-identical between rebuild A and rebuild B",
+    "nonDestructive": "project file hashes, Git status, MANIFEST.json and MANIFEST.sha256 unchanged"
+  },
+  "outputs": {
+    "assets/audio/ambience.wav": {
+      "bytes": 705644,
+      "byteSha256": "96540ee39e42fa33b62e8cad43c51e85b91f82365867b25d6d62fd5fd12aebff",
+      "semanticSha256": "96540ee39e42fa33b62e8cad43c51e85b91f82365867b25d6d62fd5fd12aebff",
+      "semantic": {
+        "mode": "byte-sha256"
+      }
+    },
+    "assets/audio/attendant.wav": {
+      "bytes": 705644,
+      "byteSha256": "2a1be347ea6b689b971e245177c0244e493c7f23e2a1236f8871571a133597fe",
+      "semanticSha256": "2a1be347ea6b689b971e245177c0244e493c7f23e2a1236f8871571a133597fe",
+      "semantic": {
+        "mode": "byte-sha256"
+      }
+    },
+    "assets/audio/bells.wav": {
+      "bytes": 705644,
+      "byteSha256": "8ac86c6ef66257d46c048bbea98664fba1948648bcefc475fdee993beb27963b",
+      "semanticSha256": "8ac86c6ef66257d46c048bbea98664fba1948648bcefc475fdee993beb27963b",
+      "semantic": {
+        "mode": "byte-sha256"
+      }
+    },
+    "assets/audio/dancer.wav": {
+      "bytes": 705644,
+      "byteSha256": "978fde6b3ac7922afc58d1549321b831ef8d1f57db6683f45121fc63417866c2",
+      "semanticSha256": "978fde6b3ac7922afc58d1549321b831ef8d1f57db6683f45121fc63417866c2",
+      "semantic": {
+        "mode": "byte-sha256"
+      }
+    },
+    "assets/audio/drum.wav": {
+      "bytes": 705644,
+      "byteSha256": "5edf61bb4c25d39ef550c5781a06e9b614b571fcd7929df8c2dc75d8eb256dcf",
+      "semanticSha256": "5edf61bb4c25d39ef550c5781a06e9b614b571fcd7929df8c2dc75d8eb256dcf",
+      "semantic": {
+        "mode": "byte-sha256"
+      }
+    },
+    "assets/audio/erhu.wav": {
+      "bytes": 705644,
+      "byteSha256": "4d518d731ea54740cf4fe68d2ce9e6d90648776d4b3be458e8f9554872df35c8",
+      "semanticSha256": "4d518d731ea54740cf4fe68d2ce9e6d90648776d4b3be458e8f9554872df35c8",
+      "semantic": {
+        "mode": "byte-sha256"
+      }
+    },
+    "assets/audio/flute.wav": {
+      "bytes": 705644,
+      "byteSha256": "20de418299315afecd870be39a969c9bd45a68f558aae9f4a70ccba748234439",
+      "semanticSha256": "20de418299315afecd870be39a969c9bd45a68f558aae9f4a70ccba748234439",
+      "semantic": {
+        "mode": "byte-sha256"
+      }
+    },
+    "assets/audio/pipa.wav": {
+      "bytes": 705644,
+      "byteSha256": "83ff5b810aee0b9f59696a82a149224ab36a927c2ee3531c062a60fe348fe5cc",
+      "semanticSha256": "83ff5b810aee0b9f59696a82a149224ab36a927c2ee3531c062a60fe348fe5cc",
+      "semantic": {
+        "mode": "byte-sha256"
+      }
+    },
+    "assets/audio/qin.wav": {
+      "bytes": 705644,
+      "byteSha256": "befe4df747ae4d6c0a2fe08f2063eeded6880e27623bd7c0455c392c5087aafa",
+      "semanticSha256": "befe4df747ae4d6c0a2fe08f2063eeded6880e27623bd7c0455c392c5087aafa",
+      "semantic": {
+        "mode": "byte-sha256"
+      }
+    },
+    "assets/background/mural-texture.jpg": {
+      "bytes": 1143572,
+      "byteSha256": "ab340e03c3022fd5082eb44514e1273ff00857006741e87c399d67162fe916d9",
+      "semanticSha256": "ba372a32925c89d841163134bdee6f61e22b7ceb47e4b9337f144bd934e58b2a",
+      "semantic": {
+        "mode": "block-averaged-5bit-rgb",
+        "size": [
+          2048,
+          1152
+        ],
+        "canonicalSize": [
+          128,
+          72
+        ]
+      }
+    },
+    "assets/source-highres/mural-crops/manifest.json": {
+      "bytes": 12459,
+      "byteSha256": "79a3602cfa43f0a41875616c3dec51aaadfd7c373bc6f78061cb26c4654a45ad",
+      "semanticSha256": "79a3602cfa43f0a41875616c3dec51aaadfd7c373bc6f78061cb26c4654a45ad",
+      "semantic": {
+        "mode": "byte-sha256"
+      }
+    },
+    "assets/source-highres/mural-crops/mural-acrobat-ribbon.png": {
+      "bytes": 92725,
+      "byteSha256": "db7db9b3b067ae24b6e2cc95db1ebb0e171711d20932533f73cf33dd769c55f1",
+      "semanticSha256": "8c4f66711452beaa23e13c806d602affb2fa88c3771b247185752ef5083cb1dd",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          255,
+          353
+        ]
+      }
+    },
+    "assets/source-highres/mural-crops/mural-banquet-duo.png": {
+      "bytes": 92730,
+      "byteSha256": "fe81a49c9709a89f26c250622cfc7073575d1f38c7215ea78294e8fe1cfd6603",
+      "semanticSha256": "915d545fe0fdf7b6ce5c8ee5f0b7f2a39ea4648b3a9b1e1946a4ebac95e35066",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          298,
+          327
+        ]
+      }
+    },
+    "assets/source-highres/mural-crops/mural-banquet-table.png": {
+      "bytes": 199997,
+      "byteSha256": "1a63f63790f62dab0d01b95e5ea455733a49b8b42a45136e1088e7ad0a11fe79",
+      "semanticSha256": "8b7f16627e4e5e7198cc7787fc328a2bced8040a96d4b57fcc5549eb4e60d873",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          502,
+          373
+        ]
+      }
+    },
+    "assets/source-highres/mural-crops/mural-bell-rack-ensemble.png": {
+      "bytes": 149848,
+      "byteSha256": "358ebbbb0315c3dbb3796d32cd67192bfbe61465c0fb6e637bf92aa10c725765",
+      "semanticSha256": "150f7747af8b36d0061a6a421e854dbeb0c6e30c47846a0b9c966275c389f710",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          420,
+          366
+        ]
+      }
+    },
+    "assets/source-highres/mural-crops/mural-bell-striker.png": {
+      "bytes": 67391,
+      "byteSha256": "4fe93fe1ec98f649e7a92f01f94108c2e26e04091851d99891fd2601f8fc71a4",
+      "semanticSha256": "d9dc2436f50d044d422d3243e3b31df62ff065cf980bcdf4f66752eda211e1c7",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          242,
+          304
+        ]
+      }
+    },
+    "assets/source-highres/mural-crops/mural-bowed-string.png": {
+      "bytes": 83354,
+      "byteSha256": "f042d0a7155bc472ff6caa7cfa431bd5d11809c540f9103a8f00b6d00255981a",
+      "semanticSha256": "cddf20ddee11f24a457a9cc3db4eb6de71c17081498ce3979518215e1a72cd8e",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          261,
+          339
+        ]
+      }
+    },
+    "assets/source-highres/mural-crops/mural-cup-kneeler-left.png": {
+      "bytes": 62577,
+      "byteSha256": "86b4be720cff0440b96fcbd1ce9771f91e75eb710d0374c9769a918b294bfba4",
+      "semanticSha256": "d6f05d80351e264f506f0d39d321c37b013df24649cb55276a9fd7d94b0d4755",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          223,
+          307
+        ]
+      }
+    },
+    "assets/source-highres/mural-crops/mural-cup-kneeler-right.png": {
+      "bytes": 78244,
+      "byteSha256": "fd0fc12c217e230872e11c27f96939d14a8a6d587e76eda05a08dd8da25e5885",
+      "semanticSha256": "aa50e625414ac2efe6bef3e37878fa4b319bbea9b9d85091899610f0826084c5",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          226,
+          327
+        ]
+      }
+    },
+    "assets/source-highres/mural-crops/mural-cymbal-dancer.png": {
+      "bytes": 79507,
+      "byteSha256": "7501937ccdd1d1158d8789545ceaf451ac7f07bed2d3f695cfe28d1b025f13a8",
+      "semanticSha256": "d495d23de33735acc0f2d5aed8fc66ae82b8655dbfb630ca6ec7110078c0c8e2",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          251,
+          344
+        ]
+      }
+    },
+    "assets/source-highres/mural-crops/mural-dance-banquet-group.png": {
+      "bytes": 199144,
+      "byteSha256": "de90e130883ec1b5b43190e3b53be3b407cc71f9323fa421580b52979ad90625",
+      "semanticSha256": "c622dba5ec7860bf43659309c73ce6e656b453a35fc8035967b6b8bdb79374d1",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          466,
+          398
+        ]
+      }
+    },
+    "assets/source-highres/mural-crops/mural-drum-player.png": {
+      "bytes": 75924,
+      "byteSha256": "8579b5321efa4c4fd55746ef4d662431b0879713ffaf596cd0a8a1c5c8a89db9",
+      "semanticSha256": "d4eff4dfe754dac95c850009126f34110e5c49375feb352c386edac377d099c7",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          214,
+          343
+        ]
+      }
+    },
+    "assets/source-highres/mural-crops/mural-grand-drum-duo.png": {
+      "bytes": 130049,
+      "byteSha256": "0dad17b571c36056f17664da3b42061359937e52b257306035ab53378bf461ba",
+      "semanticSha256": "e3f906e61f7c3abe0de118350f23770c208f9ec7505a94f84c2657603e213c5f",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          329,
+          376
+        ]
+      }
+    },
+    "assets/source-highres/mural-crops/mural-horn-standing.png": {
+      "bytes": 75735,
+      "byteSha256": "bca50dfdd47d31bb140dcd36b92203d9b5d8d3d5da36f07761d1b00a61604a39",
+      "semanticSha256": "95411ec120b55f67790ddb795062e292eee6dab66bee91d24e49f6806e2b3faa",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          241,
+          341
+        ]
+      }
+    },
+    "assets/source-highres/mural-crops/mural-left-attendant.png": {
+      "bytes": 56119,
+      "byteSha256": "d01a6c6e6406e36d9767829a80b50d7472fbbfc8506880de2e57af0a97f99108",
+      "semanticSha256": "ea5d0a52d2436a9a2ae18646ddebbe5a6dbe05166f20e94704aba88e96405e9c",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          181,
+          326
+        ]
+      }
+    },
+    "assets/source-highres/mural-crops/mural-panpipe-seated.png": {
+      "bytes": 79582,
+      "byteSha256": "324d986f70224caf9735f7894b13cec37a8658cb6cda2bc04686ddf88e2f3d9f",
+      "semanticSha256": "6961a815aa80c1ec1232b8b42ff2c133fdcd1dd57537a707147e362723894991",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          240,
+          329
+        ]
+      }
+    },
+    "assets/source-highres/mural-crops/mural-pipa-seated.png": {
+      "bytes": 86564,
+      "byteSha256": "dda262d5d109722bee23d406f08a6f307a538f27fbe7d9f582e47425c9224aab",
+      "semanticSha256": "5f497114dfda70f2783a5ea114b7545bc727e6955c7eca23b751fbb14eee5ff4",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          264,
+          327
+        ]
+      }
+    },
+    "assets/source-highres/mural-crops/mural-qin-platform.png": {
+      "bytes": 97415,
+      "byteSha256": "ab6ce4ac96f9426e44cd0d672971f77ceb4bd8131cb1f1f872cc261885cd061f",
+      "semanticSha256": "83e204793d00cf06d1fad29d00c29bfe10492ea70d85bd76b3a08516cbd899fa",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          310,
+          335
+        ]
+      }
+    },
+    "assets/source-highres/mural-crops/mural-ribbon-duo-left.png": {
+      "bytes": 93946,
+      "byteSha256": "390700bd3d5ee9ede2bd22ff62fdaaaa29e33c39d20189bd33b5d8a7ba4c5f4b",
+      "semanticSha256": "26facc5c39db9a2f2d679e87fc74f052d0a19874dfdcec7497ad924718d7ae69",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          282,
+          350
+        ]
+      }
+    },
+    "assets/source-highres/mural-crops/mural-right-procession.png": {
+      "bytes": 91872,
+      "byteSha256": "8c1ea4bf4943ebff7143b0d03ca3868319125e931bd07cbc51dc74a8f39bf346",
+      "semanticSha256": "a80f335c656c68e85e421671e6b38a414b47f3eb53bfedbfeb5648bf8d4e437a",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          264,
+          365
+        ]
+      }
+    },
+    "assets/source-highres/mural-crops/mural-ritual-trio.png": {
+      "bytes": 134294,
+      "byteSha256": "d450467ef3d24cdfc0cc9abbdffa2949f7b69220998d680a7b610c00cf78465d",
+      "semanticSha256": "ca973eeefdfc9887e8600defe729e31a4ee88d66d990afb46ca206d71af61c3b",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          354,
+          369
+        ]
+      }
+    },
+    "assets/source-highres/mural-crops/mural-sleeve-dancer.png": {
+      "bytes": 99430,
+      "byteSha256": "9be02f2679315a5292edbc5ed49146c88e55ff99611428ac5a54fbd7cfd27951",
+      "semanticSha256": "28e79330cc6276744e61f984fe92333cc64736c5e7d88dde245b5bc0c69921b7",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          280,
+          367
+        ]
+      }
+    },
+    "assets/source-highres/mural-crops/mural-standing-reed.png": {
+      "bytes": 87407,
+      "byteSha256": "d9d9ad187da6e1baa4897c5fdf55cc08dcbad16687d38999ab24a56058be7ac0",
+      "semanticSha256": "6cd7aa96b974b54f630c436616a3570a4da412cd5e7119d72d2b6b603078e732",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          249,
+          366
+        ]
+      }
+    },
+    "assets/source-highres/mural-crops/mural-standing-server.png": {
+      "bytes": 73559,
+      "byteSha256": "2762fe875cdda6d58e22947d795516d8324bb5a2437c59ceedf21d2b7a27eb0a",
+      "semanticSha256": "936aa32eb2666b9fc33b17553eb62e36453df50f069b6c27e1694d25c5e85ae3",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          196,
+          376
+        ]
+      }
+    },
+    "assets/source-highres/mural-crops/mural-tray-procession.png": {
+      "bytes": 71834,
+      "byteSha256": "19f4edbbc4cd5ce5916574b0bb3242221e2c4e10ce8cb8725ba4c15360fa5aa0",
+      "semanticSha256": "3437562ef5e7bb5f9b3f7a7d843b68a1569d0c514b605e4959949433bea1cc80",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          214,
+          356
+        ]
+      }
+    },
+    "assets/sprites/manifest.json": {
+      "bytes": 26206,
+      "byteSha256": "86ba5f412aa194fdd6ca21c0d8c984db0555144d0e0da744e80cce0a4a1be7af",
+      "semanticSha256": "86ba5f412aa194fdd6ca21c0d8c984db0555144d0e0da744e80cce0a4a1be7af",
+      "semantic": {
+        "mode": "byte-sha256"
+      }
+    },
+    "assets/sprites/variants/duo-01-qin-standing-reed.png": {
+      "bytes": 603527,
+      "byteSha256": "617390662ac97bc6eba8f3a4ede9daf4af2466da55b0a636082071f757e563a1",
+      "semanticSha256": "78541e2cdbf0a54211a79ceba8246f6a9aa4003d7ed22c642df88213f53ace27",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          904,
+          733
+        ]
+      }
+    },
+    "assets/sprites/variants/duo-02-pipa-seated-bell-striker.png": {
+      "bytes": 164970,
+      "byteSha256": "78dfff1fc05fa6b716ec82a2838bcd314bf69e9f30b8ad5694320d31a30f4ac9",
+      "semanticSha256": "62990e7a0aa7bf4f8de5cb4f74062ac36c71cb1915f69000e9c5f1ad026957d9",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          663,
+          332
+        ]
+      }
+    },
+    "assets/sprites/variants/duo-03-bowed-string-panpipe-seated.png": {
+      "bytes": 172654,
+      "byteSha256": "95298f00e2f8bf415952a7073df1734e5ceaeea62ca66ca0f1766ab7b8155ffc",
+      "semanticSha256": "281d43e09b7c7c39373334dfe1512bc550649b850501e9274a29b47ebe31bc9b",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          660,
+          344
+        ]
+      }
+    },
+    "assets/sprites/variants/duo-04-grand-drum-duo-cymbal-dancer.png": {
+      "bytes": 224308,
+      "byteSha256": "7db2e94e0219f7f2cadf10b51ed50f493e63345be117022ab2ae1bfac69ccd49",
+      "semanticSha256": "e34a94f0813b2dcd770bbdaab5b1ca40ff8b0588c3a23dd1307b81f6fd43cb3c",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          698,
+          379
+        ]
+      }
+    },
+    "assets/sprites/variants/duo-05-ribbon-duo-left-tray-procession.png": {
+      "bytes": 172283,
+      "byteSha256": "db51f8a2c76923d0cc6df413cef752af3b07ba6198ca3990859c2e4e021f9be5",
+      "semanticSha256": "96aa303250122cbb5bc26f4f48b4806815c413d8fdc266fb1394d6095f112f83",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          658,
+          354
+        ]
+      }
+    },
+    "assets/sprites/variants/duo-06-cup-kneeler-left-cup-kneeler-right.png": {
+      "bytes": 145739,
+      "byteSha256": "670aa19f9183c0271a31cf85ba0ac45faaf8d51619fed56c154a4af97e363c2e",
+      "semanticSha256": "3a3dc258f3189977c60b5dfce6001b6e41bc618a4a7b7471f20957144ccf950c",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          635,
+          326
+        ]
+      }
+    },
+    "assets/sprites/variants/duo-07-acrobat-ribbon-standing-server.png": {
+      "bytes": 177143,
+      "byteSha256": "bb01d50477f553a0b9e57b9a6bdd0133fc82859d6cca8ba5846bc900da01092a",
+      "semanticSha256": "57d067833cb895191b478b4523bf4e23b9792fc6b07614505e4df95ff0ea5120",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          636,
+          372
+        ]
+      }
+    },
+    "assets/sprites/variants/duo-08-dancer-sleeve-dancer.png": {
+      "bytes": 528507,
+      "byteSha256": "b9286eab1ecf96c3f19a222256f0e4f88fbfeea7893c8bc8243e310f5616b432",
+      "semanticSha256": "feb074021a24789a27b6ad8feca773d6817ebe87d2e5ddbfbfbd43842f1fb4fa",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          861,
+          733
+        ]
+      }
+    },
+    "assets/sprites/variants/duo-09-flute-horn-standing.png": {
+      "bytes": 346378,
+      "byteSha256": "3011d5fdea4c92051e18364ac0b6dfcf7a42072f26dd124ff1ffca548c51d456",
+      "semanticSha256": "a868701dd573c359b00b47914c69057b84de0765ac6cb02a2ebc1b7957a33673",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          694,
+          740
+        ]
+      }
+    },
+    "assets/sprites/variants/duo-10-pipa-banquet-duo.png": {
+      "bytes": 491121,
+      "byteSha256": "567f99db3936bb8e486666793eed07c8448e42fa1f26985249cacbb30a859c42",
+      "semanticSha256": "3d2360398ec288546193f5efe11d0f70c6ec6b874d453f86b07908f8333b2f3b",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          927,
+          733
+        ]
+      }
+    },
+    "assets/sprites/variants/duo-11-drum-drum-player.png": {
+      "bytes": 657080,
+      "byteSha256": "972083b934612c21edbd98a63196780fd2f51edafabcb1fd28a5d59b76406820",
+      "semanticSha256": "025477167367a5f15fdbeef83566a7dd6afc9b9ef9f47e4d0f88425bb4a768ac",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          888,
+          733
+        ]
+      }
+    },
+    "assets/sprites/variants/duo-12-attendant-left-attendant.png": {
+      "bytes": 353333,
+      "byteSha256": "f58166967b6d0d654d29157b4fda7805f3b45c01185043834cdc7e2bb2198572",
+      "semanticSha256": "912ba571cf6d4b23a7121418d3a9a0b77c96c82822a59a51cad54996053db371",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          644,
+          742
+        ]
+      }
+    },
+    "assets/sprites/variants/ensemble-01.png": {
+      "bytes": 191160,
+      "byteSha256": "5c50344e412ea3154b3cbe9c609fdfb6c47786bf0cf3150b217714e4f8982ee3",
+      "semanticSha256": "e76335ba6d65a3ba2a16698b6a9d8d36e00d4ddf3048ac2af1f76411c82d85c2",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          960,
+          287
+        ]
+      }
+    },
+    "assets/sprites/variants/ensemble-02.png": {
+      "bytes": 217942,
+      "byteSha256": "257b403105ad19845464960908de31c9cc0fdd7325f930e59a54ba8a4747352a",
+      "semanticSha256": "d96a5f7f9a4ce51cd9e9c72c375467fb9981940aee33150636eca014d016200d",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          960,
+          254
+        ]
+      }
+    },
+    "assets/sprites/variants/ensemble-03.png": {
+      "bytes": 173756,
+      "byteSha256": "c4f80d1db3d2367456b7a0124c60e3bbe3db80f5d71c81df8797a1d1e41176ac",
+      "semanticSha256": "59e50266efb400689476a6ed608503d4a0a669247d6572f8ab3a9854ce29f055",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          960,
+          280
+        ]
+      }
+    },
+    "assets/sprites/variants/ensemble-04.png": {
+      "bytes": 249544,
+      "byteSha256": "8d3144eb3ecfc0a57bf1278bb635feb8f3a54d9500d7da67e73f6c0e4861f0ae",
+      "semanticSha256": "01057c81370a7075115a4bca40674a492c1f4044b032643840b6f2a1577b053b",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          960,
+          305
+        ]
+      }
+    },
+    "assets/sprites/variants/ensemble-05.png": {
+      "bytes": 202159,
+      "byteSha256": "48671e5d739a8ecee3fc10e3631265fc816f526b93e258b62abb17401513af10",
+      "semanticSha256": "bb985dfcce4ace41401368462f8c94e631d73cbf1db3138a6400adf2a050fa38",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          960,
+          292
+        ]
+      }
+    },
+    "assets/sprites/variants/ensemble-06.png": {
+      "bytes": 517302,
+      "byteSha256": "b0e9e39d7db78c3541f197208b977413a5907b2faf68d8c465e7c1f083449f84",
+      "semanticSha256": "761ae939d00ed4c1437acc773c459f4cdbbf537c6ba0cbd06eed8dc2affa76b3",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          960,
+          414
+        ]
+      }
+    },
+    "assets/sprites/variants/ensemble-07.png": {
+      "bytes": 319854,
+      "byteSha256": "e90103c2cc615aa6b941494b5f00679430ba075ab99230051230ccffa162dcf5",
+      "semanticSha256": "dfdd9a5931dd9cdd327aadf4a6a77b4de1605f9656a5681c29bc8474c7fb4d06",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          960,
+          409
+        ]
+      }
+    },
+    "assets/sprites/variants/ensemble-08.png": {
+      "bytes": 321090,
+      "byteSha256": "618dfd3bf80e5a8131b13fd5cf56c21bab08066eb7f52f542d3fd0879a4ddba0",
+      "semanticSha256": "b27126cbc5018f7afc6677d07c6b6276ced67aeb1347511bda3831ee21d5faae",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          960,
+          422
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-independent-attendant.png": {
+      "bytes": 317928,
+      "byteSha256": "e92b03b739b16cd7331b4f4a4270d4fe43bfe5ddbb3d2b5de76754dfc840b2f8",
+      "semanticSha256": "e50087e69b3ebcc215676c372136af9e091d903ed0667074ce6697b4f302d6ed",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          546,
+          760
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-independent-bells.png": {
+      "bytes": 384021,
+      "byteSha256": "1cd54515ed69190278610d3f2689a24bc83a7ee33cc47c06f4510d60a2e6254b",
+      "semanticSha256": "ce833f81b1a4762a458210c443c7ab2b3224447482c45356838cc6c603b698d8",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          960,
+          677
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-independent-dancer.png": {
+      "bytes": 370852,
+      "byteSha256": "783296ca044cdc0bd918ea8291344e20c4d3886dc9177a0861328ef4df3fd414",
+      "semanticSha256": "8f9ad540735197ade5cca0b161b8df2b3d34d4ab62f5d7312caed73d5cc155ba",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          960,
+          675
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-independent-drum.png": {
+      "bytes": 494027,
+      "byteSha256": "6094d33dfd7a72c962a5c642c7c7da11b7c426f2bd4af906557a848c00256519",
+      "semanticSha256": "f00d503bdfdc2ae158f809a4a54dc0892a73533669f8472f11383647be99b7ae",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          960,
+          677
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-independent-erhu.png": {
+      "bytes": 325446,
+      "byteSha256": "ec6774c47ba3ee22ac7452838cee24644bfad53856c103debb7d4baba448ab0b",
+      "semanticSha256": "333681b0b96578e590736387f25e8a52685def3c6b7e2223204b24038d9db90e",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          960,
+          677
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-independent-flute.png": {
+      "bytes": 289602,
+      "byteSha256": "9a7dc71c904433ca4b855990896022b34441b8fc9acc8ce829972f69f3598fbe",
+      "semanticSha256": "e39dcb883ee12734a5eeefae419dacc8c2ad6a2a8a20c64acc93e2b149e6aa0c",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          545,
+          760
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-independent-pipa.png": {
+      "bytes": 340765,
+      "byteSha256": "bff140440a5d2dd4a5d18553e43da7dbd7364da80fa9f3e6bce04ada663df043",
+      "semanticSha256": "e41d819973b8ba2452d442482a7a45290edd20678596c85e9bfc93947e7a02e6",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          960,
+          677
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-independent-qin.png": {
+      "bytes": 441134,
+      "byteSha256": "45636b2aa835800a1084e8a53f08d6692ec038035003bf18a38a1334b5d8260d",
+      "semanticSha256": "82a8ceadbf2bf76e23a667e89b0e073bc19b35cd7aa9f094d281b0302a746c49",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          960,
+          677
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-mural-acrobat-ribbon.png": {
+      "bytes": 92432,
+      "byteSha256": "203a9d099e7d273f299d3257c9ed8fbc61b25c8e7a3678c353de13b2dffee72b",
+      "semanticSha256": "00e94145dc827c1f3d43bd63c682a172e79cd1f2af6ac29707f06c54f7571ed9",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          247,
+          345
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-mural-banquet-duo.png": {
+      "bytes": 92511,
+      "byteSha256": "444d760225254ab49c9c67fbf67ea07f133a16556fbed73171ca4ee2582e06f9",
+      "semanticSha256": "e1df34f593bba31f55697bd2f615a0ec4ed4fa2d35b80af3fd8f4ef2705d9235",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          290,
+          319
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-mural-banquet-table.png": {
+      "bytes": 199857,
+      "byteSha256": "21187d1e097be1428eac8ba439b8aaac80d93c5f1f6a0e05c32d2b578e1fc17e",
+      "semanticSha256": "eeed5f21f22b00ec964792485001fca09e390648736e2ad2317e331514f10da2",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          498,
+          369
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-mural-bell-rack-ensemble.png": {
+      "bytes": 149550,
+      "byteSha256": "701fcdf4ecaa31b704046a05a704ed8e63ee4e7efaf916839c4ee76b85349071",
+      "semanticSha256": "67f371ad40019e604e127a1dacd69c79522b7f2b5a6774522e48d4ccc6cf7af8",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          412,
+          358
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-mural-bell-striker.png": {
+      "bytes": 67178,
+      "byteSha256": "c306fa97c7f32d9c8aef065375bb428cd11c913e06ce9623388f17d7bdd8a0b7",
+      "semanticSha256": "73d38528ecd88ab2d14e2e4b7e422b2f431274351be55b75cf403d53bb60dc2c",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          234,
+          296
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-mural-bowed-string.png": {
+      "bytes": 83070,
+      "byteSha256": "521f5bef5df8d26c1fd0c9d7a0f7ad203d99def82870a6d2288d4192f2d0c1a5",
+      "semanticSha256": "0704a86339d9da6d38e00080738babcc6b8c2cf9accdf3af6803e46e672e8c3e",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          253,
+          331
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-mural-cup-kneeler-left.png": {
+      "bytes": 62374,
+      "byteSha256": "684af8204cf316d56fd149442f10afa4f6b43482d405bfca01969614a83e09b1",
+      "semanticSha256": "72ff469e05bf5d37d5e1daa29b417f44b31141cd84f4c1a4abfa00c87753acc5",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          215,
+          299
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-mural-cup-kneeler-right.png": {
+      "bytes": 78016,
+      "byteSha256": "226536f35ea06b63423e1cf2685833174fb4411501ed8156c2757fbd19798c87",
+      "semanticSha256": "cabe8e8144167b49767c9e280f0f5b6bc8e42dbbd37a168887e6f4dee45b8952",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          218,
+          319
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-mural-cymbal-dancer.png": {
+      "bytes": 79284,
+      "byteSha256": "e65004dab5f3ad48e1d2c9e078737c1fb5db73158a84af02dc20b3cfe634b693",
+      "semanticSha256": "28ee7c70d334d09da82fccde8a44095bfed0bac93b4cf0e7283c83190c1c97a4",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          243,
+          336
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-mural-dance-banquet-group.png": {
+      "bytes": 198892,
+      "byteSha256": "2087ad161df6612db8afcd00910cb6c60eacd3ef5cf12bdc35e5c3ff65ec2f74",
+      "semanticSha256": "edff04a5633b473a79036733a0221b4b66bb83bcc1906f6120bef2212f02a7e3",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          460,
+          392
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-mural-drum-player.png": {
+      "bytes": 75648,
+      "byteSha256": "a00076645df731b2502bd05087f2e6e1f6cfa18a0f3e139a3edb9ea47b206490",
+      "semanticSha256": "b3b54a9e4177582ecdd330de74432c954c922a0c110c1d928acb96a187a2c533",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          206,
+          335
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-mural-grand-drum-duo.png": {
+      "bytes": 129783,
+      "byteSha256": "f123a208ac31a65cc7255f2e85529af939ed2ac1bf2020ad527afcd73bea6095",
+      "semanticSha256": "5e5d61c7ad1f2eb87fd6da9e24073c8c7a8bee4e948c01fb37adac95e6a5cb6b",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          321,
+          368
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-mural-horn-standing.png": {
+      "bytes": 75514,
+      "byteSha256": "569f99dcefab0466745bdc3aa394bd2a6161d44400ed7b7ab96aed97e855179b",
+      "semanticSha256": "c4b719a0abd6e6d43403ff5bff6ab0c23b2ee2f6404bdd90a321127ac8723ef6",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          233,
+          333
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-mural-left-attendant.png": {
+      "bytes": 55897,
+      "byteSha256": "05cd78727a055d0e6181ae9f19be5b1c8b929c8198f09370b28d7d1b953e391c",
+      "semanticSha256": "a69ba72bfd231c3b02993ad8252e23b0b1d7d04f97a5be34b0ed88c52861e782",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          173,
+          318
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-mural-panpipe-seated.png": {
+      "bytes": 79366,
+      "byteSha256": "42644f9708265a68667c7a3ae759eaa9508b1491202c23537eb94a07a134e04b",
+      "semanticSha256": "c4f7131d07acf4cdaa23cf81f098e1ac3dcfb59b56134e52d488cb200d827eac",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          232,
+          321
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-mural-pipa-seated.png": {
+      "bytes": 86288,
+      "byteSha256": "9976aaf6ba75d5ea356ea021d33d64caf0365f945004a672b4929ae9b03aa069",
+      "semanticSha256": "6ed8a8912add53321a081fcf2cf9ed19001e9a48aecfecf19285ed2c8e508e25",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          256,
+          319
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-mural-qin-platform.png": {
+      "bytes": 97167,
+      "byteSha256": "c75b2db44098ea318086b8ca5869a1a5facc558dac591aa6ea0dfd40444d44a1",
+      "semanticSha256": "3e9327e4cbde6c01d993149102dde28452226b1b91014e4de349fb732c34fe2c",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          302,
+          327
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-mural-ribbon-duo-left.png": {
+      "bytes": 93710,
+      "byteSha256": "f7635f5dc06345e37d9f30a4f2a8587e60d7ca44107e009da53ef68eb1176536",
+      "semanticSha256": "681dcfcc32b242dcedd09e35cc70d11bfa83ea2706e3839c55373b45e14c72b2",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          274,
+          342
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-mural-right-procession.png": {
+      "bytes": 91606,
+      "byteSha256": "a4812035ceb01b18f51b5ecf4fac03338ee1537c55a9a2f4ffe3c39595017e74",
+      "semanticSha256": "377e78d60e529b72ab6982d7ca7d7f4bd189a69df9ef63728ef45875f480038f",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          256,
+          357
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-mural-ritual-trio.png": {
+      "bytes": 134030,
+      "byteSha256": "899cb10e34a83cc82faa7c755402397c58222ea0e8d28d8f9aaa1049804b3647",
+      "semanticSha256": "d15b7da8a70f48ff9a5c14726fe6425eb1e17dcf5a0c85aafeb3b39db6eb2acb",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          346,
+          361
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-mural-sleeve-dancer.png": {
+      "bytes": 99189,
+      "byteSha256": "d90a4618b22b8b25e7d69cff1e7db9419e008c683a094a0da8196fb24a3d57f2",
+      "semanticSha256": "bae26a31f5102115bbcc431a233c492f4c72c24a31a04c7ddc14c56d714107c1",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          272,
+          359
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-mural-standing-reed.png": {
+      "bytes": 87159,
+      "byteSha256": "73724e8f613540ea0df3525dc69d6f55f3690608dcddd495195eed61f82ba81a",
+      "semanticSha256": "487b16b3787c1f1d8050c41fd79b38d4167c3d56c7bec827cc64ff73eec86d3d",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          241,
+          358
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-mural-standing-server.png": {
+      "bytes": 73265,
+      "byteSha256": "8af5c6c86468244f4a9b859bae4ccf05c864cbc621b9fa2fd204ba09d9ee5867",
+      "semanticSha256": "6f5169eb5dbd898862bb5803de0f17adac32db0ff4388ce53729ffc445224deb",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          188,
+          368
+        ]
+      }
+    },
+    "assets/sprites/variants/solo-mural-tray-procession.png": {
+      "bytes": 71628,
+      "byteSha256": "1350bd12729db196e5724ee30a36c91ca0111f0b7d8f7d33e2849cdbf1cecf84",
+      "semanticSha256": "ce818659a3442475056a59df308befa214e97933913a1ecf1e2bbaee6325bb58",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          206,
+          348
+        ]
+      }
+    },
+    "assets/sprites/variants/trio-01.png": {
+      "bytes": 255218,
+      "byteSha256": "84cf8a726365e4014eea164d924f18cd4a6b78f9caaed2c2284e8aed41caf0a2",
+      "semanticSha256": "f6b3fd0c4d212941026820f7ee03567bfade23e21cc3a8b57aa26fc7db2d995f",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          960,
+          383
+        ]
+      }
+    },
+    "assets/sprites/variants/trio-02.png": {
+      "bytes": 259753,
+      "byteSha256": "c42a7739e51a718f450fcdf360940cd892af3d9dec14f515433357668dc116ba",
+      "semanticSha256": "254ea2376992fe6371f2f6276162b595895e9a63ee412cfe0a06bbaf0e310b40",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          960,
+          312
+        ]
+      }
+    },
+    "assets/sprites/variants/trio-03.png": {
+      "bytes": 303166,
+      "byteSha256": "460965ba9b648818679cbaf997ce719cb47a62ebe61d7d4de5e69c7c98d926c4",
+      "semanticSha256": "844262bdeb462fa4760fbd3c44c7e0d8caec5445d55a03818f58ad22874bd5df",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          960,
+          412
+        ]
+      }
+    },
+    "assets/sprites/variants/trio-04.png": {
+      "bytes": 222359,
+      "byteSha256": "1d0722008e138a6c575cd77a876075bca28e97909c27e76b9decd6bf8ef28c5b",
+      "semanticSha256": "4cc91434f1070b6bc0dd43adc8be32cd436d4fdeee09e00904f773b389ad6146",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          957,
+          390
+        ]
+      }
+    },
+    "assets/sprites/variants/trio-05.png": {
+      "bytes": 212942,
+      "byteSha256": "f5867fd4800b5d24d8e63356a5e6d47a15e33c7cd55fb40cfea0a3915e0b2731",
+      "semanticSha256": "9e65a8b6d3d39d8d4cc439050ce9f8a0c05f950511c88630794339952a239fe0",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          960,
+          338
+        ]
+      }
+    },
+    "assets/sprites/variants/trio-06.png": {
+      "bytes": 244941,
+      "byteSha256": "f82a1e050f29abf047ad7e004b059c7e05e3c8ec13d4d057d5a69574e2ffbaa4",
+      "semanticSha256": "91c3bd6af39ee39f3cf7410c01504408f09435b30c20c734b386c01981900aef",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          960,
+          408
+        ]
+      }
+    },
+    "assets/sprites/variants/trio-07.png": {
+      "bytes": 253850,
+      "byteSha256": "3c05460dfc1babd5605acc92a9374e6875410ce7597684a93da67667d2368ebc",
+      "semanticSha256": "b87dbb5e1917e6b94bc070153ebdb115f0a2776093ca736485172ce0b11d45cb",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          960,
+          392
+        ]
+      }
+    },
+    "assets/sprites/variants/trio-08.png": {
+      "bytes": 583855,
+      "byteSha256": "d6c741f36529299d5eee71a71d80443b49803a434beec8c5dbc15d8b7960cdaf",
+      "semanticSha256": "cdf6547360e965c7cc7f5dbb8519d72cbeb4fdbbf3360395cb411c02eeed808d",
+      "semantic": {
+        "mode": "exact-decoded-rgba",
+        "size": [
+          960,
+          605
+        ]
+      }
+    },
+    "config/scene.json": {
+      "bytes": 54523,
+      "byteSha256": "6397e3e66275db6eea9515566698623469fd8c786023550aac5cd3437297f6f5",
+      "semanticSha256": "6397e3e66275db6eea9515566698623469fd8c786023550aac5cd3437297f6f5",
+      "semantic": {
+        "mode": "byte-sha256"
+      }
+    },
+    "docs/screenshots/asset-contact-sheet.jpg": {
+      "bytes": 621675,
+      "byteSha256": "d37b57a860d9f69bb4d16667703f12de3c9e0f55a61320302815e9962c93ca01",
+      "semanticSha256": "9f4f142db2037a19523e72df32c434db8327abe9556bf8da6ca2e01d087bbe22",
+      "semantic": {
+        "mode": "block-averaged-5bit-rgb",
+        "size": [
+          1500,
+          1850
+        ],
+        "canonicalSize": [
+          128,
+          72
+        ]
+      }
+    }
+  }
+}

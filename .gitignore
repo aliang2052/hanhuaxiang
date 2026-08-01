@@ -1,7 +1,10 @@
 .DS_Store
-node_modules/
+/node_modules/
 __pycache__/
 *.py[cod]
 .pytest_cache/
-playwright-report/
-test-results/
+/playwright-report/
+/test-results/
+/.venv/
+/.playwright/
+*.zip

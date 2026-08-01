@@ -1,0 +1,1244 @@
+{
+  "ok": true,
+  "timestampUtc": "2026-08-01T04:55:45Z",
+  "durationSeconds": 26.354,
+  "platform": "Linux-6.12.13-x86_64-with-glibc2.41",
+  "python": "3.13.5 (main, May  5 2026, 21:05:52) [GCC 14.2.0]",
+  "browserExecutable": "/usr/bin/chromium",
+  "baseUrl": "http://127.0.0.1:57745",
+  "health": {
+    "ok": true,
+    "app": "han-orchestra-installation",
+    "version": "2.2.0-p0-fix2",
+    "baseline": "ac76d30",
+    "uptimeSeconds": 0.1
+  },
+  "checks": [
+    {
+      "name": "health endpoint before E2E",
+      "ok": true,
+      "detail": "{\"app\": \"han-orchestra-installation\", \"baseline\": \"ac76d30\", \"ok\": true, \"uptimeSeconds\": 0.1, \"version\": \"2.2.0-p0-fix2\"}"
+    },
+    {
+      "name": "permission denial returns false",
+      "ok": true,
+      "detail": "[false, false, false]"
+    },
+    {
+      "name": "parallel permission requests are deduplicated",
+      "ok": true,
+      "detail": "{\"getUserMediaCalls\": 1, \"message\": \"摄像头权限被永久拒绝。请在浏览器地址栏允许摄像头后手动重试。\", \"permanentError\": true, \"reconnectAttempts\": 0, \"reconnectFailuresTotal\": 0, \"reconnectSuccesses\": 0, \"retryable\": false, \"source\": \"hardware\", \"sourceGeneration\": 1, \"state\": \"error\", \"transportState\": \"error\"}"
+    },
+    {
+      "name": "permission denial leaves renderer alive",
+      "ok": true,
+      "detail": "{\"camera\": {\"getUserMediaCalls\": 1, \"message\": \"摄像头权限被永久拒绝。请在浏览器地址栏允许摄像头后手动重试。\", \"permanentError\": true, \"reconnectAttempts\": 0, \"reconnectFailuresTotal\": 0, \"reconnectSuccesses\": 0, \"retryable\": false, \"source\": \"hardware\", \"sourceGeneration\": 1, \"state\": \"error\", \"transportState\": \"error\"}, \"drawn\": 63, \"errors\": []}"
+    },
+    {
+      "name": "bootstrap has no boot error",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "63 scene nodes",
+      "ok": true,
+      "detail": "63"
+    },
+    {
+      "name": "60 distinct loaded runtime sprite files",
+      "ok": true,
+      "detail": "{\"configured\": 60, \"loaded\": 60}"
+    },
+    {
+      "name": "asset diversity metadata records 32 genuinely different base silhouettes",
+      "ok": true,
+      "detail": "{\"distinctBaseSilhouetteCount\": 32, \"independentHighResSourceCount\": 8, \"muralDerivedDistinctSourceCount\": 24, \"runtimeSpriteCount\": 60}"
+    },
+    {
+      "name": "dense landscape visual structure",
+      "ok": true,
+      "detail": "{\"centralStagePanelCount\": 5, \"centralStagePresent\": true, \"horizontalBeamCount\": 8, \"leftBorderPresent\": true, \"orientation\": \"landscape\", \"panelCount\": 63, \"rightBorderPresent\": true, \"sideBorderCount\": 2, \"version\": 3}"
+    },
+    {
+      "name": "trigger partition complete",
+      "ok": true,
+      "detail": "{\"counts\": [10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000], \"expected\": 10000, \"holes\": 0, \"maxDeviation\": 0, \"overlaps\": 0, \"valid\": true}"
+    },
+    {
+      "name": "12-second 63-node stress keeps every node active",
+      "ok": true,
+      "detail": "{\"active\": 63, \"fps\": 54, \"heap\": 3721992, \"runtimeErrors\": []}"
+    },
+    {
+      "name": "12-second 63-node stress has no runtime errors",
+      "ok": true,
+      "detail": "{\"active\": 63, \"fps\": 54, \"heap\": 3721992, \"runtimeErrors\": []}"
+    },
+    {
+      "name": "stress FPS does not collapse",
+      "ok": true,
+      "detail": "{\"average\": 51.24, \"median\": 52.26, \"minimum\": 46, \"samplesBelow12\": 0, \"tailAverage\": 50.67}"
+    },
+    {
+      "name": "short stress has no sustained >96 MiB heap growth",
+      "ok": true,
+      "detail": "{\"first\": 5431428, \"growthBytes\": -1709436, \"last\": 3721992}"
+    },
+    {
+      "name": "auto demo activates a local subset",
+      "ok": true,
+      "detail": "{\"active\": 14, \"coverageCells\": 15}"
+    },
+    {
+      "name": "single pointer remains local",
+      "ok": true,
+      "detail": "10"
+    },
+    {
+      "name": "multi-touch expands but does not flood coverage",
+      "ok": true,
+      "detail": "{\"double\": 22, \"single\": 10}"
+    },
+    {
+      "name": "wake-all reaches 63/63",
+      "ok": true,
+      "detail": "63"
+    },
+    {
+      "name": "responsive 1920x1080",
+      "ok": true,
+      "detail": "{\"drawn\": 63, \"orientation\": \"landscape\", \"rect\": {\"height\": 1080, \"width\": 1920, \"x\": 0, \"y\": 0}, \"viewport\": {\"aspect\": 1.7777777777777777, \"backingHeight\": 822, \"backingPixels\": 1200942, \"backingWidth\": 1461, \"cssHeight\": 1080, \"cssWidth\": 1920, \"orientation\": \"landscape\", \"revision\": 4, \"scale\": 0.7607257743127307}}"
+    },
+    {
+      "name": "responsive 1920x1200",
+      "ok": true,
+      "detail": "{\"drawn\": 63, \"orientation\": \"landscape\", \"rect\": {\"height\": 1200, \"width\": 1920, \"x\": 0, \"y\": 0}, \"viewport\": {\"aspect\": 1.6, \"backingHeight\": 866, \"backingPixels\": 1200276, \"backingWidth\": 1386, \"cssHeight\": 1200, \"cssWidth\": 1920, \"orientation\": \"landscape\", \"revision\": 5, \"scale\": 0.7216878364870323}}"
+    },
+    {
+      "name": "responsive 2560x1440",
+      "ok": true,
+      "detail": "{\"drawn\": 63, \"orientation\": \"landscape\", \"rect\": {\"height\": 1440, \"width\": 2560, \"x\": 0, \"y\": 0}, \"viewport\": {\"aspect\": 1.7777777777777777, \"backingHeight\": 822, \"backingPixels\": 1200942, \"backingWidth\": 1461, \"cssHeight\": 1440, \"cssWidth\": 2560, \"orientation\": \"landscape\", \"revision\": 6, \"scale\": 0.570544330734548}}"
+    },
+    {
+      "name": "responsive 3840x2160",
+      "ok": true,
+      "detail": "{\"drawn\": 63, \"orientation\": \"landscape\", \"rect\": {\"height\": 2160, \"width\": 3840, \"x\": 0, \"y\": 0}, \"viewport\": {\"aspect\": 1.7777777777777777, \"backingHeight\": 822, \"backingPixels\": 1200942, \"backingWidth\": 1461, \"cssHeight\": 2160, \"cssWidth\": 3840, \"orientation\": \"landscape\", \"revision\": 6, \"scale\": 0.38036288715636535}}"
+    },
+    {
+      "name": "responsive 3440x1440",
+      "ok": true,
+      "detail": "{\"drawn\": 63, \"orientation\": \"landscape\", \"rect\": {\"height\": 1440, \"width\": 3440, \"x\": 0, \"y\": 0}, \"viewport\": {\"aspect\": 2.388888888888889, \"backingHeight\": 709, \"backingPixels\": 1200337, \"backingWidth\": 1693, \"cssHeight\": 1440, \"cssWidth\": 3440, \"orientation\": \"landscape\", \"revision\": 7, \"scale\": 0.4921870193488486}}"
+    },
+    {
+      "name": "responsive 390x844",
+      "ok": true,
+      "detail": "{\"drawn\": 63, \"orientation\": \"portrait\", \"rect\": {\"height\": 844, \"width\": 390, \"x\": 0, \"y\": 0}, \"viewport\": {\"aspect\": 0.46208530805687204, \"backingHeight\": 844, \"backingPixels\": 329160, \"backingWidth\": 390, \"cssHeight\": 844, \"cssWidth\": 390, \"orientation\": \"portrait\", \"revision\": 8, \"scale\": 1}}"
+    },
+    {
+      "name": "390x844 uses portrait scene",
+      "ok": true,
+      "detail": "portrait"
+    },
+    {
+      "name": "mobile control panel stays within viewport",
+      "ok": true,
+      "detail": "{\"bottom\": 837, \"clientHeight\": 785, \"height\": 787, \"left\": 7, \"overflowY\": \"auto\", \"right\": 383, \"scrollHeight\": 1306, \"top\": 50, \"width\": 376}"
+    },
+    {
+      "name": "mobile panel can scroll",
+      "ok": true,
+      "detail": "{\"bottom\": 837, \"clientHeight\": 785, \"height\": 787, \"left\": 7, \"overflowY\": \"auto\", \"right\": 383, \"scrollHeight\": 1306, \"top\": 50, \"width\": 376}"
+    },
+    {
+      "name": "valid 3x3 homography accepted",
+      "ok": true,
+      "detail": "{\"result\": {\"area\": 0.7506875000000001, \"cameraToPlane\": [1.219601977421478, 0.04963496419738576, -0.10203530497148297, 0.055091444644760075, 1.3064542587185994, -0.12198819885625475, 0.003847407245524925, 0.12784139853618956, 1], \"errors\": [], \"maxError\": 3.1401849173675503e-16, \"planeToCamera\": [0.8214494429671103, -0.038945501037084426, 0.07906595290673556, -0.03452244232440541, 0.7580381202281133, 0.08894919702007752, 0.0012529467689328562, -0.09675881423083554, 0.9883244113341945], \"valid\": true}, \"verification\": {\"corners\": [{\"x\": 0, \"y\": 0}, {\"x\": 1, \"y\": 0}, {\"x\": 1, \"y\": 1}, {\"x\": 0, \"y\": 1}], \"maxRoundTripError\": 3.7238012298709097e-16, \"valid\": true}}"
+    },
+    {
+      "name": "homography discrete error below 1e-6",
+      "ok": true,
+      "detail": "3.7238012298709097e-16"
+    },
+    {
+      "name": "calibration rebuilds pixel mapping",
+      "ok": true,
+      "detail": "{\"after\": 2, \"before\": 1}"
+    },
+    {
+      "name": "crossed calibration rejected",
+      "ok": true,
+      "detail": "{\"area\": 0, \"errors\": [\"四角边线发生交叉。\"], \"valid\": false}"
+    },
+    {
+      "name": "invalid calibration preserves prior valid quad",
+      "ok": true,
+      "detail": "[{\"x\": 0.08, \"y\": 0.09}, {\"x\": 0.91, \"y\": 0.055}, {\"x\": 0.965, \"y\": 0.91}, {\"x\": 0.045, \"y\": 0.95}]"
+    },
+    {
+      "name": "no external network requests",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "no console/page errors",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "final renderer still draws 63 nodes",
+      "ok": true,
+      "detail": "63"
+    }
+  ],
+  "warnings": [],
+  "consoleErrors": [],
+  "externalRequests": [],
+  "primary": {
+    "responsive": [
+      {
+        "size": [
+          1920,
+          1080
+        ],
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "viewport": {
+          "cssWidth": 1920,
+          "cssHeight": 1080,
+          "backingWidth": 1461,
+          "backingHeight": 822,
+          "backingPixels": 1200942,
+          "scale": 0.7607257743127307,
+          "aspect": 1.7777777777777777,
+          "orientation": "landscape",
+          "revision": 4
+        },
+        "orientation": "landscape",
+        "drawn": 63
+      },
+      {
+        "size": [
+          1920,
+          1200
+        ],
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1200
+        },
+        "viewport": {
+          "cssWidth": 1920,
+          "cssHeight": 1200,
+          "backingWidth": 1386,
+          "backingHeight": 866,
+          "backingPixels": 1200276,
+          "scale": 0.7216878364870323,
+          "aspect": 1.6,
+          "orientation": "landscape",
+          "revision": 5
+        },
+        "orientation": "landscape",
+        "drawn": 63
+      },
+      {
+        "size": [
+          2560,
+          1440
+        ],
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "viewport": {
+          "cssWidth": 2560,
+          "cssHeight": 1440,
+          "backingWidth": 1461,
+          "backingHeight": 822,
+          "backingPixels": 1200942,
+          "scale": 0.570544330734548,
+          "aspect": 1.7777777777777777,
+          "orientation": "landscape",
+          "revision": 6
+        },
+        "orientation": "landscape",
+        "drawn": 63
+      },
+      {
+        "size": [
+          3840,
+          2160
+        ],
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 3840,
+          "height": 2160
+        },
+        "viewport": {
+          "cssWidth": 3840,
+          "cssHeight": 2160,
+          "backingWidth": 1461,
+          "backingHeight": 822,
+          "backingPixels": 1200942,
+          "scale": 0.38036288715636535,
+          "aspect": 1.7777777777777777,
+          "orientation": "landscape",
+          "revision": 6
+        },
+        "orientation": "landscape",
+        "drawn": 63
+      },
+      {
+        "size": [
+          3440,
+          1440
+        ],
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 3440,
+          "height": 1440
+        },
+        "viewport": {
+          "cssWidth": 3440,
+          "cssHeight": 1440,
+          "backingWidth": 1693,
+          "backingHeight": 709,
+          "backingPixels": 1200337,
+          "scale": 0.4921870193488486,
+          "aspect": 2.388888888888889,
+          "orientation": "landscape",
+          "revision": 7
+        },
+        "orientation": "landscape",
+        "drawn": 63
+      },
+      {
+        "size": [
+          390,
+          844
+        ],
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844
+        },
+        "viewport": {
+          "cssWidth": 390,
+          "cssHeight": 844,
+          "backingWidth": 390,
+          "backingHeight": 844,
+          "backingPixels": 329160,
+          "scale": 1,
+          "aspect": 0.46208530805687204,
+          "orientation": "portrait",
+          "revision": 8
+        },
+        "orientation": "portrait",
+        "drawn": 63
+      }
+    ],
+    "stress": {
+      "samples": [
+        {
+          "fps": 46,
+          "active": 63,
+          "heap": 5062964,
+          "runtimeErrors": []
+        },
+        {
+          "fps": 52.2648083623693,
+          "active": 63,
+          "heap": 5431428,
+          "runtimeErrors": []
+        },
+        {
+          "fps": 54.20054200542011,
+          "active": 63,
+          "heap": 3874516,
+          "runtimeErrors": []
+        },
+        {
+          "fps": 52.254693245597075,
+          "active": 63,
+          "heap": 3875686,
+          "runtimeErrors": []
+        },
+        {
+          "fps": 52.2648083623693,
+          "active": 63,
+          "heap": 4096380,
+          "runtimeErrors": []
+        },
+        {
+          "fps": 46.448616218308594,
+          "active": 63,
+          "heap": 3676956,
+          "runtimeErrors": []
+        },
+        {
+          "fps": 54,
+          "active": 63,
+          "heap": 4022804,
+          "runtimeErrors": []
+        },
+        {
+          "fps": 46,
+          "active": 63,
+          "heap": 4257636,
+          "runtimeErrors": []
+        },
+        {
+          "fps": 54.20054200542002,
+          "active": 63,
+          "heap": 4514624,
+          "runtimeErrors": []
+        },
+        {
+          "fps": 50,
+          "active": 63,
+          "heap": 5303852,
+          "runtimeErrors": []
+        },
+        {
+          "fps": 48,
+          "active": 63,
+          "heap": 5409040,
+          "runtimeErrors": []
+        },
+        {
+          "fps": 54,
+          "active": 63,
+          "heap": 3721992,
+          "runtimeErrors": []
+        }
+      ],
+      "minimumFps": 46,
+      "medianFps": 52.2648083623693,
+      "averageFps": 51.239455472680405,
+      "tailAverageFps": 50.666666666666664,
+      "samplesBelow12": 0,
+      "heapGrowth": -1709436
+    }
+  },
+  "permissionDenied": {
+    "version": "2.2.0-p0-fix2",
+    "baseline": "ac76d30",
+    "ready": true,
+    "entered": false,
+    "configVersion": 3,
+    "sceneNodeCount": 63,
+    "distinctSpriteFiles": 60,
+    "assetStats": {
+      "runtimeSpriteCount": 60,
+      "distinctBaseSilhouetteCount": 32,
+      "independentHighResSourceCount": 8,
+      "muralDerivedDistinctSourceCount": 24
+    },
+    "sceneStructure": {
+      "version": 3,
+      "orientation": "landscape",
+      "panelCount": 63,
+      "centralStagePresent": true,
+      "centralStagePanelCount": 5,
+      "leftBorderPresent": true,
+      "rightBorderPresent": true,
+      "sideBorderCount": 2,
+      "horizontalBeamCount": 8
+    },
+    "loadedSpriteFiles": 60,
+    "assetErrors": [],
+    "mode": "camera",
+    "camera": {
+      "source": "hardware",
+      "state": "error",
+      "transportState": "error",
+      "message": "摄像头权限被永久拒绝。请在浏览器地址栏允许摄像头后手动重试。",
+      "reconnectAttempts": 0,
+      "reconnectFailuresTotal": 0,
+      "reconnectSuccesses": 0,
+      "retryable": false,
+      "permanentError": true,
+      "sourceGeneration": 1,
+      "getUserMediaCalls": 1
+    },
+    "backgroundReady": false,
+    "capturingBackground": false,
+    "captureProgress": 0,
+    "componentCount": 0,
+    "processingMs": 0,
+    "foregroundPixels": 0,
+    "coverages": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "positiveCoverageCount": 0,
+    "pointerCount": 0,
+    "activeCount": 0,
+    "activeIds": [],
+    "visual": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.5769792795181274,
+      0.5769792795181274,
+      0,
+      0,
+      0,
+      0,
+      0.5769792795181274,
+      0.5769792795181274,
+      0,
+      0.5769792795181274,
+      0.5769792795181274,
+      0,
+      0,
+      0,
+      0,
+      0.5769792795181274,
+      0.5769792795181274,
+      0,
+      0.5769792795181274,
+      0.5769792795181274,
+      0,
+      0,
+      0,
+      0,
+      0.5769792795181274,
+      0.5769792795181274,
+      0,
+      0,
+      0.5769792795181274,
+      0,
+      0,
+      0,
+      0,
+      0.4215892553329468,
+      0.4215892553329468,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "fps": 3.4614053305642094,
+    "viewport": {
+      "cssWidth": 1280,
+      "cssHeight": 800,
+      "backingWidth": 1280,
+      "backingHeight": 800,
+      "backingPixels": 1024000,
+      "scale": 1,
+      "aspect": 1.6,
+      "orientation": "landscape",
+      "revision": 1
+    },
+    "orientation": "landscape",
+    "rendererDrawn": 63,
+    "calibration": {
+      "activeName": "默认全画面",
+      "quad": [
+        {
+          "x": 0.035,
+          "y": 0.04
+        },
+        {
+          "x": 0.965,
+          "y": 0.04
+        },
+        {
+          "x": 0.965,
+          "y": 0.96
+        },
+        {
+          "x": 0.035,
+          "y": 0.96
+        }
+      ],
+      "presets": [
+        {
+          "name": "默认全画面",
+          "quad": [
+            {
+              "x": 0.035,
+              "y": 0.04
+            },
+            {
+              "x": 0.965,
+              "y": 0.04
+            },
+            {
+              "x": 0.965,
+              "y": 0.96
+            },
+            {
+              "x": 0.035,
+              "y": 0.96
+            }
+          ],
+          "updatedAt": "reproducible-default"
+        }
+      ],
+      "maxError": 4.965068306494546e-16,
+      "valid": true,
+      "errors": [],
+      "verification": {
+        "maxRoundTripError": 6.280369834735101e-16,
+        "valid": true,
+        "corners": [
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 1,
+            "y": 0
+          },
+          {
+            "x": 1,
+            "y": 1
+          },
+          {
+            "x": 0,
+            "y": 1
+          }
+        ]
+      }
+    },
+    "coverageMapping": {
+      "width": 240,
+      "height": 135,
+      "revision": 1,
+      "mappedPixels": 28000,
+      "emptyCells": 0,
+      "minCellArea": 408,
+      "maxCellArea": 450
+    },
+    "triggerPartition": {
+      "holes": 0,
+      "overlaps": 0,
+      "counts": [
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000
+      ],
+      "expected": 10000,
+      "maxDeviation": 0,
+      "valid": true
+    },
+    "audio": {
+      "state": "idle",
+      "started": false,
+      "muted": false,
+      "loadedGroups": 0,
+      "requestedGroups": 9,
+      "errors": []
+    },
+    "debugOpen": false,
+    "uiHidden": false,
+    "lastMessage": "摄像头权限被永久拒绝。请在浏览器地址栏允许摄像头后手动重试。",
+    "lastMessageLevel": "error",
+    "runtimeErrors": [],
+    "memory": {
+      "usedJSHeapSize": 3397141,
+      "totalJSHeapSize": 5851737
+    }
+  },
+  "stress": {
+    "samples": [
+      {
+        "fps": 46,
+        "active": 63,
+        "heap": 5062964,
+        "runtimeErrors": []
+      },
+      {
+        "fps": 52.2648083623693,
+        "active": 63,
+        "heap": 5431428,
+        "runtimeErrors": []
+      },
+      {
+        "fps": 54.20054200542011,
+        "active": 63,
+        "heap": 3874516,
+        "runtimeErrors": []
+      },
+      {
+        "fps": 52.254693245597075,
+        "active": 63,
+        "heap": 3875686,
+        "runtimeErrors": []
+      },
+      {
+        "fps": 52.2648083623693,
+        "active": 63,
+        "heap": 4096380,
+        "runtimeErrors": []
+      },
+      {
+        "fps": 46.448616218308594,
+        "active": 63,
+        "heap": 3676956,
+        "runtimeErrors": []
+      },
+      {
+        "fps": 54,
+        "active": 63,
+        "heap": 4022804,
+        "runtimeErrors": []
+      },
+      {
+        "fps": 46,
+        "active": 63,
+        "heap": 4257636,
+        "runtimeErrors": []
+      },
+      {
+        "fps": 54.20054200542002,
+        "active": 63,
+        "heap": 4514624,
+        "runtimeErrors": []
+      },
+      {
+        "fps": 50,
+        "active": 63,
+        "heap": 5303852,
+        "runtimeErrors": []
+      },
+      {
+        "fps": 48,
+        "active": 63,
+        "heap": 5409040,
+        "runtimeErrors": []
+      },
+      {
+        "fps": 54,
+        "active": 63,
+        "heap": 3721992,
+        "runtimeErrors": []
+      }
+    ],
+    "minimumFps": 46,
+    "medianFps": 52.2648083623693,
+    "averageFps": 51.239455472680405,
+    "tailAverageFps": 50.666666666666664,
+    "samplesBelow12": 0,
+    "heapGrowth": -1709436
+  },
+  "finalState": {
+    "version": "2.2.0-p0-fix2",
+    "baseline": "ac76d30",
+    "ready": true,
+    "entered": true,
+    "configVersion": 3,
+    "sceneNodeCount": 63,
+    "distinctSpriteFiles": 60,
+    "assetStats": {
+      "runtimeSpriteCount": 60,
+      "distinctBaseSilhouetteCount": 32,
+      "independentHighResSourceCount": 8,
+      "muralDerivedDistinctSourceCount": 24
+    },
+    "sceneStructure": {
+      "version": 3,
+      "orientation": "landscape",
+      "panelCount": 63,
+      "centralStagePresent": true,
+      "centralStagePanelCount": 5,
+      "leftBorderPresent": true,
+      "rightBorderPresent": true,
+      "sideBorderCount": 2,
+      "horizontalBeamCount": 8
+    },
+    "loadedSpriteFiles": 60,
+    "assetErrors": [],
+    "mode": "pointer",
+    "camera": {
+      "source": "simulated",
+      "state": "idle",
+      "transportState": "idle",
+      "message": "",
+      "reconnectAttempts": 0,
+      "reconnectFailuresTotal": 0,
+      "reconnectSuccesses": 0,
+      "retryable": false,
+      "permanentError": false,
+      "sourceGeneration": 0,
+      "getUserMediaCalls": 0
+    },
+    "backgroundReady": false,
+    "capturingBackground": false,
+    "captureProgress": 0,
+    "componentCount": 0,
+    "processingMs": 0,
+    "foregroundPixels": 0,
+    "coverages": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "positiveCoverageCount": 0,
+    "pointerCount": 0,
+    "activeCount": 0,
+    "activeIds": [],
+    "visual": [
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371,
+      0.003909197170287371
+    ],
+    "fps": 44.5218737901666,
+    "viewport": {
+      "cssWidth": 1920,
+      "cssHeight": 1200,
+      "backingWidth": 1386,
+      "backingHeight": 866,
+      "backingPixels": 1200276,
+      "scale": 0.7216878364870323,
+      "aspect": 1.6,
+      "orientation": "landscape",
+      "revision": 9
+    },
+    "orientation": "landscape",
+    "rendererDrawn": 63,
+    "calibration": {
+      "activeName": "默认全画面",
+      "quad": [
+        {
+          "x": 0.08,
+          "y": 0.09
+        },
+        {
+          "x": 0.91,
+          "y": 0.055
+        },
+        {
+          "x": 0.965,
+          "y": 0.91
+        },
+        {
+          "x": 0.045,
+          "y": 0.95
+        }
+      ],
+      "presets": [
+        {
+          "name": "默认全画面",
+          "quad": [
+            {
+              "x": 0.08,
+              "y": 0.09
+            },
+            {
+              "x": 0.91,
+              "y": 0.055
+            },
+            {
+              "x": 0.965,
+              "y": 0.91
+            },
+            {
+              "x": 0.045,
+              "y": 0.95
+            }
+          ],
+          "updatedAt": "2026-08-01T04:55:44.414Z"
+        }
+      ],
+      "maxError": 3.1401849173675503e-16,
+      "valid": false,
+      "errors": [
+        "四角边线发生交叉。"
+      ],
+      "verification": {
+        "maxRoundTripError": 3.7238012298709097e-16,
+        "valid": true,
+        "corners": [
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 1,
+            "y": 0
+          },
+          {
+            "x": 1,
+            "y": 1
+          },
+          {
+            "x": 0,
+            "y": 1
+          }
+        ]
+      }
+    },
+    "coverageMapping": {
+      "width": 240,
+      "height": 135,
+      "revision": 2,
+      "mappedPixels": 24316,
+      "emptyCells": 0,
+      "minCellArea": 330,
+      "maxCellArea": 449
+    },
+    "triggerPartition": {
+      "holes": 0,
+      "overlaps": 0,
+      "counts": [
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000
+      ],
+      "expected": 10000,
+      "maxDeviation": 0,
+      "valid": true
+    },
+    "audio": {
+      "state": "ready",
+      "started": true,
+      "muted": false,
+      "loadedGroups": 9,
+      "requestedGroups": 9,
+      "errors": []
+    },
+    "debugOpen": false,
+    "uiHidden": false,
+    "lastMessage": "无效标定已拒绝：四角边线发生交叉。",
+    "lastMessageLevel": "error",
+    "runtimeErrors": [],
+    "memory": {
+      "usedJSHeapSize": 7926178,
+      "totalJSHeapSize": 12087002
+    }
+  }
+}
