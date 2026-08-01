@@ -61,7 +61,7 @@
 
       <div class="button-grid">
         <button id="cameraButton" type="button">启动摄像头</button>
-        <button id="captureBackgroundButton" type="button">采集空场背景</button>
+        <button id="captureBackgroundButton" type="button">加载人物模型</button>
         <button id="debugButton" type="button">打开调试与标定</button>
         <button id="fullscreenButton" type="button">全屏投影</button>
         <button id="testAudioButton" type="button">测试声音</button>
@@ -69,17 +69,17 @@
 
       <section id="recognitionMonitor" class="panel-section recognition-monitor" aria-label="人物识别监视器">
         <div class="recognition-head">
-          <h3>人物识别监视器</h3>
+          <h3>人物检测监视器</h3>
           <span id="recognitionHealth" data-state="idle">等待摄像头</span>
         </div>
-        <canvas id="recognitionCanvas" width="480" height="270" aria-label="摄像头人物前景识别预览"></canvas>
+        <canvas id="recognitionCanvas" width="480" height="270" aria-label="摄像头语义人物检测预览"></canvas>
         <dl class="recognition-metrics">
-          <div><dt>候选人物</dt><dd id="recognitionPeople">0</dd></div>
-          <div><dt>前景像素</dt><dd id="recognitionForeground">0</dd></div>
+          <div><dt>识别人物</dt><dd id="recognitionPeople">0</dd></div>
+          <div><dt>人物像素</dt><dd id="recognitionForeground">0</dd></div>
           <div><dt>触发格子</dt><dd id="recognitionActive">0 / 63</dd></div>
           <div><dt>音频链路</dt><dd id="recognitionAudio">未初始化</dd></div>
         </dl>
-        <p id="recognitionHint" class="recognition-hint">切换到摄像头模式并采集空场背景。</p>
+        <p id="recognitionHint" class="recognition-hint">切换到实体摄像头后会加载离线人物模型。</p>
       </section>
 
       <section id="simulationControls" class="panel-section">
@@ -100,7 +100,7 @@
       <section class="panel-section">
         <h3>触发参数</h3>
         <label class="slider-field">
-          <span>前景灵敏度 <output id="diffThresholdOutput">48</output></span>
+          <span>模拟前景灵敏度 <output id="diffThresholdOutput">48</output></span>
           <input id="diffThreshold" type="range" min="12" max="140" value="48" />
         </label>
         <label class="slider-field">
@@ -182,7 +182,7 @@
       <div class="debug-footer">
         <p>拖动红色四角；无效、自相交、越界或面积过小的配置会被拒绝，并保留上一次有效 Homography。</p>
         <div class="debug-actions">
-          <button id="debugCaptureButton" type="button">采集空场背景</button>
+          <button id="debugCaptureButton" type="button">采集模拟空场</button>
           <button id="debugResetCalibrationButton" type="button">重置四角</button>
         </div>
       </div>

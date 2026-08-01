@@ -110,6 +110,7 @@ class HanOrchestraApp {
     this.triggerPartition = this.triggerPlane.verifyPartition();
     this.assetLoadResult = null;
     this.backgroundCaptureToken = 0;
+    this.backgroundCountdown = 0;
 
     this.#bindUi();
     this.#bindControllers();
@@ -170,7 +171,16 @@ class HanOrchestraApp {
     this.ui.addEventListener('camera-start', async () => {
       this.setMode('camera');
       const ok = await this.input.ensureCameraStarted();
-      this.#message(ok ? '摄像头已启动。' : this.input.cameraMessage || '摄像头启动失败。', ok ? 'success' : 'error');
+      if (!ok) {
+        this.#message(this.input.cameraMessage || '摄像头启动失败。', 'error');
+        return;
+      }
+      if (this.input.cameraSource === 'simulated' && !this.lastInputSnapshot.backgroundReady) {
+        this.#message('模拟摄像头已启动，即将自动采集测试空场。', 'success');
+        await this.captureBackgroundFromUi();
+      } else {
+        this.#message('摄像头与离线人物模型均已启动，只检测 person 类别。', 'success');
+      }
     });
     this.ui.addEventListener('capture-background', () => { void this.captureBackgroundFromUi(); });
     this.ui.addEventListener('debug', (event) => this.setDebugOpen(event.detail.open));
@@ -276,7 +286,7 @@ class HanOrchestraApp {
     return resumed;
   }
 
-  async captureBackgroundFromUi() {
+  async captureBackgroundFromUi(countdownSeconds = 6) {
     const token = ++this.backgroundCaptureToken;
     this.setMode('camera');
     const started = await this.input.ensureCameraStarted();
@@ -284,12 +294,24 @@ class HanOrchestraApp {
       this.#message(this.input.cameraMessage || '摄像头未就绪，无法采集空场背景。', 'error');
       return false;
     }
-    for (let remaining = 3; remaining > 0; remaining -= 1) {
+    if (this.input.cameraSource === 'hardware') {
+      this.backgroundCountdown = 0;
+      this.ui.setCaptureCountdown(null);
+      this.#message('实体摄像头已使用人物模型，无需采集空场背景。', 'success');
+      return true;
+    }
+    for (let remaining = Math.max(3, Math.round(countdownSeconds)); remaining > 0; remaining -= 1) {
+      this.backgroundCountdown = remaining;
       this.ui.setCaptureCountdown(remaining);
       this.#message(`${remaining} 秒后采集空场背景，请离开摄像头画面。`, 'warning');
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      if (token !== this.backgroundCaptureToken) return false;
+      if (token !== this.backgroundCaptureToken) {
+        this.backgroundCountdown = 0;
+        this.ui.setCaptureCountdown(null);
+        return false;
+      }
     }
+    this.backgroundCountdown = 0;
     this.ui.setCaptureCountdown(null);
     const ok = await this.input.captureBackground(18);
     this.#persistSettings();
@@ -369,12 +391,15 @@ class HanOrchestraApp {
       camera: this.lastInputSnapshot.camera,
       backgroundReady: this.lastInputSnapshot.backgroundReady,
       captureProgress: this.lastInputSnapshot.captureProgress,
+      backgroundCountdown: this.backgroundCountdown,
+      detector: this.lastInputSnapshot.detector,
     });
     this.recognitionMonitor.update(this.lastInputSnapshot, {
       mode: this.input.mode,
       activeCount: trigger.activeCount,
       audio: this.audio.snapshot(),
       now,
+      backgroundCountdown: this.backgroundCountdown,
     });
     if (this.debugOpen) this.calibrationView.update(this.lastInputSnapshot, { fps: this.fps });
     this.raf = requestAnimationFrame((next) => this.#loop(next));
@@ -401,6 +426,8 @@ class HanOrchestraApp {
       capturingBackground: this.lastInputSnapshot.capturingBackground,
       captureProgress: this.lastInputSnapshot.captureProgress,
       componentCount: this.lastInputSnapshot.segmentation?.components?.length || 0,
+      recognitionMode: this.lastInputSnapshot.recognitionMode,
+      detector: structuredClone(this.lastInputSnapshot.detector),
       processingMs: this.lastInputSnapshot.segmentation?.metrics?.processingMs || 0,
       foregroundPixels: this.lastInputSnapshot.segmentation?.metrics?.foregroundPixels || 0,
       coverages: [...this.lastInputSnapshot.coverages],
@@ -444,6 +471,7 @@ class HanOrchestraApp {
         return result;
       },
       startCamera: () => app.input.ensureCameraStarted(),
+      initializePersonDetector: () => app.input.personDetector.initialize(),
       captureBackground: (frames = 18) => app.input.captureBackground(frames),
       setSimulatedScenario: (scenario) => app.input.setSimulatedScenario(scenario),
       simulateDisconnect: () => app.input.simulateDisconnect(),

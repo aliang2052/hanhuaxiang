@@ -1,11 +1,11 @@
 {
   "ok": true,
-  "timestampUtc": "2026-08-01T08:23:21Z",
-  "durationSeconds": 22.156,
+  "timestampUtc": "2026-08-01T09:20:54Z",
+  "durationSeconds": 3.047,
   "platform": "macOS-15.7.5-x86_64-i386-64bit-Mach-O",
   "python": "3.14.2 (main, Dec  5 2025, 16:49:16) [Clang 17.0.0 (clang-1700.4.4.1)]",
-  "browserExecutable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
-  "baseUrl": "http://127.0.0.1:49863",
+  "browserExecutable": "/Users/sniper/Library/Caches/ms-playwright/chromium-1234/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
+  "baseUrl": "http://127.0.0.1:59382",
   "health": {
     "ok": true,
     "app": "han-orchestra-installation",
@@ -104,6 +104,15 @@
       "capturingBackground": false,
       "captureProgress": 0,
       "componentCount": 0,
+      "recognitionMode": "simulated-foreground",
+      "detector": {
+        "state": "idle",
+        "ready": false,
+        "error": "",
+        "model": "EfficientDet Lite0",
+        "delegate": "none",
+        "semanticPersonOnly": true
+      },
       "processingMs": 0,
       "foregroundPixels": 0,
       "coverages": [
@@ -241,7 +250,7 @@
         0,
         0
       ],
-      "fps": 3.531073446327682,
+      "fps": 63.35379131648804,
       "viewport": {
         "cssWidth": 960,
         "cssHeight": 600,
@@ -326,13 +335,13 @@
         }
       },
       "coverageMapping": {
-        "width": 240,
-        "height": 135,
+        "width": 320,
+        "height": 180,
         "revision": 1,
-        "mappedPixels": 28000,
+        "mappedPixels": 49468,
         "emptyCells": 0,
-        "minCellArea": 408,
-        "maxCellArea": 450
+        "minCellArea": 759,
+        "maxCellArea": 816
       },
       "triggerPartition": {
         "holes": 0,
@@ -422,8 +431,8 @@
       "lastMessageLevel": "info",
       "runtimeErrors": [],
       "memory": {
-        "usedJSHeapSize": 5979903,
-        "totalJSHeapSize": 11023575
+        "usedJSHeapSize": 4563257,
+        "totalJSHeapSize": 9358413
       }
     },
     "during": {
@@ -471,6 +480,15 @@
       "capturingBackground": false,
       "captureProgress": 0,
       "componentCount": 0,
+      "recognitionMode": "simulated-foreground",
+      "detector": {
+        "state": "idle",
+        "ready": false,
+        "error": "",
+        "model": "EfficientDet Lite0",
+        "delegate": "none",
+        "semanticPersonOnly": true
+      },
       "processingMs": 0,
       "foregroundPixels": 0,
       "coverages": [
@@ -608,7 +626,7 @@
         0,
         0
       ],
-      "fps": 7.7474336625992475,
+      "fps": 63.35379131648804,
       "viewport": {
         "cssWidth": 960,
         "cssHeight": 600,
@@ -693,13 +711,13 @@
         }
       },
       "coverageMapping": {
-        "width": 240,
-        "height": 135,
+        "width": 320,
+        "height": 180,
         "revision": 1,
-        "mappedPixels": 28000,
+        "mappedPixels": 49468,
         "emptyCells": 0,
-        "minCellArea": 408,
-        "maxCellArea": 450
+        "minCellArea": 759,
+        "maxCellArea": 816
       },
       "triggerPartition": {
         "holes": 0,
@@ -789,8 +807,8 @@
       "lastMessageLevel": "info",
       "runtimeErrors": [],
       "memory": {
-        "usedJSHeapSize": 4224639,
-        "totalJSHeapSize": 11153427
+        "usedJSHeapSize": 5769783,
+        "totalJSHeapSize": 10050391
       }
     },
     "recovered": {
@@ -838,6 +856,15 @@
       "capturingBackground": false,
       "captureProgress": 0,
       "componentCount": 0,
+      "recognitionMode": "simulated-foreground",
+      "detector": {
+        "state": "idle",
+        "ready": false,
+        "error": "",
+        "model": "EfficientDet Lite0",
+        "delegate": "none",
+        "semanticPersonOnly": true
+      },
       "processingMs": 0,
       "foregroundPixels": 0,
       "coverages": [
@@ -975,7 +1002,7 @@
         0,
         0
       ],
-      "fps": 37.43916136278555,
+      "fps": 71.97121151539383,
       "viewport": {
         "cssWidth": 960,
         "cssHeight": 600,
@@ -1060,13 +1087,13 @@
         }
       },
       "coverageMapping": {
-        "width": 240,
-        "height": 135,
+        "width": 320,
+        "height": 180,
         "revision": 1,
-        "mappedPixels": 28000,
+        "mappedPixels": 49468,
         "emptyCells": 0,
-        "minCellArea": 408,
-        "maxCellArea": 450
+        "minCellArea": 759,
+        "maxCellArea": 816
       },
       "triggerPartition": {
         "holes": 0,
@@ -1141,13 +1168,13 @@
         "valid": true
       },
       "audio": {
-        "state": "loading",
+        "state": "ready",
         "contextState": "running",
-        "started": false,
+        "started": true,
         "muted": false,
-        "loadedGroups": 0,
+        "loadedGroups": 9,
         "requestedGroups": 9,
-        "outputLevel": 0,
+        "outputLevel": 0.012973235187650048,
         "errors": []
       },
       "debugOpen": false,
@@ -1156,8 +1183,8 @@
       "lastMessageLevel": "info",
       "runtimeErrors": [],
       "memory": {
-        "usedJSHeapSize": 5868243,
-        "totalJSHeapSize": 11412123
+        "usedJSHeapSize": 6161624,
+        "totalJSHeapSize": 11066368
       }
     }
   },
@@ -1206,7 +1233,16 @@
     "capturingBackground": false,
     "captureProgress": 0,
     "componentCount": 0,
-    "processingMs": 0.10000014305114746,
+    "recognitionMode": "simulated-foreground",
+    "detector": {
+      "state": "idle",
+      "ready": false,
+      "error": "",
+      "model": "EfficientDet Lite0",
+      "delegate": "none",
+      "semanticPersonOnly": true
+    },
+    "processingMs": 0,
     "foregroundPixels": 0,
     "coverages": [
       0,
@@ -1343,7 +1379,7 @@
       0,
       0
     ],
-    "fps": 37.43916136278555,
+    "fps": 71.97121151539383,
     "viewport": {
       "cssWidth": 960,
       "cssHeight": 600,
@@ -1428,13 +1464,13 @@
       }
     },
     "coverageMapping": {
-      "width": 240,
-      "height": 135,
+      "width": 320,
+      "height": 180,
       "revision": 1,
-      "mappedPixels": 28000,
+      "mappedPixels": 49468,
       "emptyCells": 0,
-      "minCellArea": 408,
-      "maxCellArea": 450
+      "minCellArea": 759,
+      "maxCellArea": 816
     },
     "triggerPartition": {
       "holes": 0,
@@ -1509,13 +1545,13 @@
       "valid": true
     },
     "audio": {
-      "state": "loading",
+      "state": "ready",
       "contextState": "running",
-      "started": false,
+      "started": true,
       "muted": false,
-      "loadedGroups": 0,
+      "loadedGroups": 9,
       "requestedGroups": 9,
-      "outputLevel": 0,
+      "outputLevel": 0.013704751425128375,
       "errors": []
     },
     "debugOpen": false,
@@ -1524,8 +1560,8 @@
     "lastMessageLevel": "info",
     "runtimeErrors": [],
     "memory": {
-      "usedJSHeapSize": 6241815,
-      "totalJSHeapSize": 11541975
+      "usedJSHeapSize": 6614348,
+      "totalJSHeapSize": 11297020
     }
   }
 }

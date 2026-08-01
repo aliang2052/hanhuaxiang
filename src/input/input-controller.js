@@ -1,12 +1,13 @@
 import { CameraController } from './camera-controller.js';
 import { ForegroundSegmenter } from './foreground-segmenter.js';
+import { PersonDetector } from './person-detector.js';
 import { PointerInput } from './pointer-input.js';
 import { SimulatedCamera } from './simulated-camera.js';
 import { CoverageEngine } from '../trigger/coverage-engine.js';
 import { hitTestVisualNode } from '../scene/scene-layout.js';
 
-const PROCESSING_WIDTH = 240;
-const PROCESSING_HEIGHT = 135;
+const PROCESSING_WIDTH = 320;
+const PROCESSING_HEIGHT = 180;
 const VIRTUAL_WIDTH = 180;
 const VIRTUAL_HEIGHT = 140;
 
@@ -26,6 +27,7 @@ export class InputController extends EventTarget {
     this.hardwareCamera = new CameraController(video, PROCESSING_WIDTH, PROCESSING_HEIGHT);
     this.simulatedCamera = new SimulatedCamera(PROCESSING_WIDTH, PROCESSING_HEIGHT);
     this.segmenter = new ForegroundSegmenter(PROCESSING_WIDTH, PROCESSING_HEIGHT, { diffThreshold: settings.diffThreshold });
+    this.personDetector = new PersonDetector(PROCESSING_WIDTH, PROCESSING_HEIGHT);
     this.coverageEngine = new CoverageEngine(triggerPlane);
     this.coverageEngine.rebuild(PROCESSING_WIDTH, PROCESSING_HEIGHT, calibrationController.mapping.cameraToPlane);
     this.coverages = new Float32Array(triggerPlane.count);
@@ -56,6 +58,23 @@ export class InputController extends EventTarget {
     this.simulatedCamera.addEventListener('statechange', (event) => {
       if (this.cameraSource !== 'simulated') return;
       this.#applySourceState(event.detail);
+    });
+    this.personDetector.addEventListener('statechange', (event) => {
+      if (this.cameraSource !== 'hardware') return;
+      const detector = event.detail;
+      if (detector.state === 'ready') {
+        this.cameraState = 'ready';
+        this.cameraMessage = `人物模型已就绪（${detector.model} / ${detector.delegate}）。`;
+        this.#emitMessage('真正的人物检测模型已就绪，只会把 person 类别用于触发。', 'success');
+      } else if (detector.state === 'error') {
+        this.cameraState = 'error';
+        this.cameraMessage = `人物模型加载失败：${detector.error}`;
+        this.#emitMessage(this.cameraMessage, 'error');
+      } else if (detector.state === 'loading') {
+        this.cameraState = 'loading-model';
+        this.cameraMessage = '正在加载离线人物模型…';
+      }
+      this.#dispatchCameraState();
     });
     calibrationController.addEventListener('change', () => {
       this.coverageEngine.rebuild(PROCESSING_WIDTH, PROCESSING_HEIGHT, calibrationController.mapping.cameraToPlane);
@@ -92,6 +111,7 @@ export class InputController extends EventTarget {
     this.simulatedCamera.stop();
     this.cameraSource = source;
     this.segmenter.resetBackground();
+    this.personDetector.reset();
     this.lastFrame = null;
     this.coverages.fill(0);
     this.#applySourceState({ state: 'idle', message: '摄像头来源已切换。', reconnectAttempts: 0 });
@@ -104,7 +124,9 @@ export class InputController extends EventTarget {
     const controller = expectedSource === 'simulated' ? this.simulatedCamera : this.hardwareCamera;
     const result = await controller.start();
     if (expectedGeneration !== this.sourceGeneration || expectedSource !== this.cameraSource) return false;
-    return result;
+    if (!result) return false;
+    if (expectedSource === 'hardware') return this.personDetector.initialize();
+    return true;
   }
 
   async captureBackground(frameCount = 18) {
@@ -113,6 +135,10 @@ export class InputController extends EventTarget {
     if (!started) {
       this.#emitMessage(this.cameraMessage || '摄像头未就绪，无法采集空场背景。', 'error');
       return false;
+    }
+    if (this.cameraSource === 'hardware') {
+      this.#emitMessage('实体摄像头使用语义人物模型，无需采集空场背景。', 'success');
+      return this.personDetector.snapshot().ready;
     }
     this.segmenter.beginBackgroundCapture(frameCount);
     this.cameraState = 'capturing-background';
@@ -146,13 +172,17 @@ export class InputController extends EventTarget {
       return this.snapshot();
     }
     this.lastFrame = frame;
-    const wasCapturing = this.segmenter.capturing;
-    this.lastSegmentation = this.segmenter.process(frame, dtSeconds);
-    if (wasCapturing && !this.segmenter.capturing && this.segmenter.metrics.backgroundReady) {
-      this.cameraState = 'ready';
-      this.cameraMessage = '空场背景已就绪。';
-      this.#dispatchCameraState();
-      this.#emitMessage('空场背景采集完成，人物进入画面即可触发。', 'success');
+    if (this.cameraSource === 'hardware') {
+      this.lastSegmentation = this.personDetector.process(frame, now);
+    } else {
+      const wasCapturing = this.segmenter.capturing;
+      this.lastSegmentation = this.segmenter.process(frame, dtSeconds);
+      if (wasCapturing && !this.segmenter.capturing && this.segmenter.metrics.backgroundReady) {
+        this.cameraState = 'ready';
+        this.cameraMessage = '模拟空场背景已就绪。';
+        this.#dispatchCameraState();
+        this.#emitMessage('模拟摄像头空场采集完成。', 'success');
+      }
     }
     this.coverages.set(this.coverageEngine.compute(this.lastSegmentation.mask));
     return this.snapshot();
@@ -211,13 +241,16 @@ export class InputController extends EventTarget {
 
   async recover() {
     this.segmenter.resetBackground();
+    this.personDetector.reset();
     this.coverages.fill(0);
     if (this.cameraSource === 'simulated') {
       this.simulatedCamera.stop();
       await this.simulatedCamera.start();
       return true;
     }
-    return this.hardwareCamera.recover();
+    const recovered = await this.hardwareCamera.recover();
+    if (!recovered) return false;
+    return this.personDetector.initialize();
   }
 
   stop() {
@@ -229,9 +262,14 @@ export class InputController extends EventTarget {
   #applySourceState(detail) {
     this.transportState = detail.state;
     if (detail.state === 'live') {
-      this.cameraState = this.segmenter.capturing
-        ? 'capturing-background'
-        : (this.segmenter.metrics.backgroundReady ? 'ready' : 'live');
+      if (this.cameraSource === 'hardware') {
+        const detector = this.personDetector.snapshot();
+        this.cameraState = detector.ready ? 'ready' : (detector.state === 'loading' ? 'loading-model' : 'live');
+      } else {
+        this.cameraState = this.segmenter.capturing
+          ? 'capturing-background'
+          : (this.segmenter.metrics.backgroundReady ? 'ready' : 'live');
+      }
     } else {
       this.cameraState = detail.state;
     }
@@ -274,15 +312,19 @@ export class InputController extends EventTarget {
 
   snapshot() {
     const pointers = this.pointer.snapshot();
+    const detector = this.personDetector.snapshot();
+    const hardware = this.cameraSource === 'hardware';
     return {
       mode: this.mode,
       camera: this.cameraSnapshot(),
       coverages: this.coverages,
       frame: this.lastFrame,
       segmentation: this.lastSegmentation,
-      backgroundReady: Boolean(this.segmenter.background),
-      capturingBackground: this.segmenter.capturing,
-      captureProgress: this.segmenter.metrics.captureProgress,
+      detector,
+      recognitionMode: hardware ? 'semantic-person' : 'simulated-foreground',
+      backgroundReady: hardware ? detector.ready : Boolean(this.segmenter.background),
+      capturingBackground: hardware ? false : this.segmenter.capturing,
+      captureProgress: hardware ? 0 : this.segmenter.metrics.captureProgress,
       pointerCount: pointers.length,
       pointerTargetIds: pointers.filter((pointer) => pointer.precise && pointer.targetId >= 0).map((pointer) => pointer.targetId),
     };

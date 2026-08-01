@@ -44,19 +44,18 @@ def run_camera(page, base_url: str) -> dict:
     page.evaluate("window.__HAN_TEST_API__.setMode('auto')")
     page.evaluate("window.__HAN_TEST_API__.setCameraSource('simulated')")
     page.evaluate("window.__HAN_TEST_API__.setSimulatedScenario('empty')")
-    capture_started = page.evaluate("window.__HAN_TEST_API__.captureBackground(8)")
-    check("background capture auto-switches from auto to camera", capture_started is True, capture_started)
-    wait_for(page, "() => window.__HAN_TEST_API__.getState().backgroundReady === true", 8_000)
+    page.click("#openPanel")
+    page.click("#cameraButton")
+    wait_for(page, "() => window.__HAN_TEST_API__.getState().backgroundReady === true", 12_000)
     captured = state(page)
     check(
-        "background capture completes in camera mode",
+        "one camera-start click completes background capture in camera mode",
         captured["mode"] == "camera" and not captured["capturingBackground"],
         {"mode": captured["mode"], "ready": captured["backgroundReady"]},
     )
 
     page.evaluate("window.__HAN_TEST_API__.setSimulatedScenario('single')")
     wait_for(page, "() => window.__HAN_TEST_API__.getState().componentCount >= 1", 8_000)
-    page.click("#openPanel")
     wait_for(page, "() => Number(document.getElementById('recognitionPeople')?.textContent || 0) >= 1", 4_000)
     page.wait_for_timeout(450)
     single_camera = state(page)

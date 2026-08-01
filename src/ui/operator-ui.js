@@ -94,19 +94,30 @@ export class OperatorUI extends EventTarget {
     this.dom.offThresholdOutput.value = `${(settings.offThreshold * 100).toFixed(1)}%`;
   }
 
-  updateStatus({ mode, activeCount, fps, camera, backgroundReady, captureProgress }) {
+  updateStatus({ mode, activeCount, fps, camera, backgroundReady, captureProgress, backgroundCountdown = 0, detector }) {
     this.dom.modeStatus.textContent = MODE_LABELS[mode] || mode;
     const capture = captureProgress > 0 && captureProgress < 1 ? ` / 空场 ${Math.round(captureProgress * 100)}%` : '';
-    this.dom.cameraStatus.textContent = `摄像头：${camera.source}/${camera.state}${backgroundReady ? ' / 背景就绪' : ''}${capture}`;
+    const readyLabel = camera.source === 'hardware'
+      ? (detector?.ready ? ` / 人物模型 ${detector.delegate}` : '')
+      : (backgroundReady ? ' / 模拟背景就绪' : '');
+    this.dom.cameraStatus.textContent = `摄像头：${camera.source}/${camera.state}${readyLabel}${capture}`;
     this.dom.activeStatus.textContent = `${activeCount} / 63`;
     this.dom.fpsStatus.textContent = `${Number(fps || 0).toFixed(0)} FPS`;
     this.dom.cameraButton.textContent = camera.transportState === 'live' ? '摄像头已启动' : camera.state === 'requesting' ? '正在请求权限…' : '启动摄像头';
+    if (camera.source === 'hardware') {
+      this.dom.captureBackgroundButton.textContent = detector?.state === 'error' ? '重试人物模型' : detector?.ready ? '人物模型已启用' : '加载人物模型';
+      this.dom.captureBackgroundButton.disabled = Boolean(detector?.ready || detector?.state === 'loading');
+    } else {
+      this.dom.captureBackgroundButton.disabled = backgroundCountdown > 0;
+      this.dom.captureBackgroundButton.textContent = backgroundCountdown > 0
+        ? `${backgroundCountdown} 秒后采集…`
+        : (backgroundReady ? '重新采集模拟空场' : '采集模拟空场');
+    }
   }
 
   setCaptureCountdown(seconds) {
     const counting = Number.isFinite(seconds) && seconds > 0;
     this.dom.captureBackgroundButton.disabled = counting;
-    this.dom.captureBackgroundButton.textContent = counting ? `${seconds} 秒后采集…` : '采集空场背景';
   }
 
   setPresets(snapshot) {

@@ -44,8 +44,8 @@ export class CalibrationView {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawImageDataScaled(ctx, snapshot.frame, canvas);
 
-    const sourceWidth = snapshot.frame?.width || 240;
-    const sourceHeight = snapshot.frame?.height || 135;
+    const sourceWidth = snapshot.frame?.width || 320;
+    const sourceHeight = snapshot.frame?.height || 180;
     const sx = canvas.width / sourceWidth;
     const sy = canvas.height / sourceHeight;
     ctx.save();
