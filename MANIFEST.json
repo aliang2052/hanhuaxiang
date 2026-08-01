@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "baseline": "ac76d30",
   "packageVersion": "2.2.0-p0-fix2",
-  "fileCount": 190,
-  "totalBytes": 62907680,
+  "fileCount": 196,
+  "totalBytes": 62441296,
   "files": [
     {
       "path": ".gitignore",
@@ -32,8 +32,8 @@
     },
     {
       "path": "README.md",
-      "size": 8871,
-      "sha256": "1aad04fd35684c17da3bbfc68ec6e93313ab9c811972fdbd3e1985ba81631c36"
+      "size": 9485,
+      "sha256": "ef64ced0c2b296db9d89586d9441e9fab2d742733aa39ec7bfdb3dc93873eb59"
     },
     {
       "path": "assets/audio/ambience.wav",
@@ -577,8 +577,8 @@
     },
     {
       "path": "docs/CODEX_ACCEPTANCE_REPORT.md",
-      "size": 3528,
-      "sha256": "32cb535d6cb94947f86a845e440ea1ab6f0586d30d0542b5c1d3f81bda95d8e5"
+      "size": 6416,
+      "sha256": "264a5cdf3cdc49fbb538b507407085e8fcc154f361dff5c92aee97ecd73404e5"
     },
     {
       "path": "docs/screenshots/asset-contact-sheet.jpg",
@@ -587,38 +587,38 @@
     },
     {
       "path": "docs/screenshots/e2e-all-awake.png",
-      "size": 3083592,
-      "sha256": "496562f2cc867d87d0f2322baf5f1a1f72f36e5d36245025c76fab787b314466"
+      "size": 3066495,
+      "sha256": "5c6645c4169b4234558d1c9240d5b862ac098b741f26de1b678687901ec86f54"
     },
     {
       "path": "docs/screenshots/e2e-auto-1920x1200.png",
-      "size": 2811665,
-      "sha256": "1a690d3e5b8201e64e30f4811437ddf8142c76d679419a077abb29dfdce13ca8"
+      "size": 2797781,
+      "sha256": "a27b40683d51dbbadcba435040ecb810c9d8cb72221825946d36b27c774f9676"
     },
     {
       "path": "docs/screenshots/e2e-calibration-debug.png",
-      "size": 388688,
-      "sha256": "c9a586799103e26d73070d5af37acfa8162bfdf90393853c8473c7ea68a7df33"
+      "size": 343022,
+      "sha256": "a87a27937615634c69737e5225af7f38bc3a3b40c5b19e41df54e9775c910a7b"
     },
     {
       "path": "docs/screenshots/e2e-camera-permission-denied.png",
-      "size": 1484484,
-      "sha256": "2f9651f2df91209e15ba1328c62cade3841cb011530167390a7515089a234cbf"
+      "size": 1401779,
+      "sha256": "1425be712f6b2c90bf2947a0f96b76103ac0ef5510a07ff452c7ef02204c32bb"
     },
     {
       "path": "docs/screenshots/e2e-camera-simulated.png",
-      "size": 460654,
-      "sha256": "c0f67871b3fe64266e3091bfd961fb029ab989e867d7515b158b38e06fb8f1b0"
+      "size": 253013,
+      "sha256": "f2f6ff7978827478b6d8c9fb385eb346fe51d040f3c483282d49e1263aba20b4"
     },
     {
       "path": "docs/screenshots/e2e-mobile-390x844.png",
-      "size": 118305,
-      "sha256": "448bb5c0e3505a1f090397af20c66f0e4e1c0d02086308d32df030de6a6cba8a"
+      "size": 115569,
+      "sha256": "cc7cd8f14a6c36a3c2b4a090b731842677cc623951a0a63451050d8522408257"
     },
     {
       "path": "docs/screenshots/e2e-pointer.png",
-      "size": 2856389,
-      "sha256": "594212b3897c20124993d4935c8676d8ddb5d405fd40d0bf5b210ef80e931e59"
+      "size": 2729952,
+      "sha256": "f1eba46e6787458bef4f200d945b94827eb07e90d7dfb1c8bf247d2df39a0c39"
     },
     {
       "path": "docs/test-results/asset-rebuild-results.json",
@@ -627,43 +627,63 @@
     },
     {
       "path": "docs/test-results/camera-e2e-results.json",
-      "size": 43823,
-      "sha256": "4e60fb892f5da6e937971450b829de15030602c6356b23d194b9f230fb830a11"
+      "size": 44232,
+      "sha256": "f059d522f68f7162c23af014652b96394b6317c909f2b1483831dc9ac590e73b"
     },
     {
       "path": "docs/test-results/camera-e2e-server.log",
-      "size": 176,
-      "sha256": "f3b86ac502dda8860624d70c99b1ddb72c5baffde279ea0f279f7003f46e1c5f"
+      "size": 177,
+      "sha256": "1d282639a2822e52d71e7a61fb60e0351feae9c4f269ea148fa9a64e8de69ad9"
     },
     {
       "path": "docs/test-results/camera-race-e2e-results.json",
-      "size": 9785,
-      "sha256": "612cf2e199d063dfd5f1e261f762c8e53f83d5fef806e2e8adeb17545fdf36e5"
+      "size": 9703,
+      "sha256": "fe13907145584c54953238aa862d5ff3e30e5b395da5bb9d8bdb5c0f7b4d660a"
     },
     {
       "path": "docs/test-results/camera-race-e2e-server.log",
-      "size": 176,
-      "sha256": "03098ef843d173e4d31fa253778a0ba7721d19a1b13c9940d0ce578a3fcb4ff2"
+      "size": 177,
+      "sha256": "81990f82dc9961c5b3a125951031d1562538e821c077e5d64877bfbfb439feb9"
     },
     {
       "path": "docs/test-results/e2e-results.json",
-      "size": 30205,
-      "sha256": "5df3c69cc75198527210393ba65485b88b96a1955cd16813ec643ed1ee963af1"
+      "size": 29475,
+      "sha256": "0eb0de8170917558f0892d7658396e2b082cd692444efaad8a1cae0dffdda49a"
     },
     {
       "path": "docs/test-results/e2e-server.log",
-      "size": 176,
-      "sha256": "04b3d68131161879aa6c6842c5ee61e8d7e56a46c93748147f28f0a5f312915f"
+      "size": 177,
+      "sha256": "0da9b8837d6483c6387b5a8cbba5b3ea866ed72b58fba618d120b39bb6364990"
     },
     {
       "path": "docs/test-results/reconnect-e2e-results.json",
-      "size": 29384,
-      "sha256": "44138423d7d9f81b623ec1076cf28f52143509c897af67ecdbb7b370eb78585d"
+      "size": 28443,
+      "sha256": "b2f103ff46a466eb7b81850e153dea35a2957f980d102996f71d8eeb46580b87"
     },
     {
       "path": "docs/test-results/reconnect-e2e-server.log",
-      "size": 176,
-      "sha256": "f67b40d57bc2c530001c9b124233bb0a0b84c37d9292f86f414dbde7545001c7"
+      "size": 177,
+      "sha256": "c92058d3cfe64cd2672044797926b95ca646a6fdca2897b6f156bc37dec59c71"
+    },
+    {
+      "path": "docs/test-results/run-all-camera_e2e_test.log",
+      "size": 1041,
+      "sha256": "f6cd364df72dd04033b5f6113f7eb7eacb5ecd52a0a169b8a71c7ec85d36d0e6"
+    },
+    {
+      "path": "docs/test-results/run-all-camera_race_e2e_test.log",
+      "size": 1605,
+      "sha256": "295d725ed2901ef161c3970003148b328b7027a7e3fbca6a1a49250feb5035da"
+    },
+    {
+      "path": "docs/test-results/run-all-e2e_test.log",
+      "size": 6944,
+      "sha256": "2876c72d27d4982fe7c412c5902afb3322ecd06962d3a43297f0c62cb0dd6e0d"
+    },
+    {
+      "path": "docs/test-results/run-all-reconnect_e2e_test.log",
+      "size": 1096,
+      "sha256": "589e32a5311381cfb67a88d8af1af146aa3aea203c2111d12eb909b5281f2372"
     },
     {
       "path": "docs/test-results/soak-short-results.json",
@@ -672,8 +692,8 @@
     },
     {
       "path": "index.html",
-      "size": 8641,
-      "sha256": "344adbdde19196b28eeee14ab9564d36dcdbf32769f59e22657bf2a2dcecc9d2"
+      "size": 9721,
+      "sha256": "00b2426975239af9bb9b37465165daf0ab0488f603c786aab5e9187730159ef4"
     },
     {
       "path": "package-lock.json",
@@ -702,8 +722,8 @@
     },
     {
       "path": "src/audio/audio-engine.js",
-      "size": 4410,
-      "sha256": "975b0c9aa3a93e042417013d3e974469493073e9e3d4257080d610b173a764c0"
+      "size": 6002,
+      "sha256": "ece661fb85f72cb5b8c2e09c5cd9593ec9aa468223e1f495fd73ae5afe01b8b1"
     },
     {
       "path": "src/calibration/calibration-controller.js",
@@ -747,13 +767,13 @@
     },
     {
       "path": "src/input/input-controller.js",
-      "size": 10885,
-      "sha256": "7a5f9a485ab290ef5dd5650290d742f682e20d0efc2b08e9029ab0820a8edca6"
+      "size": 11565,
+      "sha256": "2efda4657e56d18540c21a6da0b79bc68a6cc10d6915b1a5404692b0e21b94f4"
     },
     {
       "path": "src/input/pointer-input.js",
-      "size": 2035,
-      "sha256": "d7b74db9d2a05d35492a29ac4c925960d32bb72772ad03e91a1bd1d47f1e930a"
+      "size": 2201,
+      "sha256": "d59f9e6e1907a642e23b9a69fd22b48e72404ccc91deab0e860d758790811a99"
     },
     {
       "path": "src/input/simulated-camera.js",
@@ -762,8 +782,8 @@
     },
     {
       "path": "src/main.js",
-      "size": 18988,
-      "sha256": "c5fca5efbc2a1f0fd6b4b0eeb392e58fad788901265da3e0263fc5bd767cbef2"
+      "size": 21552,
+      "sha256": "6a53039e4991d3ca84694ca0946a6cac4a11964f550a64a7b28b321377fe1659"
     },
     {
       "path": "src/scene/character-renderer.js",
@@ -777,8 +797,8 @@
     },
     {
       "path": "src/scene/scene-layout.js",
-      "size": 5845,
-      "sha256": "af3a60f24321e81584cc0f2c11c30deb8e12fd401144e149f5306ef1415fad2c"
+      "size": 6468,
+      "sha256": "29d038c137d487b51cfec13bcd37da7df42ddb7fcb4f9a0f274874e323d7ec53"
     },
     {
       "path": "src/scene/scene-renderer.js",
@@ -807,8 +827,13 @@
     },
     {
       "path": "src/ui/operator-ui.js",
-      "size": 8479,
-      "sha256": "582d4fd2591b071832b4629ab87b791293247a40a2eea370d29bfff8141bf28e"
+      "size": 9212,
+      "sha256": "fbcdc6b504a4d9bdf6bd26fcd1fc35087d4bbf3a0677fdf85f15c5792aaa1395"
+    },
+    {
+      "path": "src/ui/recognition-monitor.js",
+      "size": 4680,
+      "sha256": "c9831fa15668d5e3fee6f86e68e9421f7044fab386291a61b940d5972895d695"
     },
     {
       "path": "start.bat",
@@ -827,8 +852,8 @@
     },
     {
       "path": "styles.css",
-      "size": 9517,
-      "sha256": "87e620a493c833c34054a340037c7d0767bfcb48ac7e56f18c2ad6bf3577b2cf"
+      "size": 10833,
+      "sha256": "bd47b9c5796d0de70e805dfc11f150f66580ce4ceaed37ed17d8039d76d25d3d"
     },
     {
       "path": "tests/asset_verify_preservation.py",
@@ -842,8 +867,8 @@
     },
     {
       "path": "tests/e2e/camera_e2e_test.py",
-      "size": 8258,
-      "sha256": "123368282ec803e34459162fbe3919554477a29c4419ea6e391eaf02cfcc9345"
+      "size": 8966,
+      "sha256": "e70898bbb63b5c287d34442fb8de61addb7007304de92338dbe0538f9170210a"
     },
     {
       "path": "tests/e2e/camera_race_e2e_test.py",
@@ -857,8 +882,8 @@
     },
     {
       "path": "tests/e2e/e2e_test.py",
-      "size": 22742,
-      "sha256": "29fc4d8f7338eef0daf196ac63bfd504f46f686d8f45605d3696b061c7d12b23"
+      "size": 23538,
+      "sha256": "4691f483075fc56d055181429f7831cb807ec69956ba55dae8442018e4842a90"
     },
     {
       "path": "tests/e2e/reconnect_e2e_test.py",
@@ -879,6 +904,11 @@
       "path": "tests/server.test.js",
       "size": 1583,
       "sha256": "e033480fcf51cf43e8c57189df99271f575b1f971f36e70f70dda10eb62d8c51"
+    },
+    {
+      "path": "tests/unit/audio-engine.test.js",
+      "size": 1520,
+      "sha256": "987e21081d7169d9d4b215390b511d386a40af7b6ef4de68d0780f62ce4752e9"
     },
     {
       "path": "tests/unit/camera-controller.test.js",
@@ -917,8 +947,8 @@
     },
     {
       "path": "tests/unit/scene-layout.test.js",
-      "size": 1247,
-      "sha256": "a69105040756dbb48d60b4659f351b0333f71e13ec6d026c66c415cbc3fba731"
+      "size": 1723,
+      "sha256": "6f4e3e1f3c1d3f529933ab98cb2f02aabca04a9f4b7e4baf390df03c6540a493"
     },
     {
       "path": "tests/unit/trigger.test.js",

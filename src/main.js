@@ -11,6 +11,7 @@ import { InputController } from './input/input-controller.js';
 import { TriggerHysteresis } from './trigger/hysteresis.js';
 import { TriggerPlane } from './trigger/trigger-plane.js';
 import { OperatorUI } from './ui/operator-ui.js';
+import { RecognitionMonitor } from './ui/recognition-monitor.js';
 
 const APP_VERSION = '2.2.0-p0-fix2';
 const BASELINE = 'ac76d30';
@@ -30,7 +31,7 @@ async function loadImage(url) {
 }
 
 function modeLabel(mode) {
-  return ({ auto: '自动演示', pointer: '鼠标 / 多点触摸', camera: '摄像头' })[mode] || mode;
+  return ({ auto: '自动演示', pointer: '鼠标精准 / 多点触摸', camera: '摄像头' })[mode] || mode;
 }
 
 class HanOrchestraApp {
@@ -53,6 +54,7 @@ class HanOrchestraApp {
       triggerPlane: this.triggerPlane,
       calibrationController: this.calibration,
       settings: this.settings,
+      visualNodes: sceneConfig.nodes,
     });
     this.hysteresis = new TriggerHysteresis(this.triggerPlane.count, {
       onThreshold: this.settings.onThreshold,
@@ -80,6 +82,16 @@ class HanOrchestraApp {
         calibration: document.getElementById('debugMetricCalibration'),
       },
     });
+    this.recognitionMonitor = new RecognitionMonitor({
+      panel: document.getElementById('controlPanel'),
+      canvas: document.getElementById('recognitionCanvas'),
+      health: document.getElementById('recognitionHealth'),
+      people: document.getElementById('recognitionPeople'),
+      foreground: document.getElementById('recognitionForeground'),
+      active: document.getElementById('recognitionActive'),
+      audio: document.getElementById('recognitionAudio'),
+      hint: document.getElementById('recognitionHint'),
+    });
 
     this.ready = false;
     this.entered = false;
@@ -97,6 +109,7 @@ class HanOrchestraApp {
     this.externalErrors = [];
     this.triggerPartition = this.triggerPlane.verifyPartition();
     this.assetLoadResult = null;
+    this.backgroundCaptureToken = 0;
 
     this.#bindUi();
     this.#bindControllers();
@@ -159,13 +172,7 @@ class HanOrchestraApp {
       const ok = await this.input.ensureCameraStarted();
       this.#message(ok ? '摄像头已启动。' : this.input.cameraMessage || '摄像头启动失败。', ok ? 'success' : 'error');
     });
-    this.ui.addEventListener('capture-background', async () => {
-      this.settings.mode = 'camera';
-      this.ui.applySettings(this.settings);
-      const ok = await this.input.captureBackground(18);
-      this.#persistSettings();
-      if (!ok) this.#message(this.input.cameraMessage || '无法采集空场背景。', 'error');
-    });
+    this.ui.addEventListener('capture-background', () => { void this.captureBackgroundFromUi(); });
     this.ui.addEventListener('debug', (event) => this.setDebugOpen(event.detail.open));
     this.ui.addEventListener('fullscreen', () => this.toggleFullscreen());
     this.ui.addEventListener('simulation-scenario', (event) => {
@@ -175,8 +182,16 @@ class HanOrchestraApp {
     this.ui.addEventListener('simulation-disconnect', () => {
       if (!this.input.simulateDisconnect()) this.#message('请先选择内置模拟摄像头。', 'warning');
     });
-    this.ui.addEventListener('setting', (event) => this.setSetting(event.detail.key, event.detail.value));
-    this.ui.addEventListener('toggle-mute', () => this.setSetting('muted', !this.settings.muted));
+    this.ui.addEventListener('setting', (event) => {
+      if (event.detail.key === 'muted') void this.setMuted(event.detail.value);
+      else this.setSetting(event.detail.key, event.detail.value);
+    });
+    this.ui.addEventListener('toggle-mute', () => { void this.setMuted(!this.settings.muted); });
+    this.ui.addEventListener('test-audio', async () => {
+      this.setSetting('muted', false);
+      const ok = await this.audio.testTone();
+      this.#message(ok ? '测试音已播放；若仍听不到，请检查系统输出设备与标签页声音权限。' : '测试音播放失败；请再次点击，或检查浏览器音频权限。', ok ? 'success' : 'error');
+    });
     this.ui.addEventListener('preset-select', (event) => {
       const result = this.calibration.selectPreset(event.detail.name);
       this.#message(result.message, result.ok ? 'success' : 'error');
@@ -216,7 +231,7 @@ class HanOrchestraApp {
       if (key === 'h') this.toggleUi();
       else if (key === 'd') this.setDebugOpen(!this.debugOpen);
       else if (key === 'f') this.toggleFullscreen();
-      else if (key === 'm') this.setSetting('muted', !this.settings.muted);
+      else if (key === 'm') void this.setMuted(!this.settings.muted);
       else if (key === 'a') this.hysteresis.forceWake(6500);
       else if (event.code === 'Space') {
         event.preventDefault();
@@ -227,6 +242,7 @@ class HanOrchestraApp {
 
   setMode(mode) {
     this.input.setMode(mode);
+    this.hysteresis.reset();
     this.settings.mode = mode;
     this.#persistSettings();
     this.ui.applySettings(this.settings);
@@ -247,6 +263,38 @@ class HanOrchestraApp {
     this.#persistSettings();
     this.ui.applySettings(this.settings);
     if (result.errors.length) this.#message(result.errors.join(' '), 'warning');
+  }
+
+  async setMuted(muted) {
+    this.setSetting('muted', Boolean(muted));
+    if (this.settings.muted) {
+      this.#message('声音已关闭。', 'info');
+      return true;
+    }
+    const resumed = await this.audio.recover();
+    this.#message(resumed ? '声音已开启。' : '声音仍被浏览器暂停，请再次点击声音按钮。', resumed ? 'success' : 'warning');
+    return resumed;
+  }
+
+  async captureBackgroundFromUi() {
+    const token = ++this.backgroundCaptureToken;
+    this.setMode('camera');
+    const started = await this.input.ensureCameraStarted();
+    if (!started || token !== this.backgroundCaptureToken) {
+      this.#message(this.input.cameraMessage || '摄像头未就绪，无法采集空场背景。', 'error');
+      return false;
+    }
+    for (let remaining = 3; remaining > 0; remaining -= 1) {
+      this.ui.setCaptureCountdown(remaining);
+      this.#message(`${remaining} 秒后采集空场背景，请离开摄像头画面。`, 'warning');
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      if (token !== this.backgroundCaptureToken) return false;
+    }
+    this.ui.setCaptureCountdown(null);
+    const ok = await this.input.captureBackground(18);
+    this.#persistSettings();
+    if (!ok) this.#message(this.input.cameraMessage || '无法采集空场背景。', 'error');
+    return ok;
   }
 
   resetSettings() {
@@ -322,6 +370,12 @@ class HanOrchestraApp {
       backgroundReady: this.lastInputSnapshot.backgroundReady,
       captureProgress: this.lastInputSnapshot.captureProgress,
     });
+    this.recognitionMonitor.update(this.lastInputSnapshot, {
+      mode: this.input.mode,
+      activeCount: trigger.activeCount,
+      audio: this.audio.snapshot(),
+      now,
+    });
     if (this.debugOpen) this.calibrationView.update(this.lastInputSnapshot, { fps: this.fps });
     this.raf = requestAnimationFrame((next) => this.#loop(next));
   }
@@ -352,6 +406,7 @@ class HanOrchestraApp {
       coverages: [...this.lastInputSnapshot.coverages],
       positiveCoverageCount: [...this.lastInputSnapshot.coverages].filter((value) => value > 0.001).length,
       pointerCount: this.lastInputSnapshot.pointerCount || 0,
+      pointerTargetIds: [...(this.lastInputSnapshot.pointerTargetIds || [])],
       activeCount: activeIds.length,
       activeIds,
       visual: [...this.hysteresis.visual],

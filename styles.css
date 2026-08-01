@@ -75,6 +75,18 @@ input[type="range"] { width: 100%; accent-color: #a64b36; }
 .panel-message[data-level="warning"] { color: var(--warning); }
 .panel-message[data-level="error"] { color: var(--error); }
 
+.recognition-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.recognition-head h3 { margin: 0; }
+.recognition-head span { padding: 4px 7px; border-radius: 999px; background: rgba(255,255,255,.07); color: var(--muted); font: 10px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.recognition-head span[data-state="ok"] { color: #d9efd0; background: rgba(94,139,74,.28); }
+.recognition-head span[data-state="warning"] { color: #f1d29d; background: rgba(172,117,43,.26); }
+.recognition-monitor canvas { display: block; width: 100%; height: auto; margin-top: 9px; border: 1px solid rgba(235,228,208,.16); border-radius: 8px; background: #080808; }
+.recognition-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 8px 0 0; }
+.recognition-metrics div { display: flex; justify-content: space-between; gap: 8px; min-width: 0; padding: 6px 8px; border-radius: 6px; background: rgba(255,255,255,.035); }
+.recognition-metrics dt { color: #8f8878; font-size: 10px; }
+.recognition-metrics dd { margin: 0; overflow: hidden; color: #e4ddca; font: 10px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; text-overflow: ellipsis; white-space: nowrap; }
+.recognition-hint { margin: 8px 0 0; color: var(--warning); font-size: 11px; line-height: 1.55; }
+
 .floating-control, .floating-audio { position: absolute; z-index: 12; bottom: max(18px, env(safe-area-inset-bottom)); width: 44px; height: 44px; padding: 0; border-radius: 50%; background: rgba(31,30,26,.73); backdrop-filter: blur(8px); font-size: 13px; transition: opacity .3s ease; }
 .floating-control { right: max(18px, env(safe-area-inset-right)); }
 .floating-audio { right: calc(max(18px, env(safe-area-inset-right)) + 52px); }

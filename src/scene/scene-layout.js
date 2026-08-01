@@ -208,3 +208,19 @@ export function getNodeRect(node, metrics) {
     h: layout.h * metrics.height,
   };
 }
+
+/** Return the topmost visual node under a normalized stage point. */
+export function hitTestVisualNode(nodes, orientation, u, v) {
+  if (!Array.isArray(nodes) || !Number.isFinite(u) || !Number.isFinite(v) || u < 0 || u > 1 || v < 0 || v > 1) {
+    return -1;
+  }
+  for (let index = nodes.length - 1; index >= 0; index -= 1) {
+    const node = nodes[index];
+    const layout = node?.[orientation] ?? node?.landscape;
+    if (!layout) continue;
+    if (u >= layout.x && u <= layout.x + layout.w && v >= layout.y && v <= layout.y + layout.h) {
+      return Number.isInteger(node.id) ? node.id : -1;
+    }
+  }
+  return -1;
+}

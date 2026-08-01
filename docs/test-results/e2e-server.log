@@ -1,6 +1,6 @@
 
 汉画像·百戏乐舞 P0 已启动
-本机： http://localhost:57745
-局域网： http://172.26.36.7:57745
-健康检查： http://localhost:57745/health
+本机： http://localhost:65507
+局域网： http://192.168.5.28:65507
+健康检查： http://localhost:65507/health
 按 Ctrl+C 停止。

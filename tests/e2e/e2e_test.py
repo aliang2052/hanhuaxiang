@@ -46,7 +46,7 @@ def check(name: str, condition: bool, detail: object = "") -> None:
     CHECKS.append(Check(name, bool(condition), text))
     if not condition:
         raise AssertionError(f"{name}: {text}")
-    print(f"PASS {name}: {text}")
+    print(f"PASS {name}{f': {text}' if text else ''}")
 
 
 def wait_for(page: Page, expression: str, timeout: int = 10_000, arg: object | None = None) -> object:
@@ -181,10 +181,15 @@ def run_primary(page: Page, base_url: str) -> dict:
     page.evaluate("window.__HAN_TEST_API__.setMode('pointer')")
     dispatch_pointer(page, "pointerdown", 1, 490, 650, "mouse")
     wait_for(page, "() => window.__HAN_TEST_API__.getState().pointerCount === 1")
-    wait_for(page, "() => window.__HAN_TEST_API__.getState().positiveCoverageCount > 0")
+    wait_for(page, "() => window.__HAN_TEST_API__.getState().positiveCoverageCount === 1")
+    wait_for(page, "() => window.__HAN_TEST_API__.getState().activeCount === 1")
     single_pointer = state(page)
-    check("single pointer remains local", 0 < single_pointer["positiveCoverageCount"] < 28,
-          single_pointer["positiveCoverageCount"])
+    check("mouse precisely selects one real visual panel",
+          single_pointer["positiveCoverageCount"] == 1
+          and single_pointer["activeCount"] == 1
+          and single_pointer["activeIds"] == single_pointer["pointerTargetIds"],
+          {"coverage": single_pointer["positiveCoverageCount"], "active": single_pointer["activeIds"],
+           "target": single_pointer["pointerTargetIds"]})
     dispatch_pointer(page, "pointerdown", 2, 1420, 510, "touch")
     wait_for(page, "() => window.__HAN_TEST_API__.getState().pointerCount === 2")
     page.wait_for_timeout(250)
@@ -234,6 +239,13 @@ def run_primary(page: Page, base_url: str) -> dict:
           panel["left"] >= -1 and panel["right"] <= 391 and panel["top"] >= 0 and panel["bottom"] <= 845,
           panel)
     check("mobile panel can scroll", panel["scrollHeight"] > panel["clientHeight"] and panel["overflowY"] in {"auto", "scroll"}, panel)
+    monitor = page.evaluate("""() => ({
+      canvas: Boolean(document.getElementById('recognitionCanvas')),
+      audio: document.getElementById('recognitionAudio')?.textContent || '',
+      testAudio: Boolean(document.getElementById('testAudioButton')),
+    })""")
+    check("operator panel exposes recognition and audio diagnostics",
+          monitor["canvas"] and monitor["testAudio"] and "9/9" in monitor["audio"], monitor)
     page.screenshot(path=str(SCREENSHOTS / "e2e-mobile-390x844.png"), full_page=True)
     page.click("#closePanel")
 

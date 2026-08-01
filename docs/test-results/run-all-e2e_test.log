@@ -1,0 +1,39 @@
+PASS health endpoint before E2E: {"app": "han-orchestra-installation", "baseline": "ac76d30", "ok": true, "uptimeSeconds": 0.2, "version": "2.2.0-p0-fix2"}
+PASS permission denial returns false: [false, false, false]
+PASS parallel permission requests are deduplicated: {"getUserMediaCalls": 1, "message": "摄像头权限被永久拒绝。请在浏览器地址栏允许摄像头后手动重试。", "permanentError": true, "reconnectAttempts": 0, "reconnectFailuresTotal": 0, "reconnectSuccesses": 0, "retryable": false, "source": "hardware", "sourceGeneration": 1, "state": "error", "transportState": "error"}
+PASS permission denial leaves renderer alive: {"camera": {"getUserMediaCalls": 1, "message": "摄像头权限被永久拒绝。请在浏览器地址栏允许摄像头后手动重试。", "permanentError": true, "reconnectAttempts": 0, "reconnectFailuresTotal": 0, "reconnectSuccesses": 0, "retryable": false, "source": "hardware", "sourceGeneration": 1, "state": "error", "transportState": "error"}, "drawn": 63, "errors": []}
+PHASE primary behavior suite
+PASS bootstrap has no boot error
+PASS 63 scene nodes: 63
+PASS 60 distinct loaded runtime sprite files: {"configured": 60, "loaded": 60}
+PASS asset diversity metadata records 32 genuinely different base silhouettes: {"distinctBaseSilhouetteCount": 32, "independentHighResSourceCount": 8, "muralDerivedDistinctSourceCount": 24, "runtimeSpriteCount": 60}
+PASS dense landscape visual structure: {"centralStagePanelCount": 5, "centralStagePresent": true, "horizontalBeamCount": 8, "leftBorderPresent": true, "orientation": "landscape", "panelCount": 63, "rightBorderPresent": true, "sideBorderCount": 2, "version": 3}
+PASS trigger partition complete: {"counts": [10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000], "expected": 10000, "holes": 0, "maxDeviation": 0, "overlaps": 0, "valid": true}
+PHASE fresh-page 63-node stress suite
+PASS 12-second 63-node stress keeps every node active: {"active": 63, "fps": 59.98800239952027, "heap": 5352820, "runtimeErrors": []}
+PASS 12-second 63-node stress has no runtime errors: {"active": 63, "fps": 59.98800239952027, "heap": 5352820, "runtimeErrors": []}
+PASS stress FPS does not collapse: {"average": 35.11, "median": 29.01, "minimum": 11.35, "samplesBelow12": 1, "tailAverage": 59.33}
+PASS short stress has no sustained >96 MiB heap growth: {"first": 4641061, "growthBytes": 711759, "last": 5352820}
+PASS auto demo activates a local subset: {"active": 16, "coverageCells": 21}
+PASS mouse precisely selects one real visual panel: {"active": [28], "coverage": 1, "target": [28]}
+PASS multi-touch expands but does not flood coverage: {"double": 13, "single": 1}
+PASS wake-all reaches 63/63: 63
+PASS responsive 1920x1080: {"drawn": 63, "orientation": "landscape", "rect": {"height": 1080, "width": 1920, "x": 0, "y": 0}, "viewport": {"aspect": 1.7777777777777777, "backingHeight": 822, "backingPixels": 1200942, "backingWidth": 1461, "cssHeight": 1080, "cssWidth": 1920, "orientation": "landscape", "revision": 4, "scale": 0.7607257743127307}}
+PASS responsive 1920x1200: {"drawn": 63, "orientation": "landscape", "rect": {"height": 1200, "width": 1920, "x": 0, "y": 0}, "viewport": {"aspect": 1.6, "backingHeight": 866, "backingPixels": 1200276, "backingWidth": 1386, "cssHeight": 1200, "cssWidth": 1920, "orientation": "landscape", "revision": 5, "scale": 0.7216878364870323}}
+PASS responsive 2560x1440: {"drawn": 63, "orientation": "landscape", "rect": {"height": 1440, "width": 2560, "x": 0, "y": 0}, "viewport": {"aspect": 1.7777777777777777, "backingHeight": 822, "backingPixels": 1200942, "backingWidth": 1461, "cssHeight": 1440, "cssWidth": 2560, "orientation": "landscape", "revision": 6, "scale": 0.570544330734548}}
+PASS responsive 3840x2160: {"drawn": 63, "orientation": "landscape", "rect": {"height": 2160, "width": 3840, "x": 0, "y": 0}, "viewport": {"aspect": 1.7777777777777777, "backingHeight": 822, "backingPixels": 1200942, "backingWidth": 1461, "cssHeight": 2160, "cssWidth": 3840, "orientation": "landscape", "revision": 6, "scale": 0.38036288715636535}}
+PASS responsive 3440x1440: {"drawn": 63, "orientation": "landscape", "rect": {"height": 1440, "width": 3440, "x": 0, "y": 0}, "viewport": {"aspect": 2.388888888888889, "backingHeight": 709, "backingPixels": 1200337, "backingWidth": 1693, "cssHeight": 1440, "cssWidth": 3440, "orientation": "landscape", "revision": 7, "scale": 0.4921870193488486}}
+PASS responsive 390x844: {"drawn": 63, "orientation": "portrait", "rect": {"height": 844, "width": 390, "x": 0, "y": 0}, "viewport": {"aspect": 0.46208530805687204, "backingHeight": 844, "backingPixels": 329160, "backingWidth": 390, "cssHeight": 844, "cssWidth": 390, "orientation": "portrait", "revision": 8, "scale": 1}}
+PASS 390x844 uses portrait scene: portrait
+PASS mobile control panel stays within viewport: {"bottom": 837, "clientHeight": 785, "height": 787, "left": 7, "overflowY": "auto", "right": 383, "scrollHeight": 1705, "top": 50, "width": 376}
+PASS mobile panel can scroll: {"bottom": 837, "clientHeight": 785, "height": 787, "left": 7, "overflowY": "auto", "right": 383, "scrollHeight": 1705, "top": 50, "width": 376}
+PASS operator panel exposes recognition and audio diagnostics: {"audio": "running · 9/9 · 3.1%", "canvas": true, "testAudio": true}
+PASS valid 3x3 homography accepted: {"result": {"area": 0.7506875000000001, "cameraToPlane": [1.219601977421478, 0.04963496419738576, -0.10203530497148297, 0.055091444644760075, 1.3064542587185994, -0.12198819885625475, 0.003847407245524925, 0.12784139853618956, 1], "errors": [], "maxError": 3.1401849173675503e-16, "planeToCamera": [0.8214494429671103, -0.038945501037084426, 0.07906595290673556, -0.03452244232440541, 0.7580381202281133, 0.08894919702007752, 0.0012529467689328562, -0.09675881423083554, 0.9883244113341945], "valid": true}, "verification": {"corners": [{"x": 0, "y": 0}, {"x": 1, "y": 0}, {"x": 1, "y": 1}, {"x": 0, "y": 1}], "maxRoundTripError": 3.7238012298709097e-16, "valid": true}}
+PASS homography discrete error below 1e-6: 3.7238012298709097e-16
+PASS calibration rebuilds pixel mapping: {"after": 2, "before": 1}
+PASS crossed calibration rejected: {"area": 0, "errors": ["四角边线发生交叉。"], "valid": false}
+PASS invalid calibration preserves prior valid quad: [{"x": 0.08, "y": 0.09}, {"x": 0.91, "y": 0.055}, {"x": 0.965, "y": 0.91}, {"x": 0.045, "y": 0.95}]
+PASS no external network requests: []
+PASS no console/page errors: []
+PASS final renderer still draws 63 nodes: 63
+E2E PASSED: 36 behavioral checks in 84.977s

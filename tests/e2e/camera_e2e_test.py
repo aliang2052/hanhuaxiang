@@ -56,6 +56,8 @@ def run_camera(page, base_url: str) -> dict:
 
     page.evaluate("window.__HAN_TEST_API__.setSimulatedScenario('single')")
     wait_for(page, "() => window.__HAN_TEST_API__.getState().componentCount >= 1", 8_000)
+    page.click("#openPanel")
+    wait_for(page, "() => Number(document.getElementById('recognitionPeople')?.textContent || 0) >= 1", 4_000)
     page.wait_for_timeout(450)
     single_camera = state(page)
     check(
@@ -69,6 +71,15 @@ def run_camera(page, base_url: str) -> dict:
             "active": single_camera["activeCount"],
         },
     )
+    recognition = page.evaluate("""() => ({
+      people: Number(document.getElementById('recognitionPeople').textContent),
+      foreground: Number(document.getElementById('recognitionForeground').textContent),
+      active: document.getElementById('recognitionActive').textContent,
+      health: document.getElementById('recognitionHealth').textContent,
+    })""")
+    check("recognition monitor visualizes the detected foreground",
+          recognition["people"] >= 1 and recognition["foreground"] > 0 and recognition["active"] != "0 / 63",
+          recognition)
 
     page.wait_for_timeout(4_000)
     static_camera = state(page)

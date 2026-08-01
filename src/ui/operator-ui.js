@@ -1,4 +1,4 @@
-const MODE_LABELS = { auto: '自动演示', pointer: '鼠标 / 触摸', camera: '摄像头' };
+const MODE_LABELS = { auto: '自动演示', pointer: '鼠标精准 / 多点触摸', camera: '摄像头' };
 
 const byId = (id) => document.getElementById(id);
 
@@ -9,7 +9,7 @@ export class OperatorUI extends EventTarget {
       intro: byId('intro'), enterButton: byId('enterButton'), topBar: byId('topBar'),
       controlPanel: byId('controlPanel'), openPanel: byId('openPanel'), closePanel: byId('closePanel'),
       modeSelect: byId('modeSelect'), cameraSourceSelect: byId('cameraSourceSelect'), cameraButton: byId('cameraButton'),
-      captureBackgroundButton: byId('captureBackgroundButton'), debugButton: byId('debugButton'), fullscreenButton: byId('fullscreenButton'),
+      captureBackgroundButton: byId('captureBackgroundButton'), debugButton: byId('debugButton'), fullscreenButton: byId('fullscreenButton'), testAudioButton: byId('testAudioButton'),
       simulationControls: byId('simulationControls'), simulationScenarioSelect: byId('simulationScenarioSelect'), simulateDisconnectButton: byId('simulateDisconnectButton'),
       diffThreshold: byId('diffThreshold'), diffThresholdOutput: byId('diffThresholdOutput'),
       onThreshold: byId('onThreshold'), onThresholdOutput: byId('onThresholdOutput'), offThreshold: byId('offThreshold'), offThresholdOutput: byId('offThresholdOutput'),
@@ -39,6 +39,7 @@ export class OperatorUI extends EventTarget {
     d.debugButton.addEventListener('click', () => this.#emit('debug', { open: true }));
     d.closeDebug.addEventListener('click', () => this.#emit('debug', { open: false }));
     d.fullscreenButton.addEventListener('click', () => this.#emit('fullscreen'));
+    d.testAudioButton.addEventListener('click', () => this.#emit('test-audio'));
     d.simulationScenarioSelect.addEventListener('change', () => this.#emit('simulation-scenario', { scenario: d.simulationScenarioSelect.value }));
     d.simulateDisconnectButton.addEventListener('click', () => this.#emit('simulation-disconnect'));
     d.diffThreshold.addEventListener('input', () => this.#emit('setting', { key: 'diffThreshold', value: Number(d.diffThreshold.value) }));
@@ -79,6 +80,10 @@ export class OperatorUI extends EventTarget {
     d.gridToggle.checked = settings.showGrid;
     d.labelsToggle.checked = settings.showLabels;
     d.muteToggle.checked = settings.muted;
+    d.audioButton.textContent = settings.muted ? '静' : '声';
+    d.audioButton.title = settings.muted ? '声音已关闭，点击开启' : '声音已开启，点击静音';
+    d.audioButton.setAttribute('aria-label', d.audioButton.title);
+    d.audioButton.setAttribute('aria-pressed', String(!settings.muted));
     this.#updateOutputs(settings);
     d.simulationControls.hidden = settings.cameraSource !== 'simulated';
   }
@@ -95,7 +100,13 @@ export class OperatorUI extends EventTarget {
     this.dom.cameraStatus.textContent = `摄像头：${camera.source}/${camera.state}${backgroundReady ? ' / 背景就绪' : ''}${capture}`;
     this.dom.activeStatus.textContent = `${activeCount} / 63`;
     this.dom.fpsStatus.textContent = `${Number(fps || 0).toFixed(0)} FPS`;
-    this.dom.cameraButton.textContent = camera.state === 'live' ? '摄像头已启动' : camera.state === 'requesting' ? '正在请求权限…' : '启动摄像头';
+    this.dom.cameraButton.textContent = camera.transportState === 'live' ? '摄像头已启动' : camera.state === 'requesting' ? '正在请求权限…' : '启动摄像头';
+  }
+
+  setCaptureCountdown(seconds) {
+    const counting = Number.isFinite(seconds) && seconds > 0;
+    this.dom.captureBackgroundButton.disabled = counting;
+    this.dom.captureBackgroundButton.textContent = counting ? `${seconds} 秒后采集…` : '采集空场背景';
   }
 
   setPresets(snapshot) {

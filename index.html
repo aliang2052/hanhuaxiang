@@ -46,7 +46,7 @@
           <span>触发来源</span>
           <select id="modeSelect">
             <option value="auto">自动演示</option>
-            <option value="pointer">鼠标 / 多点触摸</option>
+            <option value="pointer">鼠标精准 / 多点触摸</option>
             <option value="camera">摄像头</option>
           </select>
         </label>
@@ -64,7 +64,23 @@
         <button id="captureBackgroundButton" type="button">采集空场背景</button>
         <button id="debugButton" type="button">打开调试与标定</button>
         <button id="fullscreenButton" type="button">全屏投影</button>
+        <button id="testAudioButton" type="button">测试声音</button>
       </div>
+
+      <section id="recognitionMonitor" class="panel-section recognition-monitor" aria-label="人物识别监视器">
+        <div class="recognition-head">
+          <h3>人物识别监视器</h3>
+          <span id="recognitionHealth" data-state="idle">等待摄像头</span>
+        </div>
+        <canvas id="recognitionCanvas" width="480" height="270" aria-label="摄像头人物前景识别预览"></canvas>
+        <dl class="recognition-metrics">
+          <div><dt>候选人物</dt><dd id="recognitionPeople">0</dd></div>
+          <div><dt>前景像素</dt><dd id="recognitionForeground">0</dd></div>
+          <div><dt>触发格子</dt><dd id="recognitionActive">0 / 63</dd></div>
+          <div><dt>音频链路</dt><dd id="recognitionAudio">未初始化</dd></div>
+        </dl>
+        <p id="recognitionHint" class="recognition-hint">切换到摄像头模式并采集空场背景。</p>
+      </section>
 
       <section id="simulationControls" class="panel-section">
         <h3>模拟摄像头验收</h3>
@@ -173,7 +189,7 @@
     </section>
 
     <button id="openPanel" class="floating-control operator-ui" type="button" title="打开控制面板">控</button>
-    <button id="audioButton" class="floating-audio operator-ui" type="button" title="声音开关">声</button>
+    <button id="audioButton" class="floating-audio operator-ui" type="button" title="声音已开启，点击静音" aria-label="声音已开启，点击静音" aria-pressed="true">声</button>
 
     <video id="cameraVideo" autoplay muted playsinline></video>
   </main>

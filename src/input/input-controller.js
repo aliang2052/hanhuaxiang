@@ -3,6 +3,7 @@ import { ForegroundSegmenter } from './foreground-segmenter.js';
 import { PointerInput } from './pointer-input.js';
 import { SimulatedCamera } from './simulated-camera.js';
 import { CoverageEngine } from '../trigger/coverage-engine.js';
+import { hitTestVisualNode } from '../scene/scene-layout.js';
 
 const PROCESSING_WIDTH = 240;
 const PROCESSING_HEIGHT = 135;
@@ -10,14 +11,17 @@ const VIRTUAL_WIDTH = 180;
 const VIRTUAL_HEIGHT = 140;
 
 export class InputController extends EventTarget {
-  constructor({ canvas, viewport, video, triggerPlane, calibrationController, settings }) {
+  constructor({ canvas, viewport, video, triggerPlane, calibrationController, settings, visualNodes = [] }) {
     super();
     this.triggerPlane = triggerPlane;
     this.calibrationController = calibrationController;
     this.settings = settings;
+    this.visualNodes = visualNodes;
     this.mode = settings.mode;
     this.cameraSource = settings.cameraSource;
-    this.pointer = new PointerInput(canvas, viewport);
+    this.pointer = new PointerInput(canvas, viewport, {
+      hitTest: (u, v) => hitTestVisualNode(this.visualNodes, viewport.orientation, u, v),
+    });
     this.pointer.setEnabled(this.mode === 'pointer');
     this.hardwareCamera = new CameraController(video, PROCESSING_WIDTH, PROCESSING_HEIGHT);
     this.simulatedCamera = new SimulatedCamera(PROCESSING_WIDTH, PROCESSING_HEIGHT);
@@ -171,6 +175,7 @@ export class InputController extends EventTarget {
         const u = (x + 0.5) / VIRTUAL_WIDTH;
         let active = false;
         for (const person of people) {
+          if (person.precise) continue;
           const dx = (u - person.x) / Math.max(0.01, person.rx || 0.09);
           const dy = (v - person.y) / Math.max(0.01, person.ry || 0.21);
           if (dx * dx + dy * dy <= 1) {
@@ -184,6 +189,10 @@ export class InputController extends EventTarget {
         const cell = this.virtualCellMap[offset];
         if (cell >= 0) occupied[cell] += 1;
       }
+    }
+    for (const person of people) {
+      if (!person.precise || !Number.isInteger(person.targetId) || person.targetId < 0 || person.targetId >= this.coverages.length) continue;
+      occupied[person.targetId] = this.virtualCellAreas[person.targetId];
     }
     for (let index = 0; index < this.coverages.length; index += 1) {
       this.coverages[index] = this.virtualCellAreas[index] ? occupied[index] / this.virtualCellAreas[index] : 0;
@@ -264,6 +273,7 @@ export class InputController extends EventTarget {
   }
 
   snapshot() {
+    const pointers = this.pointer.snapshot();
     return {
       mode: this.mode,
       camera: this.cameraSnapshot(),
@@ -273,7 +283,8 @@ export class InputController extends EventTarget {
       backgroundReady: Boolean(this.segmenter.background),
       capturingBackground: this.segmenter.capturing,
       captureProgress: this.segmenter.metrics.captureProgress,
-      pointerCount: this.pointer.people.size,
+      pointerCount: pointers.length,
+      pointerTargetIds: pointers.filter((pointer) => pointer.precise && pointer.targetId >= 0).map((pointer) => pointer.targetId),
     };
   }
 }

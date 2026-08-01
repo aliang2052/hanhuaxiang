@@ -1,8 +1,9 @@
 export class PointerInput extends EventTarget {
-  constructor(element, viewport) {
+  constructor(element, viewport, options = {}) {
     super();
     this.element = element;
     this.viewport = viewport;
+    this.hitTest = options.hitTest ?? (() => -1);
     this.people = new Map();
     this.enabled = false;
     this.handlers = {
@@ -23,12 +24,15 @@ export class PointerInput extends EventTarget {
   #personFromEvent(event) {
     const point = this.viewport.clientToNormalized(event.clientX, event.clientY);
     const isTouch = event.pointerType === 'touch';
+    const precise = !isTouch;
     return {
       id: event.pointerId,
       x: point.x,
       y: point.y,
-      rx: isTouch ? 0.105 : 0.09,
-      ry: isTouch ? 0.245 : 0.21,
+      rx: isTouch ? 0.105 : 0,
+      ry: isTouch ? 0.245 : 0,
+      precise,
+      targetId: precise ? this.hitTest(point.x, point.y) : -1,
       pressure: Number.isFinite(event.pressure) && event.pressure > 0 ? event.pressure : 0.65,
     };
   }

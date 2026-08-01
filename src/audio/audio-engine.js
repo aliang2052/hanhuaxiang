@@ -5,6 +5,8 @@ export class AudioEngine extends EventTarget {
     this.nodes = nodes;
     this.context = null;
     this.master = null;
+    this.analyser = null;
+    this.meterData = null;
     this.groupNodes = new Map();
     this.started = false;
     this.loading = false;
@@ -33,7 +35,10 @@ export class AudioEngine extends EventTarget {
       this.context = new AudioContextConstructor({ latencyHint: 'interactive' });
       this.master = this.context.createGain();
       this.master.gain.value = this.muted ? 0 : 0.74;
-      this.master.connect(this.context.destination);
+      this.analyser = this.context.createAnalyser();
+      this.analyser.fftSize = 256;
+      this.meterData = new Float32Array(this.analyser.fftSize);
+      this.master.connect(this.analyser).connect(this.context.destination);
       const loaded = [];
       for (const group of this.groups) {
         try {
@@ -98,24 +103,58 @@ export class AudioEngine extends EventTarget {
     if (!this.context) return false;
     try {
       await this.context.resume();
-      return true;
+      return this.context.state === 'running';
     } catch {
       return false;
     }
   }
 
   async recover() {
-    if (!this.context) return this.init();
+    if (!this.context) {
+      const result = await this.init();
+      return Boolean(result.ok && this.context?.state === 'running');
+    }
     return this.resume();
+  }
+
+  async testTone(durationSeconds = 0.42) {
+    if (!this.context) {
+      const result = await this.init();
+      if (!result.ok) return false;
+    }
+    if (!await this.resume()) return false;
+    const now = this.context.currentTime;
+    const duration = Math.max(0.15, Math.min(1.2, Number(durationSeconds) || 0.42));
+    const oscillator = this.context.createOscillator();
+    const gain = this.context.createGain();
+    oscillator.type = 'sine';
+    oscillator.frequency.setValueAtTime(523.25, now);
+    gain.gain.setValueAtTime(0.0001, now);
+    gain.gain.exponentialRampToValueAtTime(0.18, now + 0.025);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+    oscillator.connect(gain).connect(this.master);
+    oscillator.start(now);
+    oscillator.stop(now + duration + 0.02);
+    return true;
+  }
+
+  outputLevel() {
+    if (!this.analyser || !this.meterData || this.context?.state !== 'running') return 0;
+    this.analyser.getFloatTimeDomainData(this.meterData);
+    let squares = 0;
+    for (const sample of this.meterData) squares += sample * sample;
+    return Math.sqrt(squares / this.meterData.length);
   }
 
   snapshot() {
     return {
       state: this.state,
+      contextState: this.context?.state || 'uninitialized',
       started: this.started,
       muted: this.muted,
       loadedGroups: this.groupNodes.size,
       requestedGroups: this.groups.length,
+      outputLevel: this.outputLevel(),
       errors: [...this.errors],
     };
   }
