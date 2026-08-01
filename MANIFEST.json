@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "baseline": "ac76d30",
   "packageVersion": "2.2.0-p0-fix2",
-  "fileCount": 209,
-  "totalBytes": 97378848,
+  "fileCount": 210,
+  "totalBytes": 97654379,
   "files": [
     {
       "path": ".gitignore",
@@ -32,8 +32,8 @@
     },
     {
       "path": "README.md",
-      "size": 9988,
-      "sha256": "8658fd795978bc7b2f5f6b9dbc3880ef0c7c5066d70e1931bd499acbdf720e87"
+      "size": 10086,
+      "sha256": "1dba5e743c81cfe8afce38b25dbc52af4f04f6bbad9e8bd64517ab6c0d772a22"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -587,8 +587,8 @@
     },
     {
       "path": "docs/CODEX_ACCEPTANCE_REPORT.md",
-      "size": 6967,
-      "sha256": "1bc1fb408ac5b4505c494ac8ef1d7f5481577731085a7f698e05a78a39e21a1d"
+      "size": 7078,
+      "sha256": "3969caa982fe54d74f120097460d38f4b7631a862d6553c9fa6ec296d646f439"
     },
     {
       "path": "docs/screenshots/asset-contact-sheet.jpg",
@@ -597,23 +597,23 @@
     },
     {
       "path": "docs/screenshots/e2e-all-awake.png",
-      "size": 2586064,
-      "sha256": "0cf6f673b705dad47528bda755773a5863dce398906a7f26e84639d5f8c66405"
+      "size": 2698933,
+      "sha256": "986b45a6089fa0a7a88e15353386f1f1e18d6ab8b4f7c5441343a5bc8e4820e1"
     },
     {
       "path": "docs/screenshots/e2e-auto-1920x1200.png",
-      "size": 2524774,
-      "sha256": "0b48b9c1731d69697775856a08e8db9cfd4d5b3d48a5dfbe7102f40dee0fab88"
+      "size": 2575029,
+      "sha256": "5f018028de8e6865aca23334c1693e0d5f517229f2cb4e11f20172ce2f422aac"
     },
     {
       "path": "docs/screenshots/e2e-calibration-debug.png",
-      "size": 332504,
-      "sha256": "3977478efc88c1c2a8c289580ea3b8c9fe6f8725905c2a2a6af51c11e79cbb9d"
+      "size": 338176,
+      "sha256": "59de8da40a902018e2c9851b7ef10fd481eb26a7ed40df9d0436405dd5057dea"
     },
     {
       "path": "docs/screenshots/e2e-camera-permission-denied.png",
-      "size": 1359795,
-      "sha256": "8cd98560c67998f898d3bd885a2c91b4899dd17b1074d130be708f49d921fa2b"
+      "size": 1385822,
+      "sha256": "07c777e61ae846ea12795514fff8c941331481a54d0853ca8cb5494f606c32ff"
     },
     {
       "path": "docs/screenshots/e2e-camera-simulated.png",
@@ -622,13 +622,13 @@
     },
     {
       "path": "docs/screenshots/e2e-mobile-390x844.png",
-      "size": 116407,
-      "sha256": "10c13d8f036a3e840da86785c8a447ae203fbc3e8a6c0736d4a818b34c90bd2e"
+      "size": 116590,
+      "sha256": "0b75acc4acff98442f6281add79573654d304346c9e34e6b9db9a2c907ab4f20"
     },
     {
       "path": "docs/screenshots/e2e-pointer.png",
-      "size": 2585092,
-      "sha256": "31c60d032196fa070cb82d8da63d7fba7569320c3da359d3fa74dec906ac8657"
+      "size": 2663153,
+      "sha256": "d16e1f396a97b364d110b3fe487a490df2f75bfc1e3664d42e5278ec4521cc12"
     },
     {
       "path": "docs/test-results/asset-rebuild-results.json",
@@ -657,13 +657,13 @@
     },
     {
       "path": "docs/test-results/e2e-results.json",
-      "size": 32037,
-      "sha256": "c3d90560eab594c4f0cddab66d2d57accdeadc53dd023b65c7af886c8e7eea07"
+      "size": 31987,
+      "sha256": "405aa71d9b46ee7dfc63979e7839da5a08fafdfbbb2c82ddd22a6228f3e6a197"
     },
     {
       "path": "docs/test-results/e2e-server.log",
       "size": 177,
-      "sha256": "c663dbadc7bc10cc2288b57e6cbde253295f9c3ae840ed9c2195985db7cc8bd9"
+      "sha256": "2a3482ea251f428e4a36de424e4e5d20d23a2b60ef70e7a67d6686b2ebe5d491"
     },
     {
       "path": "docs/test-results/reconnect-e2e-results.json",
@@ -802,8 +802,8 @@
     },
     {
       "path": "src/scene/character-renderer.js",
-      "size": 12952,
-      "sha256": "afe467f94a60b2bc528c929b830c2caf03f791f51f0e28c2bf126549626df0e1"
+      "size": 14472,
+      "sha256": "f6b7dc61b7c3a518768a734bd3a62a01dd2f0ce1912ea47dd18c6e8e5e0013d8"
     },
     {
       "path": "src/scene/decorative-renderer.js",
@@ -939,6 +939,11 @@
       "path": "tests/unit/camera-controller.test.js",
       "size": 6363,
       "sha256": "390abdd003d11f7a14ddd23ac89b521856b5a04050e1dcf51daf08080dc67c06"
+    },
+    {
+      "path": "tests/unit/character-renderer.test.js",
+      "size": 785,
+      "sha256": "92ebae949bfe6c113cf1d604467cb5ca56e26dd345bbbc1e46c544620b38afdf"
     },
     {
       "path": "tests/unit/config-store.test.js",

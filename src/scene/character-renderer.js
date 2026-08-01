@@ -17,7 +17,25 @@ async function loadImage(url) {
   return image;
 }
 
-function buildVariant(image, filter) {
+export function computeOpaqueBounds(pixels, width, height, alphaThreshold = 8) {
+  if (!pixels || pixels.length !== width * height * 4 || width <= 0 || height <= 0) return null;
+  let minX = width;
+  let minY = height;
+  let maxX = -1;
+  let maxY = -1;
+  for (let y = 0; y < height; y += 1) {
+    for (let x = 0; x < width; x += 1) {
+      if (pixels[(y * width + x) * 4 + 3] <= alphaThreshold) continue;
+      minX = Math.min(minX, x);
+      minY = Math.min(minY, y);
+      maxX = Math.max(maxX, x);
+      maxY = Math.max(maxY, y);
+    }
+  }
+  return maxX < minX ? null : { x: minX, y: minY, w: maxX - minX + 1, h: maxY - minY + 1 };
+}
+
+function normalizeSource(image) {
   const maxDimension = 480;
   const scale = Math.min(1, maxDimension / Math.max(image.width, image.height));
   const width = Math.max(1, Math.round(image.width * scale));
@@ -25,8 +43,26 @@ function buildVariant(image, filter) {
   const canvas = makeCanvas(width, height);
   const ctx = canvas.getContext('2d');
   ctx.clearRect(0, 0, width, height);
-  ctx.filter = filter;
   ctx.drawImage(image, 0, 0, width, height);
+  const bounds = computeOpaqueBounds(ctx.getImageData(0, 0, width, height).data, width, height);
+  if (!bounds) return canvas;
+  const padX = Math.max(2, Math.round(bounds.w * 0.035));
+  const padY = Math.max(2, Math.round(bounds.h * 0.025));
+  const x = Math.max(0, bounds.x - padX);
+  const y = Math.max(0, bounds.y - padY);
+  const right = Math.min(width, bounds.x + bounds.w + padX);
+  const bottom = Math.min(height, bounds.y + bounds.h + padY);
+  const cropped = makeCanvas(right - x, bottom - y);
+  cropped.getContext('2d').drawImage(canvas, x, y, right - x, bottom - y, 0, 0, right - x, bottom - y);
+  return cropped;
+}
+
+function buildVariant(image, filter) {
+  const canvas = makeCanvas(image.width, image.height);
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.filter = filter;
+  ctx.drawImage(image, 0, 0);
   ctx.filter = 'none';
   return canvas;
 }
@@ -194,10 +230,11 @@ export class CharacterRenderer {
     await Promise.all(urls.map(async (url) => {
       try {
         const image = await loadImage(url);
+        const source = normalizeSource(image);
         this.assets.set(url, {
-          source: image,
-          idle: buildVariant(image, 'grayscale(1) contrast(.88) brightness(1.08) opacity(.92)'),
-          active: buildVariant(image, 'grayscale(1) contrast(1.56) brightness(.52)'),
+          source,
+          idle: buildVariant(source, 'grayscale(1) contrast(.88) brightness(1.08) opacity(.92)'),
+          active: buildVariant(source, 'grayscale(1) contrast(1.56) brightness(.52)'),
         });
       } catch (error) {
         this.loadErrors.push({ url, message: error instanceof Error ? error.message : String(error) });
