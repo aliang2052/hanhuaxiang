@@ -33,12 +33,12 @@ export class RecognitionMonitor {
       health = `${backgroundCountdown} 秒后采集`;
       hint = '模拟验收模式正在采集测试空场。';
     } else if (mode !== 'camera') {
-      hint = '当前不是摄像头模式；切换后可在这里查看人物检测框。';
+      hint = '当前不是摄像头模式；切换后可在这里查看人物像素轮廓。';
     } else if (snapshot.camera.transportState !== 'live') {
       hint = '摄像头尚未提供画面，请先启动摄像头。';
     } else if (semantic && snapshot.detector?.state === 'loading') {
       health = '模型加载中';
-      hint = '正在从本机载入 EfficientDet Lite0，不会联网。';
+      hint = '正在从本机载入 MediaPipe 人像分割模型，不会联网。';
     } else if (semantic && snapshot.detector?.state === 'error') {
       health = '模型加载失败';
       hint = snapshot.detector.error || '请点击“重试人物模型”。';
@@ -52,7 +52,7 @@ export class RecognitionMonitor {
         : '模拟空场已就绪，等待模拟人物。';
     } else if (activeCount === 0) {
       health = '已识别人';
-      hint = '已框出人物，但尚未触发格子；可适当降低“格子开启阈值”。';
+      hint = '已提取人物轮廓，但尚未触发格子；可适当降低“格子开启阈值”。';
     } else if (audio.muted || audio.contextState !== 'running' || audio.outputLevel < 0.0005) {
       health = '声音未就绪';
       hint = '人物和格子已触发，但输出电平仍为零。点击“测试声音”检查浏览器与系统输出。';

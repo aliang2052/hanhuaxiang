@@ -12,7 +12,7 @@ export class CoverageEngine {
     this.revision = 0;
   }
 
-  rebuild(width, height, cameraToPlane) {
+  rebuild(width, height, cameraToPlane, resolveCell = null) {
     if (!Number.isInteger(width) || width <= 0 || !Number.isInteger(height) || height <= 0) throw new TypeError('Coverage dimensions must be positive integers.');
     if (!Array.isArray(cameraToPlane) || cameraToPlane.length !== 9) throw new TypeError('Coverage mapping requires a 3×3 homography.');
     this.width = width;
@@ -24,7 +24,9 @@ export class CoverageEngine {
     for (let y = 0; y < height; y += 1) {
       for (let x = 0; x < width; x += 1) {
         const point = applyHomography(cameraToPlane, { x: (x + 0.5) / width, y: (y + 0.5) / height });
-        const cell = this.triggerPlane.indexAt(point.x, point.y);
+        const cell = typeof resolveCell === 'function'
+          ? resolveCell(point.x, point.y)
+          : this.triggerPlane.indexAt(point.x, point.y);
         const offset = y * width + x;
         this.pixelToCell[offset] = cell;
         if (cell >= 0) this.cellAreas[cell] += 1;

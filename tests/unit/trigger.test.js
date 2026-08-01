@@ -27,3 +27,14 @@ test('camera mask coverage remains local under projective mapping', () => {
   const positive = [...coverage].filter((value) => value > 0).length;
   assert.ok(positive >= 4 && positive < 24, `positive cells: ${positive}`);
 });
+
+test('camera coverage can target actual visual nodes instead of unrelated 9×7 ids', () => {
+  const engine = new CoverageEngine(plane);
+  engine.rebuild(100, 50, [1, 0, 0, 0, 1, 0, 0, 0, 1], (u) => (u < 0.5 ? 10 : 50));
+  const mask = new Uint8Array(100 * 50);
+  for (let y = 5; y < 45; y += 1) for (let x = 8; x < 42; x += 1) mask[y * 100 + x] = 255;
+  const coverage = engine.compute(mask);
+  assert.ok(coverage[10] > 0.5);
+  assert.equal(coverage[50], 0);
+  assert.equal([...coverage].filter((value) => value > 0).length, 1);
+});

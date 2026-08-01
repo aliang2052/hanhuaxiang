@@ -5,12 +5,14 @@ import { validateSceneConfig, validateSettings } from '../../src/core/config-sch
 
 const scene = JSON.parse(fs.readFileSync(new URL('../../config/scene.json', import.meta.url), 'utf8'));
 
-test('scene schema contains 63 nodes, 60 runtime sprites, 32 distinct base silhouettes, and dense visual metadata', () => {
+test('scene schema contains 63 independently clipped solo nodes and preserves the full delivery catalog', () => {
   const result = validateSceneConfig(scene);
   assert.equal(result.valid, true, result.errors.join('\n'));
   assert.equal(scene.nodes.length, 63);
   assert.equal(new Set(scene.nodes.map((node) => node.id)).size, 63);
-  assert.equal(new Set(scene.nodes.map((node) => node.sprite)).size, 60);
+  assert.equal(new Set(scene.nodes.map((node) => node.sprite)).size, 8);
+  assert.ok(scene.nodes.every((node) => node.assetId.startsWith('solo-independent-')));
+  assert.ok(scene.nodes.every((node) => node.composition === 'solo'));
   assert.equal(scene.assetStats.runtimeSpriteCount, 60);
   assert.equal(scene.assetStats.distinctBaseSilhouetteCount, 32);
   assert.equal(scene.assetStats.independentHighResSourceCount, 8);
@@ -18,7 +20,7 @@ test('scene schema contains 63 nodes, 60 runtime sprites, 32 distinct base silho
   assert.equal(scene.visualStructure.landscapePanelCount, 63);
   assert.ok(scene.visualStructure.centralStagePanelIds.length >= 5);
   assert.equal(scene.visualStructure.sideBorderCount, 2);
-  assert.ok(scene.nodes.some((node) => node.composition === 'ensemble'));
+  assert.match(scene.visualStructure.description, /one clean independently clipped solo figure/i);
 });
 
 test('settings validation clamps corrupted values and repairs threshold ordering', () => {

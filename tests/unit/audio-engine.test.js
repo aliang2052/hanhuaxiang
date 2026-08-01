@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { AudioEngine } from '../../src/audio/audio-engine.js';
+import { AudioEngine, buildSpatialMix } from '../../src/audio/audio-engine.js';
 
 test('audio recovery only reports success after the context is actually running', async () => {
   const engine = new AudioEngine([], []);
@@ -35,4 +35,17 @@ test('audio output meter reports RMS signal only for a running context', () => {
   assert.equal(engine.outputLevel(), 0.25);
   engine.context.state = 'suspended';
   assert.equal(engine.outputLevel(), 0);
+});
+
+test('spatial audio follows the covered visual node and scales with overlap', () => {
+  const groups = [{ id: 'left' }, { id: 'right' }];
+  const nodes = [
+    { id: 0, audioGroup: 'left', landscape: { x: 0.05, y: 0.2, w: 0.1, h: 0.2 } },
+    { id: 1, audioGroup: 'right', landscape: { x: 0.85, y: 0.2, w: 0.1, h: 0.2 } },
+  ];
+  const mix = buildSpatialMix(groups, nodes, [1, 1], [0.07, 0], 'landscape');
+  assert.ok(mix.get('left').intensity > 0.2 && mix.get('left').intensity < 0.3);
+  assert.ok(mix.get('left').pan < -0.5);
+  assert.equal(mix.get('right').intensity, 0);
+  assert.equal(mix.get('right').pan, 0);
 });

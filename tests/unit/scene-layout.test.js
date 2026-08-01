@@ -1,6 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { getArchitecturalStructure, getVisualStructureSummary, hitTestVisualNode } from '../../src/scene/scene-layout.js';
+import {
+  getArchitecturalStructure,
+  getVisualStructureSummary,
+  hitTestArchitecturalPanel,
+  hitTestVisualNode,
+} from '../../src/scene/scene-layout.js';
 
 test('landscape architecture is a dense portrait-stone wall with central stage and bilateral ornament bands', () => {
   const structure = getArchitecturalStructure('landscape');
@@ -32,4 +37,12 @@ test('visual pointer hit testing selects only the topmost real panel and ignores
   assert.equal(hitTestVisualNode(nodes, 'landscape', 0.18, 0.18), 3);
   assert.equal(hitTestVisualNode(nodes, 'landscape', 0.3, 0.3), 7);
   assert.equal(hitTestVisualNode(nodes, 'landscape', 0.8, 0.8), -1);
+});
+
+test('architectural panel hit testing maps the whole visible bay to its own node id', () => {
+  const panels = getArchitecturalStructure('landscape').panels;
+  for (const item of panels) {
+    assert.equal(hitTestArchitecturalPanel(panels, item.x + item.w / 2, item.y + item.h / 2), item.id);
+  }
+  assert.equal(hitTestArchitecturalPanel(panels, 0.5, 0.02), -1);
 });

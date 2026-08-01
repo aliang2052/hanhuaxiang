@@ -1,11 +1,11 @@
 {
   "ok": true,
-  "timestampUtc": "2026-08-01T09:20:17Z",
-  "durationSeconds": 23.629,
+  "timestampUtc": "2026-08-01T11:16:23Z",
+  "durationSeconds": 23.363,
   "platform": "macOS-15.7.5-x86_64-i386-64bit-Mach-O",
   "python": "3.14.2 (main, Dec  5 2025, 16:49:16) [Clang 17.0.0 (clang-1700.4.4.1)]",
   "browserExecutable": "/Users/sniper/Library/Caches/ms-playwright/chromium-1234/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
-  "baseUrl": "http://127.0.0.1:59166",
+  "baseUrl": "http://127.0.0.1:58372",
   "health": {
     "ok": true,
     "app": "han-orchestra-installation",
@@ -45,9 +45,9 @@
       "detail": "63"
     },
     {
-      "name": "60 distinct loaded runtime sprite files",
+      "name": "curated solo sprite set is loaded without missing files",
       "ok": true,
-      "detail": "{\"configured\": 60, \"loaded\": 60}"
+      "detail": "{\"configured\": 8, \"loaded\": 8}"
     },
     {
       "name": "asset diversity metadata records 32 genuinely different base silhouettes",
@@ -67,37 +67,37 @@
     {
       "name": "12-second 63-node stress keeps every node active",
       "ok": true,
-      "detail": "{\"active\": 63, \"fps\": 120.00786936848336, \"heap\": 4815137, \"runtimeErrors\": []}"
+      "detail": "{\"active\": 63, \"fps\": 119.64107676969093, \"heap\": 4379096, \"runtimeErrors\": []}"
     },
     {
       "name": "12-second 63-node stress has no runtime errors",
       "ok": true,
-      "detail": "{\"active\": 63, \"fps\": 120.00786936848336, \"heap\": 4815137, \"runtimeErrors\": []}"
+      "detail": "{\"active\": 63, \"fps\": 119.64107676969093, \"heap\": 4379096, \"runtimeErrors\": []}"
     },
     {
       "name": "stress FPS does not collapse",
       "ok": true,
-      "detail": "{\"average\": 119.97, \"median\": 120, \"minimum\": 119.74, \"samplesBelow12\": 0, \"tailAverage\": 119.98}"
+      "detail": "{\"average\": 120.03, \"median\": 120, \"minimum\": 119.64, \"samplesBelow12\": 0, \"tailAverage\": 119.83}"
     },
     {
       "name": "short stress has no sustained >96 MiB heap growth",
       "ok": true,
-      "detail": "{\"first\": 4081685, \"growthBytes\": 733452, \"last\": 4815137}"
+      "detail": "{\"first\": 3946040, \"growthBytes\": 433056, \"last\": 4379096}"
     },
     {
       "name": "auto demo activates a local subset",
       "ok": true,
-      "detail": "{\"active\": 10, \"coverageCells\": 11}"
+      "detail": "{\"active\": 7, \"coverageCells\": 8}"
     },
     {
       "name": "mouse precisely selects one real visual panel",
       "ok": true,
-      "detail": "{\"active\": [28], \"coverage\": 1, \"target\": [28]}"
+      "detail": "{\"active\": [27], \"coverage\": 1, \"target\": [27]}"
     },
     {
       "name": "multi-touch expands but does not flood coverage",
       "ok": true,
-      "detail": "{\"double\": 13, \"single\": 1}"
+      "detail": "{\"double\": 14, \"single\": 1}"
     },
     {
       "name": "wake-all reaches 63/63",
@@ -152,7 +152,7 @@
     {
       "name": "operator panel exposes recognition and audio diagnostics",
       "ok": true,
-      "detail": "{\"audio\": \"running · 9/9 · 2.8%\", \"canvas\": true, \"testAudio\": true}"
+      "detail": "{\"audio\": \"running · 9/9 · 0.9%\", \"canvas\": true, \"testAudio\": true}"
     },
     {
       "name": "valid 3x3 homography accepted",
@@ -167,7 +167,7 @@
     {
       "name": "calibration rebuilds pixel mapping",
       "ok": true,
-      "detail": "{\"after\": 2, \"before\": 1}"
+      "detail": "{\"after\": 4, \"before\": 3}"
     },
     {
       "name": "crossed calibration rejected",
@@ -354,84 +354,84 @@
     "stress": {
       "samples": [
         {
-          "fps": 119.68880909634956,
+          "fps": 119.61722488038279,
           "active": 63,
-          "heap": 4911121,
+          "heap": 5225796,
           "runtimeErrors": []
         },
         {
-          "fps": 119.93708218639394,
+          "fps": 120.2444313029765,
           "active": 63,
-          "heap": 4081685,
+          "heap": 3946040,
           "runtimeErrors": []
         },
         {
-          "fps": 119.86637846335242,
+          "fps": 119.9760047990401,
           "active": 63,
-          "heap": 4881085,
-          "runtimeErrors": []
-        },
-        {
-          "fps": 120.10238235873211,
-          "active": 63,
-          "heap": 4231005,
-          "runtimeErrors": []
-        },
-        {
-          "fps": 120.14969470159548,
-          "active": 63,
-          "heap": 5016825,
-          "runtimeErrors": []
-        },
-        {
-          "fps": 119.73657952504503,
-          "active": 63,
-          "heap": 3955877,
+          "heap": 4853800,
           "runtimeErrors": []
         },
         {
           "fps": 120,
           "active": 63,
-          "heap": 5510885,
+          "heap": 5660468,
+          "runtimeErrors": []
+        },
+        {
+          "fps": 120.29185564977314,
+          "active": 63,
+          "heap": 4476228,
+          "runtimeErrors": []
+        },
+        {
+          "fps": 120.36306235201259,
+          "active": 63,
+          "heap": 5175344,
+          "runtimeErrors": []
+        },
+        {
+          "fps": 119.97600479904054,
+          "active": 63,
+          "heap": 4290888,
+          "runtimeErrors": []
+        },
+        {
+          "fps": 119.9842643587727,
+          "active": 63,
+          "heap": 4995276,
+          "runtimeErrors": []
+        },
+        {
+          "fps": 120,
+          "active": 63,
+          "heap": 5605644,
+          "runtimeErrors": []
+        },
+        {
+          "fps": 119.73657952504524,
+          "active": 63,
+          "heap": 4580452,
           "runtimeErrors": []
         },
         {
           "fps": 120.10238235873211,
           "active": 63,
-          "heap": 4585385,
+          "heap": 5220088,
           "runtimeErrors": []
         },
         {
-          "fps": 119.85617259288888,
+          "fps": 119.64107676969093,
           "active": 63,
-          "heap": 4151265,
-          "runtimeErrors": []
-        },
-        {
-          "fps": 119.86637846335242,
-          "active": 63,
-          "heap": 5385297,
-          "runtimeErrors": []
-        },
-        {
-          "fps": 120.07874015748031,
-          "active": 63,
-          "heap": 5165425,
-          "runtimeErrors": []
-        },
-        {
-          "fps": 120.00786936848336,
-          "active": 63,
-          "heap": 4815137,
+          "heap": 4379096,
           "runtimeErrors": []
         }
       ],
-      "minimumFps": 119.73657952504503,
+      "minimumFps": 119.64107676969093,
       "medianFps": 120,
-      "averageFps": 119.97306001600509,
-      "tailAverageFps": 119.98432932977202,
+      "averageFps": 120.0286965377349,
+      "tailAverageFps": 119.82667955115609,
       "samplesBelow12": 0,
-      "heapGrowth": 733452
+      "heapGrowth": 433056
     }
   },
   "permissionDenied": {
@@ -441,7 +441,7 @@
     "entered": false,
     "configVersion": 3,
     "sceneNodeCount": 63,
-    "distinctSpriteFiles": 60,
+    "distinctSpriteFiles": 8,
     "assetStats": {
       "runtimeSpriteCount": 60,
       "distinctBaseSilhouetteCount": 32,
@@ -459,7 +459,7 @@
       "sideBorderCount": 2,
       "horizontalBeamCount": 8
     },
-    "loadedSpriteFiles": 60,
+    "loadedSpriteFiles": 8,
     "assetErrors": [],
     "mode": "camera",
     "camera": {
@@ -484,9 +484,10 @@
       "state": "idle",
       "ready": false,
       "error": "",
-      "model": "EfficientDet Lite0",
+      "model": "MediaPipe Selfie Segmenter Landscape",
       "delegate": "none",
-      "semanticPersonOnly": true
+      "semanticPersonOnly": true,
+      "silhouetteMask": true
     },
     "processingMs": 0,
     "foregroundPixels": 0,
@@ -625,7 +626,7 @@
       0,
       0
     ],
-    "fps": 59.64214711164223,
+    "fps": 101.05012877983268,
     "viewport": {
       "cssWidth": 1280,
       "cssHeight": 800,
@@ -713,10 +714,10 @@
       "width": 320,
       "height": 180,
       "revision": 1,
-      "mappedPixels": 49468,
+      "mappedPixels": 27630,
       "emptyCells": 0,
-      "minCellArea": 759,
-      "maxCellArea": 816
+      "minCellArea": 294,
+      "maxCellArea": 1400
     },
     "triggerPartition": {
       "holes": 0,
@@ -798,6 +799,7 @@
       "loadedGroups": 0,
       "requestedGroups": 9,
       "outputLevel": 0,
+      "spatialMix": {},
       "errors": []
     },
     "debugOpen": false,
@@ -806,91 +808,91 @@
     "lastMessageLevel": "error",
     "runtimeErrors": [],
     "memory": {
-      "usedJSHeapSize": 3674179,
-      "totalJSHeapSize": 5947587
+      "usedJSHeapSize": 10654338,
+      "totalJSHeapSize": 15519346
     }
   },
   "stress": {
     "samples": [
       {
-        "fps": 119.68880909634956,
+        "fps": 119.61722488038279,
         "active": 63,
-        "heap": 4911121,
+        "heap": 5225796,
         "runtimeErrors": []
       },
       {
-        "fps": 119.93708218639394,
+        "fps": 120.2444313029765,
         "active": 63,
-        "heap": 4081685,
+        "heap": 3946040,
         "runtimeErrors": []
       },
       {
-        "fps": 119.86637846335242,
+        "fps": 119.9760047990401,
         "active": 63,
-        "heap": 4881085,
-        "runtimeErrors": []
-      },
-      {
-        "fps": 120.10238235873211,
-        "active": 63,
-        "heap": 4231005,
-        "runtimeErrors": []
-      },
-      {
-        "fps": 120.14969470159548,
-        "active": 63,
-        "heap": 5016825,
-        "runtimeErrors": []
-      },
-      {
-        "fps": 119.73657952504503,
-        "active": 63,
-        "heap": 3955877,
+        "heap": 4853800,
         "runtimeErrors": []
       },
       {
         "fps": 120,
         "active": 63,
-        "heap": 5510885,
+        "heap": 5660468,
+        "runtimeErrors": []
+      },
+      {
+        "fps": 120.29185564977314,
+        "active": 63,
+        "heap": 4476228,
+        "runtimeErrors": []
+      },
+      {
+        "fps": 120.36306235201259,
+        "active": 63,
+        "heap": 5175344,
+        "runtimeErrors": []
+      },
+      {
+        "fps": 119.97600479904054,
+        "active": 63,
+        "heap": 4290888,
+        "runtimeErrors": []
+      },
+      {
+        "fps": 119.9842643587727,
+        "active": 63,
+        "heap": 4995276,
+        "runtimeErrors": []
+      },
+      {
+        "fps": 120,
+        "active": 63,
+        "heap": 5605644,
+        "runtimeErrors": []
+      },
+      {
+        "fps": 119.73657952504524,
+        "active": 63,
+        "heap": 4580452,
         "runtimeErrors": []
       },
       {
         "fps": 120.10238235873211,
         "active": 63,
-        "heap": 4585385,
+        "heap": 5220088,
         "runtimeErrors": []
       },
       {
-        "fps": 119.85617259288888,
+        "fps": 119.64107676969093,
         "active": 63,
-        "heap": 4151265,
-        "runtimeErrors": []
-      },
-      {
-        "fps": 119.86637846335242,
-        "active": 63,
-        "heap": 5385297,
-        "runtimeErrors": []
-      },
-      {
-        "fps": 120.07874015748031,
-        "active": 63,
-        "heap": 5165425,
-        "runtimeErrors": []
-      },
-      {
-        "fps": 120.00786936848336,
-        "active": 63,
-        "heap": 4815137,
+        "heap": 4379096,
         "runtimeErrors": []
       }
     ],
-    "minimumFps": 119.73657952504503,
+    "minimumFps": 119.64107676969093,
     "medianFps": 120,
-    "averageFps": 119.97306001600509,
-    "tailAverageFps": 119.98432932977202,
+    "averageFps": 120.0286965377349,
+    "tailAverageFps": 119.82667955115609,
     "samplesBelow12": 0,
-    "heapGrowth": 733452
+    "heapGrowth": 433056
   },
   "finalState": {
     "version": "2.2.0-p0-fix2",
@@ -899,7 +901,7 @@
     "entered": true,
     "configVersion": 3,
     "sceneNodeCount": 63,
-    "distinctSpriteFiles": 60,
+    "distinctSpriteFiles": 8,
     "assetStats": {
       "runtimeSpriteCount": 60,
       "distinctBaseSilhouetteCount": 32,
@@ -917,7 +919,7 @@
       "sideBorderCount": 2,
       "horizontalBeamCount": 8
     },
-    "loadedSpriteFiles": 60,
+    "loadedSpriteFiles": 8,
     "assetErrors": [],
     "mode": "pointer",
     "camera": {
@@ -942,9 +944,10 @@
       "state": "idle",
       "ready": false,
       "error": "",
-      "model": "EfficientDet Lite0",
+      "model": "MediaPipe Selfie Segmenter Landscape",
       "delegate": "none",
-      "semanticPersonOnly": true
+      "semanticPersonOnly": true,
+      "silhouetteMask": true
     },
     "processingMs": 0,
     "foregroundPixels": 0,
@@ -1019,71 +1022,71 @@
     "activeCount": 0,
     "activeIds": [],
     "visual": [
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581,
-      0.01977633684873581
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088,
+      0.022063149139285088
     ],
-    "fps": 119.59338249950152,
+    "fps": 120.26813880126252,
     "viewport": {
       "cssWidth": 1920,
       "cssHeight": 1200,
@@ -1138,7 +1141,7 @@
               "y": 0.95
             }
           ],
-          "updatedAt": "2026-08-01T09:20:16.553Z"
+          "updatedAt": "2026-08-01T11:16:22.840Z"
         }
       ],
       "maxError": 3.1401849173675503e-16,
@@ -1172,11 +1175,11 @@
     "coverageMapping": {
       "width": 320,
       "height": 180,
-      "revision": 2,
-      "mappedPixels": 43241,
+      "revision": 4,
+      "mappedPixels": 24255,
       "emptyCells": 0,
-      "minCellArea": 595,
-      "maxCellArea": 790
+      "minCellArea": 237,
+      "maxCellArea": 1251
     },
     "triggerPartition": {
       "holes": 0,
@@ -1257,7 +1260,45 @@
       "muted": false,
       "loadedGroups": 9,
       "requestedGroups": 9,
-      "outputLevel": 0.03474489116443917,
+      "outputLevel": 0.02275075024151202,
+      "spatialMix": {
+        "ambience": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "qin": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "flute": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "pipa": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "bells": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "erhu": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "drum": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "dancer": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "attendant": {
+          "intensity": 0,
+          "pan": 0
+        }
+      },
       "errors": []
     },
     "debugOpen": false,
@@ -1266,8 +1307,8 @@
     "lastMessageLevel": "error",
     "runtimeErrors": [],
     "memory": {
-      "usedJSHeapSize": 8026400,
-      "totalJSHeapSize": 11959100
+      "usedJSHeapSize": 10335292,
+      "totalJSHeapSize": 14500328
     }
   }
 }

@@ -3,7 +3,7 @@
   "baseline": "ac76d30",
   "packageVersion": "2.2.0-p0-fix2",
   "fileCount": 209,
-  "totalBytes": 102171619,
+  "totalBytes": 97378848,
   "files": [
     {
       "path": ".gitignore",
@@ -32,13 +32,13 @@
     },
     {
       "path": "README.md",
-      "size": 9597,
-      "sha256": "3a14b3ef4efb0110b34ff823ce73a3ca234f4dbb63373ad52cdadbdd1de2f7f0"
+      "size": 9988,
+      "sha256": "8658fd795978bc7b2f5f6b9dbc3880ef0c7c5066d70e1931bd499acbdf720e87"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
-      "size": 472,
-      "sha256": "7f61e2370553e5c6ba6a4002afeb148950e0c7d27bcf63ac1550fa62ab493ae3"
+      "size": 531,
+      "sha256": "972f35fabecf76dcd9340bbc1431072c5a22c91976c23d2786ea74e5f1ffa9f4"
     },
     {
       "path": "assets/audio/ambience.wav",
@@ -96,9 +96,9 @@
       "sha256": "f1107d023e93673a94d57abb069e337d8fd9f9a04f19c11d3f8f39fb3c2f8406"
     },
     {
-      "path": "assets/models/efficientdet_lite0_uint8.tflite",
-      "size": 4563519,
-      "sha256": "2e04c53bfeac0ac2a30c057c7e2a777594ce39baaac35a92f74fb1e8c4fc4e0b"
+      "path": "assets/models/selfie_segmenter_landscape.tflite",
+      "size": 250177,
+      "sha256": "490e9ea734313e0de10fa0cd9e3c6133e36ea4db2b7a49bde9ef019f72796b8e"
     },
     {
       "path": "assets/source-highres/attendant.png",
@@ -577,8 +577,8 @@
     },
     {
       "path": "config/scene.json",
-      "size": 54523,
-      "sha256": "6397e3e66275db6eea9515566698623469fd8c786023550aac5cd3437297f6f5"
+      "size": 54559,
+      "sha256": "03e971eaf9800746774cf8110da754aebaf65f238d751ed2518e22f504d5053e"
     },
     {
       "path": "docs/CHATGPT_PRO_TASK.md",
@@ -587,8 +587,8 @@
     },
     {
       "path": "docs/CODEX_ACCEPTANCE_REPORT.md",
-      "size": 6521,
-      "sha256": "d93d159de7c895c7e8e6d27d339694d8ef9ee139b9abbd61a7185d982b49a47b"
+      "size": 6967,
+      "sha256": "1bc1fb408ac5b4505c494ac8ef1d7f5481577731085a7f698e05a78a39e21a1d"
     },
     {
       "path": "docs/screenshots/asset-contact-sheet.jpg",
@@ -597,38 +597,38 @@
     },
     {
       "path": "docs/screenshots/e2e-all-awake.png",
-      "size": 2786976,
-      "sha256": "6b83f721f95581eed1db88b3e1530dcaa15ef2dc4756a8d5ef1a10af4db25f26"
+      "size": 2586064,
+      "sha256": "0cf6f673b705dad47528bda755773a5863dce398906a7f26e84639d5f8c66405"
     },
     {
       "path": "docs/screenshots/e2e-auto-1920x1200.png",
-      "size": 2626522,
-      "sha256": "cc807a2fc9b9de9fda907616a049570dbe10e1f537a969c2984b1202a88b2f48"
+      "size": 2524774,
+      "sha256": "0b48b9c1731d69697775856a08e8db9cfd4d5b3d48a5dfbe7102f40dee0fab88"
     },
     {
       "path": "docs/screenshots/e2e-calibration-debug.png",
-      "size": 343919,
-      "sha256": "b371b55c7edbd248c95bb9d8d887115723133b1f037a1b05a6adecce91ede112"
+      "size": 332504,
+      "sha256": "3977478efc88c1c2a8c289580ea3b8c9fe6f8725905c2a2a6af51c11e79cbb9d"
     },
     {
       "path": "docs/screenshots/e2e-camera-permission-denied.png",
-      "size": 1399427,
-      "sha256": "2781df453f764a9a40324df9c0ec1aba3b0e1d9370ace1a1bc0f219efcc3b640"
+      "size": 1359795,
+      "sha256": "8cd98560c67998f898d3bd885a2c91b4899dd17b1074d130be708f49d921fa2b"
     },
     {
       "path": "docs/screenshots/e2e-camera-simulated.png",
-      "size": 254534,
-      "sha256": "9738f097e1535d084c4d00ff0c20c739f59729d6f49f5a2f158e212de1b9b116"
+      "size": 246457,
+      "sha256": "cefa0797a806ccff089445c26f7fdee926cf4d15135c91d70ec69d6ce0f15dbb"
     },
     {
       "path": "docs/screenshots/e2e-mobile-390x844.png",
-      "size": 115891,
-      "sha256": "4584c231acb593e6080443d046e354652a1a415e6ea4ee8999516d1204d0af7d"
+      "size": 116407,
+      "sha256": "10c13d8f036a3e840da86785c8a447ae203fbc3e8a6c0736d4a818b34c90bd2e"
     },
     {
       "path": "docs/screenshots/e2e-pointer.png",
-      "size": 2724259,
-      "sha256": "bd6e7bdc626e63f46960721e7146d3aa7af2cd8042c0a26997ccdc588ae052c2"
+      "size": 2585092,
+      "sha256": "31c60d032196fa070cb82d8da63d7fba7569320c3da359d3fa74dec906ac8657"
     },
     {
       "path": "docs/test-results/asset-rebuild-results.json",
@@ -637,63 +637,63 @@
     },
     {
       "path": "docs/test-results/camera-e2e-results.json",
-      "size": 45726,
-      "sha256": "cba28a5fa377a52d2449525bbde8f8e20721e7f70dc188887e29f696e061383e"
+      "size": 51320,
+      "sha256": "df7a41b8558c67557b59ebd2f813f9b0151675702ec5524b1ba388f883f4c5ee"
     },
     {
       "path": "docs/test-results/camera-e2e-server.log",
       "size": 177,
-      "sha256": "caea0f0c5ed6b4c20583e1b4cc8f04598468dea5bfc712acbbcad61a9a919b80"
+      "sha256": "cafb691a1b07c2194acc5e3831811aa7b51fb4fa76cbdb6476f042cd4a499252"
     },
     {
       "path": "docs/test-results/camera-race-e2e-results.json",
-      "size": 10477,
-      "sha256": "31bdcbdca1dad060449b0252116ccd1e2e9fe9044fe3878f22c08e31a1860fe6"
+      "size": 10592,
+      "sha256": "70b9210ae68f85770c2ed07d0647bbc12bb2d3debf211ca84b88ba7d86f58711"
     },
     {
       "path": "docs/test-results/camera-race-e2e-server.log",
       "size": 177,
-      "sha256": "aed9b7a2e03c84b658ac2859e242c69415b8c7ec8dbe7d737cb0f62b94f6e8e3"
+      "sha256": "7ac77f7c6df9e03ac0d62a7c389f6d9c2ac48706afb325eb60ec072271ff5aa5"
     },
     {
       "path": "docs/test-results/e2e-results.json",
-      "size": 31170,
-      "sha256": "727e75815bf074d7113e0f534941b9abc4728a75f68c66ec19ab836456fed445"
+      "size": 32037,
+      "sha256": "c3d90560eab594c4f0cddab66d2d57accdeadc53dd023b65c7af886c8e7eea07"
     },
     {
       "path": "docs/test-results/e2e-server.log",
       "size": 177,
-      "sha256": "bc14ff166a16435a44df8864bfc89568e0f2451d7659337525cbe95cc5e259f1"
+      "sha256": "c663dbadc7bc10cc2288b57e6cbde253295f9c3ae840ed9c2195985db7cc8bd9"
     },
     {
       "path": "docs/test-results/reconnect-e2e-results.json",
-      "size": 29520,
-      "sha256": "d5bed2811abece1a3bccf19e02f202dccda69b22e5d722c9aef50067c57c8144"
+      "size": 31257,
+      "sha256": "7862ab6e0e3b25d3afece313741559bda4499a3b612169799425d50e794367f8"
     },
     {
       "path": "docs/test-results/reconnect-e2e-server.log",
       "size": 177,
-      "sha256": "9c23dae00bb0dea28baf9d8ebf78f597007a94ca52d739872daded66ea8d4a8d"
+      "sha256": "fa9dcc431441f272cabf2635e105fbb4915dd471143df78b490ae08326459237"
     },
     {
       "path": "docs/test-results/run-all-camera_e2e_test.log",
-      "size": 1000,
-      "sha256": "95ca5cfe6c572ac2c4944e7ead5ae937e5baa0ec38a684ae553e8f741d81ea4c"
+      "size": 998,
+      "sha256": "8c01e7e3d4e4ced75a25287962c237bb89a17d2c19a19451461ff46d06037eb1"
     },
     {
       "path": "docs/test-results/run-all-camera_race_e2e_test.log",
-      "size": 1659,
-      "sha256": "16a569fed138b031210e18a0337b4be2ef7ddcfdd16f23a113cea34b958d1464"
+      "size": 1677,
+      "sha256": "81e842dee666a41f9be69fae65504d85306c4fab39515a0f39afcbe3b125fb64"
     },
     {
       "path": "docs/test-results/run-all-e2e_test.log",
-      "size": 6947,
-      "sha256": "bbbe759a1715456584fd745a893d5abf5a3d985a89e65b317675b764db0f11d0"
+      "size": 6959,
+      "sha256": "86f3438e7d81b5adfda3f6e3d3a0565c10010b93cd0764ee708b3756eed336bc"
     },
     {
       "path": "docs/test-results/run-all-reconnect_e2e_test.log",
       "size": 1095,
-      "sha256": "b98f128429e85a553f65871c99ebab508c1624659e7d4a0d9d7162f7a24671e5"
+      "sha256": "fa54f38d5d8a895cc13b0cd4212dbf191eebf3c9fafb07ba64ae2d6711e86ef3"
     },
     {
       "path": "docs/test-results/soak-short-results.json",
@@ -703,7 +703,7 @@
     {
       "path": "index.html",
       "size": 9736,
-      "sha256": "f53bd9a97dea7c9e63ef9898dfcb4f22fd4df88d8ca8ed0957020a49078a2e6c"
+      "sha256": "d9e8ff835f3bdcdf0958d0de5581a215ad6595f2c73e2ea79fa1ae7f662f3abe"
     },
     {
       "path": "package-lock.json",
@@ -732,8 +732,8 @@
     },
     {
       "path": "src/audio/audio-engine.js",
-      "size": 6002,
-      "sha256": "ece661fb85f72cb5b8c2e09c5cd9593ec9aa468223e1f495fd73ae5afe01b8b1"
+      "size": 7507,
+      "sha256": "74aa8be95e5298b342fc331cd00f9deedca7e14e66655ea1dc9cce2479ed9e79"
     },
     {
       "path": "src/calibration/calibration-controller.js",
@@ -777,13 +777,13 @@
     },
     {
       "path": "src/input/input-controller.js",
-      "size": 13707,
-      "sha256": "be4c72d48b9efcd74a500671cfc8144d2468b47c88d4d4cb2893b3e6e8b75f5e"
+      "size": 15080,
+      "sha256": "5e0595cc96098d5cc3e584ff911dec2878017b36953278f7a0721bed66690aef"
     },
     {
       "path": "src/input/person-detector.js",
-      "size": 8017,
-      "sha256": "39d69c05a7cfc80c9237d3d9549cd0fa9eb01c06dbfe30754133c3f14eebb131"
+      "size": 11066,
+      "sha256": "2ad464005c700b3215e9afe4f994041da3f553f8bf41bd9f597e16e685894616"
     },
     {
       "path": "src/input/pointer-input.js",
@@ -797,13 +797,13 @@
     },
     {
       "path": "src/main.js",
-      "size": 22805,
-      "sha256": "c9370cf002329c0bc1b4451004638829cd7f89e943ccfe7e08191895790fc78f"
+      "size": 23086,
+      "sha256": "c7be1e05fe34e6b81355e4c0843db4959ec964efd9852347bf55a4b761b55ba5"
     },
     {
       "path": "src/scene/character-renderer.js",
-      "size": 12597,
-      "sha256": "dffafe3584337153ce6670dab938c4196072198269a9b63212b883f8236bd28e"
+      "size": 12952,
+      "sha256": "afe467f94a60b2bc528c929b830c2caf03f791f51f0e28c2bf126549626df0e1"
     },
     {
       "path": "src/scene/decorative-renderer.js",
@@ -812,13 +812,13 @@
     },
     {
       "path": "src/scene/scene-layout.js",
-      "size": 6468,
-      "sha256": "29d038c137d487b51cfec13bcd37da7df42ddb7fcb4f9a0f274874e323d7ec53"
+      "size": 7064,
+      "sha256": "91a6e57ea4fd07c319af0fc018d23b1f8804d5416fe531dc87297f16cdc98609"
     },
     {
       "path": "src/scene/scene-renderer.js",
-      "size": 2975,
-      "sha256": "cb98699f973a2931bbba599c4a4d93210da48ad7408ec114719332a59f0ff6e5"
+      "size": 5924,
+      "sha256": "decacb70392e6340bf3d35771bf92c7385b22d864a61ae8c964b3bcf775c515a"
     },
     {
       "path": "src/scene/viewport.js",
@@ -827,8 +827,8 @@
     },
     {
       "path": "src/trigger/coverage-engine.js",
-      "size": 2474,
-      "sha256": "413b0fa440415c4a30345a1356e284c5652045d0a29f6255002de2489251c7af"
+      "size": 2582,
+      "sha256": "11aed6150640c62a4b7c90735d7f9f8470577bf91d8132988f6fec1a748a0e0b"
     },
     {
       "path": "src/trigger/hysteresis.js",
@@ -847,8 +847,8 @@
     },
     {
       "path": "src/ui/recognition-monitor.js",
-      "size": 5820,
-      "sha256": "07a2edcc19ca5825060bb854697b4abc812fcc33a51aeeb811d29dd18e777765"
+      "size": 5839,
+      "sha256": "9bf8cd3c5fdf4adccc511519085aaeb0a1939c61e07326bc8844f3cc25236528"
     },
     {
       "path": "start.bat",
@@ -887,8 +887,8 @@
     },
     {
       "path": "tests/e2e/camera_race_e2e_test.py",
-      "size": 8276,
-      "sha256": "69271398f175608c2783a8b5bd93e759dad796b6b9080294c7dd4f9cb57604b0"
+      "size": 8460,
+      "sha256": "97d8e2577ab9a7ffdd009c94ecede73e863a404762c478dd381f6a6fc8fbaf4d"
     },
     {
       "path": "tests/e2e/cooldown.py",
@@ -897,8 +897,8 @@
     },
     {
       "path": "tests/e2e/e2e_test.py",
-      "size": 23538,
-      "sha256": "4691f483075fc56d055181429f7831cb807ec69956ba55dae8442018e4842a90"
+      "size": 23591,
+      "sha256": "90e0458fd43d6cfd082a900de52778007c4f03ac2b5515c332ee49dfd6b73257"
     },
     {
       "path": "tests/e2e/person-detector-harness.html",
@@ -932,8 +932,8 @@
     },
     {
       "path": "tests/unit/audio-engine.test.js",
-      "size": 1520,
-      "sha256": "987e21081d7169d9d4b215390b511d386a40af7b6ef4de68d0780f62ce4752e9"
+      "size": 2158,
+      "sha256": "93376ca8d92740c90af18cc1b2d094ec84246901fd6432f61e502ba9b0973c8b"
     },
     {
       "path": "tests/unit/camera-controller.test.js",
@@ -947,8 +947,8 @@
     },
     {
       "path": "tests/unit/config.test.js",
-      "size": 1666,
-      "sha256": "8a32009fca88c9d9930fb9b1c702adfd78f469965b45d6922bfbeeda5e44ebef"
+      "size": 1839,
+      "sha256": "e65dbb12887e856d6caa69b8fe047b10c71b9eb9c930b93df91a0b430baba0b6"
     },
     {
       "path": "tests/unit/coordinates.test.js",
@@ -972,23 +972,23 @@
     },
     {
       "path": "tests/unit/person-detector.test.js",
-      "size": 1658,
-      "sha256": "d068cffcbdd0dd651a2781b7410af6a99fe7510a065d62b2f667f04bc0811049"
+      "size": 2449,
+      "sha256": "492b7543dfe76da7342983607092550f2f12bc55aa1e98a111730db6f2acdf32"
     },
     {
       "path": "tests/unit/scene-layout.test.js",
-      "size": 1723,
-      "sha256": "6f4e3e1f3c1d3f529933ab98cb2f02aabca04a9f4b7e4baf390df03c6540a493"
+      "size": 2127,
+      "sha256": "450a35c28351793289aeb03fe63d7ea43ce140ff37ee19a468759cf856d67c55"
     },
     {
       "path": "tests/unit/trigger.test.js",
-      "size": 1453,
-      "sha256": "e5e47613c9cb91e73d6ac48a38e4d74080ac65ff7ee502769a65ab7d45b26529"
+      "size": 1988,
+      "sha256": "5a94627dc391a50bb45619939a022f6e5e9ad6db4d2ae31fbe692699a73bea37"
     },
     {
       "path": "tools/build_assets.py",
-      "size": 38212,
-      "sha256": "6e9e48b5a4817a0038332f6f19beaed62d68790c08a149953ebdc34238ce3715"
+      "size": 36932,
+      "sha256": "018b059e6568a21caacfaad1a0a7eeddbe3fe2c416e1f4919c0fe25cb7e509ee"
     },
     {
       "path": "tools/build_manifest.py",

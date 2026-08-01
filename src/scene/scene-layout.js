@@ -120,7 +120,8 @@ const LANDSCAPE_CENTRAL_IDS = [18, 30, 42, 55, 56];
 
 /**
  * Dense architectural wall model. The visual panels are independent from the
- * 9×7 camera trigger partition, although both currently contain 63 entries.
+ * legacy 9×7 normalized trigger partition, although both contain 63 entries.
+ * Camera input resolves pixels against these real panel rectangles.
  */
 export function getArchitecturalStructure(orientation) {
   if (orientation === 'portrait') {
@@ -220,6 +221,20 @@ export function hitTestVisualNode(nodes, orientation, u, v) {
     if (!layout) continue;
     if (u >= layout.x && u <= layout.x + layout.w && v >= layout.y && v <= layout.y + layout.h) {
       return Number.isInteger(node.id) ? node.id : -1;
+    }
+  }
+  return -1;
+}
+
+/** Return the architectural bay under a normalized landscape point. */
+export function hitTestArchitecturalPanel(panels, u, v) {
+  if (!Array.isArray(panels) || !Number.isFinite(u) || !Number.isFinite(v) || u < 0 || u > 1 || v < 0 || v > 1) {
+    return -1;
+  }
+  for (let index = panels.length - 1; index >= 0; index -= 1) {
+    const item = panels[index];
+    if (u >= item.x && u <= item.x + item.w && v >= item.y && v <= item.y + item.h) {
+      return Number.isInteger(item.id) ? item.id : -1;
     }
   }
   return -1;

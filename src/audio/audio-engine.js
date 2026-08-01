@@ -1,3 +1,25 @@
+export function buildSpatialMix(groups, nodes, visual, coverages, orientation = 'landscape') {
+  const mix = new Map(groups.map((group) => [group.id, { intensity: 0, panSum: 0, panWeight: 0 }]));
+  for (const node of nodes) {
+    const gate = Math.max(0, Math.min(1, Number(visual[node.id]) || 0));
+    const coverage = Math.max(0, Math.min(1, Number(coverages?.[node.id] ?? gate) || 0));
+    const intensity = gate * Math.min(1, coverage / 0.28);
+    if (intensity <= 0) continue;
+    const entry = mix.get(node.audioGroup);
+    if (!entry) continue;
+    const layout = node[orientation] || node.landscape;
+    const centerX = layout ? layout.x + layout.w * 0.5 : 0.5;
+    const pan = Math.max(-0.82, Math.min(0.82, (centerX * 2 - 1) * 0.82));
+    entry.intensity = Math.max(entry.intensity, intensity);
+    entry.panSum += pan * intensity;
+    entry.panWeight += intensity;
+  }
+  return new Map([...mix].map(([id, entry]) => [id, {
+    intensity: entry.intensity,
+    pan: entry.panWeight > 0 ? entry.panSum / entry.panWeight : 0,
+  }]));
+}
+
 export class AudioEngine extends EventTarget {
   constructor(groups, nodes) {
     super();
@@ -13,6 +35,7 @@ export class AudioEngine extends EventTarget {
     this.muted = false;
     this.errors = [];
     this.state = 'idle';
+    this.lastMix = {};
   }
 
   async init() {
@@ -56,10 +79,13 @@ export class AudioEngine extends EventTarget {
         source.buffer = buffer;
         source.loop = true;
         const gain = this.context.createGain();
+        const panner = typeof this.context.createStereoPanner === 'function' ? this.context.createStereoPanner() : null;
         gain.gain.value = group.id === 'ambience' ? 0.13 : 0.0001;
-        source.connect(gain).connect(this.master);
+        source.connect(gain);
+        if (panner) gain.connect(panner).connect(this.master);
+        else gain.connect(this.master);
         source.start(startTime);
-        this.groupNodes.set(group.id, { source, gain, group });
+        this.groupNodes.set(group.id, { source, gain, panner, group });
       }
       this.started = true;
       this.state = this.errors.length ? 'ready-with-errors' : 'ready';
@@ -74,21 +100,23 @@ export class AudioEngine extends EventTarget {
     return { ok: this.started, errors: this.errors };
   }
 
-  update(visual) {
+  update(visual, coverages = visual, orientation = 'landscape') {
     if (!this.started || !this.context) return;
-    const intensity = new Map(this.groups.map((group) => [group.id, group.id === 'ambience' ? 0.13 : 0]));
-    for (const node of this.nodes) {
-      const value = visual[node.id] || 0;
-      intensity.set(node.audioGroup, Math.max(intensity.get(node.audioGroup) || 0, value));
-    }
+    const mix = buildSpatialMix(this.groups, this.nodes, visual, coverages, orientation);
     const now = this.context.currentTime;
     for (const [id, entry] of this.groupNodes) {
-      const groupIntensity = intensity.get(id) || 0;
+      const spatial = mix.get(id) || { intensity: 0, pan: 0 };
+      const groupIntensity = spatial.intensity;
       const baseGain = entry.group.gain ?? 0.3;
       const target = id === 'ambience' ? baseGain : Math.max(0.0001, groupIntensity * baseGain);
       entry.gain.gain.cancelScheduledValues(now);
-      entry.gain.gain.setTargetAtTime(target, now, groupIntensity > 0.1 ? 0.08 : 0.28);
+      entry.gain.gain.setTargetAtTime(target, now, groupIntensity > 0.1 ? 0.06 : 0.18);
+      if (entry.panner) {
+        entry.panner.pan.cancelScheduledValues(now);
+        entry.panner.pan.setTargetAtTime(id === 'ambience' ? 0 : spatial.pan, now, 0.08);
+      }
     }
+    this.lastMix = Object.fromEntries([...mix].map(([id, value]) => [id, { ...value }]));
   }
 
   setMuted(muted) {
@@ -155,6 +183,7 @@ export class AudioEngine extends EventTarget {
       loadedGroups: this.groupNodes.size,
       requestedGroups: this.groups.length,
       outputLevel: this.outputLevel(),
+      spatialMix: structuredClone(this.lastMix),
       errors: [...this.errors],
     };
   }

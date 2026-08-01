@@ -67,6 +67,10 @@ def run_race(page, base_url: str) -> dict:
 
     page.evaluate("() => { window.__newHardwareSwitch = window.__HAN_TEST_API__.setCameraSource('hardware'); }")
     wait_for(page, "() => window.__cameraRace.requests.length === 2")
+    wait_for(
+        page,
+        "() => window.__HAN_TEST_API__.getState().camera.source === 'hardware' && window.__HAN_TEST_API__.getState().camera.getUserMediaCalls === 2",
+    )
     second_snapshot = state(page)["camera"]
     check("second hardware selection starts a new request", second_snapshot["getUserMediaCalls"] == 2, second_snapshot)
 

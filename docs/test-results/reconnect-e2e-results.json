@@ -1,11 +1,11 @@
 {
   "ok": true,
-  "timestampUtc": "2026-08-01T09:20:54Z",
-  "durationSeconds": 3.047,
+  "timestampUtc": "2026-08-01T11:17:00Z",
+  "durationSeconds": 3.027,
   "platform": "macOS-15.7.5-x86_64-i386-64bit-Mach-O",
   "python": "3.14.2 (main, Dec  5 2025, 16:49:16) [Clang 17.0.0 (clang-1700.4.4.1)]",
   "browserExecutable": "/Users/sniper/Library/Caches/ms-playwright/chromium-1234/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
-  "baseUrl": "http://127.0.0.1:59382",
+  "baseUrl": "http://127.0.0.1:58579",
   "health": {
     "ok": true,
     "app": "han-orchestra-installation",
@@ -66,7 +66,7 @@
       "entered": true,
       "configVersion": 3,
       "sceneNodeCount": 63,
-      "distinctSpriteFiles": 60,
+      "distinctSpriteFiles": 8,
       "assetStats": {
         "runtimeSpriteCount": 60,
         "distinctBaseSilhouetteCount": 32,
@@ -84,7 +84,7 @@
         "sideBorderCount": 2,
         "horizontalBeamCount": 8
       },
-      "loadedSpriteFiles": 60,
+      "loadedSpriteFiles": 8,
       "assetErrors": [],
       "mode": "camera",
       "camera": {
@@ -109,9 +109,10 @@
         "state": "idle",
         "ready": false,
         "error": "",
-        "model": "EfficientDet Lite0",
+        "model": "MediaPipe Selfie Segmenter Landscape",
         "delegate": "none",
-        "semanticPersonOnly": true
+        "semanticPersonOnly": true,
+        "silhouetteMask": true
       },
       "processingMs": 0,
       "foregroundPixels": 0,
@@ -250,7 +251,7 @@
         0,
         0
       ],
-      "fps": 63.35379131648804,
+      "fps": 104.1257367191941,
       "viewport": {
         "cssWidth": 960,
         "cssHeight": 600,
@@ -338,10 +339,10 @@
         "width": 320,
         "height": 180,
         "revision": 1,
-        "mappedPixels": 49468,
+        "mappedPixels": 27630,
         "emptyCells": 0,
-        "minCellArea": 759,
-        "maxCellArea": 816
+        "minCellArea": 294,
+        "maxCellArea": 1400
       },
       "triggerPartition": {
         "holes": 0,
@@ -423,6 +424,7 @@
         "loadedGroups": 0,
         "requestedGroups": 9,
         "outputLevel": 0,
+        "spatialMix": {},
         "errors": []
       },
       "debugOpen": false,
@@ -431,8 +433,8 @@
       "lastMessageLevel": "info",
       "runtimeErrors": [],
       "memory": {
-        "usedJSHeapSize": 4563257,
-        "totalJSHeapSize": 9358413
+        "usedJSHeapSize": 4832135,
+        "totalJSHeapSize": 7531999
       }
     },
     "during": {
@@ -442,7 +444,7 @@
       "entered": true,
       "configVersion": 3,
       "sceneNodeCount": 63,
-      "distinctSpriteFiles": 60,
+      "distinctSpriteFiles": 8,
       "assetStats": {
         "runtimeSpriteCount": 60,
         "distinctBaseSilhouetteCount": 32,
@@ -460,7 +462,7 @@
         "sideBorderCount": 2,
         "horizontalBeamCount": 8
       },
-      "loadedSpriteFiles": 60,
+      "loadedSpriteFiles": 8,
       "assetErrors": [],
       "mode": "camera",
       "camera": {
@@ -485,9 +487,10 @@
         "state": "idle",
         "ready": false,
         "error": "",
-        "model": "EfficientDet Lite0",
+        "model": "MediaPipe Selfie Segmenter Landscape",
         "delegate": "none",
-        "semanticPersonOnly": true
+        "semanticPersonOnly": true,
+        "silhouetteMask": true
       },
       "processingMs": 0,
       "foregroundPixels": 0,
@@ -626,7 +629,7 @@
         0,
         0
       ],
-      "fps": 63.35379131648804,
+      "fps": 104.1257367191941,
       "viewport": {
         "cssWidth": 960,
         "cssHeight": 600,
@@ -714,10 +717,10 @@
         "width": 320,
         "height": 180,
         "revision": 1,
-        "mappedPixels": 49468,
+        "mappedPixels": 27630,
         "emptyCells": 0,
-        "minCellArea": 759,
-        "maxCellArea": 816
+        "minCellArea": 294,
+        "maxCellArea": 1400
       },
       "triggerPartition": {
         "holes": 0,
@@ -799,6 +802,7 @@
         "loadedGroups": 0,
         "requestedGroups": 9,
         "outputLevel": 0,
+        "spatialMix": {},
         "errors": []
       },
       "debugOpen": false,
@@ -807,8 +811,8 @@
       "lastMessageLevel": "info",
       "runtimeErrors": [],
       "memory": {
-        "usedJSHeapSize": 5769783,
-        "totalJSHeapSize": 10050391
+        "usedJSHeapSize": 5476725,
+        "totalJSHeapSize": 7762673
       }
     },
     "recovered": {
@@ -818,7 +822,7 @@
       "entered": true,
       "configVersion": 3,
       "sceneNodeCount": 63,
-      "distinctSpriteFiles": 60,
+      "distinctSpriteFiles": 8,
       "assetStats": {
         "runtimeSpriteCount": 60,
         "distinctBaseSilhouetteCount": 32,
@@ -836,7 +840,7 @@
         "sideBorderCount": 2,
         "horizontalBeamCount": 8
       },
-      "loadedSpriteFiles": 60,
+      "loadedSpriteFiles": 8,
       "assetErrors": [],
       "mode": "camera",
       "camera": {
@@ -861,9 +865,10 @@
         "state": "idle",
         "ready": false,
         "error": "",
-        "model": "EfficientDet Lite0",
+        "model": "MediaPipe Selfie Segmenter Landscape",
         "delegate": "none",
-        "semanticPersonOnly": true
+        "semanticPersonOnly": true,
+        "silhouetteMask": true
       },
       "processingMs": 0,
       "foregroundPixels": 0,
@@ -1002,7 +1007,7 @@
         0,
         0
       ],
-      "fps": 71.97121151539383,
+      "fps": 73.92607392607394,
       "viewport": {
         "cssWidth": 960,
         "cssHeight": 600,
@@ -1090,10 +1095,10 @@
         "width": 320,
         "height": 180,
         "revision": 1,
-        "mappedPixels": 49468,
+        "mappedPixels": 27630,
         "emptyCells": 0,
-        "minCellArea": 759,
-        "maxCellArea": 816
+        "minCellArea": 294,
+        "maxCellArea": 1400
       },
       "triggerPartition": {
         "holes": 0,
@@ -1174,7 +1179,45 @@
         "muted": false,
         "loadedGroups": 9,
         "requestedGroups": 9,
-        "outputLevel": 0.012973235187650048,
+        "outputLevel": 0.009173462559694624,
+        "spatialMix": {
+          "ambience": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "qin": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "flute": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "pipa": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "bells": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "erhu": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "dancer": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "attendant": {
+            "intensity": 0,
+            "pan": 0
+          }
+        },
         "errors": []
       },
       "debugOpen": false,
@@ -1183,8 +1226,8 @@
       "lastMessageLevel": "info",
       "runtimeErrors": [],
       "memory": {
-        "usedJSHeapSize": 6161624,
-        "totalJSHeapSize": 11066368
+        "usedJSHeapSize": 5957602,
+        "totalJSHeapSize": 10351010
       }
     }
   },
@@ -1195,7 +1238,7 @@
     "entered": true,
     "configVersion": 3,
     "sceneNodeCount": 63,
-    "distinctSpriteFiles": 60,
+    "distinctSpriteFiles": 8,
     "assetStats": {
       "runtimeSpriteCount": 60,
       "distinctBaseSilhouetteCount": 32,
@@ -1213,7 +1256,7 @@
       "sideBorderCount": 2,
       "horizontalBeamCount": 8
     },
-    "loadedSpriteFiles": 60,
+    "loadedSpriteFiles": 8,
     "assetErrors": [],
     "mode": "camera",
     "camera": {
@@ -1238,9 +1281,10 @@
       "state": "idle",
       "ready": false,
       "error": "",
-      "model": "EfficientDet Lite0",
+      "model": "MediaPipe Selfie Segmenter Landscape",
       "delegate": "none",
-      "semanticPersonOnly": true
+      "semanticPersonOnly": true,
+      "silhouetteMask": true
     },
     "processingMs": 0,
     "foregroundPixels": 0,
@@ -1379,7 +1423,7 @@
       0,
       0
     ],
-    "fps": 71.97121151539383,
+    "fps": 73.92607392607394,
     "viewport": {
       "cssWidth": 960,
       "cssHeight": 600,
@@ -1467,10 +1511,10 @@
       "width": 320,
       "height": 180,
       "revision": 1,
-      "mappedPixels": 49468,
+      "mappedPixels": 27630,
       "emptyCells": 0,
-      "minCellArea": 759,
-      "maxCellArea": 816
+      "minCellArea": 294,
+      "maxCellArea": 1400
     },
     "triggerPartition": {
       "holes": 0,
@@ -1551,7 +1595,45 @@
       "muted": false,
       "loadedGroups": 9,
       "requestedGroups": 9,
-      "outputLevel": 0.013704751425128375,
+      "outputLevel": 0.009690722725904079,
+      "spatialMix": {
+        "ambience": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "qin": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "flute": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "pipa": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "bells": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "erhu": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "drum": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "dancer": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "attendant": {
+          "intensity": 0,
+          "pan": 0
+        }
+      },
       "errors": []
     },
     "debugOpen": false,
@@ -1560,8 +1642,8 @@
     "lastMessageLevel": "info",
     "runtimeErrors": [],
     "memory": {
-      "usedJSHeapSize": 6614348,
-      "totalJSHeapSize": 11297020
+      "usedJSHeapSize": 6450270,
+      "totalJSHeapSize": 10581662
     }
   }
 }

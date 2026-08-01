@@ -1,7 +1,7 @@
 {
   "ok": true,
-  "timestampUtc": "2026-08-01T09:20:25Z",
-  "durationSeconds": 2.957,
+  "timestampUtc": "2026-08-01T11:16:31Z",
+  "durationSeconds": 2.754,
   "platform": "macOS-15.7.5-x86_64-i386-64bit-Mach-O",
   "python": "3.14.2 (main, Dec  5 2025, 16:49:16) [Clang 17.0.0 (clang-1700.4.4.1)]",
   "browserExecutable": "/Users/sniper/Library/Caches/ms-playwright/chromium-1234/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
@@ -51,7 +51,7 @@
     {
       "name": "rapid source race leaves one live hardware session and renderer alive",
       "ok": true,
-      "detail": "{\"camera\": {\"getUserMediaCalls\": 2, \"message\": \"人物模型已就绪（EfficientDet Lite0 / CPU）。\", \"permanentError\": false, \"reconnectAttempts\": 0, \"reconnectFailuresTotal\": 0, \"reconnectSuccesses\": 0, \"retryable\": false, \"source\": \"hardware\", \"sourceGeneration\": 3, \"state\": \"ready\", \"transportState\": \"live\"}, \"drawn\": 63}"
+      "detail": "{\"camera\": {\"getUserMediaCalls\": 2, \"message\": \"人物模型已就绪（MediaPipe Selfie Segmenter Landscape / CPU）。\", \"permanentError\": false, \"reconnectAttempts\": 0, \"reconnectFailuresTotal\": 0, \"reconnectSuccesses\": 0, \"retryable\": false, \"source\": \"hardware\", \"sourceGeneration\": 3, \"state\": \"ready\", \"transportState\": \"live\"}, \"drawn\": 63}"
     },
     {
       "name": "camera race has no external requests",
@@ -65,8 +65,8 @@
     }
   ],
   "warnings": [
-    "warning: W0801 09:20:25.183000 2196592 gl_context.cc:1119] OpenGL error checking is disabled",
-    "warning: W0801 09:20:25.217999 2196592 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors."
+    "warning: W0801 11:16:31.334000 2196592 gl_context.cc:1119] OpenGL error checking is disabled",
+    "warning: W0801 11:16:31.360999 2196592 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors."
   ],
   "consoleErrors": [],
   "externalRequests": [],
@@ -78,7 +78,7 @@
       "entered": true,
       "configVersion": 3,
       "sceneNodeCount": 63,
-      "distinctSpriteFiles": 60,
+      "distinctSpriteFiles": 8,
       "assetStats": {
         "runtimeSpriteCount": 60,
         "distinctBaseSilhouetteCount": 32,
@@ -96,14 +96,14 @@
         "sideBorderCount": 2,
         "horizontalBeamCount": 8
       },
-      "loadedSpriteFiles": 60,
+      "loadedSpriteFiles": 8,
       "assetErrors": [],
       "mode": "camera",
       "camera": {
         "source": "hardware",
         "state": "ready",
         "transportState": "live",
-        "message": "人物模型已就绪（EfficientDet Lite0 / CPU）。",
+        "message": "人物模型已就绪（MediaPipe Selfie Segmenter Landscape / CPU）。",
         "reconnectAttempts": 0,
         "reconnectFailuresTotal": 0,
         "reconnectSuccesses": 0,
@@ -121,11 +121,12 @@
         "state": "ready",
         "ready": true,
         "error": "",
-        "model": "EfficientDet Lite0",
+        "model": "MediaPipe Selfie Segmenter Landscape",
         "delegate": "CPU",
-        "semanticPersonOnly": true
+        "semanticPersonOnly": true,
+        "silhouetteMask": true
       },
-      "processingMs": 68.29999995231628,
+      "processingMs": 47.5,
       "foregroundPixels": 0,
       "coverages": [
         0,
@@ -262,7 +263,7 @@
         0,
         0
       ],
-      "fps": 71.94244604316548,
+      "fps": 73.9704118352659,
       "viewport": {
         "cssWidth": 1100,
         "cssHeight": 700,
@@ -350,10 +351,10 @@
         "width": 320,
         "height": 180,
         "revision": 1,
-        "mappedPixels": 49468,
+        "mappedPixels": 27630,
         "emptyCells": 0,
-        "minCellArea": 759,
-        "maxCellArea": 816
+        "minCellArea": 294,
+        "maxCellArea": 1400
       },
       "triggerPartition": {
         "holes": 0,
@@ -435,16 +436,17 @@
         "loadedGroups": 0,
         "requestedGroups": 9,
         "outputLevel": 0,
+        "spatialMix": {},
         "errors": []
       },
       "debugOpen": false,
       "uiHidden": false,
-      "lastMessage": "人物模型已就绪（EfficientDet Lite0 / CPU）。",
+      "lastMessage": "人物模型已就绪（MediaPipe Selfie Segmenter Landscape / CPU）。",
       "lastMessageLevel": "warning",
       "runtimeErrors": [],
       "memory": {
-        "usedJSHeapSize": 13830050,
-        "totalJSHeapSize": 18136610
+        "usedJSHeapSize": 12345188,
+        "totalJSHeapSize": 16045480
       }
     },
     "streamIdentity": {

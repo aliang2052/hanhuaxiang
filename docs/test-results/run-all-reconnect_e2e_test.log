@@ -6,4 +6,4 @@ PASS simulated camera reconnects without page crash: {"getUserMediaCalls": 0, "m
 PASS reconnect phase has no external requests: []
 PASS reconnect phase has no console/page errors: []
 PASS reconnect phase renderer remains alive: 63
-RECONNECT E2E PASSED: 8 behavioral checks in 3.047s
+RECONNECT E2E PASSED: 8 behavioral checks in 3.027s

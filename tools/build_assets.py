@@ -462,7 +462,7 @@ def portrait_bays() -> list[dict[str, float]]:
 
 
 def portrait_node_rect(bay: dict[str, float], slot: int) -> dict[str, float]:
-    patterns = [(0.06, 0.18, 0.44, 0.76), (0.50, 0.18, 0.44, 0.76), (0.26, 0.01, 0.48, 0.80)]
+    patterns = [(0.03, 0.12, 0.29, 0.78), (0.355, 0.06, 0.29, 0.84), (0.68, 0.12, 0.29, 0.78)]
     px, py, pw, ph = patterns[slot]
     return {
         "x": round(bay["x"] + bay["w"] * px, 6),
@@ -515,53 +515,38 @@ CENTRAL_CORE_RECTS = {
 def build_scene(paths: BuildPaths, runtime: list[dict[str, object]]) -> None:
     landscape = landscape_slots()
     portrait = portrait_bays()
-    # Place wide group compositions in the central spine and selected large halls;
-    # keep solos in the narrow galleries so every runtime asset remains legible.
-    asset_indices: list[int | None] = [None] * 63
+    # The reference installation treats every architectural bay as one
+    # independently animated figure. Keep all duo/trio/ensemble assets in the
+    # delivery catalog, but use only curated single-figure cutouts in the scene.
+    solo_indices = [
+        index for index, asset in enumerate(runtime)
+        if asset["id"].startswith("solo-independent-")
+    ]
+    if len(solo_indices) < 8:
+        raise RuntimeError(f"not enough curated solo assets: {len(solo_indices)}")
+    tall_indices = [
+        index for index in solo_indices
+        if runtime[index]["audioGroup"] in {"attendant", "erhu", "pipa", "flute"}
+    ]
+    wide_indices = [
+        index for index in solo_indices
+        if runtime[index]["audioGroup"] in {"qin", "drum", "dancer", "bells"}
+    ]
     central_slot_ids = [18, 30, 42, 55, 56]
-    ensemble_slots = [18, 30, 42, 55, 56, 27, 35, 47]
-    trio_slots = [12, 16, 22, 25, 31, 38, 44, 50]
-    duo_slots = [13, 15, 17, 19, 21, 23, 28, 33, 36, 40, 46, 52]
-    for asset_index, slot_id in zip(range(52, 60), ensemble_slots):
-        asset_indices[slot_id] = asset_index
-    for asset_index, slot_id in zip(range(44, 52), trio_slots):
-        asset_indices[slot_id] = asset_index
-    for asset_index, slot_id in zip(range(32, 44), duo_slots):
-        asset_indices[slot_id] = asset_index
-    remaining_slots = [index for index, asset_index in enumerate(asset_indices) if asset_index is None]
-    solo_assignments = [*range(32), 6, 7, 5]
-    if len(remaining_slots) != len(solo_assignments):
-        raise RuntimeError(f"scene assignment mismatch: {len(remaining_slots)} slots vs {len(solo_assignments)} solos")
-    for slot_id, asset_index in zip(remaining_slots, solo_assignments):
-        asset_indices[slot_id] = asset_index
-    # Put the monumental two-person drum source at the architectural center;
-    # move the previously assigned ensemble to the vacated side hall.  This is
-    # a swap, so all 60 runtime assets still appear at least once.
-    asset_indices[30], asset_indices[26] = asset_indices[26], asset_indices[30]
-    if len({index for index in asset_indices if index is not None}) != 60:
-        raise RuntimeError("all 60 runtime assets must appear at least once")
 
     nodes = []
     for cell_id in range(63):
-        asset = runtime[int(asset_indices[cell_id])]
         slot = landscape[cell_id]
         portrait_bay_id = cell_id // 3
         portrait_slot = cell_id % 3
         central = slot["role"] == "central-stage"
-        composition = str(asset["composition"])
-        scale = 1.22 if central else (1.07 if composition in ("trio", "ensemble") else 1.01)
-        if slot["role"] == "upper-gallery":
-            scale += 0.06
-        landscape_rect = CENTRAL_CORE_RECTS.get(cell_id, composition_rect(slot, composition))
-        asset_aspect = float(asset["width"]) / max(1.0, float(asset["height"]))
-        rect_aspect = landscape_rect["w"] / max(.0001, landscape_rect["h"])
-        mismatch_ratio = max(asset_aspect / rect_aspect, rect_aspect / asset_aspect)
-        fit_mode = "cover" if (
-            not central
-            and composition == "solo"
-            and not str(asset["id"]).startswith("solo-independent-")
-            and 1.35 < mismatch_ratio < 2.10
-        ) else "contain"
+        slot_ratio = float(slot["w"]) / float(slot["h"])
+        pool = wide_indices if central or slot_ratio > .78 else (tall_indices if slot_ratio < .46 else solo_indices)
+        asset = runtime[pool[(cell_id * 7 + (cell_id // 12) * 3) % len(pool)]]
+        composition = "solo"
+        scale = 1.04 + ((cell_id * 17) % 7) / 100
+        landscape_rect = rect_only(slot, .075)
+        fit_mode = "contain"
         nodes.append({
             "id": cell_id,
             "triggerRow": cell_id // 9,
@@ -575,14 +560,14 @@ def build_scene(paths: BuildPaths, runtime: list[dict[str, object]]) -> None:
             "audioGroup": asset["audioGroup"],
             "animation": asset["animation"],
             "color": asset["color"],
-            "scale": round(scale + ((cell_id * 17) % 7) / 100, 3),
+            "scale": round(scale, 3),
             "yBias": round((((cell_id * 7) % 5) - 2) * .008, 3),
             "mirror": bool(cell_id % 11 == 0 and composition == "solo"),
             "phase": round(((cell_id * .61803398875) % 1) * math.pi * 2, 5),
             "motion": round(.72 + ((cell_id * 29) % 17) / 22, 3),
             "upperSplit": round(.46 + ((cell_id * 13) % 12) / 100, 3),
             "pivotY": round(.61 + ((cell_id * 5) % 10) / 100, 3),
-            "idleOpacity": round((.145 if central else .115) + ((cell_id * 19) % 6) / 100, 3),
+            "idleOpacity": round((.13 if central else .105) + ((cell_id * 19) % 5) / 100, 3),
             "fitMode": fit_mode,
             "landscape": {key: round(float(value), 6) for key, value in landscape_rect.items()},
             "portrait": portrait_node_rect(portrait[portrait_bay_id], portrait_slot),
@@ -607,7 +592,7 @@ def build_scene(paths: BuildPaths, runtime: list[dict[str, object]]) -> None:
             "centralStagePanelIds": central_slot_ids,
             "sideBorderCount": 2,
             "horizontalBeamCount": 8,
-            "description": "dense non-uniform portrait-stone architectural wall independent from the 9×7 trigger plane",
+            "description": "dense non-uniform portrait-stone wall with one clean independently clipped solo figure per visual bay",
         },
         "assetStats": {
             "runtimeSpriteCount": len(runtime),

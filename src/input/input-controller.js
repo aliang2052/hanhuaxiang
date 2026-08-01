@@ -4,7 +4,7 @@ import { PersonDetector } from './person-detector.js';
 import { PointerInput } from './pointer-input.js';
 import { SimulatedCamera } from './simulated-camera.js';
 import { CoverageEngine } from '../trigger/coverage-engine.js';
-import { hitTestVisualNode } from '../scene/scene-layout.js';
+import { getArchitecturalPanels, hitTestArchitecturalPanel, hitTestVisualNode } from '../scene/scene-layout.js';
 
 const PROCESSING_WIDTH = 320;
 const PROCESSING_HEIGHT = 180;
@@ -14,14 +14,17 @@ const VIRTUAL_HEIGHT = 140;
 export class InputController extends EventTarget {
   constructor({ canvas, viewport, video, triggerPlane, calibrationController, settings, visualNodes = [] }) {
     super();
+    this.viewport = viewport;
     this.triggerPlane = triggerPlane;
     this.calibrationController = calibrationController;
     this.settings = settings;
     this.visualNodes = visualNodes;
+    this.architecturalPanels = getArchitecturalPanels(viewport.orientation);
+    this.architecturalPanelOrientation = viewport.orientation;
     this.mode = settings.mode;
     this.cameraSource = settings.cameraSource;
     this.pointer = new PointerInput(canvas, viewport, {
-      hitTest: (u, v) => hitTestVisualNode(this.visualNodes, viewport.orientation, u, v),
+      hitTest: (u, v) => this.#resolveVisualCell(u, v, viewport.orientation),
     });
     this.pointer.setEnabled(this.mode === 'pointer');
     this.hardwareCamera = new CameraController(video, PROCESSING_WIDTH, PROCESSING_HEIGHT);
@@ -29,7 +32,8 @@ export class InputController extends EventTarget {
     this.segmenter = new ForegroundSegmenter(PROCESSING_WIDTH, PROCESSING_HEIGHT, { diffThreshold: settings.diffThreshold });
     this.personDetector = new PersonDetector(PROCESSING_WIDTH, PROCESSING_HEIGHT);
     this.coverageEngine = new CoverageEngine(triggerPlane);
-    this.coverageEngine.rebuild(PROCESSING_WIDTH, PROCESSING_HEIGHT, calibrationController.mapping.cameraToPlane);
+    this.coverageOrientation = '';
+    this.#rebuildCoverageMap();
     this.coverages = new Float32Array(triggerPlane.count);
     this.virtualMask = new Uint8Array(VIRTUAL_WIDTH * VIRTUAL_HEIGHT);
     this.virtualCellAreas = new Uint32Array(triggerPlane.count);
@@ -65,7 +69,7 @@ export class InputController extends EventTarget {
       if (detector.state === 'ready') {
         this.cameraState = 'ready';
         this.cameraMessage = `人物模型已就绪（${detector.model} / ${detector.delegate}）。`;
-        this.#emitMessage('真正的人物检测模型已就绪，只会把 person 类别用于触发。', 'success');
+        this.#emitMessage('人像分割模型已就绪，只会把真实人物轮廓用于触发。', 'success');
       } else if (detector.state === 'error') {
         this.cameraState = 'error';
         this.cameraMessage = `人物模型加载失败：${detector.error}`;
@@ -77,15 +81,45 @@ export class InputController extends EventTarget {
       this.#dispatchCameraState();
     });
     calibrationController.addEventListener('change', () => {
-      this.coverageEngine.rebuild(PROCESSING_WIDTH, PROCESSING_HEIGHT, calibrationController.mapping.cameraToPlane);
+      this.#rebuildCoverageMap();
     });
+  }
+
+  #rebuildCoverageMap() {
+    this.coverageOrientation = this.viewport.orientation;
+    this.architecturalPanels = getArchitecturalPanels(this.coverageOrientation);
+    this.architecturalPanelOrientation = this.coverageOrientation;
+    this.coverageEngine.rebuild(
+      PROCESSING_WIDTH,
+      PROCESSING_HEIGHT,
+      this.calibrationController.mapping.cameraToPlane,
+      (u, v) => this.#resolveVisualCell(u, v, this.coverageOrientation),
+    );
+  }
+
+  #resolveVisualCell(u, v, orientation) {
+    // The landscape installation has one node per real architectural bay. Use
+    // the whole bay for pointer/camera input while keeping portrait's 63-node
+    // adapted layout as its own hit-test surface.
+    if (orientation === 'landscape') {
+      if (this.architecturalPanelOrientation !== orientation) {
+        this.architecturalPanels = getArchitecturalPanels(orientation);
+        this.architecturalPanelOrientation = orientation;
+      }
+      return hitTestArchitecturalPanel(this.architecturalPanels, u, v);
+    }
+    return hitTestVisualNode(this.visualNodes, orientation, u, v);
   }
 
   #buildVirtualMap() {
     this.virtualCellAreas.fill(0);
     for (let y = 0; y < VIRTUAL_HEIGHT; y += 1) {
       for (let x = 0; x < VIRTUAL_WIDTH; x += 1) {
-        const index = this.triggerPlane.indexAt((x + 0.5) / VIRTUAL_WIDTH, (y + 0.5) / VIRTUAL_HEIGHT);
+        const index = this.#resolveVisualCell(
+          (x + 0.5) / VIRTUAL_WIDTH,
+          (y + 0.5) / VIRTUAL_HEIGHT,
+          this.viewport.orientation,
+        );
         const offset = y * VIRTUAL_WIDTH + x;
         this.virtualCellMap[offset] = index;
         if (index >= 0) this.virtualCellAreas[index] += 1;
@@ -156,6 +190,10 @@ export class InputController extends EventTarget {
   }
 
   update(now, dtSeconds) {
+    if (this.coverageOrientation !== this.viewport.orientation) {
+      this.#rebuildCoverageMap();
+      this.#buildVirtualMap();
+    }
     if (this.mode === 'auto') {
       const people = this.autoPaused ? [] : this.#autoPeople(now);
       this.#computeVirtualCoverages(people);

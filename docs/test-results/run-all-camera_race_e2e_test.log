@@ -5,7 +5,7 @@ PASS second hardware selection starts a new request: {"getUserMediaCalls": 2, "m
 PASS stale first hardware request resolves false: false
 PASS current second hardware request resolves true: true
 PASS old stream is stopped and cannot pollute the current video: {"currentIsNew": true, "newTrack": "live", "oldTrack": "ended"}
-PASS rapid source race leaves one live hardware session and renderer alive: {"camera": {"getUserMediaCalls": 2, "message": "人物模型已就绪（EfficientDet Lite0 / CPU）。", "permanentError": false, "reconnectAttempts": 0, "reconnectFailuresTotal": 0, "reconnectSuccesses": 0, "retryable": false, "source": "hardware", "sourceGeneration": 3, "state": "ready", "transportState": "live"}, "drawn": 63}
+PASS rapid source race leaves one live hardware session and renderer alive: {"camera": {"getUserMediaCalls": 2, "message": "人物模型已就绪（MediaPipe Selfie Segmenter Landscape / CPU）。", "permanentError": false, "reconnectAttempts": 0, "reconnectFailuresTotal": 0, "reconnectSuccesses": 0, "retryable": false, "source": "hardware", "sourceGeneration": 3, "state": "ready", "transportState": "live"}, "drawn": 63}
 PASS camera race has no external requests: []
 PASS camera race has no console/page errors: []
-CAMERA RACE E2E PASSED: 10 checks in 2.957s
+CAMERA RACE E2E PASSED: 10 checks in 2.754s

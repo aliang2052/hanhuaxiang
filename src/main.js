@@ -179,7 +179,7 @@ class HanOrchestraApp {
         this.#message('模拟摄像头已启动，即将自动采集测试空场。', 'success');
         await this.captureBackgroundFromUi();
       } else {
-        this.#message('摄像头与离线人物模型均已启动，只检测 person 类别。', 'success');
+        this.#message('摄像头与离线人像分割模型均已启动，只使用真实人物轮廓。', 'success');
       }
     });
     this.ui.addEventListener('capture-background', () => { void this.captureBackgroundFromUi(); });
@@ -375,8 +375,12 @@ class HanOrchestraApp {
       showGrid: this.settings.showGrid,
       showLabels: this.settings.showLabels,
       coverages: this.lastInputSnapshot.coverages,
+      personSegmentation: this.lastInputSnapshot.recognitionMode === 'semantic-person'
+        ? this.lastInputSnapshot.segmentation
+        : null,
+      planeToCamera: this.calibration.mapping.planeToCamera,
     });
-    this.audio.update(trigger.visual);
+    this.audio.update(trigger.visual, this.lastInputSnapshot.coverages, this.viewport.orientation);
 
     this.fpsFrames += 1;
     if (now - this.fpsClock >= 500) {

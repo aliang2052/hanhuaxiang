@@ -250,11 +250,9 @@ export class CharacterRenderer {
       const cx = box.x + box.w * 0.5;
       const cy = box.y + box.h * (node.pivotY || 0.68);
       cacheContext.save();
-      if (node.fitMode === 'cover') {
-        cacheContext.beginPath();
-        cacheContext.rect(rect.x, rect.y, rect.w, rect.h);
-        cacheContext.clip();
-      }
+      cacheContext.beginPath();
+      cacheContext.rect(rect.x, rect.y, rect.w, rect.h);
+      cacheContext.clip();
       cacheContext.translate(cx, cy);
       cacheContext.scale(node.mirror ? -1 : 1, 1);
       cacheContext.translate(-cx, -cy);
@@ -274,24 +272,31 @@ export class CharacterRenderer {
     const cx = box.x + box.w * 0.5;
     const cy = box.y + box.h * (node.pivotY || 0.68);
 
-    this.#drawBloom(ctx, node, box, activation, now);
     ctx.save();
-    if (node.fitMode === 'cover') {
-      ctx.beginPath();
-      ctx.rect(rect.x, rect.y, rect.w, rect.h);
-      ctx.clip();
-    }
+    ctx.beginPath();
+    ctx.rect(rect.x, rect.y, rect.w, rect.h);
+    ctx.clip();
+    this.#drawBloom(ctx, node, box, activation, now);
     ctx.translate(cx + transform.dx * box.w, cy + transform.dy * box.h);
     ctx.rotate(transform.rotation);
     ctx.scale((node.mirror ? -1 : 1) * transform.sx, transform.sy);
     ctx.translate(-cx, -cy);
 
     const activeAlpha = smoothstep(0, 0.8, activation);
+    const hasUpperMotion = node.composition === 'solo'
+      && Math.abs(transform.upperDx) + Math.abs(transform.upperDy) + Math.abs(transform.upperRotation) > 0.0001;
     ctx.globalAlpha = activeAlpha * 0.985;
-    ctx.drawImage(asset.active, box.x, box.y, box.w, box.h);
-
-    if (node.composition === 'solo' && Math.abs(transform.upperDx) + Math.abs(transform.upperDy) + Math.abs(transform.upperRotation) > 0.0001) {
+    if (hasUpperMotion) {
       const clipY = box.y + box.h * (node.upperSplit || 0.58);
+      // Draw the lower body once, then independently articulate the upper body.
+      // This avoids the old full-body + duplicate-upper ghost image.
+      ctx.save();
+      ctx.beginPath();
+      ctx.rect(box.x - box.w * 0.15, clipY, box.w * 1.3, box.y + box.h - clipY + box.h * 0.08);
+      ctx.clip();
+      ctx.drawImage(asset.active, box.x, box.y, box.w, box.h);
+      ctx.restore();
+
       ctx.save();
       ctx.beginPath();
       ctx.rect(box.x - box.w * 0.15, box.y - box.h * 0.08, box.w * 1.3, clipY - box.y + box.h * 0.16);
@@ -301,9 +306,11 @@ export class CharacterRenderer {
       ctx.translate(upperCx + transform.upperDx * box.w, upperCy + transform.upperDy * box.h);
       ctx.rotate(transform.upperRotation);
       ctx.translate(-upperCx, -upperCy);
-      ctx.globalAlpha = activeAlpha * 0.91;
+      ctx.globalAlpha = activeAlpha * 0.985;
       ctx.drawImage(asset.active, box.x, box.y, box.w, box.h);
       ctx.restore();
+    } else {
+      ctx.drawImage(asset.active, box.x, box.y, box.w, box.h);
     }
     ctx.restore();
   }

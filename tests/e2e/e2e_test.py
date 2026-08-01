@@ -137,8 +137,9 @@ def run_primary(page: Page, base_url: str) -> dict:
     initial = state(page)
     check("bootstrap has no boot error", page.evaluate("window.__HAN_BOOT_ERROR__ || null") is None)
     check("63 scene nodes", initial["sceneNodeCount"] == 63, initial["sceneNodeCount"])
-    check("60 distinct loaded runtime sprite files",
-          initial["distinctSpriteFiles"] == 60 and initial["loadedSpriteFiles"] == 60,
+    check("curated solo sprite set is loaded without missing files",
+          initial["distinctSpriteFiles"] == 8
+          and initial["loadedSpriteFiles"] == initial["distinctSpriteFiles"],
           {"configured": initial["distinctSpriteFiles"], "loaded": initial["loadedSpriteFiles"]})
     check("asset diversity metadata records 32 genuinely different base silhouettes",
           initial["assetStats"]["distinctBaseSilhouetteCount"] == 32
