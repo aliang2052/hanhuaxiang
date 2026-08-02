@@ -3,7 +3,7 @@
   "baseline": "ac76d30",
   "packageVersion": "4.0.0-v3-live",
   "fileCount": 518,
-  "totalBytes": 117039875,
+  "totalBytes": 117040509,
   "files": [
     {
       "path": ".gitignore",
@@ -2088,7 +2088,7 @@
     {
       "path": "config/scene.json",
       "size": 77297,
-      "sha256": "b2bdc2c5b429fcbc04e7b02cdba3a7dd0c62f8bfecf2ac2c81bcab7da6d86dbc"
+      "sha256": "470147b5953dabfadd81e1024e6eabbceb812397467ba93bab1918aa27b1d8a0"
     },
     {
       "path": "docs/CHATGPT_PRO_TASK.md",
@@ -2107,8 +2107,8 @@
     },
     {
       "path": "docs/V3_LIVE_AUDIO_REPORT.md",
-      "size": 3224,
-      "sha256": "8cd9b0a04c5a22378fb83f4af7551409890d59cc27dfa15d12d8332e45e2c6f5"
+      "size": 3383,
+      "sha256": "59aaf78d7ae8b17e0afef23ebdd85e5d5a6b075a9e09b5aae935107289e2d81a"
     },
     {
       "path": "docs/screenshots/asset-contact-sheet.jpg",
@@ -2472,8 +2472,8 @@
     },
     {
       "path": "tests/unit/config.test.js",
-      "size": 2457,
-      "sha256": "f4e1402445839cfbb62b54e644506b8383e89f4ea05fc4e2603e00102178c8f0"
+      "size": 2548,
+      "sha256": "ac8d82376c102dba97d2da31ca502e69ab0153fbe90cee73378d0a25b69ff4f2"
     },
     {
       "path": "tests/unit/coordinates.test.js",
@@ -2512,8 +2512,8 @@
     },
     {
       "path": "tools/build_assets.py",
-      "size": 33981,
-      "sha256": "0bc2c6e2665934d5ee97e3fde4860a047669e410653355a5453d3345d4f78234"
+      "size": 34041,
+      "sha256": "487548ec842c5288941ce26a1616c21a7c565815c19ffa173d27efc40a9c24e7"
     },
     {
       "path": "tools/build_live_audio.py",
@@ -2542,8 +2542,8 @@
     },
     {
       "path": "tools/live_audio_catalog.py",
-      "size": 7918,
-      "sha256": "63275ebee18ecc77a906d1030460a47510e0b3fca36e232576e9469832e75d8d"
+      "size": 8242,
+      "sha256": "ee83db11efae869aefcbcc209e73061d3898c7e0dec3e957ba132f0aed630b3c"
     },
     {
       "path": "tools/preflight.js",

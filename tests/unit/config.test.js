@@ -13,6 +13,7 @@ test('V3 scene uses the full composition catalog and one live-recorded voice per
   assert.ok(new Set(scene.nodes.map((node) => node.sprite)).size >= 40);
   assert.equal(new Set(scene.nodes.map((node) => node.audioGroup)).size, 63);
   assert.equal(scene.audioGroups.length, 63);
+  assert.ok(scene.audioGroups.every((group) => group.gain >= 0.45 && group.gain <= 0.81));
   assert.ok(scene.audioGroups.every((group) => group.file.endsWith('.ogg')));
   assert.ok(scene.audioGroups.every((group) => group.source === 'VCSL CC0 live recording'));
   assert.equal(scene.assetStats.recordedAudioVoiceCount, 63);

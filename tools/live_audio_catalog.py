@@ -3,6 +3,13 @@
 from __future__ import annotations
 
 
+# The rendered loops retain natural recording headroom and are intentionally
+# much quieter than the former synthetic oscillators. Convert the per-voice
+# balance trims below into an audible solo level at scene-config build time;
+# dense ensembles are still protected dynamically in AudioEngine.
+PLAYBACK_GAIN_SCALE = 9.0
+
+
 def _voice(slug: str, label: str, role: str, source_dir: str, gain: float, reverb: float) -> dict[str, object]:
     return {
         "slug": slug,

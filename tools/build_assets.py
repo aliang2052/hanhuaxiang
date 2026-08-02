@@ -22,7 +22,7 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageOps
 
 from build_live_audio import build_live_audio
-from live_audio_catalog import ANIMATION_AUDIO_ROLE, LIVE_VOICES
+from live_audio_catalog import ANIMATION_AUDIO_ROLE, LIVE_VOICES, PLAYBACK_GAIN_SCALE
 
 ROOT = Path(__file__).resolve().parents[1]
 INPUT_SOURCE = ROOT / "assets" / "source-highres"
@@ -615,7 +615,7 @@ def build_scene(paths: BuildPaths, runtime: list[dict[str, object]]) -> None:
             "id": group_id,
             "label": voice["label"],
             "file": f"assets/audio/{group_id}.ogg",
-            "gain": voice["gain"],
+            "gain": round(float(voice["gain"]) * PLAYBACK_GAIN_SCALE, 3),
             "reverbSend": voice["reverbSend"],
             "source": "VCSL CC0 live recording",
             "role": voice["role"],

@@ -42,7 +42,7 @@
       "id": "voice-00-dan-tranh",
       "label": "筝·越南十六弦",
       "file": "assets/audio/voice-00-dan-tranh.ogg",
-      "gain": 0.09,
+      "gain": 0.81,
       "reverbSend": 0.1,
       "source": "VCSL CC0 live recording",
       "role": "pluck"
@@ -51,7 +51,7 @@
       "id": "voice-01-dan-tranh-tremolo",
       "label": "筝·轮指",
       "file": "assets/audio/voice-01-dan-tranh-tremolo.ogg",
-      "gain": 0.082,
+      "gain": 0.738,
       "reverbSend": 0.12,
       "source": "VCSL CC0 live recording",
       "role": "pluck"
@@ -60,7 +60,7 @@
       "id": "voice-02-dan-tranh-gliss",
       "label": "筝·刮奏",
       "file": "assets/audio/voice-02-dan-tranh-gliss.ogg",
-      "gain": 0.078,
+      "gain": 0.702,
       "reverbSend": 0.14,
       "source": "VCSL CC0 live recording",
       "role": "pluck"
@@ -69,7 +69,7 @@
       "id": "voice-03-psaltery-pluck",
       "label": "拨弦诗琴",
       "file": "assets/audio/voice-03-psaltery-pluck.ogg",
-      "gain": 0.086,
+      "gain": 0.774,
       "reverbSend": 0.11,
       "source": "VCSL CC0 live recording",
       "role": "pluck"
@@ -78,7 +78,7 @@
       "id": "voice-04-concert-harp",
       "label": "音乐会竖琴",
       "file": "assets/audio/voice-04-concert-harp.ogg",
-      "gain": 0.082,
+      "gain": 0.738,
       "reverbSend": 0.12,
       "source": "VCSL CC0 live recording",
       "role": "pluck"
@@ -87,7 +87,7 @@
       "id": "voice-05-folk-harp",
       "label": "民间竖琴",
       "file": "assets/audio/voice-05-folk-harp.ogg",
-      "gain": 0.084,
+      "gain": 0.756,
       "reverbSend": 0.1,
       "source": "VCSL CC0 live recording",
       "role": "pluck"
@@ -96,7 +96,7 @@
       "id": "voice-06-strumstick",
       "label": "三弦拨奏",
       "file": "assets/audio/voice-06-strumstick.ogg",
-      "gain": 0.086,
+      "gain": 0.774,
       "reverbSend": 0.08,
       "source": "VCSL CC0 live recording",
       "role": "pluck"
@@ -105,7 +105,7 @@
       "id": "voice-07-kalimba-kenya",
       "label": "肯尼亚拇指琴",
       "file": "assets/audio/voice-07-kalimba-kenya.ogg",
-      "gain": 0.08,
+      "gain": 0.72,
       "reverbSend": 0.09,
       "source": "VCSL CC0 live recording",
       "role": "pluck"
@@ -114,7 +114,7 @@
       "id": "voice-08-kalimba-tanzania",
       "label": "坦桑尼亚拇指琴",
       "file": "assets/audio/voice-08-kalimba-tanzania.ogg",
-      "gain": 0.08,
+      "gain": 0.72,
       "reverbSend": 0.09,
       "source": "VCSL CC0 live recording",
       "role": "pluck"
@@ -123,7 +123,7 @@
       "id": "voice-09-mbira-mavembe",
       "label": "马文贝姆比拉",
       "file": "assets/audio/voice-09-mbira-mavembe.ogg",
-      "gain": 0.082,
+      "gain": 0.738,
       "reverbSend": 0.09,
       "source": "VCSL CC0 live recording",
       "role": "pluck"
@@ -132,7 +132,7 @@
       "id": "voice-10-mbira-nyamaropa",
       "label": "尼亚马罗帕姆比拉",
       "file": "assets/audio/voice-10-mbira-nyamaropa.ogg",
-      "gain": 0.082,
+      "gain": 0.738,
       "reverbSend": 0.09,
       "source": "VCSL CC0 live recording",
       "role": "pluck"
@@ -141,7 +141,7 @@
       "id": "voice-11-nyunga-nyunga",
       "label": "纽恩加纽恩加",
       "file": "assets/audio/voice-11-nyunga-nyunga.ogg",
-      "gain": 0.08,
+      "gain": 0.72,
       "reverbSend": 0.09,
       "source": "VCSL CC0 live recording",
       "role": "pluck"
@@ -150,7 +150,7 @@
       "id": "voice-12-english-harpsichord",
       "label": "英式羽管键琴",
       "file": "assets/audio/voice-12-english-harpsichord.ogg",
-      "gain": 0.074,
+      "gain": 0.666,
       "reverbSend": 0.08,
       "source": "VCSL CC0 live recording",
       "role": "pluck"
@@ -159,7 +159,7 @@
       "id": "voice-13-psaltery-bow",
       "label": "弓奏诗琴",
       "file": "assets/audio/voice-13-psaltery-bow.ogg",
-      "gain": 0.08,
+      "gain": 0.72,
       "reverbSend": 0.12,
       "source": "VCSL CC0 live recording",
       "role": "sustain"
@@ -168,7 +168,7 @@
       "id": "voice-14-wine-glass-fast",
       "label": "水晶杯快摩",
       "file": "assets/audio/voice-14-wine-glass-fast.ogg",
-      "gain": 0.07,
+      "gain": 0.63,
       "reverbSend": 0.16,
       "source": "VCSL CC0 live recording",
       "role": "sustain"
@@ -177,7 +177,7 @@
       "id": "voice-15-wine-glass-slow",
       "label": "水晶杯慢摩",
       "file": "assets/audio/voice-15-wine-glass-slow.ogg",
-      "gain": 0.07,
+      "gain": 0.63,
       "reverbSend": 0.17,
       "source": "VCSL CC0 live recording",
       "role": "sustain"
@@ -186,7 +186,7 @@
       "id": "voice-16-saxello",
       "label": "萨克斯洛",
       "file": "assets/audio/voice-16-saxello.ogg",
-      "gain": 0.072,
+      "gain": 0.648,
       "reverbSend": 0.1,
       "source": "VCSL CC0 live recording",
       "role": "sustain"
@@ -195,7 +195,7 @@
       "id": "voice-17-tenor-sax",
       "label": "次中音萨克斯",
       "file": "assets/audio/voice-17-tenor-sax.ogg",
-      "gain": 0.07,
+      "gain": 0.63,
       "reverbSend": 0.09,
       "source": "VCSL CC0 live recording",
       "role": "sustain"
@@ -204,7 +204,7 @@
       "id": "voice-18-chromatic-harmonica",
       "label": "半音阶口琴",
       "file": "assets/audio/voice-18-chromatic-harmonica.ogg",
-      "gain": 0.068,
+      "gain": 0.612,
       "reverbSend": 0.09,
       "source": "VCSL CC0 live recording",
       "role": "sustain"
@@ -213,7 +213,7 @@
       "id": "voice-19-alto-recorder",
       "label": "中音木笛",
       "file": "assets/audio/voice-19-alto-recorder.ogg",
-      "gain": 0.074,
+      "gain": 0.666,
       "reverbSend": 0.11,
       "source": "VCSL CC0 live recording",
       "role": "wind"
@@ -222,7 +222,7 @@
       "id": "voice-20-bass-recorder",
       "label": "低音木笛",
       "file": "assets/audio/voice-20-bass-recorder.ogg",
-      "gain": 0.076,
+      "gain": 0.684,
       "reverbSend": 0.11,
       "source": "VCSL CC0 live recording",
       "role": "wind"
@@ -231,7 +231,7 @@
       "id": "voice-21-soprano-recorder",
       "label": "高音木笛",
       "file": "assets/audio/voice-21-soprano-recorder.ogg",
-      "gain": 0.07,
+      "gain": 0.63,
       "reverbSend": 0.12,
       "source": "VCSL CC0 live recording",
       "role": "wind"
@@ -240,7 +240,7 @@
       "id": "voice-22-tenor-recorder",
       "label": "次中音木笛",
       "file": "assets/audio/voice-22-tenor-recorder.ogg",
-      "gain": 0.074,
+      "gain": 0.666,
       "reverbSend": 0.11,
       "source": "VCSL CC0 live recording",
       "role": "wind"
@@ -249,7 +249,7 @@
       "id": "voice-23-small-ocarina",
       "label": "小陶笛",
       "file": "assets/audio/voice-23-small-ocarina.ogg",
-      "gain": 0.07,
+      "gain": 0.63,
       "reverbSend": 0.13,
       "source": "VCSL CC0 live recording",
       "role": "wind"
@@ -258,7 +258,7 @@
       "id": "voice-24-ocarina",
       "label": "陶笛",
       "file": "assets/audio/voice-24-ocarina.ogg",
-      "gain": 0.072,
+      "gain": 0.648,
       "reverbSend": 0.13,
       "source": "VCSL CC0 live recording",
       "role": "wind"
@@ -267,7 +267,7 @@
       "id": "voice-25-didgeridoo",
       "label": "迪吉里杜管",
       "file": "assets/audio/voice-25-didgeridoo.ogg",
-      "gain": 0.072,
+      "gain": 0.648,
       "reverbSend": 0.08,
       "source": "VCSL CC0 live recording",
       "role": "wind"
@@ -276,7 +276,7 @@
       "id": "voice-26-balafon",
       "label": "传统巴拉风木琴",
       "file": "assets/audio/voice-26-balafon.ogg",
-      "gain": 0.08,
+      "gain": 0.72,
       "reverbSend": 0.1,
       "source": "VCSL CC0 live recording",
       "role": "strike"
@@ -285,7 +285,7 @@
       "id": "voice-27-glockenspiel",
       "label": "钢片琴",
       "file": "assets/audio/voice-27-glockenspiel.ogg",
-      "gain": 0.066,
+      "gain": 0.594,
       "reverbSend": 0.16,
       "source": "VCSL CC0 live recording",
       "role": "strike"
@@ -294,7 +294,7 @@
       "id": "voice-28-marimba",
       "label": "马林巴",
       "file": "assets/audio/voice-28-marimba.ogg",
-      "gain": 0.078,
+      "gain": 0.702,
       "reverbSend": 0.11,
       "source": "VCSL CC0 live recording",
       "role": "strike"
@@ -303,7 +303,7 @@
       "id": "voice-29-vibraphone",
       "label": "颤音琴",
       "file": "assets/audio/voice-29-vibraphone.ogg",
-      "gain": 0.068,
+      "gain": 0.612,
       "reverbSend": 0.16,
       "source": "VCSL CC0 live recording",
       "role": "strike"
@@ -312,7 +312,7 @@
       "id": "voice-30-xylophone",
       "label": "木琴",
       "file": "assets/audio/voice-30-xylophone.ogg",
-      "gain": 0.074,
+      "gain": 0.666,
       "reverbSend": 0.11,
       "source": "VCSL CC0 live recording",
       "role": "strike"
@@ -321,7 +321,7 @@
       "id": "voice-31-slit-drum",
       "label": "木舌鼓",
       "file": "assets/audio/voice-31-slit-drum.ogg",
-      "gain": 0.082,
+      "gain": 0.738,
       "reverbSend": 0.1,
       "source": "VCSL CC0 live recording",
       "role": "strike"
@@ -330,7 +330,7 @@
       "id": "voice-32-hand-chimes",
       "label": "手持音条",
       "file": "assets/audio/voice-32-hand-chimes.ogg",
-      "gain": 0.064,
+      "gain": 0.576,
       "reverbSend": 0.16,
       "source": "VCSL CC0 live recording",
       "role": "strike"
@@ -339,7 +339,7 @@
       "id": "voice-33-nepalese-bells",
       "label": "尼泊尔手铃",
       "file": "assets/audio/voice-33-nepalese-bells.ogg",
-      "gain": 0.064,
+      "gain": 0.576,
       "reverbSend": 0.17,
       "source": "VCSL CC0 live recording",
       "role": "strike"
@@ -348,7 +348,7 @@
       "id": "voice-34-gong",
       "label": "铜锣",
       "file": "assets/audio/voice-34-gong.ogg",
-      "gain": 0.066,
+      "gain": 0.594,
       "reverbSend": 0.18,
       "source": "VCSL CC0 live recording",
       "role": "strike"
@@ -357,7 +357,7 @@
       "id": "voice-35-tubular-bells",
       "label": "管钟",
       "file": "assets/audio/voice-35-tubular-bells.ogg",
-      "gain": 0.066,
+      "gain": 0.594,
       "reverbSend": 0.17,
       "source": "VCSL CC0 live recording",
       "role": "strike"
@@ -366,7 +366,7 @@
       "id": "voice-36-agogo-bells",
       "label": "阿戈戈铃",
       "file": "assets/audio/voice-36-agogo-bells.ogg",
-      "gain": 0.068,
+      "gain": 0.612,
       "reverbSend": 0.11,
       "source": "VCSL CC0 live recording",
       "role": "strike"
@@ -375,7 +375,7 @@
       "id": "voice-37-cowbells",
       "label": "牛铃",
       "file": "assets/audio/voice-37-cowbells.ogg",
-      "gain": 0.066,
+      "gain": 0.594,
       "reverbSend": 0.1,
       "source": "VCSL CC0 live recording",
       "role": "strike"
@@ -384,7 +384,7 @@
       "id": "voice-38-anvil",
       "label": "铁砧",
       "file": "assets/audio/voice-38-anvil.ogg",
-      "gain": 0.06,
+      "gain": 0.54,
       "reverbSend": 0.13,
       "source": "VCSL CC0 live recording",
       "role": "strike"
@@ -393,7 +393,7 @@
       "id": "voice-39-brake-drum",
       "label": "制动鼓金属片",
       "file": "assets/audio/voice-39-brake-drum.ogg",
-      "gain": 0.062,
+      "gain": 0.558,
       "reverbSend": 0.14,
       "source": "VCSL CC0 live recording",
       "role": "strike"
@@ -402,7 +402,7 @@
       "id": "voice-40-claves",
       "label": "响棒",
       "file": "assets/audio/voice-40-claves.ogg",
-      "gain": 0.064,
+      "gain": 0.576,
       "reverbSend": 0.07,
       "source": "VCSL CC0 live recording",
       "role": "clapper"
@@ -411,7 +411,7 @@
       "id": "voice-41-woodblock",
       "label": "木鱼",
       "file": "assets/audio/voice-41-woodblock.ogg",
-      "gain": 0.064,
+      "gain": 0.576,
       "reverbSend": 0.08,
       "source": "VCSL CC0 live recording",
       "role": "clapper"
@@ -420,7 +420,7 @@
       "id": "voice-42-frame-drum",
       "label": "框鼓",
       "file": "assets/audio/voice-42-frame-drum.ogg",
-      "gain": 0.082,
+      "gain": 0.738,
       "reverbSend": 0.08,
       "source": "VCSL CC0 live recording",
       "role": "drum"
@@ -429,7 +429,7 @@
       "id": "voice-43-darbuka",
       "label": "达布卡鼓",
       "file": "assets/audio/voice-43-darbuka.ogg",
-      "gain": 0.078,
+      "gain": 0.702,
       "reverbSend": 0.07,
       "source": "VCSL CC0 live recording",
       "role": "drum"
@@ -438,7 +438,7 @@
       "id": "voice-44-timpani",
       "label": "定音鼓",
       "file": "assets/audio/voice-44-timpani.ogg",
-      "gain": 0.078,
+      "gain": 0.702,
       "reverbSend": 0.1,
       "source": "VCSL CC0 live recording",
       "role": "drum"
@@ -447,7 +447,7 @@
       "id": "voice-45-bass-drum",
       "label": "大鼓",
       "file": "assets/audio/voice-45-bass-drum.ogg",
-      "gain": 0.082,
+      "gain": 0.738,
       "reverbSend": 0.1,
       "source": "VCSL CC0 live recording",
       "role": "drum"
@@ -456,7 +456,7 @@
       "id": "voice-46-clash-cymbals",
       "label": "对钹",
       "file": "assets/audio/voice-46-clash-cymbals.ogg",
-      "gain": 0.06,
+      "gain": 0.54,
       "reverbSend": 0.18,
       "source": "VCSL CC0 live recording",
       "role": "drum"
@@ -465,7 +465,7 @@
       "id": "voice-47-suspended-cymbal",
       "label": "悬钹",
       "file": "assets/audio/voice-47-suspended-cymbal.ogg",
-      "gain": 0.058,
+      "gain": 0.522,
       "reverbSend": 0.18,
       "source": "VCSL CC0 live recording",
       "role": "drum"
@@ -474,7 +474,7 @@
       "id": "voice-48-bongos",
       "label": "邦戈鼓",
       "file": "assets/audio/voice-48-bongos.ogg",
-      "gain": 0.068,
+      "gain": 0.612,
       "reverbSend": 0.06,
       "source": "VCSL CC0 live recording",
       "role": "movement"
@@ -483,7 +483,7 @@
       "id": "voice-49-conga",
       "label": "康加鼓",
       "file": "assets/audio/voice-49-conga.ogg",
-      "gain": 0.068,
+      "gain": 0.612,
       "reverbSend": 0.06,
       "source": "VCSL CC0 live recording",
       "role": "movement"
@@ -492,7 +492,7 @@
       "id": "voice-50-rope-snare",
       "label": "绳索军鼓",
       "file": "assets/audio/voice-50-rope-snare.ogg",
-      "gain": 0.06,
+      "gain": 0.54,
       "reverbSend": 0.07,
       "source": "VCSL CC0 live recording",
       "role": "movement"
@@ -501,7 +501,7 @@
       "id": "voice-51-cajon",
       "label": "卡宏鼓",
       "file": "assets/audio/voice-51-cajon.ogg",
-      "gain": 0.07,
+      "gain": 0.63,
       "reverbSend": 0.06,
       "source": "VCSL CC0 live recording",
       "role": "movement"
@@ -510,7 +510,7 @@
       "id": "voice-52-tambourine-one",
       "label": "铃鼓一",
       "file": "assets/audio/voice-52-tambourine-one.ogg",
-      "gain": 0.058,
+      "gain": 0.522,
       "reverbSend": 0.09,
       "source": "VCSL CC0 live recording",
       "role": "movement"
@@ -519,7 +519,7 @@
       "id": "voice-53-tambourine-two",
       "label": "铃鼓二",
       "file": "assets/audio/voice-53-tambourine-two.ogg",
-      "gain": 0.058,
+      "gain": 0.522,
       "reverbSend": 0.09,
       "source": "VCSL CC0 live recording",
       "role": "movement"
@@ -528,7 +528,7 @@
       "id": "voice-54-cabasa",
       "label": "卡巴萨",
       "file": "assets/audio/voice-54-cabasa.ogg",
-      "gain": 0.052,
+      "gain": 0.468,
       "reverbSend": 0.06,
       "source": "VCSL CC0 live recording",
       "role": "movement"
@@ -537,7 +537,7 @@
       "id": "voice-55-large-shaker",
       "label": "大沙锤",
       "file": "assets/audio/voice-55-large-shaker.ogg",
-      "gain": 0.052,
+      "gain": 0.468,
       "reverbSend": 0.06,
       "source": "VCSL CC0 live recording",
       "role": "movement"
@@ -546,7 +546,7 @@
       "id": "voice-56-small-shaker",
       "label": "小沙锤",
       "file": "assets/audio/voice-56-small-shaker.ogg",
-      "gain": 0.05,
+      "gain": 0.45,
       "reverbSend": 0.06,
       "source": "VCSL CC0 live recording",
       "role": "movement"
@@ -555,7 +555,7 @@
       "id": "voice-57-sleigh-bells",
       "label": "串铃",
       "file": "assets/audio/voice-57-sleigh-bells.ogg",
-      "gain": 0.052,
+      "gain": 0.468,
       "reverbSend": 0.1,
       "source": "VCSL CC0 live recording",
       "role": "movement"
@@ -564,7 +564,7 @@
       "id": "voice-58-ratchet",
       "label": "棘轮响器",
       "file": "assets/audio/voice-58-ratchet.ogg",
-      "gain": 0.054,
+      "gain": 0.486,
       "reverbSend": 0.06,
       "source": "VCSL CC0 live recording",
       "role": "movement"
@@ -573,7 +573,7 @@
       "id": "voice-59-guiro",
       "label": "刮瓜",
       "file": "assets/audio/voice-59-guiro.ogg",
-      "gain": 0.056,
+      "gain": 0.504,
       "reverbSend": 0.06,
       "source": "VCSL CC0 live recording",
       "role": "movement"
@@ -582,7 +582,7 @@
       "id": "voice-60-ocean-drum",
       "label": "海浪鼓",
       "file": "assets/audio/voice-60-ocean-drum.ogg",
-      "gain": 0.058,
+      "gain": 0.522,
       "reverbSend": 0.12,
       "source": "VCSL CC0 live recording",
       "role": "movement"
@@ -591,7 +591,7 @@
       "id": "voice-61-bell-tree",
       "label": "铃树",
       "file": "assets/audio/voice-61-bell-tree.ogg",
-      "gain": 0.052,
+      "gain": 0.468,
       "reverbSend": 0.14,
       "source": "VCSL CC0 live recording",
       "role": "movement"
@@ -600,7 +600,7 @@
       "id": "voice-62-finger-cymbals",
       "label": "指钹",
       "file": "assets/audio/voice-62-finger-cymbals.ogg",
-      "gain": 0.05,
+      "gain": 0.45,
       "reverbSend": 0.14,
       "source": "VCSL CC0 live recording",
       "role": "movement"
