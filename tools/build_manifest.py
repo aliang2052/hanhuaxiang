@@ -49,7 +49,7 @@ def build() -> dict:
     payload = {
         "schemaVersion": 1,
         "baseline": "ac76d30",
-        "packageVersion": "3.0.0-v2",
+        "packageVersion": "4.0.0-v3-live",
         "fileCount": len(entries),
         "totalBytes": total_bytes,
         "files": entries,

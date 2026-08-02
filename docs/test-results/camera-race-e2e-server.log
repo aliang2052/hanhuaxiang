@@ -1,6 +1,6 @@
 
-汉画像·百戏乐舞 V2 已启动
-本机： http://localhost:62209
-局域网： http://192.168.5.28:62209
-健康检查： http://localhost:62209/health
+汉画像·百戏乐舞 V3 Live 已启动
+本机： http://localhost:63940
+局域网： http://192.168.5.28:63940
+健康检查： http://localhost:63940/health
 按 Ctrl+C 停止。

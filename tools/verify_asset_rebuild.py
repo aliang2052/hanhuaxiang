@@ -4,8 +4,9 @@
 Contract:
 - PNG: exact decoded RGBA pixel hash (encoder metadata/compression independent).
 - JPEG: cross-platform semantic hash from block-averaged, 5-bit RGB pixels.
-- WAV/JSON: byte SHA-256 must match shipped output and both rebuilds.
-- Same platform: every generated file must also be byte-identical between rebuild A/B.
+- OGG: decoded mono 48 kHz PCM hash (Ogg stream serial metadata independent).
+- JSON: byte SHA-256 must match shipped output and both rebuilds.
+- Same platform: deterministic image/JSON outputs must be byte-identical between rebuild A/B.
 - The project worktree, Git status and MANIFEST files must remain unchanged.
 """
 from __future__ import annotations
@@ -28,7 +29,8 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_RESULT = Path(tempfile.gettempdir()) / "hanhuaxiang-asset-rebuild-results.json"
 EXCLUDED_PARTS = {".git", "node_modules", "__pycache__", ".pytest_cache", ".playwright"}
 EXCLUDED_SUFFIXES = {".pyc", ".pyo"}
-STRICT_BYTE_SUFFIXES = {".wav", ".json"}
+STRICT_BYTE_SUFFIXES = {".json"}
+SAME_PLATFORM_BYTE_SUFFIXES = {".png", ".jpg", ".jpeg", ".json"}
 
 
 def byte_digest(path: Path) -> str:
@@ -41,6 +43,38 @@ def byte_digest(path: Path) -> str:
 
 def semantic_digest(path: Path) -> tuple[str, dict[str, object]]:
     suffix = path.suffix.lower()
+    if suffix == ".ogg":
+        decoded = subprocess.run(
+            [
+                "ffmpeg",
+                "-v",
+                "error",
+                "-nostdin",
+                "-i",
+                str(path),
+                "-map",
+                "0:a:0",
+                "-vn",
+                "-sn",
+                "-dn",
+                "-ac",
+                "1",
+                "-ar",
+                "48000",
+                "-f",
+                "s16le",
+                "pipe:1",
+            ],
+            check=True,
+            capture_output=True,
+        ).stdout
+        header = f"OGG-PCM-S16LE:48000:mono:{len(decoded)}:".encode("ascii")
+        return hashlib.sha256(header + decoded).hexdigest(), {
+            "mode": "decoded-pcm-s16le",
+            "sampleRate": 48000,
+            "channels": 1,
+            "pcmBytes": len(decoded),
+        }
     if suffix == ".png":
         with Image.open(path) as opened:
             image = opened.convert("RGBA")
@@ -80,7 +114,7 @@ def generated_relpaths(root: Path) -> list[Path]:
     patterns = [
         "assets/source-highres/mural-crops/*.png",
         "assets/sprites/variants/*.png",
-        "assets/audio/*.wav",
+        "assets/audio/*.ogg",
     ]
     relpaths = set(required)
     for pattern in patterns:
@@ -190,7 +224,10 @@ def compare_snapshots(
             == second_entry["semanticSha256"]
         ):
             semantic_mismatches.append(relative)
-        if first_entry["byteSha256"] != second_entry["byteSha256"]:
+        if (
+            relative_path.suffix.lower() in SAME_PLATFORM_BYTE_SUFFIXES
+            and first_entry["byteSha256"] != second_entry["byteSha256"]
+        ):
             same_platform_byte_mismatches.append(relative)
         if relative_path.suffix.lower() in STRICT_BYTE_SUFFIXES and not (
             shipped_entry["byteSha256"]
@@ -275,8 +312,9 @@ def main() -> int:
         "contract": {
             "png": "exact decoded RGBA pixel hash across shipped output and both rebuilds",
             "jpeg": "cross-platform semantic hash from 128x72 block-averaged 5-bit decoded RGB",
-            "wavAndJson": "byte SHA-256 across shipped output and both rebuilds",
-            "samePlatform": "all generated outputs byte-identical between rebuild A and rebuild B",
+            "ogg": "decoded mono 48 kHz signed 16-bit PCM SHA-256 across shipped output and both rebuilds",
+            "json": "byte SHA-256 across shipped output and both rebuilds",
+            "samePlatform": "deterministic PNG/JPEG/JSON outputs byte-identical between rebuild A and rebuild B",
             "nonDestructive": "project file hashes, Git status, MANIFEST.json and MANIFEST.sha256 unchanged",
         },
         "outputs": shipped,
@@ -288,7 +326,7 @@ def main() -> int:
         return 1
     print(
         f"Asset verification passed non-destructively: {len(shipped_relpaths)} outputs; "
-        "shipped pixels/semantics match two clean rebuilds, same-platform bytes match, manifest remains valid."
+        "shipped pixels/audio semantics match two clean rebuilds, deterministic bytes match, manifest remains valid."
     )
     print(f"Result: {result_path}")
     return 0

@@ -13,7 +13,7 @@ import { TriggerPlane } from './trigger/trigger-plane.js';
 import { OperatorUI } from './ui/operator-ui.js';
 import { RecognitionMonitor } from './ui/recognition-monitor.js';
 
-const APP_VERSION = '3.0.0-v2';
+const APP_VERSION = '4.0.0-v3-live';
 const BASELINE = 'ac76d30';
 
 async function loadJson(url) {
@@ -124,7 +124,7 @@ class HanOrchestraApp {
       this.ui.message(`有 ${this.assetLoadResult.errors.length} 个素材加载失败；作品会继续运行。`, 'warning');
     } else {
       const voiceCount = Math.max(0, this.sceneConfig.audioGroups.filter((group) => group.id !== 'ambience').length);
-      this.ui.message(`V2 已就绪：63 个空间节点、${this.assetLoadResult.loaded} 套人物构图、${voiceCount} 个独立声部。`, 'success');
+      this.ui.message(`V3 Live 已就绪：63 个空间节点、${this.assetLoadResult.loaded} 套人物构图、${voiceCount} 个一格一声实录声部。`, 'success');
     }
     this.ready = true;
     this.raf = requestAnimationFrame((now) => this.#loop(now));

@@ -15,12 +15,14 @@ from __future__ import annotations
 import argparse
 import json
 import math
-import wave
 from dataclasses import dataclass
 from pathlib import Path
 
 import numpy as np
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageOps
+
+from build_live_audio import build_live_audio
+from live_audio_catalog import ANIMATION_AUDIO_ROLE, LIVE_VOICES
 
 ROOT = Path(__file__).resolve().parents[1]
 INPUT_SOURCE = ROOT / "assets" / "source-highres"
@@ -46,27 +48,6 @@ TYPE_META = {
     "gong": {"label": "建鼓", "audio": "grand-drum", "animation": "gong", "color": "#c35a28"},
     "horn": {"label": "角", "audio": "horn", "animation": "horn", "color": "#9c6a35"},
 }
-
-VOICE_AUDIO_META = [
-    ("qin", "琴", .14, .20),
-    ("dizi", "横笛", .12, .24),
-    ("pipa", "琵琶", .13, .18),
-    ("bronze-bells", "编钟", .11, .34),
-    ("bowed-string", "弓弦", .11, .30),
-    ("war-drum", "鼍鼓", .12, .25),
-    ("sleeve-dance", "袖舞", .10, .28),
-    ("processional", "仪礼", .09, .38),
-    ("sheng", "笙", .10, .34),
-    ("panpipe", "排箫", .10, .30),
-    ("se", "瑟", .13, .22),
-    ("clapper", "拍板", .10, .20),
-    ("cymbal", "铙钹", .09, .42),
-    ("rattle", "节铃", .09, .25),
-    ("frame-drum", "扁鼓", .11, .25),
-    ("stone-chime", "石磬", .11, .36),
-    ("grand-drum", "建鼓", .13, .32),
-    ("horn", "角", .10, .36),
-]
 
 # Coordinates are in the 1672×941 project-owned mural. They deliberately select
 # different poses, instruments, objects and groups; none is a mirror-only variant.
@@ -96,12 +77,6 @@ MURAL_CROP_RECIPES = [
     {"id": "mural-ritual-trio", "kind": "procession", "box": [414, 491, 732, 824]},
     {"id": "mural-dance-banquet-group", "kind": "dancer", "box": [1080, 470, 1510, 832]},
 ]
-
-SR = 44_100
-DURATION = 32.0
-N = int(SR * DURATION)
-RNG = np.random.default_rng(20260731)
-
 
 @dataclass(frozen=True)
 class BuildPaths:
@@ -547,6 +522,11 @@ def build_scene(paths: BuildPaths, runtime: list[dict[str, object]]) -> None:
         raise RuntimeError(f"incomplete runtime composition pools: {pools}")
     central_slot_ids = [18, 30, 42, 55, 56]
     pool_cursor = {name: 0 for name in pools}
+    audio_pools = {
+        role: [voice for voice in LIVE_VOICES if voice["role"] == role]
+        for role in set(ANIMATION_AUDIO_ROLE.values())
+    }
+    audio_cursor = {role: 0 for role in audio_pools}
     secondary_colors = {
         "pluck": "#e1bd54", "flute": "#72b7a6", "strike": "#f2c85b",
         "bow": "#6ea3bd", "drum": "#e55b38", "dance": "#d66a91",
@@ -582,6 +562,14 @@ def build_scene(paths: BuildPaths, runtime: list[dict[str, object]]) -> None:
         asset = runtime[pool[pool_cursor[composition] % len(pool)]]
         pool_cursor[composition] += 1
         clean_independent = str(asset["id"]).startswith("solo-independent-")
+        animation = str(asset["animation"])
+        audio_role = ANIMATION_AUDIO_ROLE[animation]
+        voice_pool = audio_pools[audio_role]
+        if audio_cursor[audio_role] >= len(voice_pool):
+            raise RuntimeError(f"not enough unique live voices for animation role {audio_role}")
+        voice = voice_pool[audio_cursor[audio_role]]
+        audio_cursor[audio_role] += 1
+        voice_id = f"voice-{LIVE_VOICES.index(voice):02d}-{voice['slug']}"
         scale = (1.20 if clean_independent else 1.12) + ((cell_id * 17) % 5) / 100
         landscape_rect = CENTRAL_CORE_RECTS[cell_id] if central else rect_only(slot, .008)
         # Mural crops contain useful archaeological context around the figure.
@@ -598,8 +586,9 @@ def build_scene(paths: BuildPaths, runtime: list[dict[str, object]]) -> None:
             "assetId": asset["id"],
             "composition": composition,
             "label": asset["label"],
-            "audioGroup": asset["audioGroup"],
-            "animation": asset["animation"],
+            "soundLabel": voice["label"],
+            "audioGroup": voice_id,
+            "animation": animation,
             "color": asset["color"],
             "secondaryColor": secondary_colors.get(str(asset["animation"]), "#d0a451"),
             "beatPeriod": beat_periods.get(str(asset["animation"]), 1.0),
@@ -617,20 +606,25 @@ def build_scene(paths: BuildPaths, runtime: list[dict[str, object]]) -> None:
             "portrait": portrait_node_rect(portrait[portrait_bay_id], portrait_slot),
         })
 
-    used_groups = {str(node["audioGroup"]) for node in nodes}
-    missing_groups = [group_id for group_id, _label, _gain, _send in VOICE_AUDIO_META if group_id not in used_groups]
-    if missing_groups:
-        raise RuntimeError(f"V2 scene failed to place audio groups: {missing_groups}")
+    used_groups = [str(node["audioGroup"]) for node in nodes]
+    expected_groups = [f"voice-{index:02d}-{voice['slug']}" for index, voice in enumerate(LIVE_VOICES)]
+    if len(set(used_groups)) != 63 or set(used_groups) != set(expected_groups):
+        raise RuntimeError("V3 scene must assign every one of the 63 live voices exactly once")
     audio_groups = [
-        {"id": "ambience", "label": "厅堂环境", "file": "assets/audio/ambience.wav", "gain": .055, "reverbSend": .62},
-        *[
-            {"id": group_id, "label": label, "file": f"assets/audio/{group_id}.wav", "gain": gain, "reverbSend": send}
-            for group_id, label, gain, send in VOICE_AUDIO_META
-        ],
+        {
+            "id": group_id,
+            "label": voice["label"],
+            "file": f"assets/audio/{group_id}.ogg",
+            "gain": voice["gain"],
+            "reverbSend": voice["reverbSend"],
+            "source": "VCSL CC0 live recording",
+            "role": voice["role"],
+        }
+        for group_id, voice in zip(expected_groups, LIVE_VOICES, strict=True)
     ]
     scene = {
-        "version": 3,
-        "name": "汉画像·百戏乐舞 V2",
+        "version": 4,
+        "name": "汉画像·百戏乐舞 V3 Live",
         "trigger": {"rows": 7, "cols": 9, "coordinateSpace": "normalized-camera-plane"},
         "palette": {"paper": "#cbb28a", "ink": "#21170f", "accent": "#a84429"},
         "background": {"runtime": "assets/background/mural-texture.jpg", "source": "assets/source-highres/base-mural.png"},
@@ -647,6 +641,8 @@ def build_scene(paths: BuildPaths, runtime: list[dict[str, object]]) -> None:
             "distinctBaseSilhouetteCount": 32,
             "independentHighResSourceCount": 8,
             "muralDerivedDistinctSourceCount": 24,
+            "recordedAudioVoiceCount": 63,
+            "sourceRecordingCount": 246,
         },
         "audioGroups": audio_groups,
         "nodes": nodes,
@@ -654,197 +650,15 @@ def build_scene(paths: BuildPaths, runtime: list[dict[str, object]]) -> None:
     (paths.config / "scene.json").write_text(json.dumps(scene, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
-def adsr(length: float, attack: float = .01, decay: float = .08, sustain: float = .5, release: float = .25) -> np.ndarray:
-    samples = max(1, int(length * SR))
-    env = np.ones(samples) * sustain
-    a = min(samples, int(attack * SR)); d = min(max(0, samples - a), int(decay * SR)); r = min(samples, int(release * SR))
-    if a: env[:a] = np.linspace(0, 1, a, endpoint=False)
-    if d: env[a:a + d] = np.linspace(1, sustain, d, endpoint=False)
-    if r: env[-r:] *= np.linspace(1, 0, r)
-    return env
-
-
-def add_tone(buffer: np.ndarray, start: float, duration: float, frequency: float, amplitude: float = .2,
-             harmonics: tuple[float, ...] = (1,), vibrato: float = 0, noise: float = 0, pluck: bool = False) -> None:
-    i0 = int(start * SR); count = min(int(duration * SR), N - i0)
-    if count <= 0: return
-    t = np.arange(count) / SR
-    phase = 2 * np.pi * frequency * t
-    if vibrato: phase = 2 * np.pi * frequency * (t + (vibrato / (2 * np.pi * 5)) * np.sin(2 * np.pi * 5 * t))
-    signal = np.zeros(count)
-    for harmonic, gain in enumerate(harmonics, 1): signal += gain * np.sin(harmonic * phase)
-    if pluck:
-        envelope = np.exp(-t * (3.2 + frequency / 600)); signal *= envelope; signal += .12 * RNG.standard_normal(count) * np.exp(-t * 28)
-    else:
-        envelope = adsr(duration, .06, .18, .72, .35)[:count]; signal *= envelope
-    if noise: signal += noise * RNG.standard_normal(count) * envelope
-    buffer[i0:i0 + count] += amplitude * signal
-
-
-def add_bell(buffer: np.ndarray, start: float, frequency: float, amplitude: float = .28, duration: float = 2.5) -> None:
-    i0 = int(start * SR); count = min(int(duration * SR), N - i0); t = np.arange(count) / SR
-    signal = sum(gain * np.sin(2 * np.pi * frequency * ratio * t) for gain, ratio in zip((1, .45, .24, .13), (1, 2.71, 4.05, 5.43)))
-    signal *= np.exp(-t * 2.15); signal += .03 * RNG.standard_normal(count) * np.exp(-t * 18)
-    buffer[i0:i0 + count] += amplitude * signal
-
-
-def add_drum(buffer: np.ndarray, start: float, amplitude: float = .65, kind: str = "low") -> None:
-    duration = .55 if kind == "low" else .18; i0 = int(start * SR); count = min(int(duration * SR), N - i0); t = np.arange(count) / SR
-    if kind == "low":
-        frequency = 90 * np.exp(-t * 4) + 42; phase = 2 * np.pi * np.cumsum(frequency) / SR
-        signal = np.sin(phase) * np.exp(-t * 7) + .14 * RNG.standard_normal(count) * np.exp(-t * 18)
-    else:
-        signal = RNG.standard_normal(count) * np.exp(-t * 28) + .25 * np.sin(2 * np.pi * 900 * t) * np.exp(-t * 35)
-    buffer[i0:i0 + count] += amplitude * signal
-
-
-def write_wav(paths: BuildPaths, name: str, buffer: np.ndarray, gain: float = .92) -> None:
-    fade = int(.04 * SR); buffer[:fade] *= np.linspace(0, 1, fade); buffer[-fade:] *= np.linspace(1, 0, fade)
-    buffer = np.tanh(buffer * 1.15); peak = float(np.max(np.abs(buffer))) or 1
-    pcm = np.int16(np.clip(buffer / peak * gain, -1, 1) * 32767)
-    with wave.open(str(paths.audio / f"{name}.wav"), "wb") as wav:
-        wav.setnchannels(1); wav.setsampwidth(2); wav.setframerate(SR); wav.writeframes(pcm.tobytes())
-
-
-def add_click(buffer: np.ndarray, start: float, frequency: float = 1600, amplitude: float = .3,
-              duration: float = .075, woody: bool = True) -> None:
-    i0 = int(start * SR); count = min(int(duration * SR), N - i0)
-    if count <= 0: return
-    t = np.arange(count) / SR
-    noise = RNG.standard_normal(count)
-    ring = np.sin(2 * np.pi * frequency * t) + .36 * np.sin(2 * np.pi * frequency * 1.87 * t)
-    signal = (.52 * noise + ring) * np.exp(-t * (46 if woody else 24))
-    if not woody: signal += .24 * np.sin(2 * np.pi * frequency * 2.73 * t) * np.exp(-t * 12)
-    buffer[i0:i0 + count] += amplitude * signal
-
-
-def add_breathy_tone(buffer: np.ndarray, start: float, duration: float, frequency: float, amplitude: float,
-                     harmonics: tuple[float, ...], vibrato: float = .003, breath: float = .035) -> None:
-    i0 = int(start * SR); count = min(int(duration * SR), N - i0)
-    if count <= 0: return
-    t = np.arange(count) / SR
-    drift = 1 + .0018 * np.sin(2 * np.pi * .37 * t + start)
-    phase = 2 * np.pi * np.cumsum(frequency * drift * (1 + vibrato * np.sin(2 * np.pi * 5.1 * t))) / SR
-    signal = np.zeros(count)
-    for harmonic, gain in enumerate(harmonics, 1):
-        signal += gain * np.sin(harmonic * phase + harmonic * .13)
-    envelope = adsr(duration, .11, .2, .76, .42)[:count]
-    shaped_noise = RNG.standard_normal(count)
-    shaped_noise[1:] = shaped_noise[1:] * .55 + shaped_noise[:-1] * .45
-    buffer[i0:i0 + count] += amplitude * (signal + breath * shaped_noise) * envelope
-
-
-def add_metal_swell(buffer: np.ndarray, start: float, amplitude: float = .22, duration: float = 1.8) -> None:
-    i0 = int(start * SR); count = min(int(duration * SR), N - i0)
-    if count <= 0: return
-    t = np.arange(count) / SR
-    ratios = (1, 1.37, 1.93, 2.71, 4.11)
-    base = 410 + (int(start * 10) % 5) * 37
-    ring = sum(np.sin(2 * np.pi * base * ratio * t + ratio) / (1 + ratio * .34) for ratio in ratios)
-    noise = RNG.standard_normal(count)
-    envelope = (1 - np.exp(-t * 35)) * np.exp(-t * 2.05)
-    buffer[i0:i0 + count] += amplitude * (ring + noise * .28) * envelope
-
-
-def moving_average(signal: np.ndarray, window: int) -> np.ndarray:
-    window = max(2, int(window))
-    cumulative = np.cumsum(np.concatenate(([0.0], signal)), dtype=np.float64)
-    averaged = (cumulative[window:] - cumulative[:-window]) / window
-    left = window // 2
-    right = len(signal) - len(averaged) - left
-    return np.pad(averaged, (left, right), mode="edge")
-
-
-def add_room_texture(buffer: np.ndarray, amount: float = .006) -> np.ndarray:
-    noise = RNG.standard_normal(N)
-    # A small, deterministic air/room bed makes isolated layers feel recorded
-    # in the same hall without hiding their attacks.
-    smooth = moving_average(noise, 31)
-    drift = np.sin(2 * np.pi * np.arange(N) / SR * .071 + .9)
-    return buffer + amount * smooth * (1 + .25 * drift)
-
-
-def build_audio(paths: BuildPaths) -> None:
-    global RNG
-    RNG = np.random.default_rng(20260731)
-    for old in paths.audio.glob("*.wav"):
-        old.unlink()
-    t = np.arange(N) / SR
-    pentatonic = [220.0, 246.94, 293.66, 329.63, 392.0]
-    bar_starts = np.arange(0, DURATION, 4.0)
-
-    ambience = sum(amplitude * np.sin(2 * np.pi * frequency * t + RNG.random() * 2 * np.pi)
-                   for frequency, amplitude in [(41.25, .025), (55, .022), (82.5, .014), (110, .008)])
-    raw_noise = RNG.standard_normal(N)
-    smooth = moving_average(raw_noise, 1800)
-    write_wav(paths, "ambience", ambience + .12 * smooth, .56)
-
-    voices: dict[str, np.ndarray] = {group_id: np.zeros(N) for group_id, _label, _gain, _send in VOICE_AUDIO_META}
-
-    # Plucked strings: different registers, attack materials and rhythmic roles.
-    melody = [0, 2, 4, 1, 3, 4, 2, 0, 1, 3, 2, 4, 3, 1, 0, 2, 4, 2, 1, 0, 3, 4, 2, 1, 0, 2, 3, 4, 2, 1, 3, 0]
-    for index, note in enumerate(melody):
-        add_tone(voices["qin"], index, .92, pentatonic[note] * (.5 if index % 8 == 0 else 1), .25, (1, .43, .19, .08), pluck=True)
-        if index % 4 == 0: add_tone(voices["qin"], index + .035, 1.4, pentatonic[(note + 2) % 5] / 2, .11, (1, .3, .1), pluck=True)
-    for bar in range(8):
-        chord = [pentatonic[bar % 5], pentatonic[(bar + 2) % 5], pentatonic[(bar + 4) % 5]]
-        for step in range(12):
-            start = bar * 4 + step / 3
-            add_tone(voices["pipa"], start, .38, chord[(step * 2 + bar) % 3] * 2, .135 if step % 3 else .21, (1, .58, .27, .11), pluck=True)
-    for bar in range(8):
-        for step, note in enumerate((0, 3, 1, 4, 2, 4, 1, 3)):
-            add_tone(voices["se"], bar * 4 + step * .5, 1.12, pentatonic[(note + bar) % 5] * .75, .19, (1, .34, .13, .05), pluck=True)
-
-    # Winds and bowed voices carry longer phrases with breath/bow texture.
-    for bar, start in enumerate(bar_starts):
-        notes = (0, 2, 4, 3) if bar % 2 == 0 else (1, 3, 2, 0)
-        for step, note in enumerate(notes):
-            add_breathy_tone(voices["dizi"], float(start + step), .88, pentatonic[note] * 2, .13, (1, .24, .08), .0038, .055)
-        add_breathy_tone(voices["panpipe"], float(start + .12), 1.72, pentatonic[(bar + 1) % 5], .12, (1, .31, .12), .0021, .075)
-        add_breathy_tone(voices["panpipe"], float(start + 2.1), 1.55, pentatonic[(bar + 3) % 5] * 1.5, .105, (1, .27, .09), .0024, .08)
-        add_breathy_tone(voices["horn"], float(start), 3.35, pentatonic[(bar * 2) % 5] / 2, .11, (1, .48, .22, .08), .0012, .025)
-        for chord_note in (0, 2, 4):
-            add_breathy_tone(voices["sheng"], float(start + .04), 3.55, pentatonic[(bar + chord_note) % 5], .055, (1, .18, .06), .0014, .032)
-        add_tone(voices["bowed-string"], float(start), 3.72, pentatonic[(bar + 2) % 5] * .75, .15, (1, .36, .16, .07), vibrato=.0042, noise=.022)
-
-    # Bronze, stone and ritual resonators each use different inharmonic spectra.
-    for start in np.arange(0, DURATION, 2):
-        note = int(start / 2) % 5
-        add_bell(voices["bronze-bells"], float(start + .015), pentatonic[note] * 1.35, .25 if note in (0, 4) else .18, 2.8)
-    for start in np.arange(1, DURATION, 2):
-        base = pentatonic[int(start) % 5] * 1.7
-        add_click(voices["stone-chime"], float(start), base, .34, .42, False)
-        add_tone(voices["stone-chime"], float(start), .65, base * 1.41, .085, (1, .22, .09), pluck=True)
-    for start in (3.5, 7.5, 11.5, 15.5, 19.5, 23.5, 27.5, 31.0):
-        add_metal_swell(voices["cymbal"], start, .27 if start % 8 > 4 else .2, 1.7)
-    for start in np.arange(.25, DURATION, .5):
-        add_click(voices["clapper"], float(start), 1250 + (int(start * 2) % 3) * 210, .16 if int(start * 2) % 4 else .27, .085, True)
-    for start in np.arange(.125, DURATION, .25):
-        if int(start * 8) % 3: add_click(voices["rattle"], float(start), 2500 + (int(start * 8) % 5) * 180, .065, .055, False)
-
-    # A shared four-second pulse binds the independent layers into one ensemble.
-    for beat in np.arange(0, DURATION, .5):
-        strong = abs(beat % 4) < 1e-7
-        half = abs(beat % 2) < 1e-7
-        add_drum(voices["war-drum"], float(beat), .48 if strong else (.25 if half else .075), "low" if half else "high")
-        if int(beat * 2) % 2 == 0: add_drum(voices["frame-drum"], float(beat + .02), .22 if strong else .13, "high")
-        add_drum(voices["sleeve-dance"], float(beat + .25), .075 if not strong else .12, "high")
-    for start in bar_starts:
-        add_drum(voices["grand-drum"], float(start + .015), .72, "low")
-        add_drum(voices["grand-drum"], float(start + 3.5), .34, "low")
-        add_bell(voices["processional"], float(start + .1), pentatonic[int(start / 4) % 5] * .55, .11, 3.5)
-        add_click(voices["processional"], float(start + 2), 780, .12, .11, True)
-    for start in np.arange(.25, DURATION, .5):
-        add_click(voices["sleeve-dance"], float(start), 3100 + (int(start * 2) % 4) * 230, .055, .05, False)
-
-    for group_id, buffer in voices.items():
-        write_wav(paths, group_id, add_room_texture(buffer, .0045 if group_id not in {"horn", "sheng", "bowed-string"} else .006))
+def build_audio(paths: BuildPaths) -> dict[str, object]:
+    """Build 63 one-cell/one-voice loops exclusively from real CC0 recordings."""
+    return build_live_audio(paths.audio)
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--visuals", action="store_true", help="rebuild source crops, background, 60 sprites, scene config and contact sheet")
-    parser.add_argument("--audio", action="store_true", help="rebuild nineteen synchronized V2 ensemble WAV loops")
+    parser.add_argument("--audio", action="store_true", help="rebuild 63 one-cell/one-voice V3 live-recording loops")
     parser.add_argument("--all", action="store_true", help="rebuild all generated outputs")
     parser.add_argument("--output-root", type=Path, default=ROOT, help="write outputs under this root without modifying the project tree")
     args = parser.parse_args()
@@ -858,8 +672,8 @@ def main() -> None:
         build_scene(paths, runtime)
         summary.update({"distinctBaseSilhouettes": 32, "muralDerivedSources": len(crop_entries), "runtimeSprites": len(runtime)})
     if everything or args.audio:
-        build_audio(paths)
-        summary["audioLoops"] = 1 + len(VOICE_AUDIO_META)
+        audio_summary = build_audio(paths)
+        summary.update({"audioLoops": audio_summary["voiceCount"], "sourceRecordings": audio_summary["recordingCount"]})
     print(json.dumps(summary, ensure_ascii=False, sort_keys=True))
 
 

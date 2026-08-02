@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { AudioEngine, buildSpatialMix } from '../../src/audio/audio-engine.js';
+import { AudioEngine, buildSpatialMix, ensembleGainCompensation } from '../../src/audio/audio-engine.js';
 
 test('audio recovery only reports success after the context is actually running', async () => {
   const engine = new AudioEngine([], []);
@@ -54,4 +54,11 @@ test('audio snapshot reports independent voices separately from ambience', () =>
   const engine = new AudioEngine([{ id: 'ambience' }, { id: 'qin' }, { id: 'drum' }], []);
   assert.equal(engine.snapshot().distinctVoiceCount, 2);
   assert.equal(engine.visualTimeMs(1234), 1234);
+});
+
+test('63-voice live ensemble compensation preserves solos and protects dense scenes', () => {
+  assert.equal(ensembleGainCompensation(1), 1);
+  assert.ok(ensembleGainCompensation(4) < 0.7);
+  assert.ok(ensembleGainCompensation(63) <= 0.2);
+  assert.ok(ensembleGainCompensation(16) > ensembleGainCompensation(63));
 });

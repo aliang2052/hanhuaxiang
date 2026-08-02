@@ -1,6 +1,6 @@
 {
   "name": "han-orchestra-installation",
-  "version": "3.0.0-v2",
+  "version": "4.0.0-v3-live",
   "private": true,
   "type": "module",
   "description": "Fullscreen offline 63-zone interactive Han portrait-stone orchestra",
@@ -17,6 +17,7 @@
     "assets": "python3 tools/build_assets.py --all",
     "assets:visuals": "python3 tools/build_assets.py --visuals",
     "assets:verify": "python3 tools/verify_asset_rebuild.py",
+    "audio:verify": "python3 tools/verify_live_audio.py",
     "test:all": "npm test && npm run test:asset-preservation && npm run test:e2e",
     "manifest": "python3 tools/build_manifest.py",
     "manifest:verify": "python3 tools/build_manifest.py --verify",

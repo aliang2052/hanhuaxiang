@@ -1,23 +1,23 @@
 {
   "ok": true,
-  "timestampUtc": "2026-08-01T13:48:15Z",
-  "durationSeconds": 15.09,
+  "timestampUtc": "2026-08-02T00:48:44Z",
+  "durationSeconds": 45.485,
   "platform": "macOS-15.7.5-x86_64-i386-64bit-Mach-O",
   "python": "3.14.2 (main, Dec  5 2025, 16:49:16) [Clang 17.0.0 (clang-1700.4.4.1)]",
-  "browserExecutable": "/Users/sniper/Library/Caches/ms-playwright/chromium-1234/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
-  "baseUrl": "http://127.0.0.1:62260",
+  "browserExecutable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+  "baseUrl": "http://127.0.0.1:64057",
   "health": {
     "ok": true,
     "app": "han-orchestra-installation",
-    "version": "3.0.0-v2",
+    "version": "4.0.0-v3-live",
     "baseline": "ac76d30",
-    "uptimeSeconds": 0.2
+    "uptimeSeconds": 0.1
   },
   "checks": [
     {
       "name": "camera E2E health endpoint",
       "ok": true,
-      "detail": "{\"app\": \"han-orchestra-installation\", \"baseline\": \"ac76d30\", \"ok\": true, \"uptimeSeconds\": 0.2, \"version\": \"3.0.0-v2\"}"
+      "detail": "{\"app\": \"han-orchestra-installation\", \"baseline\": \"ac76d30\", \"ok\": true, \"uptimeSeconds\": 0.1, \"version\": \"4.0.0-v3-live\"}"
     },
     {
       "name": "one camera-start click completes background capture in camera mode",
@@ -70,18 +70,20 @@
   "externalRequests": [],
   "camera": {
     "captured": {
-      "version": "3.0.0-v2",
+      "version": "4.0.0-v3-live",
       "baseline": "ac76d30",
       "ready": true,
       "entered": true,
-      "configVersion": 3,
+      "configVersion": 4,
       "sceneNodeCount": 63,
       "distinctSpriteFiles": 47,
       "assetStats": {
         "runtimeSpriteCount": 60,
         "distinctBaseSilhouetteCount": 32,
         "independentHighResSourceCount": 8,
-        "muralDerivedDistinctSourceCount": 24
+        "muralDerivedDistinctSourceCount": 24,
+        "recordedAudioVoiceCount": 63,
+        "sourceRecordingCount": 246
       },
       "sceneStructure": {
         "version": 3,
@@ -124,7 +126,7 @@
         "semanticPersonOnly": true,
         "silhouetteMask": true
       },
-      "processingMs": 2.3000001907348633,
+      "processingMs": 193,
       "foregroundPixels": 0,
       "coverages": [
         0,
@@ -261,7 +263,7 @@
         0,
         0
       ],
-      "fps": 120.26813880126187,
+      "fps": 11.786135219114978,
       "viewport": {
         "cssWidth": 640,
         "cssHeight": 400,
@@ -431,86 +433,262 @@
         "contextState": "running",
         "started": true,
         "muted": false,
-        "loadedGroups": 19,
-        "requestedGroups": 19,
-        "outputLevel": 0.005680670387003647,
-        "transportSeconds": 5.334,
-        "distinctVoiceCount": 18,
+        "loadedGroups": 63,
+        "requestedGroups": 63,
+        "outputLevel": 3.401941901831209e-05,
+        "transportSeconds": 9.803333333333335,
+        "distinctVoiceCount": 63,
         "hallReverb": true,
         "spatialMix": {
-          "ambience": {
+          "voice-00-dan-tranh": {
             "intensity": 0,
             "pan": 0
           },
-          "qin": {
+          "voice-01-dan-tranh-tremolo": {
             "intensity": 0,
             "pan": 0
           },
-          "dizi": {
+          "voice-02-dan-tranh-gliss": {
             "intensity": 0,
             "pan": 0
           },
-          "pipa": {
+          "voice-03-psaltery-pluck": {
             "intensity": 0,
             "pan": 0
           },
-          "bronze-bells": {
+          "voice-04-concert-harp": {
             "intensity": 0,
             "pan": 0
           },
-          "bowed-string": {
+          "voice-05-folk-harp": {
             "intensity": 0,
             "pan": 0
           },
-          "war-drum": {
+          "voice-06-strumstick": {
             "intensity": 0,
             "pan": 0
           },
-          "sleeve-dance": {
+          "voice-07-kalimba-kenya": {
             "intensity": 0,
             "pan": 0
           },
-          "processional": {
+          "voice-08-kalimba-tanzania": {
             "intensity": 0,
             "pan": 0
           },
-          "sheng": {
+          "voice-09-mbira-mavembe": {
             "intensity": 0,
             "pan": 0
           },
-          "panpipe": {
+          "voice-10-mbira-nyamaropa": {
             "intensity": 0,
             "pan": 0
           },
-          "se": {
+          "voice-11-nyunga-nyunga": {
             "intensity": 0,
             "pan": 0
           },
-          "clapper": {
+          "voice-12-english-harpsichord": {
             "intensity": 0,
             "pan": 0
           },
-          "cymbal": {
+          "voice-13-psaltery-bow": {
             "intensity": 0,
             "pan": 0
           },
-          "rattle": {
+          "voice-14-wine-glass-fast": {
             "intensity": 0,
             "pan": 0
           },
-          "frame-drum": {
+          "voice-15-wine-glass-slow": {
             "intensity": 0,
             "pan": 0
           },
-          "stone-chime": {
+          "voice-16-saxello": {
             "intensity": 0,
             "pan": 0
           },
-          "grand-drum": {
+          "voice-17-tenor-sax": {
             "intensity": 0,
             "pan": 0
           },
-          "horn": {
+          "voice-18-chromatic-harmonica": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-19-alto-recorder": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-20-bass-recorder": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-21-soprano-recorder": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-22-tenor-recorder": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-23-small-ocarina": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-24-ocarina": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-25-didgeridoo": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-26-balafon": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-27-glockenspiel": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-28-marimba": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-29-vibraphone": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-30-xylophone": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-31-slit-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-32-hand-chimes": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-33-nepalese-bells": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-34-gong": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-35-tubular-bells": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-36-agogo-bells": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-37-cowbells": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-38-anvil": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-39-brake-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-40-claves": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-41-woodblock": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-42-frame-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-43-darbuka": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-44-timpani": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-45-bass-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-46-clash-cymbals": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-47-suspended-cymbal": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-48-bongos": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-49-conga": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-50-rope-snare": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-51-cajon": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-52-tambourine-one": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-53-tambourine-two": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-54-cabasa": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-55-large-shaker": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-56-small-shaker": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-57-sleigh-bells": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-58-ratchet": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-59-guiro": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-60-ocean-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-61-bell-tree": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-62-finger-cymbals": {
             "intensity": 0,
             "pan": 0
           }
@@ -523,23 +701,25 @@
       "lastMessageLevel": "success",
       "runtimeErrors": [],
       "memory": {
-        "usedJSHeapSize": 11751433,
-        "totalJSHeapSize": 16334493
+        "usedJSHeapSize": 15101859,
+        "totalJSHeapSize": 19501019
       }
     },
     "single": {
-      "version": "3.0.0-v2",
+      "version": "4.0.0-v3-live",
       "baseline": "ac76d30",
       "ready": true,
       "entered": true,
-      "configVersion": 3,
+      "configVersion": 4,
       "sceneNodeCount": 63,
       "distinctSpriteFiles": 47,
       "assetStats": {
         "runtimeSpriteCount": 60,
         "distinctBaseSilhouetteCount": 32,
         "independentHighResSourceCount": 8,
-        "muralDerivedDistinctSourceCount": 24
+        "muralDerivedDistinctSourceCount": 24,
+        "recordedAudioVoiceCount": 63,
+        "sourceRecordingCount": 246
       },
       "sceneStructure": {
         "version": 3,
@@ -582,7 +762,7 @@
         "semanticPersonOnly": true,
         "silhouetteMask": true
       },
-      "processingMs": 2.200000047683716,
+      "processingMs": 4,
       "foregroundPixels": 2712,
       "coverages": [
         0,
@@ -669,8 +849,8 @@
         0,
         0,
         0,
-        0.9540982246398926,
-        0.9540982246398926,
+        0.9994466304779053,
+        0.9994466304779053,
         0,
         0,
         0,
@@ -681,9 +861,9 @@
         0,
         0,
         0,
-        0.9540982246398926,
-        0.9540982246398926,
-        0.9540982246398926,
+        0.9994466304779053,
+        0.9994466304779053,
+        0.9994466304779053,
         0,
         0,
         0,
@@ -694,8 +874,8 @@
         0,
         0,
         0,
-        0.9540982246398926,
-        0.9540982246398926,
+        0.9994466304779053,
+        0.9994466304779053,
         0,
         0,
         0,
@@ -706,8 +886,8 @@
         0,
         0,
         0,
-        0.9540982246398926,
-        0.9540982246398926,
+        0.9994466304779053,
+        0.9994466304779053,
         0,
         0,
         0,
@@ -729,7 +909,7 @@
         0,
         0
       ],
-      "fps": 120,
+      "fps": 15.485869144405774,
       "viewport": {
         "cssWidth": 640,
         "cssHeight": 400,
@@ -899,86 +1079,262 @@
         "contextState": "running",
         "started": true,
         "muted": false,
-        "loadedGroups": 19,
-        "requestedGroups": 19,
-        "outputLevel": 0.019076622774452375,
-        "transportSeconds": 5.8406666666666665,
-        "distinctVoiceCount": 18,
+        "loadedGroups": 63,
+        "requestedGroups": 63,
+        "outputLevel": 0.0026466117126207355,
+        "transportSeconds": 11.893999999999998,
+        "distinctVoiceCount": 63,
         "hallReverb": true,
         "spatialMix": {
-          "ambience": {
+          "voice-00-dan-tranh": {
             "intensity": 0,
             "pan": 0
           },
-          "qin": {
+          "voice-01-dan-tranh-tremolo": {
             "intensity": 0,
             "pan": 0
           },
-          "dizi": {
+          "voice-02-dan-tranh-gliss": {
             "intensity": 0,
             "pan": 0
           },
-          "pipa": {
-            "intensity": 0.3621490828598591,
+          "voice-03-psaltery-pluck": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-04-concert-harp": {
+            "intensity": 0.37936207326196525,
             "pan": -0.30769762
           },
-          "bronze-bells": {
-            "intensity": 0.25132912569400134,
+          "voice-05-folk-harp": {
+            "intensity": 0.9994466304779053,
             "pan": 0
           },
-          "bowed-string": {
+          "voice-06-strumstick": {
             "intensity": 0,
             "pan": 0
           },
-          "war-drum": {
+          "voice-07-kalimba-kenya": {
             "intensity": 0,
             "pan": 0
           },
-          "sleeve-dance": {
+          "voice-08-kalimba-tanzania": {
+            "intensity": 0.9994466304779053,
+            "pan": 0
+          },
+          "voice-09-mbira-mavembe": {
             "intensity": 0,
             "pan": 0
           },
-          "processional": {
-            "intensity": 0.9540982246398926,
-            "pan": -0.21268668
-          },
-          "sheng": {
+          "voice-10-mbira-nyamaropa": {
             "intensity": 0,
             "pan": 0
           },
-          "panpipe": {
-            "intensity": 0.9540982246398926,
+          "voice-11-nyunga-nyunga": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-12-english-harpsichord": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-13-psaltery-bow": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-14-wine-glass-fast": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-15-wine-glass-slow": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-16-saxello": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-17-tenor-sax": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-18-chromatic-harmonica": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-19-alto-recorder": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-20-bass-recorder": {
+            "intensity": 0.9994466304779053,
             "pan": -0.18514861999999996
           },
-          "se": {
-            "intensity": 0.9540982246398926,
-            "pan": 0
-          },
-          "clapper": {
-            "intensity": 0.9540982246398926,
-            "pan": -0.14639582999999995
-          },
-          "cymbal": {
+          "voice-21-soprano-recorder": {
             "intensity": 0,
             "pan": 0
           },
-          "rattle": {
+          "voice-22-tenor-recorder": {
             "intensity": 0,
             "pan": 0
           },
-          "frame-drum": {
-            "intensity": 0.7063152209943928,
-            "pan": -0.22229052
-          },
-          "stone-chime": {
+          "voice-23-small-ocarina": {
             "intensity": 0,
             "pan": 0
           },
-          "grand-drum": {
+          "voice-24-ocarina": {
             "intensity": 0,
             "pan": 0
           },
-          "horn": {
+          "voice-25-didgeridoo": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-26-balafon": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-27-glockenspiel": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-28-marimba": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-29-vibraphone": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-30-xylophone": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-31-slit-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-32-hand-chimes": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-33-nepalese-bells": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-34-gong": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-35-tubular-bells": {
+            "intensity": 0.26327482991663126,
+            "pan": 0
+          },
+          "voice-36-agogo-bells": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-37-cowbells": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-38-anvil": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-39-brake-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-40-claves": {
+            "intensity": 0.9994466304779053,
+            "pan": -0.06050205999999994
+          },
+          "voice-41-woodblock": {
+            "intensity": 0.9994466304779053,
+            "pan": -0.23228959999999996
+          },
+          "voice-42-frame-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-43-darbuka": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-44-timpani": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-45-bass-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-46-clash-cymbals": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-47-suspended-cymbal": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-48-bongos": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-49-conga": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-50-rope-snare": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-51-cajon": {
+            "intensity": 0.9994466304779053,
+            "pan": -0.21268668
+          },
+          "voice-52-tambourine-one": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-53-tambourine-two": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-54-cabasa": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-55-large-shaker": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-56-small-shaker": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-57-sleigh-bells": {
+            "intensity": 0.7398864702264188,
+            "pan": -0.22229052000000005
+          },
+          "voice-58-ratchet": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-59-guiro": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-60-ocean-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-61-bell-tree": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-62-finger-cymbals": {
             "intensity": 0,
             "pan": 0
           }
@@ -991,23 +1347,25 @@
       "lastMessageLevel": "success",
       "runtimeErrors": [],
       "memory": {
-        "usedJSHeapSize": 7153819,
-        "totalJSHeapSize": 11925459
+        "usedJSHeapSize": 20647062,
+        "totalJSHeapSize": 25721902
       }
     },
     "static": {
-      "version": "3.0.0-v2",
+      "version": "4.0.0-v3-live",
       "baseline": "ac76d30",
       "ready": true,
       "entered": true,
-      "configVersion": 3,
+      "configVersion": 4,
       "sceneNodeCount": 63,
       "distinctSpriteFiles": 47,
       "assetStats": {
         "runtimeSpriteCount": 60,
         "distinctBaseSilhouetteCount": 32,
         "independentHighResSourceCount": 8,
-        "muralDerivedDistinctSourceCount": 24
+        "muralDerivedDistinctSourceCount": 24,
+        "recordedAudioVoiceCount": 63,
+        "sourceRecordingCount": 246
       },
       "sceneStructure": {
         "version": 3,
@@ -1050,7 +1408,7 @@
         "semanticPersonOnly": true,
         "silhouetteMask": true
       },
-      "processingMs": 2,
+      "processingMs": 3.200000047683716,
       "foregroundPixels": 2712,
       "coverages": [
         0,
@@ -1197,7 +1555,7 @@
         0,
         0
       ],
-      "fps": 119.97600479904054,
+      "fps": 55.88822355289421,
       "viewport": {
         "cssWidth": 640,
         "cssHeight": 400,
@@ -1367,86 +1725,262 @@
         "contextState": "running",
         "started": true,
         "muted": false,
-        "loadedGroups": 19,
-        "requestedGroups": 19,
-        "outputLevel": 0.022133940050428964,
-        "transportSeconds": 9.861999999999998,
-        "distinctVoiceCount": 18,
+        "loadedGroups": 63,
+        "requestedGroups": 63,
+        "outputLevel": 0.0003634855149015336,
+        "transportSeconds": 16.07,
+        "distinctVoiceCount": 63,
         "hallReverb": true,
         "spatialMix": {
-          "ambience": {
+          "voice-00-dan-tranh": {
             "intensity": 0,
             "pan": 0
           },
-          "qin": {
+          "voice-01-dan-tranh-tremolo": {
             "intensity": 0,
             "pan": 0
           },
-          "dizi": {
+          "voice-02-dan-tranh-gliss": {
             "intensity": 0,
             "pan": 0
           },
-          "pipa": {
+          "voice-03-psaltery-pluck": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-04-concert-harp": {
             "intensity": 0.3795721169028963,
             "pan": -0.30769762
           },
-          "bronze-bells": {
-            "intensity": 0.26342059884752544,
-            "pan": 0
-          },
-          "bowed-string": {
-            "intensity": 0,
-            "pan": 0
-          },
-          "war-drum": {
-            "intensity": 0,
-            "pan": 0
-          },
-          "sleeve-dance": {
-            "intensity": 0,
-            "pan": 0
-          },
-          "processional": {
+          "voice-05-folk-harp": {
             "intensity": 1,
-            "pan": -0.21268668
+            "pan": 0
           },
-          "sheng": {
+          "voice-06-strumstick": {
             "intensity": 0,
             "pan": 0
           },
-          "panpipe": {
+          "voice-07-kalimba-kenya": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-08-kalimba-tanzania": {
+            "intensity": 1,
+            "pan": 0
+          },
+          "voice-09-mbira-mavembe": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-10-mbira-nyamaropa": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-11-nyunga-nyunga": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-12-english-harpsichord": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-13-psaltery-bow": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-14-wine-glass-fast": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-15-wine-glass-slow": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-16-saxello": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-17-tenor-sax": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-18-chromatic-harmonica": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-19-alto-recorder": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-20-bass-recorder": {
             "intensity": 1,
             "pan": -0.18514861999999996
           },
-          "se": {
-            "intensity": 1,
-            "pan": 0
-          },
-          "clapper": {
-            "intensity": 1,
-            "pan": -0.14639582999999995
-          },
-          "cymbal": {
+          "voice-21-soprano-recorder": {
             "intensity": 0,
             "pan": 0
           },
-          "rattle": {
+          "voice-22-tenor-recorder": {
             "intensity": 0,
             "pan": 0
           },
-          "frame-drum": {
+          "voice-23-small-ocarina": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-24-ocarina": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-25-didgeridoo": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-26-balafon": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-27-glockenspiel": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-28-marimba": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-29-vibraphone": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-30-xylophone": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-31-slit-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-32-hand-chimes": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-33-nepalese-bells": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-34-gong": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-35-tubular-bells": {
+            "intensity": 0.26342059884752544,
+            "pan": 0
+          },
+          "voice-36-agogo-bells": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-37-cowbells": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-38-anvil": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-39-brake-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-40-claves": {
+            "intensity": 1,
+            "pan": -0.06050205999999994
+          },
+          "voice-41-woodblock": {
+            "intensity": 1,
+            "pan": -0.23228959999999996
+          },
+          "voice-42-frame-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-43-darbuka": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-44-timpani": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-45-bass-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-46-clash-cymbals": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-47-suspended-cymbal": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-48-bongos": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-49-conga": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-50-rope-snare": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-51-cajon": {
+            "intensity": 1,
+            "pan": -0.21268668
+          },
+          "voice-52-tambourine-one": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-53-tambourine-two": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-54-cabasa": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-55-large-shaker": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-56-small-shaker": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-57-sleigh-bells": {
             "intensity": 0.7402961275407246,
             "pan": -0.22229052000000002
           },
-          "stone-chime": {
+          "voice-58-ratchet": {
             "intensity": 0,
             "pan": 0
           },
-          "grand-drum": {
+          "voice-59-guiro": {
             "intensity": 0,
             "pan": 0
           },
-          "horn": {
+          "voice-60-ocean-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-61-bell-tree": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-62-finger-cymbals": {
             "intensity": 0,
             "pan": 0
           }
@@ -1459,23 +1993,25 @@
       "lastMessageLevel": "success",
       "runtimeErrors": [],
       "memory": {
-        "usedJSHeapSize": 13186455,
-        "totalJSHeapSize": 16768899
+        "usedJSHeapSize": 15817621,
+        "totalJSHeapSize": 21178401
       }
     },
     "double": {
-      "version": "3.0.0-v2",
+      "version": "4.0.0-v3-live",
       "baseline": "ac76d30",
       "ready": true,
       "entered": true,
-      "configVersion": 3,
+      "configVersion": 4,
       "sceneNodeCount": 63,
       "distinctSpriteFiles": 47,
       "assetStats": {
         "runtimeSpriteCount": 60,
         "distinctBaseSilhouetteCount": 32,
         "independentHighResSourceCount": 8,
-        "muralDerivedDistinctSourceCount": 24
+        "muralDerivedDistinctSourceCount": 24,
+        "recordedAudioVoiceCount": 63,
+        "sourceRecordingCount": 246
       },
       "sceneStructure": {
         "version": 3,
@@ -1518,7 +2054,7 @@
         "semanticPersonOnly": true,
         "silhouetteMask": true
       },
-      "processingMs": 2.0999999046325684,
+      "processingMs": 3.4000000953674316,
       "foregroundPixels": 5000,
       "coverages": [
         0,
@@ -1619,8 +2155,8 @@
         1,
         0,
         0,
-        0.9431236386299133,
-        0.9431236386299133,
+        0.9604178071022034,
+        0.9604178071022034,
         0,
         0,
         0,
@@ -1631,9 +2167,9 @@
         1,
         1,
         0,
-        0.9431236386299133,
-        0.9431236386299133,
-        0.9431236386299133,
+        0.9604178071022034,
+        0.9604178071022034,
+        0.9604178071022034,
         0,
         0,
         0,
@@ -1643,8 +2179,8 @@
         1,
         1,
         0,
-        0.9431236386299133,
-        0.9431236386299133,
+        0.9604178071022034,
+        0.9604178071022034,
         0,
         0,
         0,
@@ -1655,9 +2191,9 @@
         1,
         1,
         0,
-        0.9431236386299133,
-        0.9431236386299133,
-        0.9431236386299133,
+        0.9604178071022034,
+        0.9604178071022034,
+        0.9604178071022034,
         0,
         0,
         0,
@@ -1675,7 +2211,7 @@
         0,
         0
       ],
-      "fps": 120.14969470159525,
+      "fps": 22,
       "viewport": {
         "cssWidth": 640,
         "cssHeight": 400,
@@ -1845,86 +2381,262 @@
         "contextState": "running",
         "started": true,
         "muted": false,
-        "loadedGroups": 19,
-        "requestedGroups": 19,
-        "outputLevel": 0.10130236422205373,
-        "transportSeconds": 10.341999999999999,
-        "distinctVoiceCount": 18,
+        "loadedGroups": 63,
+        "requestedGroups": 63,
+        "outputLevel": 0.0026860692377808585,
+        "transportSeconds": 16.720666666666666,
+        "distinctVoiceCount": 63,
         "hallReverb": true,
         "spatialMix": {
-          "ambience": {
+          "voice-00-dan-tranh": {
             "intensity": 0,
             "pan": 0
           },
-          "qin": {
-            "intensity": 0.22455325900420095,
-            "pan": 0.4085581431620376
-          },
-          "dizi": {
+          "voice-01-dan-tranh-tremolo": {
             "intensity": 0,
             "pan": 0
           },
-          "pipa": {
-            "intensity": 0.9431236386299133,
-            "pan": 0.27174351667788904
-          },
-          "bronze-bells": {
-            "intensity": 0.26342059884752544,
+          "voice-02-dan-tranh-gliss": {
+            "intensity": 0,
             "pan": 0
           },
-          "bowed-string": {
-            "intensity": 0.9431236386299133,
+          "voice-03-psaltery-pluck": {
+            "intensity": 0.22231893209662756,
+            "pan": 0.31343679999999985
+          },
+          "voice-04-concert-harp": {
+            "intensity": 0.3795721169028963,
+            "pan": -0.30769762
+          },
+          "voice-05-folk-harp": {
+            "intensity": 1,
+            "pan": 0
+          },
+          "voice-06-strumstick": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-07-kalimba-kenya": {
+            "intensity": 0.9604178071022034,
+            "pan": 0.5049469799999999
+          },
+          "voice-08-kalimba-tanzania": {
+            "intensity": 1,
+            "pan": 0
+          },
+          "voice-09-mbira-mavembe": {
+            "intensity": 0.22867091837902268,
+            "pan": 0.50103722
+          },
+          "voice-10-mbira-nyamaropa": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-11-nyunga-nyunga": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-12-english-harpsichord": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-13-psaltery-bow": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-14-wine-glass-fast": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-15-wine-glass-slow": {
+            "intensity": 0.9604178071022034,
             "pan": 0.30769761999999995
           },
-          "war-drum": {
+          "voice-16-saxello": {
             "intensity": 0,
             "pan": 0
           },
-          "sleeve-dance": {
-            "intensity": 0.31135534942258175,
-            "pan": 0.40572861999999993
+          "voice-17-tenor-sax": {
+            "intensity": 0,
+            "pan": 0
           },
-          "processional": {
-            "intensity": 1,
-            "pan": -0.21268668
+          "voice-18-chromatic-harmonica": {
+            "intensity": 0,
+            "pan": 0
           },
-          "sheng": {
-            "intensity": 0.9431236386299133,
-            "pan": 0.4054194800000001
+          "voice-19-alto-recorder": {
+            "intensity": 0,
+            "pan": 0
           },
-          "panpipe": {
+          "voice-20-bass-recorder": {
             "intensity": 1,
             "pan": -0.18514861999999996
           },
-          "se": {
-            "intensity": 1,
-            "pan": 0
+          "voice-21-soprano-recorder": {
+            "intensity": 0.9604178071022034,
+            "pan": 0.40541948000000017
           },
-          "clapper": {
-            "intensity": 1,
-            "pan": -0.14639582999999995
-          },
-          "cymbal": {
-            "intensity": 0.9431236386299133,
-            "pan": 0.3438161600000001
-          },
-          "rattle": {
+          "voice-22-tenor-recorder": {
             "intensity": 0,
             "pan": 0
           },
-          "frame-drum": {
-            "intensity": 0.9431236386299133,
-            "pan": 0.17913506486029349
+          "voice-23-small-ocarina": {
+            "intensity": 0,
+            "pan": 0
           },
-          "stone-chime": {
-            "intensity": 0.9431236386299133,
+          "voice-24-ocarina": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-25-didgeridoo": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-26-balafon": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-27-glockenspiel": {
+            "intensity": 0.9604178071022034,
             "pan": 0.4368672999999999
           },
-          "grand-drum": {
+          "voice-28-marimba": {
             "intensity": 0,
             "pan": 0
           },
-          "horn": {
+          "voice-29-vibraphone": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-30-xylophone": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-31-slit-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-32-hand-chimes": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-33-nepalese-bells": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-34-gong": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-35-tubular-bells": {
+            "intensity": 0.26342059884752544,
+            "pan": 0
+          },
+          "voice-36-agogo-bells": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-37-cowbells": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-38-anvil": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-39-brake-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-40-claves": {
+            "intensity": 1,
+            "pan": -0.06050205999999994
+          },
+          "voice-41-woodblock": {
+            "intensity": 1,
+            "pan": -0.23228959999999996
+          },
+          "voice-42-frame-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-43-darbuka": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-44-timpani": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-45-bass-drum": {
+            "intensity": 0.9604178071022034,
+            "pan": 0.3438161600000001
+          },
+          "voice-46-clash-cymbals": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-47-suspended-cymbal": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-48-bongos": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-49-conga": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-50-rope-snare": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-51-cajon": {
+            "intensity": 1,
+            "pan": -0.21268668
+          },
+          "voice-52-tambourine-one": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-53-tambourine-two": {
+            "intensity": 0.9604178071022034,
+            "pan": 0.4595944199999998
+          },
+          "voice-54-cabasa": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-55-large-shaker": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-56-small-shaker": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-57-sleigh-bells": {
+            "intensity": 0.7402961275407246,
+            "pan": -0.22229052000000002
+          },
+          "voice-58-ratchet": {
+            "intensity": 0.2450045535806696,
+            "pan": 0.31490788
+          },
+          "voice-59-guiro": {
+            "intensity": 0.31706470888205324,
+            "pan": 0.40572862
+          },
+          "voice-60-ocean-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-61-bell-tree": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-62-finger-cymbals": {
             "intensity": 0,
             "pan": 0
           }
@@ -1937,23 +2649,25 @@
       "lastMessageLevel": "success",
       "runtimeErrors": [],
       "memory": {
-        "usedJSHeapSize": 12219677,
-        "totalJSHeapSize": 16993797
+        "usedJSHeapSize": 21136048,
+        "totalJSHeapSize": 26937148
       }
     },
     "light": {
-      "version": "3.0.0-v2",
+      "version": "4.0.0-v3-live",
       "baseline": "ac76d30",
       "ready": true,
       "entered": true,
-      "configVersion": 3,
+      "configVersion": 4,
       "sceneNodeCount": 63,
       "distinctSpriteFiles": 47,
       "assetStats": {
         "runtimeSpriteCount": 60,
         "distinctBaseSilhouetteCount": 32,
         "independentHighResSourceCount": 8,
-        "muralDerivedDistinctSourceCount": 24
+        "muralDerivedDistinctSourceCount": 24,
+        "recordedAudioVoiceCount": 63,
+        "sourceRecordingCount": 246
       },
       "sceneStructure": {
         "version": 3,
@@ -1996,7 +2710,7 @@
         "semanticPersonOnly": true,
         "silhouetteMask": true
       },
-      "processingMs": 2.1999998092651367,
+      "processingMs": 3.4000000953674316,
       "foregroundPixels": 0,
       "coverages": [
         0,
@@ -2073,49 +2787,49 @@
         0,
         0,
         0,
-        0.1886819452047348,
-        0.1886819452047348,
+        0.23633617162704468,
+        0.23633617162704468,
         0,
         0,
-        0.18349424004554749,
-        0.18349424004554749,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0.1886819452047348,
-        0.1886819452047348,
-        0.1886819452047348,
-        0,
-        0.18349424004554749,
-        0.18349424004554749,
-        0.18349424004554749,
+        0.23619107902050018,
+        0.23619107902050018,
         0,
         0,
         0,
         0,
         0,
         0,
-        0.1886819452047348,
-        0.1886819452047348,
+        0.23633617162704468,
+        0.23633617162704468,
+        0.23633617162704468,
         0,
-        0.18349424004554749,
-        0.18349424004554749,
-        0,
-        0,
-        0,
-        0,
+        0.23619107902050018,
+        0.23619107902050018,
+        0.23619107902050018,
         0,
         0,
         0,
-        0.1886819452047348,
-        0.1886819452047348,
         0,
-        0.18349424004554749,
-        0.18349424004554749,
-        0.18349424004554749,
+        0,
+        0,
+        0.23633617162704468,
+        0.23633617162704468,
+        0,
+        0.23619107902050018,
+        0.23619107902050018,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.23633617162704468,
+        0.23633617162704468,
+        0,
+        0.23619107902050018,
+        0.23619107902050018,
+        0.23619107902050018,
         0,
         0,
         0,
@@ -2133,7 +2847,7 @@
         0,
         0
       ],
-      "fps": 119.84282907662083,
+      "fps": 60,
       "viewport": {
         "cssWidth": 640,
         "cssHeight": 400,
@@ -2303,86 +3017,262 @@
         "contextState": "running",
         "started": true,
         "muted": false,
-        "loadedGroups": 19,
-        "requestedGroups": 19,
-        "outputLevel": 0.010420192092657219,
-        "transportSeconds": 11.323333333333334,
-        "distinctVoiceCount": 18,
+        "loadedGroups": 63,
+        "requestedGroups": 63,
+        "outputLevel": 5.2022896067140685e-05,
+        "transportSeconds": 18.368666666666666,
+        "distinctVoiceCount": 63,
         "hallReverb": true,
         "spatialMix": {
-          "ambience": {
+          "voice-00-dan-tranh": {
             "intensity": 0,
             "pan": 0
           },
-          "qin": {
+          "voice-01-dan-tranh-tremolo": {
             "intensity": 0,
             "pan": 0
           },
-          "dizi": {
+          "voice-02-dan-tranh-gliss": {
             "intensity": 0,
             "pan": 0
           },
-          "pipa": {
+          "voice-03-psaltery-pluck": {
             "intensity": 0,
             "pan": 0
           },
-          "bronze-bells": {
+          "voice-04-concert-harp": {
             "intensity": 0,
             "pan": 0
           },
-          "bowed-string": {
+          "voice-05-folk-harp": {
             "intensity": 0,
             "pan": 0
           },
-          "war-drum": {
+          "voice-06-strumstick": {
             "intensity": 0,
             "pan": 0
           },
-          "sleeve-dance": {
+          "voice-07-kalimba-kenya": {
             "intensity": 0,
             "pan": 0
           },
-          "processional": {
+          "voice-08-kalimba-tanzania": {
             "intensity": 0,
             "pan": 0
           },
-          "sheng": {
+          "voice-09-mbira-mavembe": {
             "intensity": 0,
             "pan": 0
           },
-          "panpipe": {
+          "voice-10-mbira-nyamaropa": {
             "intensity": 0,
             "pan": 0
           },
-          "se": {
+          "voice-11-nyunga-nyunga": {
             "intensity": 0,
             "pan": 0
           },
-          "clapper": {
+          "voice-12-english-harpsichord": {
             "intensity": 0,
             "pan": 0
           },
-          "cymbal": {
+          "voice-13-psaltery-bow": {
             "intensity": 0,
             "pan": 0
           },
-          "rattle": {
+          "voice-14-wine-glass-fast": {
             "intensity": 0,
             "pan": 0
           },
-          "frame-drum": {
+          "voice-15-wine-glass-slow": {
             "intensity": 0,
             "pan": 0
           },
-          "stone-chime": {
+          "voice-16-saxello": {
             "intensity": 0,
             "pan": 0
           },
-          "grand-drum": {
+          "voice-17-tenor-sax": {
             "intensity": 0,
             "pan": 0
           },
-          "horn": {
+          "voice-18-chromatic-harmonica": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-19-alto-recorder": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-20-bass-recorder": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-21-soprano-recorder": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-22-tenor-recorder": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-23-small-ocarina": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-24-ocarina": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-25-didgeridoo": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-26-balafon": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-27-glockenspiel": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-28-marimba": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-29-vibraphone": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-30-xylophone": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-31-slit-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-32-hand-chimes": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-33-nepalese-bells": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-34-gong": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-35-tubular-bells": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-36-agogo-bells": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-37-cowbells": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-38-anvil": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-39-brake-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-40-claves": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-41-woodblock": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-42-frame-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-43-darbuka": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-44-timpani": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-45-bass-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-46-clash-cymbals": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-47-suspended-cymbal": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-48-bongos": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-49-conga": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-50-rope-snare": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-51-cajon": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-52-tambourine-one": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-53-tambourine-two": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-54-cabasa": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-55-large-shaker": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-56-small-shaker": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-57-sleigh-bells": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-58-ratchet": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-59-guiro": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-60-ocean-drum": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-61-bell-tree": {
+            "intensity": 0,
+            "pan": 0
+          },
+          "voice-62-finger-cymbals": {
             "intensity": 0,
             "pan": 0
           }
@@ -2395,24 +3285,26 @@
       "lastMessageLevel": "success",
       "runtimeErrors": [],
       "memory": {
-        "usedJSHeapSize": 11480361,
-        "totalJSHeapSize": 15416917
+        "usedJSHeapSize": 20320245,
+        "totalJSHeapSize": 26477977
       }
     }
   },
   "finalState": {
-    "version": "3.0.0-v2",
+    "version": "4.0.0-v3-live",
     "baseline": "ac76d30",
     "ready": true,
     "entered": true,
-    "configVersion": 3,
+    "configVersion": 4,
     "sceneNodeCount": 63,
     "distinctSpriteFiles": 47,
     "assetStats": {
       "runtimeSpriteCount": 60,
       "distinctBaseSilhouetteCount": 32,
       "independentHighResSourceCount": 8,
-      "muralDerivedDistinctSourceCount": 24
+      "muralDerivedDistinctSourceCount": 24,
+      "recordedAudioVoiceCount": 63,
+      "sourceRecordingCount": 246
     },
     "sceneStructure": {
       "version": 3,
@@ -2455,7 +3347,7 @@
       "semanticPersonOnly": true,
       "silhouetteMask": true
     },
-    "processingMs": 1.9000000953674316,
+    "processingMs": 3.1000001430511475,
     "foregroundPixels": 0,
     "coverages": [
       0,
@@ -2532,49 +3424,49 @@
       0,
       0,
       0,
-      0.18587283790111542,
-      0.18587283790111542,
+      0.22891074419021606,
+      0.22891074419021606,
       0,
       0,
-      0.1807623654603958,
-      0.1807623654603958,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0.18587283790111542,
-      0.18587283790111542,
-      0.18587283790111542,
-      0,
-      0.1807623654603958,
-      0.1807623654603958,
-      0.1807623654603958,
+      0.2287702113389969,
+      0.2287702113389969,
       0,
       0,
       0,
       0,
       0,
       0,
-      0.18587283790111542,
-      0.18587283790111542,
+      0.22891074419021606,
+      0.22891074419021606,
+      0.22891074419021606,
       0,
-      0.1807623654603958,
-      0.1807623654603958,
-      0,
-      0,
-      0,
-      0,
+      0.2287702113389969,
+      0.2287702113389969,
+      0.2287702113389969,
       0,
       0,
       0,
-      0.18587283790111542,
-      0.18587283790111542,
       0,
-      0.1807623654603958,
-      0.1807623654603958,
-      0.1807623654603958,
+      0,
+      0,
+      0.22891074419021606,
+      0.22891074419021606,
+      0,
+      0.2287702113389969,
+      0.2287702113389969,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.22891074419021606,
+      0.22891074419021606,
+      0,
+      0.2287702113389969,
+      0.2287702113389969,
+      0.2287702113389969,
       0,
       0,
       0,
@@ -2592,7 +3484,7 @@
       0,
       0
     ],
-    "fps": 119.84282907662083,
+    "fps": 60,
     "viewport": {
       "cssWidth": 640,
       "cssHeight": 400,
@@ -2762,86 +3654,262 @@
       "contextState": "running",
       "started": true,
       "muted": false,
-      "loadedGroups": 19,
-      "requestedGroups": 19,
-      "outputLevel": 0.007880672954220506,
-      "transportSeconds": 11.334,
-      "distinctVoiceCount": 18,
+      "loadedGroups": 63,
+      "requestedGroups": 63,
+      "outputLevel": 4.17123588748015e-05,
+      "transportSeconds": 18.854,
+      "distinctVoiceCount": 63,
       "hallReverb": true,
       "spatialMix": {
-        "ambience": {
+        "voice-00-dan-tranh": {
           "intensity": 0,
           "pan": 0
         },
-        "qin": {
+        "voice-01-dan-tranh-tremolo": {
           "intensity": 0,
           "pan": 0
         },
-        "dizi": {
+        "voice-02-dan-tranh-gliss": {
           "intensity": 0,
           "pan": 0
         },
-        "pipa": {
+        "voice-03-psaltery-pluck": {
           "intensity": 0,
           "pan": 0
         },
-        "bronze-bells": {
+        "voice-04-concert-harp": {
           "intensity": 0,
           "pan": 0
         },
-        "bowed-string": {
+        "voice-05-folk-harp": {
           "intensity": 0,
           "pan": 0
         },
-        "war-drum": {
+        "voice-06-strumstick": {
           "intensity": 0,
           "pan": 0
         },
-        "sleeve-dance": {
+        "voice-07-kalimba-kenya": {
           "intensity": 0,
           "pan": 0
         },
-        "processional": {
+        "voice-08-kalimba-tanzania": {
           "intensity": 0,
           "pan": 0
         },
-        "sheng": {
+        "voice-09-mbira-mavembe": {
           "intensity": 0,
           "pan": 0
         },
-        "panpipe": {
+        "voice-10-mbira-nyamaropa": {
           "intensity": 0,
           "pan": 0
         },
-        "se": {
+        "voice-11-nyunga-nyunga": {
           "intensity": 0,
           "pan": 0
         },
-        "clapper": {
+        "voice-12-english-harpsichord": {
           "intensity": 0,
           "pan": 0
         },
-        "cymbal": {
+        "voice-13-psaltery-bow": {
           "intensity": 0,
           "pan": 0
         },
-        "rattle": {
+        "voice-14-wine-glass-fast": {
           "intensity": 0,
           "pan": 0
         },
-        "frame-drum": {
+        "voice-15-wine-glass-slow": {
           "intensity": 0,
           "pan": 0
         },
-        "stone-chime": {
+        "voice-16-saxello": {
           "intensity": 0,
           "pan": 0
         },
-        "grand-drum": {
+        "voice-17-tenor-sax": {
           "intensity": 0,
           "pan": 0
         },
-        "horn": {
+        "voice-18-chromatic-harmonica": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-19-alto-recorder": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-20-bass-recorder": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-21-soprano-recorder": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-22-tenor-recorder": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-23-small-ocarina": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-24-ocarina": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-25-didgeridoo": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-26-balafon": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-27-glockenspiel": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-28-marimba": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-29-vibraphone": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-30-xylophone": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-31-slit-drum": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-32-hand-chimes": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-33-nepalese-bells": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-34-gong": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-35-tubular-bells": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-36-agogo-bells": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-37-cowbells": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-38-anvil": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-39-brake-drum": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-40-claves": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-41-woodblock": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-42-frame-drum": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-43-darbuka": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-44-timpani": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-45-bass-drum": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-46-clash-cymbals": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-47-suspended-cymbal": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-48-bongos": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-49-conga": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-50-rope-snare": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-51-cajon": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-52-tambourine-one": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-53-tambourine-two": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-54-cabasa": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-55-large-shaker": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-56-small-shaker": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-57-sleigh-bells": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-58-ratchet": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-59-guiro": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-60-ocean-drum": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-61-bell-tree": {
+          "intensity": 0,
+          "pan": 0
+        },
+        "voice-62-finger-cymbals": {
           "intensity": 0,
           "pan": 0
         }
@@ -2854,8 +3922,8 @@
     "lastMessageLevel": "success",
     "runtimeErrors": [],
     "memory": {
-      "usedJSHeapSize": 12000709,
-      "totalJSHeapSize": 15647569
+      "usedJSHeapSize": 6783189,
+      "totalJSHeapSize": 12421813
     }
   }
 }

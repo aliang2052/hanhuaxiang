@@ -1,4 +1,4 @@
-PASS camera E2E health endpoint: {"app": "han-orchestra-installation", "baseline": "ac76d30", "ok": true, "uptimeSeconds": 0.2, "version": "3.0.0-v2"}
+PASS camera E2E health endpoint: {"app": "han-orchestra-installation", "baseline": "ac76d30", "ok": true, "uptimeSeconds": 0.1, "version": "4.0.0-v3-live"}
 PASS one camera-start click completes background capture in camera mode: {"mode": "camera", "ready": true}
 PASS simulated single person triggers locally: {"active": 9, "components": 1, "coverage": 9}
 PASS recognition monitor visualizes the detected foreground: {"active": "9 / 63", "foreground": 2712, "health": "识别正常", "people": 1}
@@ -8,4 +8,4 @@ PASS global light shift is suppressed: {"components": 0, "coverage": 0, "foregro
 PASS camera phase has no external requests: []
 PASS camera phase has no console/page errors: []
 PASS camera phase renderer remains alive: 63
-CAMERA E2E PASSED: 10 behavioral checks in 15.09s
+CAMERA E2E PASSED: 10 behavioral checks in 45.485s

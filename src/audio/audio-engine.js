@@ -20,6 +20,10 @@ export function buildSpatialMix(groups, nodes, visual, coverages, orientation = 
   }]));
 }
 
+export function ensembleGainCompensation(activeCount) {
+  return Math.max(0.18, 1 / Math.sqrt(1 + Math.max(0, Number(activeCount) - 1) * 0.48));
+}
+
 export class AudioEngine extends EventTarget {
   constructor(groups, nodes) {
     super();
@@ -61,16 +65,18 @@ export class AudioEngine extends EventTarget {
     try {
       this.context = new AudioContextConstructor({ latencyHint: 'interactive' });
       this.master = this.context.createGain();
-      this.master.gain.value = this.muted ? 0 : 0.86;
+      this.master.gain.value = this.muted ? 0 : 0.74;
       this.compressor = typeof this.context.createDynamicsCompressor === 'function'
         ? this.context.createDynamicsCompressor()
         : null;
       if (this.compressor) {
-        this.compressor.threshold.value = -19;
-        this.compressor.knee.value = 16;
-        this.compressor.ratio.value = 5.5;
-        this.compressor.attack.value = 0.004;
-        this.compressor.release.value = 0.28;
+        // Preserve the recorded players' natural attacks and dynamics. The
+        // compressor is a safety net for many-person scenes, not a timbre shaper.
+        this.compressor.threshold.value = -9;
+        this.compressor.knee.value = 7;
+        this.compressor.ratio.value = 2.2;
+        this.compressor.attack.value = 0.012;
+        this.compressor.release.value = 0.22;
       }
       this.analyser = this.context.createAnalyser();
       this.analyser.fftSize = 256;
@@ -79,22 +85,22 @@ export class AudioEngine extends EventTarget {
       else this.master.connect(this.analyser).connect(this.context.destination);
       if (typeof this.context.createConvolver === 'function') {
         this.reverb = this.context.createConvolver();
-        this.reverb.buffer = this.#createHallImpulse(2.35);
+        this.reverb.buffer = this.#createHallImpulse(1.55);
         this.reverbReturn = this.context.createGain();
-        this.reverbReturn.gain.value = 0.32;
+        this.reverbReturn.gain.value = 0.14;
         this.reverb.connect(this.reverbReturn).connect(this.master);
       }
-      const loaded = [];
-      for (const group of this.groups) {
+      const loaded = (await Promise.all(this.groups.map(async (group) => {
         try {
           const response = await fetch(group.file, { cache: 'no-store' });
           if (!response.ok) throw new Error(`HTTP ${response.status}`);
           const buffer = await this.context.decodeAudioData(await response.arrayBuffer());
-          loaded.push({ group, buffer });
+          return { group, buffer };
         } catch (error) {
           this.errors.push(`${group.label || group.id} 音频加载失败：${error instanceof Error ? error.message : String(error)}`);
+          return null;
         }
-      }
+      }))).filter(Boolean);
       const startTime = this.context.currentTime + 0.09;
       this.transportStartTime = startTime;
       for (const { group, buffer } of loaded) {
@@ -134,11 +140,15 @@ export class AudioEngine extends EventTarget {
     if (!this.started || !this.context) return;
     const mix = buildSpatialMix(this.groups, this.nodes, visual, coverages, orientation);
     const now = this.context.currentTime;
+    const activeCount = [...mix.values()].filter((entry) => entry.intensity > 0.001).length;
+    const ensembleCompensation = ensembleGainCompensation(activeCount);
     for (const [id, entry] of this.groupNodes) {
       const spatial = mix.get(id) || { intensity: 0, pan: 0 };
       const groupIntensity = spatial.intensity;
       const baseGain = entry.group.gain ?? 0.3;
-      const target = id === 'ambience' ? baseGain : Math.max(0.0001, groupIntensity * baseGain);
+      const target = id === 'ambience'
+        ? baseGain
+        : Math.max(0.0001, groupIntensity * baseGain * ensembleCompensation);
       entry.gain.gain.cancelScheduledValues(now);
       entry.gain.gain.setTargetAtTime(target, now, groupIntensity > 0.1 ? 0.06 : 0.18);
       if (entry.panner) {
@@ -146,7 +156,7 @@ export class AudioEngine extends EventTarget {
         entry.panner.pan.setTargetAtTime(id === 'ambience' ? 0 : spatial.pan, now, 0.08);
       }
       if (entry.send) {
-        const wet = (entry.group.reverbSend ?? 0.25) * (id === 'ambience' ? 1 : 0.68 + groupIntensity * 0.32);
+        const wet = (entry.group.reverbSend ?? 0.12) * (id === 'ambience' ? 1 : 0.72 + groupIntensity * 0.28);
         entry.send.gain.cancelScheduledValues(now);
         entry.send.gain.setTargetAtTime(wet, now, 0.12);
       }
@@ -159,7 +169,7 @@ export class AudioEngine extends EventTarget {
     if (!this.master || !this.context) return;
     const now = this.context.currentTime;
     this.master.gain.cancelScheduledValues(now);
-    this.master.gain.setTargetAtTime(this.muted ? 0 : 0.86, now, 0.05);
+    this.master.gain.setTargetAtTime(this.muted ? 0 : 0.74, now, 0.05);
   }
 
   async resume() {

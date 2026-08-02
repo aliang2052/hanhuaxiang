@@ -137,7 +137,7 @@ def run_primary(page: Page, base_url: str) -> dict:
     initial = state(page)
     check("bootstrap has no boot error", page.evaluate("window.__HAN_BOOT_ERROR__ || null") is None)
     check("63 scene nodes", initial["sceneNodeCount"] == 63, initial["sceneNodeCount"])
-    check("V2 varied sprite set is loaded without missing files",
+    check("V3 varied sprite set is loaded without missing files",
           initial["distinctSpriteFiles"] >= 40
           and initial["loadedSpriteFiles"] == initial["distinctSpriteFiles"],
           {"configured": initial["distinctSpriteFiles"], "loaded": initial["loadedSpriteFiles"]})
@@ -246,7 +246,7 @@ def run_primary(page: Page, base_url: str) -> dict:
       testAudio: Boolean(document.getElementById('testAudioButton')),
     })""")
     check("operator panel exposes recognition and audio diagnostics",
-          monitor["canvas"] and monitor["testAudio"] and "19/19" in monitor["audio"], monitor)
+          monitor["canvas"] and monitor["testAudio"] and "63/63" in monitor["audio"], monitor)
     page.screenshot(path=str(SCREENSHOTS / "e2e-mobile-390x844.png"), full_page=True)
     page.click("#closePanel")
 
@@ -397,7 +397,7 @@ def main() -> int:
     browser: Browser | None = None
     try:
         health = wait_health(base_url)
-        check("health endpoint before E2E", health.get("ok") is True and health.get("version") == "3.0.0-v2", health)
+        check("health endpoint before E2E", health.get("ok") is True and health.get("version") == "4.0.0-v3-live", health)
         with sync_playwright() as playwright:
             browser_path = find_browser(playwright)
             launch_args = ["--autoplay-policy=no-user-gesture-required", "--enable-precise-memory-info"]

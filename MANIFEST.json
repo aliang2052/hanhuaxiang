@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "baseline": "ac76d30",
-  "packageVersion": "3.0.0-v2",
-  "fileCount": 221,
-  "totalBytes": 145692389,
+  "packageVersion": "4.0.0-v3-live",
+  "fileCount": 518,
+  "totalBytes": 117039875,
   "files": [
     {
       "path": ".gitignore",
@@ -12,8 +12,8 @@
     },
     {
       "path": "ASSET_NOTES.md",
-      "size": 5019,
-      "sha256": "04c50621359f45edce2ba5752ca4fbdac87df5d1702c128f6ce8c69207c68e6b"
+      "size": 5437,
+      "sha256": "05016460e9d5112968709923109e9ab58cafa8dec7bf359f261410db2a8b1da5"
     },
     {
       "path": "BASELINE_DELETIONS.txt",
@@ -32,8 +32,8 @@
     },
     {
       "path": "README.md",
-      "size": 10526,
-      "sha256": "e54a5d26c3139ac7f342ea0f8fe64dc0616063b4aa1b19e4ff2412909c579eb4"
+      "size": 11000,
+      "sha256": "f0dc09ff3349508e0ca003880f462e9ed3bd70ffff11d96e5c624aced32a55fd"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -41,99 +41,1559 @@
       "sha256": "972f35fabecf76dcd9340bbc1431072c5a22c91976c23d2786ea74e5f1ffa9f4"
     },
     {
-      "path": "assets/audio/ambience.wav",
-      "size": 2822444,
-      "sha256": "cbc13b64d7da61c9a874b0fa218221ae032f8353235e1e64c8cdabdaea62303d"
+      "path": "assets/audio-source/vcsl/00-dan-tranh-01.ogg",
+      "size": 48931,
+      "sha256": "5092a08a9d3914d2e0888a2c3d68e800804e81e3a7292a4e043b24dfd770d2e6"
     },
     {
-      "path": "assets/audio/bowed-string.wav",
-      "size": 2822444,
-      "sha256": "f3cc487f5b61175677ca4594e5e6b4e03ad4c7afd6bdb6c328e47de9ed1167ed"
+      "path": "assets/audio-source/vcsl/00-dan-tranh-02.ogg",
+      "size": 52167,
+      "sha256": "776c1793bc1be60533c1020793890a8896fc7d929c23754e099af8ce954444a5"
     },
     {
-      "path": "assets/audio/bronze-bells.wav",
-      "size": 2822444,
-      "sha256": "282a101667928ac2570c03b2c5cbe9a6726f285abb34c95ea2d2c2e502c72db8"
+      "path": "assets/audio-source/vcsl/00-dan-tranh-03.ogg",
+      "size": 42141,
+      "sha256": "38f82326c78e12a6af83226619e05d739900d327e00f56fe17d5d8f29a5cdaf1"
     },
     {
-      "path": "assets/audio/clapper.wav",
-      "size": 2822444,
-      "sha256": "d0fac17ff44c69533e28407ed68f15e348f2cf2a9053e52a0b98f4ae57d0c9be"
+      "path": "assets/audio-source/vcsl/00-dan-tranh-04.ogg",
+      "size": 32533,
+      "sha256": "3288b66487b03aaf9324822070a8d79fa7b7293704e3e59cc6a3ebdd4dd22aa4"
     },
     {
-      "path": "assets/audio/cymbal.wav",
-      "size": 2822444,
-      "sha256": "bee1e6a95eab12bd4347aa6fd2f8a86ffd7d1af0db43ec8c6128421649f06e18"
+      "path": "assets/audio-source/vcsl/01-dan-tranh-tremolo-01.ogg",
+      "size": 119602,
+      "sha256": "4d8b09108a1af2abc28cef81d197f4ad3caafc9d7c4d42337c5987ae77f3d272"
     },
     {
-      "path": "assets/audio/dizi.wav",
-      "size": 2822444,
-      "sha256": "50e9780e8c3219825d13231e714ffc016b7bdbaf184f02fb296017730244c228"
+      "path": "assets/audio-source/vcsl/01-dan-tranh-tremolo-02.ogg",
+      "size": 109016,
+      "sha256": "385eb68354a6b7a203909ed71768cb09b7c7591c281ba48b68aba7aacb043555"
     },
     {
-      "path": "assets/audio/frame-drum.wav",
-      "size": 2822444,
-      "sha256": "cc78ffbe0ba58be94020427457ba55aae605fb9e4b62e8a3dd608e915eccca3a"
+      "path": "assets/audio-source/vcsl/01-dan-tranh-tremolo-03.ogg",
+      "size": 100042,
+      "sha256": "e8febd8b2ef7cb3af7ddc5cae5946d537fb11943b505ee8207f55a8c1fb365e5"
     },
     {
-      "path": "assets/audio/grand-drum.wav",
-      "size": 2822444,
-      "sha256": "d0d65ebfd2702222b0cd0babaf278d30f0bd9d913639d1961034f815c40d75ea"
+      "path": "assets/audio-source/vcsl/01-dan-tranh-tremolo-04.ogg",
+      "size": 106635,
+      "sha256": "6da133c20c434a5db03e3ef173c7698ab7d6d672a7c919a890dbd7c8ad543844"
     },
     {
-      "path": "assets/audio/horn.wav",
-      "size": 2822444,
-      "sha256": "8ca6b1491bdd43c53175293ccfebfe800fa3587cee50e0f4ac152096f30fcd1f"
+      "path": "assets/audio-source/vcsl/02-dan-tranh-gliss-01.ogg",
+      "size": 64147,
+      "sha256": "40304b6c47218e7d7e35b7a469ce25060bc16693addab40e1ef3516147dfb4ca"
     },
     {
-      "path": "assets/audio/panpipe.wav",
-      "size": 2822444,
-      "sha256": "a8618d5e55ded38c2cc26d0cfd656c05a09aab772383045a8a28de1d1269e04d"
+      "path": "assets/audio-source/vcsl/02-dan-tranh-gliss-02.ogg",
+      "size": 70741,
+      "sha256": "0ec9d6a3fd2bb83b6b1229232723e2fd30ba84af7cef48e7609c7823d03d0733"
     },
     {
-      "path": "assets/audio/pipa.wav",
-      "size": 2822444,
-      "sha256": "8f4b691db70ce4d9bc3d002a5698ceb16f5b7cb4b80f21e95682a0bd8e06fc3c"
+      "path": "assets/audio-source/vcsl/02-dan-tranh-gliss-03.ogg",
+      "size": 74691,
+      "sha256": "63c373dd9faacfbcc0762f1e221fc48424e88f7f233d9990523107a7033af377"
     },
     {
-      "path": "assets/audio/processional.wav",
-      "size": 2822444,
-      "sha256": "050608cef0dafb056a1f82976ccef3bc8183b8c6f433144fdb53575822525a9f"
+      "path": "assets/audio-source/vcsl/02-dan-tranh-gliss-04.ogg",
+      "size": 76093,
+      "sha256": "2f0c609159b8f0888fac423e5f34b0db931d816680a4a2e6508bf6a59df30c2a"
     },
     {
-      "path": "assets/audio/qin.wav",
-      "size": 2822444,
-      "sha256": "ef4d5ab8442e37e5a80a2df6e715c67a3a159618410b340aaf19c5440f859afe"
+      "path": "assets/audio-source/vcsl/03-psaltery-pluck-01.ogg",
+      "size": 69384,
+      "sha256": "69cac5da390385ebaf6ae8739b4aeaeaec9a5c8f055b7a5514341cbc379b430d"
     },
     {
-      "path": "assets/audio/rattle.wav",
-      "size": 2822444,
-      "sha256": "dc7abcfb3eb96a8c59479fe09b84b356fe9fdbfc992e4d529676f55e4b1847c5"
+      "path": "assets/audio-source/vcsl/03-psaltery-pluck-02.ogg",
+      "size": 48982,
+      "sha256": "75eabe5f06d952134fc7686e8b84849b50c17692b83301383a02a3c5eb9fd1c9"
     },
     {
-      "path": "assets/audio/se.wav",
-      "size": 2822444,
-      "sha256": "5630e263a0ffb180e77683972ace5b1adaf0b65f67501d7fac21921d08cf6700"
+      "path": "assets/audio-source/vcsl/03-psaltery-pluck-03.ogg",
+      "size": 57369,
+      "sha256": "6cda088f4a6870d21597907e70b951c5ed69513130c352cb20d455196db96ba8"
     },
     {
-      "path": "assets/audio/sheng.wav",
-      "size": 2822444,
-      "sha256": "3a0ab325dc4bc77e518ec1a05569070f5aa4687370ea46df4e79fc113c53bdb5"
+      "path": "assets/audio-source/vcsl/03-psaltery-pluck-04.ogg",
+      "size": 56940,
+      "sha256": "5f0c47d1fed9f1be8ab9d8a2df435738eeab2d865f2d8bc54da6742bfe809820"
     },
     {
-      "path": "assets/audio/sleeve-dance.wav",
-      "size": 2822444,
-      "sha256": "d4e69b173a9c2601092a8e05faf70ac33ec3eec28da7a47016a2fd398fc196c3"
+      "path": "assets/audio-source/vcsl/04-concert-harp-01.ogg",
+      "size": 140469,
+      "sha256": "30d757eeed53b1f6e953f365d19ad26a59b2c31943dc5bcd10896972a4e11695"
     },
     {
-      "path": "assets/audio/stone-chime.wav",
-      "size": 2822444,
-      "sha256": "e1b220d9dccc8c9e31f400ee637dc542da89043b6a8460320e9bafaa8adbaf5e"
+      "path": "assets/audio-source/vcsl/04-concert-harp-02.ogg",
+      "size": 94633,
+      "sha256": "cd5cf353ad737b57fc9d6519f510a4cb224503ecda9c38e4280fb63c7a70081c"
     },
     {
-      "path": "assets/audio/war-drum.wav",
-      "size": 2822444,
-      "sha256": "65857d9e021ee7370b8a99ee19268bc4d9eab950e3a6751364b78ac699a4f1cd"
+      "path": "assets/audio-source/vcsl/04-concert-harp-03.ogg",
+      "size": 51829,
+      "sha256": "ccbd501955b4b47b198072579d2b2ecf20c6a3c66f4e720a6bd4be04b7ed7e1e"
+    },
+    {
+      "path": "assets/audio-source/vcsl/04-concert-harp-04.ogg",
+      "size": 20602,
+      "sha256": "c289ef8401be05ef458232a7bd67c29190d553c52c38e288404eda61b1ff97ae"
+    },
+    {
+      "path": "assets/audio-source/vcsl/05-folk-harp-01.ogg",
+      "size": 134456,
+      "sha256": "19090e44e1830b53c644e776baf862963b436856f883ce4f8bd35667bb5810f5"
+    },
+    {
+      "path": "assets/audio-source/vcsl/05-folk-harp-02.ogg",
+      "size": 52040,
+      "sha256": "3500128159094a55514a6274ffdd03ef04100a19036b348f2c40a25698cd65ff"
+    },
+    {
+      "path": "assets/audio-source/vcsl/05-folk-harp-03.ogg",
+      "size": 30967,
+      "sha256": "bade28389a364aa26cbb1beb909ca00825bce2952f27045276cf597f6d30cb4a"
+    },
+    {
+      "path": "assets/audio-source/vcsl/05-folk-harp-04.ogg",
+      "size": 12435,
+      "sha256": "3842b0f6e967c19ad0b9cfafa495af44eafed040f4b9bc24520b5902fe14448b"
+    },
+    {
+      "path": "assets/audio-source/vcsl/06-strumstick-01.ogg",
+      "size": 138023,
+      "sha256": "d9608c279838859244eada6c8738c7eda82bed3eca84caa8912e1f52b254fcce"
+    },
+    {
+      "path": "assets/audio-source/vcsl/06-strumstick-02.ogg",
+      "size": 97279,
+      "sha256": "7a32ea3794df699f0fcf95f4e62e51e4db002657268231f44e78c3b2e4ea2105"
+    },
+    {
+      "path": "assets/audio-source/vcsl/06-strumstick-03.ogg",
+      "size": 93420,
+      "sha256": "708624227abe08426faf6a6e80d2f29eaf3729c16df048de98ea60c398c024f4"
+    },
+    {
+      "path": "assets/audio-source/vcsl/06-strumstick-04.ogg",
+      "size": 15539,
+      "sha256": "fd93878e252ef7a9863124ba0a0d02a269fb1dd9808758cf979794922b390b5b"
+    },
+    {
+      "path": "assets/audio-source/vcsl/07-kalimba-kenya-01.ogg",
+      "size": 19859,
+      "sha256": "7e8b95210277a249c82faee07b24ce90fc76cd3ac91c27443536015049c0ab17"
+    },
+    {
+      "path": "assets/audio-source/vcsl/07-kalimba-kenya-02.ogg",
+      "size": 28083,
+      "sha256": "2b6b046105e81c4979dc73c285f3eb403eed4a617a22ec45f82ea3ebec0f4e62"
+    },
+    {
+      "path": "assets/audio-source/vcsl/07-kalimba-kenya-03.ogg",
+      "size": 18768,
+      "sha256": "2410d55276587863cc01078c96bfd8ec549e12e3bc84803233b03ba5e15510f5"
+    },
+    {
+      "path": "assets/audio-source/vcsl/07-kalimba-kenya-04.ogg",
+      "size": 33011,
+      "sha256": "1890310c65407424cd17a46010c5e4a28d19c0974ee8de8a97a2b4f2b05d24d5"
+    },
+    {
+      "path": "assets/audio-source/vcsl/08-kalimba-tanzania-01.ogg",
+      "size": 38753,
+      "sha256": "b00f463b8fe0a76efbc02dd6500dc9121ee031f36391f36cc2dcd7dad9325d0d"
+    },
+    {
+      "path": "assets/audio-source/vcsl/08-kalimba-tanzania-02.ogg",
+      "size": 32565,
+      "sha256": "93fd9dc2ff4123844124fab131a218ed73c39c3d47f3d1b2bcc78831b4cd46e7"
+    },
+    {
+      "path": "assets/audio-source/vcsl/08-kalimba-tanzania-03.ogg",
+      "size": 18626,
+      "sha256": "709d937e81a715f225a2bd7661749bff3f770bda841d0cb5d066d64f94833ab2"
+    },
+    {
+      "path": "assets/audio-source/vcsl/08-kalimba-tanzania-04.ogg",
+      "size": 16376,
+      "sha256": "4b4d71602e1de66f27d397b901ef9b6cb28d21b0a2e0d316bded69f7102dfa4e"
+    },
+    {
+      "path": "assets/audio-source/vcsl/09-mbira-mavembe-01.ogg",
+      "size": 47415,
+      "sha256": "71c405317b56ec7922ca10484f0dfc5b5e3114cf8b091bd3cf6e40a0bb412ff4"
+    },
+    {
+      "path": "assets/audio-source/vcsl/09-mbira-mavembe-02.ogg",
+      "size": 34623,
+      "sha256": "b12db411c3a2c052028f88827ccc6d231a1ad8bfa7dd0a209929def4d97002cd"
+    },
+    {
+      "path": "assets/audio-source/vcsl/09-mbira-mavembe-03.ogg",
+      "size": 39469,
+      "sha256": "6a6bf46bd81a5fb7f07123073dd8631ef7144c8ea95555792e3c5afc5f4869c0"
+    },
+    {
+      "path": "assets/audio-source/vcsl/09-mbira-mavembe-04.ogg",
+      "size": 20179,
+      "sha256": "159bdba30b4f607dd4ef73b285e59fe816628cf16967b32421138216103ffcda"
+    },
+    {
+      "path": "assets/audio-source/vcsl/10-mbira-nyamaropa-01.ogg",
+      "size": 33758,
+      "sha256": "c7ee1a7d9ae7b97c48035b85cae9fab135b5874d3c8a4dc4204e42b445d656c5"
+    },
+    {
+      "path": "assets/audio-source/vcsl/10-mbira-nyamaropa-02.ogg",
+      "size": 56157,
+      "sha256": "aceeadfc43c8aa4c582dfb5eb4f8f9978c7e7aaba02be188331bfccdee67bf32"
+    },
+    {
+      "path": "assets/audio-source/vcsl/10-mbira-nyamaropa-03.ogg",
+      "size": 32449,
+      "sha256": "92f77a802c5851f142caf180382fda2051e9b3d443dd74c7fd4285ca97af1263"
+    },
+    {
+      "path": "assets/audio-source/vcsl/10-mbira-nyamaropa-04.ogg",
+      "size": 19603,
+      "sha256": "afc48e6997130c5031707bddc64377e8f18f8fef64c5b3f75150361eeb4bf896"
+    },
+    {
+      "path": "assets/audio-source/vcsl/11-nyunga-nyunga-01.ogg",
+      "size": 20597,
+      "sha256": "e5d5692cf8da78a1b91f8f5a885b55684fe9b1fe164afa64a5112737d327dc52"
+    },
+    {
+      "path": "assets/audio-source/vcsl/11-nyunga-nyunga-02.ogg",
+      "size": 29097,
+      "sha256": "740e6773f6bc4ecd52603e8aa7eaab925786289dc1a38a0b5df9c4d49fec83fb"
+    },
+    {
+      "path": "assets/audio-source/vcsl/11-nyunga-nyunga-03.ogg",
+      "size": 22120,
+      "sha256": "37f0ab91a1dfd8af08a4759caa7bcda61c7b675add69094be981fabfebde49c2"
+    },
+    {
+      "path": "assets/audio-source/vcsl/11-nyunga-nyunga-04.ogg",
+      "size": 24450,
+      "sha256": "6493b48d249f94a9c3758e0966869351a055db94f3f305d020d3d0edaf224c7e"
+    },
+    {
+      "path": "assets/audio-source/vcsl/12-english-harpsichord-01.ogg",
+      "size": 99314,
+      "sha256": "768e174210f9d5c6c24f47ccfc911fd44455d761754c8f54883f0d1e515b482d"
+    },
+    {
+      "path": "assets/audio-source/vcsl/12-english-harpsichord-02.ogg",
+      "size": 55727,
+      "sha256": "01d13a4e624dd5e378633b58ecce75be8b38b41a34a1a0aeb94589569119d929"
+    },
+    {
+      "path": "assets/audio-source/vcsl/12-english-harpsichord-03.ogg",
+      "size": 60910,
+      "sha256": "df1f5c017dad81443695cf0a73447fb5b9e4f12b887b93ad77b2b51c5513fee3"
+    },
+    {
+      "path": "assets/audio-source/vcsl/12-english-harpsichord-04.ogg",
+      "size": 30736,
+      "sha256": "6c9b31e8469f830cd440f25675d73129ec50ba2abddc6ede0dfcb33156a9bacf"
+    },
+    {
+      "path": "assets/audio-source/vcsl/13-psaltery-bow-01.ogg",
+      "size": 110782,
+      "sha256": "d394ea1d40590313576d2971e7e7fe0f6d0791f56d1b3d2113e88109f7707e29"
+    },
+    {
+      "path": "assets/audio-source/vcsl/13-psaltery-bow-02.ogg",
+      "size": 101032,
+      "sha256": "d43c51948bc4466c713819701f12009416eb65e7940e3ee264832955ca6a4d93"
+    },
+    {
+      "path": "assets/audio-source/vcsl/13-psaltery-bow-03.ogg",
+      "size": 88298,
+      "sha256": "374d5fb1bf2faefb28f05f995deb8b69d652162496dad16e7cac72bbfd2546ab"
+    },
+    {
+      "path": "assets/audio-source/vcsl/13-psaltery-bow-04.ogg",
+      "size": 72409,
+      "sha256": "18919a299c2e2cf10105449f88b18bd7251165d28ca1f8f2e0d5a7c303773327"
+    },
+    {
+      "path": "assets/audio-source/vcsl/14-wine-glass-fast-01.ogg",
+      "size": 315404,
+      "sha256": "05cf391c6bd3654ccab6d1260057e4d0cad75d0854b14306d00c5a5238ea8b69"
+    },
+    {
+      "path": "assets/audio-source/vcsl/14-wine-glass-fast-02.ogg",
+      "size": 249137,
+      "sha256": "c2b6667438d8d027421eceaf8682aa4e7b6eedf17dd541f0d8bc52a19d30b5a6"
+    },
+    {
+      "path": "assets/audio-source/vcsl/14-wine-glass-fast-03.ogg",
+      "size": 277426,
+      "sha256": "86d7f08858ed765548538640f56c2018ebda0ff746cc07c7d74182af76d517be"
+    },
+    {
+      "path": "assets/audio-source/vcsl/14-wine-glass-fast-04.ogg",
+      "size": 187897,
+      "sha256": "33c078607f3d13d3e1f55fa4d7de2cb21932ea307c62abd24de88fa8a95017b8"
+    },
+    {
+      "path": "assets/audio-source/vcsl/15-wine-glass-slow-01.ogg",
+      "size": 256041,
+      "sha256": "c857e36d95bde9f733d560b93599112afa3baeec68fd0398fac84d1686cd961c"
+    },
+    {
+      "path": "assets/audio-source/vcsl/15-wine-glass-slow-02.ogg",
+      "size": 169276,
+      "sha256": "7adde5999d48593b4f4cca38ba030b687eb2d3b1c51b925d46ccdad2f459dc96"
+    },
+    {
+      "path": "assets/audio-source/vcsl/15-wine-glass-slow-03.ogg",
+      "size": 233168,
+      "sha256": "101ec5e7b32a5f10859a2555edb410d1d3a07c0bc3759c99223c8117b7b6dd42"
+    },
+    {
+      "path": "assets/audio-source/vcsl/15-wine-glass-slow-04.ogg",
+      "size": 135045,
+      "sha256": "a09553c67a89d5ba7d28e50912acb620e05560ea9409016557766488f3217ef4"
+    },
+    {
+      "path": "assets/audio-source/vcsl/16-saxello-01.ogg",
+      "size": 53634,
+      "sha256": "2f00ed9ac5fa9f419bcf0c95884c8fee243888e91eb3782e8f5677231f5220d9"
+    },
+    {
+      "path": "assets/audio-source/vcsl/16-saxello-02.ogg",
+      "size": 57634,
+      "sha256": "a5bf0e45d65af0daa145bf875ecf80c858e2e5f8b928d5837c9e39f4dab22f66"
+    },
+    {
+      "path": "assets/audio-source/vcsl/16-saxello-03.ogg",
+      "size": 72564,
+      "sha256": "46c2f0fbdfdab67415b412394caa5e9abad3d6296e27e0f34a2c0730684ef5c0"
+    },
+    {
+      "path": "assets/audio-source/vcsl/17-tenor-sax-01.ogg",
+      "size": 98603,
+      "sha256": "852ef3c521f0f40f50c35f27e3a1ee9733959021faefde762a3d20b1b9cc5d5a"
+    },
+    {
+      "path": "assets/audio-source/vcsl/17-tenor-sax-02.ogg",
+      "size": 75135,
+      "sha256": "f4f8acc39496bbbf20244002c18b1c31288c6e72ce2d4ef7407bc174d4c67a51"
+    },
+    {
+      "path": "assets/audio-source/vcsl/17-tenor-sax-03.ogg",
+      "size": 94726,
+      "sha256": "7fa51cc45bd63a7981c794c6c1726085dc243bdd024b4be0f8e7c45aee239d5e"
+    },
+    {
+      "path": "assets/audio-source/vcsl/17-tenor-sax-04.ogg",
+      "size": 70761,
+      "sha256": "f50542801a317c544d61976b686ea35221aad28b1adcf538aed4c1546cb7dc54"
+    },
+    {
+      "path": "assets/audio-source/vcsl/18-chromatic-harmonica-01.ogg",
+      "size": 50948,
+      "sha256": "b48eb71a7296b01a0c5febb621f550b3ee320be8fa334c5941ca5b542756ddcb"
+    },
+    {
+      "path": "assets/audio-source/vcsl/18-chromatic-harmonica-02.ogg",
+      "size": 64617,
+      "sha256": "41fa8d3528a06748df6fe785ad081950f0b211fd86756f0fd4870dccaefb9951"
+    },
+    {
+      "path": "assets/audio-source/vcsl/18-chromatic-harmonica-03.ogg",
+      "size": 59443,
+      "sha256": "35ccbcdc252269db62fd1fb01cfa1dacc19d6481f5495c3e1c8156b161c43bf2"
+    },
+    {
+      "path": "assets/audio-source/vcsl/18-chromatic-harmonica-04.ogg",
+      "size": 54923,
+      "sha256": "135e95371e02277dd72ded7d9364c3d5ab24dc6d58f738bc5bec3996e8aa7100"
+    },
+    {
+      "path": "assets/audio-source/vcsl/19-alto-recorder-01.ogg",
+      "size": 86798,
+      "sha256": "d6093318b64fba2112e673c38677c2f5d2acc71aec7655335fe6c9c9f14cd825"
+    },
+    {
+      "path": "assets/audio-source/vcsl/19-alto-recorder-02.ogg",
+      "size": 139531,
+      "sha256": "8055f97e624a0c4203dcfa92d4224bb756dab38ec2429fe542487f5a4604881e"
+    },
+    {
+      "path": "assets/audio-source/vcsl/19-alto-recorder-03.ogg",
+      "size": 164315,
+      "sha256": "be230269bafa9c38017db12078d23e75ff317c290d8d34895c7d4b3b28ccff49"
+    },
+    {
+      "path": "assets/audio-source/vcsl/19-alto-recorder-04.ogg",
+      "size": 164223,
+      "sha256": "48839b6450a6c3ffaa23b51a9268a485e38c8ec53016efd2dabfd24239c51682"
+    },
+    {
+      "path": "assets/audio-source/vcsl/20-bass-recorder-01.ogg",
+      "size": 51611,
+      "sha256": "32c3a0d739a33951d081d613c196df2d108a0142dcfafacc6a215d12aa67ef60"
+    },
+    {
+      "path": "assets/audio-source/vcsl/20-bass-recorder-02.ogg",
+      "size": 57893,
+      "sha256": "256bf7745b73e4d374524fd09ed28c7bcd22aa9da839fe8abe101a69d7957897"
+    },
+    {
+      "path": "assets/audio-source/vcsl/20-bass-recorder-03.ogg",
+      "size": 71282,
+      "sha256": "7348bc0497c5efc7d8c336e190e6fef0f8dd93c811c291e61ba52b4b67727014"
+    },
+    {
+      "path": "assets/audio-source/vcsl/20-bass-recorder-04.ogg",
+      "size": 52862,
+      "sha256": "72906469987c3fe5d5a34fa488bab10c8c6e8ce5d7c3880854e6c9a96158cce3"
+    },
+    {
+      "path": "assets/audio-source/vcsl/21-soprano-recorder-01.ogg",
+      "size": 117610,
+      "sha256": "ae6a55ffd5a09602f93feb7f1f6163acc182bcc4f2c2893fb4e383d929764025"
+    },
+    {
+      "path": "assets/audio-source/vcsl/21-soprano-recorder-02.ogg",
+      "size": 166993,
+      "sha256": "f3b21fa3154f618cfcb1055076171b96a5dc5b1b619240ed8a2fbde52831d695"
+    },
+    {
+      "path": "assets/audio-source/vcsl/21-soprano-recorder-03.ogg",
+      "size": 186269,
+      "sha256": "e8e86b3fcd8b32a52f8d4c7a43dd82fd98a0328ef21f2ae348972a1721a34569"
+    },
+    {
+      "path": "assets/audio-source/vcsl/21-soprano-recorder-04.ogg",
+      "size": 125442,
+      "sha256": "183682975f621a14ab58e0b73d555006228c15f12c8272b1852638f4d6bd4d5f"
+    },
+    {
+      "path": "assets/audio-source/vcsl/22-tenor-recorder-01.ogg",
+      "size": 70126,
+      "sha256": "b77f014a4a7482c2471c4821f6988562afa9fa5c83bbdcfe4f79e58fd71aa73e"
+    },
+    {
+      "path": "assets/audio-source/vcsl/22-tenor-recorder-02.ogg",
+      "size": 93391,
+      "sha256": "8bc22c0dc70bc7eb519d13f233b58fb3eb6508de92dd3c9dcdef61fedc0ca17f"
+    },
+    {
+      "path": "assets/audio-source/vcsl/22-tenor-recorder-03.ogg",
+      "size": 89028,
+      "sha256": "ec91e88dda3c0293544b22fac1db47452e9db492043cd4f8fe2468072e81790e"
+    },
+    {
+      "path": "assets/audio-source/vcsl/22-tenor-recorder-04.ogg",
+      "size": 86828,
+      "sha256": "571ddc3474269532152f61d8463c298c3487a59d349aa1d09703d4fe104ac2a4"
+    },
+    {
+      "path": "assets/audio-source/vcsl/23-small-ocarina-01.ogg",
+      "size": 132239,
+      "sha256": "bf10e8f21a3c8d268b43bf196981ef57787e746f71b240a3dd4e9b6475ee73cc"
+    },
+    {
+      "path": "assets/audio-source/vcsl/23-small-ocarina-02.ogg",
+      "size": 170669,
+      "sha256": "f7938b4dde56793de112194fd0b9dae2b380fde9864956fb21f4cc1352c1d712"
+    },
+    {
+      "path": "assets/audio-source/vcsl/23-small-ocarina-03.ogg",
+      "size": 262588,
+      "sha256": "c81588ba5bf2c5c01e45a647d0baa604358588c185daf0b43886e8abf080b2e1"
+    },
+    {
+      "path": "assets/audio-source/vcsl/23-small-ocarina-04.ogg",
+      "size": 229170,
+      "sha256": "b775b18b213341aef78ee0ccab8b7f81300baabb5c7d3fc6b8b6330567a2cfd6"
+    },
+    {
+      "path": "assets/audio-source/vcsl/24-ocarina-01.ogg",
+      "size": 58955,
+      "sha256": "7c76fc1bcde84be1b2ad10afb783eea6032420c1695ce5f5783e4366ca944769"
+    },
+    {
+      "path": "assets/audio-source/vcsl/24-ocarina-02.ogg",
+      "size": 63444,
+      "sha256": "fc5b93a416605cd4f06ac294898fa86decbb9ec7bf5af3edb66dfdcd094d5e06"
+    },
+    {
+      "path": "assets/audio-source/vcsl/24-ocarina-03.ogg",
+      "size": 69743,
+      "sha256": "2f0053fc37ae640069ef6dd3511943a03058e7be63dcad9f46cc509b072b0880"
+    },
+    {
+      "path": "assets/audio-source/vcsl/24-ocarina-04.ogg",
+      "size": 59318,
+      "sha256": "9984d18262f33b83f56ab57ec3e2151899f1034cdc130d8f4d4cd580036e50e9"
+    },
+    {
+      "path": "assets/audio-source/vcsl/25-didgeridoo-01.ogg",
+      "size": 2143,
+      "sha256": "98010086997d9c1805bacba43c97b465b3028accbc155da70eedd5b09099e74b"
+    },
+    {
+      "path": "assets/audio-source/vcsl/25-didgeridoo-02.ogg",
+      "size": 120887,
+      "sha256": "4ffaecb2df9be1eaf1c3ae21ea7c11e413a152f35c8cd930cee9d4341dd5a381"
+    },
+    {
+      "path": "assets/audio-source/vcsl/25-didgeridoo-03.ogg",
+      "size": 105332,
+      "sha256": "1c6f60a820d2d0248383ff77718f867ea2c569fc3fe77154cac9427e8685310c"
+    },
+    {
+      "path": "assets/audio-source/vcsl/25-didgeridoo-04.ogg",
+      "size": 140114,
+      "sha256": "26ae2d747f54bd418f04d1585a9f0549d4bb2f9f22ee203e73e2830f91148de2"
+    },
+    {
+      "path": "assets/audio-source/vcsl/26-balafon-01.ogg",
+      "size": 6558,
+      "sha256": "ae511a40a90e631abd970827e461f483372e16ac37082b0f78ee4c069a6dcf2e"
+    },
+    {
+      "path": "assets/audio-source/vcsl/26-balafon-02.ogg",
+      "size": 7599,
+      "sha256": "dc77564679e4a9f9e1d8edea0ccbb9d8446b2fe5278c17da1262db6cba2112c2"
+    },
+    {
+      "path": "assets/audio-source/vcsl/26-balafon-03.ogg",
+      "size": 7077,
+      "sha256": "4ecd7930e589b0bfb88d9ff3cc67b3cbbb37494722b504852e2b52236dded8f7"
+    },
+    {
+      "path": "assets/audio-source/vcsl/26-balafon-04.ogg",
+      "size": 7811,
+      "sha256": "0547dc22fdb56b7fd2e281161ac4efa7bb37e81da892e0b4cbda3e1d08a7ac27"
+    },
+    {
+      "path": "assets/audio-source/vcsl/27-glockenspiel-01.ogg",
+      "size": 67067,
+      "sha256": "7fb90085da5de8a61917d48897a9918cfe45e5c7dcb0249f2093638dd1ae5ea3"
+    },
+    {
+      "path": "assets/audio-source/vcsl/27-glockenspiel-02.ogg",
+      "size": 42554,
+      "sha256": "8d374fedfe3771096ce4555da987d0387391f7f8056b1de18dfd07d913779599"
+    },
+    {
+      "path": "assets/audio-source/vcsl/27-glockenspiel-03.ogg",
+      "size": 45465,
+      "sha256": "ab7e1cbea35c7440de2c6f046829d57356bb04eb6c44d99d82c586bdc72c86a2"
+    },
+    {
+      "path": "assets/audio-source/vcsl/27-glockenspiel-04.ogg",
+      "size": 19488,
+      "sha256": "afd3ab60003288c877b525fa0bdaaf17786efb53bcad6b421a3238230a052f27"
+    },
+    {
+      "path": "assets/audio-source/vcsl/28-marimba-01.ogg",
+      "size": 67358,
+      "sha256": "aec98aef176172de69ee01eb267947deebcb76422aa3130768e99f03ea4ae92d"
+    },
+    {
+      "path": "assets/audio-source/vcsl/28-marimba-02.ogg",
+      "size": 45716,
+      "sha256": "9b1254efe86ed71050587f0c1ea865e970924d87840c9461577d882c608fe8c3"
+    },
+    {
+      "path": "assets/audio-source/vcsl/28-marimba-03.ogg",
+      "size": 17829,
+      "sha256": "8a9c512025b8756a20a509b032e121c128ff2e24bec0ad23c13f95a6bedbd4e7"
+    },
+    {
+      "path": "assets/audio-source/vcsl/28-marimba-04.ogg",
+      "size": 10839,
+      "sha256": "6107f782c34e8e0dd32f8e02fd70435c970b29d7d6fa3f9a914a654954554608"
+    },
+    {
+      "path": "assets/audio-source/vcsl/29-vibraphone-01.ogg",
+      "size": 72707,
+      "sha256": "877b2b86dcebb48f546b8ab42ae888be88acb82363b5c8e444e67f9a3a18598e"
+    },
+    {
+      "path": "assets/audio-source/vcsl/29-vibraphone-02.ogg",
+      "size": 95028,
+      "sha256": "ffae0fea641eb90f3af2af6468eac676b5abaf8f13990f42715164801d681e19"
+    },
+    {
+      "path": "assets/audio-source/vcsl/29-vibraphone-03.ogg",
+      "size": 86055,
+      "sha256": "be899841ed04bb45c24f5af575352f88c7f3c60920737df591e3387f9cb8f8ee"
+    },
+    {
+      "path": "assets/audio-source/vcsl/29-vibraphone-04.ogg",
+      "size": 59629,
+      "sha256": "4710aad6d330b1e84fc387ef70c84e7a58f951110b473f2a9403993b78062a24"
+    },
+    {
+      "path": "assets/audio-source/vcsl/30-xylophone-01.ogg",
+      "size": 36993,
+      "sha256": "f6c653f09edfd4cf2dd940b8e0471d3f955c003082cd3b1f2031b36b601da9f2"
+    },
+    {
+      "path": "assets/audio-source/vcsl/30-xylophone-02.ogg",
+      "size": 27768,
+      "sha256": "e6b1c3f7e85bd8c5b2ff6a46cd6036036442fc2952a408e5317fcffae475d5fb"
+    },
+    {
+      "path": "assets/audio-source/vcsl/30-xylophone-03.ogg",
+      "size": 13219,
+      "sha256": "97a288055efe70e7ca8b5d64b2ab73ca72c01f3b51e5f71196f2b2e0ca815f5e"
+    },
+    {
+      "path": "assets/audio-source/vcsl/30-xylophone-04.ogg",
+      "size": 11871,
+      "sha256": "9d859a35d9eb6a2aebf0c95223339bac4ac7e782ff8946436f1e61db6dc1acc8"
+    },
+    {
+      "path": "assets/audio-source/vcsl/31-slit-drum-01.ogg",
+      "size": 8828,
+      "sha256": "fe04c5aba6c553761a33cb71823bff1ade2a4c4786261535ce5d737a98716801"
+    },
+    {
+      "path": "assets/audio-source/vcsl/31-slit-drum-02.ogg",
+      "size": 7858,
+      "sha256": "f845ef64c5af8a2b8e8cefc8bdee236bf8bd20bdd99c5d9b2843df422822b92c"
+    },
+    {
+      "path": "assets/audio-source/vcsl/31-slit-drum-03.ogg",
+      "size": 8740,
+      "sha256": "6d1f6e902804e225043ed6d646c92055afef744b83d3601a9c90ea6ce7959850"
+    },
+    {
+      "path": "assets/audio-source/vcsl/31-slit-drum-04.ogg",
+      "size": 6999,
+      "sha256": "4a3e1b2bedf987150d02625a67b32a38efe2a497333d41e5a8a3bf0107459bac"
+    },
+    {
+      "path": "assets/audio-source/vcsl/32-hand-chimes-01.ogg",
+      "size": 172759,
+      "sha256": "450822dbb499f671bc344106f998589e605a812a1a022ba767a429fc15acaf5c"
+    },
+    {
+      "path": "assets/audio-source/vcsl/32-hand-chimes-02.ogg",
+      "size": 95743,
+      "sha256": "7e2ea6a71b714f0c20a8e1a1cf91679dc7f4e78530b30ca7c9afeea4c1b8d435"
+    },
+    {
+      "path": "assets/audio-source/vcsl/32-hand-chimes-03.ogg",
+      "size": 76220,
+      "sha256": "9a0d33ba8a3e51a3140b4dc37a0987fec1b281a4502e8b67deab2949e4e44fe1"
+    },
+    {
+      "path": "assets/audio-source/vcsl/32-hand-chimes-04.ogg",
+      "size": 41059,
+      "sha256": "0f6b9db96cf883b5ed3a716b289a7f059c8b1334de73982b7a3a6701ce16b6de"
+    },
+    {
+      "path": "assets/audio-source/vcsl/33-nepalese-bells-01.ogg",
+      "size": 36733,
+      "sha256": "17efd7cdbee1788daf21ea8ea4b8f9dcf05441bf4028c0a67c76dd82aaec084f"
+    },
+    {
+      "path": "assets/audio-source/vcsl/33-nepalese-bells-02.ogg",
+      "size": 15977,
+      "sha256": "20bc500ff6baaee31605c372a769d8605fd166031ee9a60a19dec5a28fa8d9de"
+    },
+    {
+      "path": "assets/audio-source/vcsl/33-nepalese-bells-03.ogg",
+      "size": 30093,
+      "sha256": "22f7148f7e14cf1e9a2da50c4367d147a4a6f931a5433c6d0c18aaac250504b5"
+    },
+    {
+      "path": "assets/audio-source/vcsl/34-gong-01.ogg",
+      "size": 243971,
+      "sha256": "4a1b46ee7681845b579968bc55d5a52d6e75ba859ca11aaab2042c197614fa5c"
+    },
+    {
+      "path": "assets/audio-source/vcsl/34-gong-02.ogg",
+      "size": 183303,
+      "sha256": "5fdd54da3097991dd2c62a4c09b6613c44dac12833aab9e586c230711dfa2ea0"
+    },
+    {
+      "path": "assets/audio-source/vcsl/34-gong-03.ogg",
+      "size": 219566,
+      "sha256": "530fffa52b8825e6d440126ccf102f2627f07c4e2d7d47eef72cf19f64680df6"
+    },
+    {
+      "path": "assets/audio-source/vcsl/34-gong-04.ogg",
+      "size": 216175,
+      "sha256": "92f47da91ce54b88d4a65dba5fb8023123152f8479a62121efe9baa099c58197"
+    },
+    {
+      "path": "assets/audio-source/vcsl/35-tubular-bells-01.ogg",
+      "size": 105351,
+      "sha256": "16f108371a3a4002f02498ea8616145d2229ca9c0562c72dc4ac5304e36d30a5"
+    },
+    {
+      "path": "assets/audio-source/vcsl/35-tubular-bells-02.ogg",
+      "size": 89152,
+      "sha256": "8042ef93bf9579b2728194b442de7915d77c566f56667140c0d6c0e3014f0e57"
+    },
+    {
+      "path": "assets/audio-source/vcsl/35-tubular-bells-03.ogg",
+      "size": 171931,
+      "sha256": "fd2ba37e9b8ed44ed33e34354aab14c86155a8b8b7020474079dc83d51ba703a"
+    },
+    {
+      "path": "assets/audio-source/vcsl/35-tubular-bells-04.ogg",
+      "size": 123456,
+      "sha256": "f5686a416907e661ca46b8e3593ca101f455be4511ae18f9170e820c1ef7c7e2"
+    },
+    {
+      "path": "assets/audio-source/vcsl/36-agogo-bells-01.ogg",
+      "size": 8707,
+      "sha256": "9f06564c466b1beb086fa0f733c6e173aa49754b3984f24dab5e23f9631b1b29"
+    },
+    {
+      "path": "assets/audio-source/vcsl/36-agogo-bells-02.ogg",
+      "size": 17589,
+      "sha256": "1253f00448291e338c89750f2ce2694deec27490bb6b9f1dcf2ac6810f1dbc21"
+    },
+    {
+      "path": "assets/audio-source/vcsl/36-agogo-bells-03.ogg",
+      "size": 7658,
+      "sha256": "f6a862e81179ae840f7586e9f9873e628ba1bbc20eb40ff6a086a50963edc345"
+    },
+    {
+      "path": "assets/audio-source/vcsl/36-agogo-bells-04.ogg",
+      "size": 14611,
+      "sha256": "7a549b6e3dc2ea9cde6f921ac725364306bf5b2ae383c5476486f30b5d45b588"
+    },
+    {
+      "path": "assets/audio-source/vcsl/37-cowbells-01.ogg",
+      "size": 6840,
+      "sha256": "e58e0f3e87ba19b24077614c21a1ee37495ae29f682cd1ae15b77f309d1bc8c8"
+    },
+    {
+      "path": "assets/audio-source/vcsl/37-cowbells-02.ogg",
+      "size": 6648,
+      "sha256": "ab6e3b7b98bebc1ec2dbe02971257441994c319c6deda4948e542438cd3f1485"
+    },
+    {
+      "path": "assets/audio-source/vcsl/37-cowbells-03.ogg",
+      "size": 7294,
+      "sha256": "f375542401fab7c0d1e518b76635de681e786e0739819abfdf32f2f60f04c25d"
+    },
+    {
+      "path": "assets/audio-source/vcsl/37-cowbells-04.ogg",
+      "size": 11967,
+      "sha256": "9f116a16698c81f9da768d3a302847ec8fb8f3188fdc4de7a06d0e3285e40bc4"
+    },
+    {
+      "path": "assets/audio-source/vcsl/38-anvil-01.ogg",
+      "size": 12954,
+      "sha256": "6b50c9ef7205cd5d970660a72de7f9d70a396afaf8274fbf136306e2c86a62df"
+    },
+    {
+      "path": "assets/audio-source/vcsl/38-anvil-02.ogg",
+      "size": 12230,
+      "sha256": "3351a48344db500e2f0255a282c30407c55e99e19578bd32ed2b1dbc60762ffa"
+    },
+    {
+      "path": "assets/audio-source/vcsl/38-anvil-03.ogg",
+      "size": 12559,
+      "sha256": "f6cfa12e6b602545e38575dcd6ec1db2388cfa49b7671bd6404178817e3bb728"
+    },
+    {
+      "path": "assets/audio-source/vcsl/38-anvil-04.ogg",
+      "size": 14581,
+      "sha256": "7170ef65ad793092503e828074272beb05214e9335dd3366460177a476c51121"
+    },
+    {
+      "path": "assets/audio-source/vcsl/39-brake-drum-01.ogg",
+      "size": 11719,
+      "sha256": "c38b1aaa2c4adccbb4c9616d7c2e527f91f2ff8a211db09cac3dca0545998bae"
+    },
+    {
+      "path": "assets/audio-source/vcsl/39-brake-drum-02.ogg",
+      "size": 13294,
+      "sha256": "96b6e266aacaf218cdddae93d63c45aae0f8dfff0e2d01a43ac92d80c047d745"
+    },
+    {
+      "path": "assets/audio-source/vcsl/39-brake-drum-03.ogg",
+      "size": 52733,
+      "sha256": "361f889fe1bb7b86de23b22f22dffadb7daadce91acc5d57886274ca4fc74245"
+    },
+    {
+      "path": "assets/audio-source/vcsl/39-brake-drum-04.ogg",
+      "size": 64916,
+      "sha256": "c2111f555127dff762110a3517c48e60429d2149d5d66042fd8a03f4ad0d51e4"
+    },
+    {
+      "path": "assets/audio-source/vcsl/40-claves-01.ogg",
+      "size": 6612,
+      "sha256": "580a61d6ca8c3bc5616744a510af86280b8b08bed07d9685b212787725940233"
+    },
+    {
+      "path": "assets/audio-source/vcsl/40-claves-02.ogg",
+      "size": 7190,
+      "sha256": "b3b3fa9f01e5e5aa634024d19ba4b8b94f85a056e6a199e90472074330b8007f"
+    },
+    {
+      "path": "assets/audio-source/vcsl/40-claves-03.ogg",
+      "size": 7867,
+      "sha256": "d0b564b8f46690b00201cd7513167092cd5245a35e6d0a9d726a8ee20e716cdf"
+    },
+    {
+      "path": "assets/audio-source/vcsl/40-claves-04.ogg",
+      "size": 8231,
+      "sha256": "d99425ecadf2947c663fd160232ac944c543f0b063a42e53d2f683a8b916d428"
+    },
+    {
+      "path": "assets/audio-source/vcsl/41-woodblock-01.ogg",
+      "size": 6126,
+      "sha256": "0eeb89085fb317a9a69d2d3a7b00b26f8bf5ed25e4e480ac3dbc32ab49629ef2"
+    },
+    {
+      "path": "assets/audio-source/vcsl/41-woodblock-02.ogg",
+      "size": 8105,
+      "sha256": "dbd30fe9b27f7485c79a4814450d76666231afbae081cab36886edbc6c7ce46c"
+    },
+    {
+      "path": "assets/audio-source/vcsl/41-woodblock-03.ogg",
+      "size": 5656,
+      "sha256": "941dd7b263a0d8c9e14c16f480ba32a9c04159e3df8e84ff602cc9de617a10ad"
+    },
+    {
+      "path": "assets/audio-source/vcsl/41-woodblock-04.ogg",
+      "size": 2811,
+      "sha256": "2f665aa0e9c6e96b6470d9d2caa82e257aaeaf47f16ec927532468f7ec4dfbbc"
+    },
+    {
+      "path": "assets/audio-source/vcsl/42-frame-drum-01.ogg",
+      "size": 23033,
+      "sha256": "8e1b4f8c2017afdb4e67bbcd46e28969f97512d88fa9002f0e5618c7c8475a13"
+    },
+    {
+      "path": "assets/audio-source/vcsl/42-frame-drum-02.ogg",
+      "size": 13158,
+      "sha256": "4fc249a758642a6354faee85bc5650ac29b0a9290ab25c1457a9f036841123f8"
+    },
+    {
+      "path": "assets/audio-source/vcsl/42-frame-drum-03.ogg",
+      "size": 5068,
+      "sha256": "f071d2ed1634170460046910fc3b61a40e7d4eb4ab159079383b210398df9bec"
+    },
+    {
+      "path": "assets/audio-source/vcsl/42-frame-drum-04.ogg",
+      "size": 5983,
+      "sha256": "886abbe4ace0191816eba535c2eddf37ccb0a1b319eac04c33768632f01cb765"
+    },
+    {
+      "path": "assets/audio-source/vcsl/43-darbuka-01.ogg",
+      "size": 8566,
+      "sha256": "aad7607a84fbd60b5b1094e0c0e7b76539b90910c0d72013d6c9f94c91eed61f"
+    },
+    {
+      "path": "assets/audio-source/vcsl/43-darbuka-02.ogg",
+      "size": 4578,
+      "sha256": "1359d01c9ac336f64aadc3833137b3f5acdebc09d0aaaf12fa12ff9741b2e016"
+    },
+    {
+      "path": "assets/audio-source/vcsl/43-darbuka-03.ogg",
+      "size": 4210,
+      "sha256": "c804ca496080d4d5c7f94a67b0183eb31cc66675b396e5884a08d08ac639bf55"
+    },
+    {
+      "path": "assets/audio-source/vcsl/43-darbuka-04.ogg",
+      "size": 4408,
+      "sha256": "ed90da9dbb62b21f65f0069115265c2e824cf6682f0289068bf8705c4b23e3d8"
+    },
+    {
+      "path": "assets/audio-source/vcsl/44-timpani-01.ogg",
+      "size": 39504,
+      "sha256": "fef01e0a4d9623699ee195332dc15777c337cd8059184c0ed9fc48431462fd11"
+    },
+    {
+      "path": "assets/audio-source/vcsl/44-timpani-02.ogg",
+      "size": 56850,
+      "sha256": "7a2e1e98228e431d99d99b778cb4158e8248c3b0d156cf98f44733ba41f3354f"
+    },
+    {
+      "path": "assets/audio-source/vcsl/44-timpani-03.ogg",
+      "size": 48613,
+      "sha256": "9f8219ed99d9b2c547565f1762d035e702fb6f5982fe8d20b73511ee3b25bf0d"
+    },
+    {
+      "path": "assets/audio-source/vcsl/44-timpani-04.ogg",
+      "size": 42002,
+      "sha256": "9417ff426b8c0cc13c378582b104d2d6950d3f70b66ad519c565d27a200258fa"
+    },
+    {
+      "path": "assets/audio-source/vcsl/45-bass-drum-01.ogg",
+      "size": 10441,
+      "sha256": "1ccfb2a57991a62a1658c4e3fdd68b98476ae08c4aee24e37334bd00ae5636f1"
+    },
+    {
+      "path": "assets/audio-source/vcsl/45-bass-drum-02.ogg",
+      "size": 12313,
+      "sha256": "f2c8e982e00141d049855b7a2ffa983ad83a0beea50aad37c1ebc2a19a8335e1"
+    },
+    {
+      "path": "assets/audio-source/vcsl/45-bass-drum-03.ogg",
+      "size": 12012,
+      "sha256": "362bbe6969399aca02d5efb3f37e6204674133eb9420be4bd69dceaa702abb02"
+    },
+    {
+      "path": "assets/audio-source/vcsl/45-bass-drum-04.ogg",
+      "size": 33304,
+      "sha256": "cc9b363f4f533000626317077d6a2123fc8239f14194c1d4c313b014df0a7218"
+    },
+    {
+      "path": "assets/audio-source/vcsl/46-clash-cymbals-01.ogg",
+      "size": 67388,
+      "sha256": "e7bfad39130bad8d56447aa03038e443cf78afdd4a0cfb6fc4e5dfefb68d80ca"
+    },
+    {
+      "path": "assets/audio-source/vcsl/46-clash-cymbals-02.ogg",
+      "size": 91991,
+      "sha256": "913878e6742baa4018223494e9b38aba538ee4f465ebc55cf08a568df8f41a79"
+    },
+    {
+      "path": "assets/audio-source/vcsl/46-clash-cymbals-03.ogg",
+      "size": 62947,
+      "sha256": "b23cfb268f954ecf2bfcdf91666e3af15fc4276992b164a1e3b4bdf95788d3d3"
+    },
+    {
+      "path": "assets/audio-source/vcsl/46-clash-cymbals-04.ogg",
+      "size": 15933,
+      "sha256": "07b5f0244b539894798fa2a049ffa82cbfa3281f634229c45668b127b9747bac"
+    },
+    {
+      "path": "assets/audio-source/vcsl/47-suspended-cymbal-01.ogg",
+      "size": 59734,
+      "sha256": "9d30530fe3e44345d07968d3025ac1cc6135d9b64d815f39f8cfe80a6c8378c7"
+    },
+    {
+      "path": "assets/audio-source/vcsl/47-suspended-cymbal-02.ogg",
+      "size": 102299,
+      "sha256": "d6cc5820984131d5d7bc237af1b5c0a7d5a9408d48b5d1718ae741554358bd5b"
+    },
+    {
+      "path": "assets/audio-source/vcsl/47-suspended-cymbal-03.ogg",
+      "size": 57493,
+      "sha256": "887e73bff916d93163e035522bf9c3824e5132aac892b24174a0aaa056aef1f2"
+    },
+    {
+      "path": "assets/audio-source/vcsl/47-suspended-cymbal-04.ogg",
+      "size": 46200,
+      "sha256": "0cb765179c65c50d7a907bded62e4f6c6ebc6c586a33dcc8fd3aca24d2cbd9f4"
+    },
+    {
+      "path": "assets/audio-source/vcsl/48-bongos-01.ogg",
+      "size": 7293,
+      "sha256": "db9a2c36cec7d148ef92364eda29623ba1ba7de525ff1c24ed6eb1760cb72a66"
+    },
+    {
+      "path": "assets/audio-source/vcsl/48-bongos-02.ogg",
+      "size": 7219,
+      "sha256": "507a6c8b7b164bf888212048b3b4ed89f2d55cc2fbe8a401be5190b15e35335d"
+    },
+    {
+      "path": "assets/audio-source/vcsl/48-bongos-03.ogg",
+      "size": 7085,
+      "sha256": "f8b01cb6207f48f2c4609e27126ebe714f29ef6b8debc2c39cd6e2028c30bd0c"
+    },
+    {
+      "path": "assets/audio-source/vcsl/48-bongos-04.ogg",
+      "size": 6545,
+      "sha256": "5027b0b862ef3eaa2f367dbd10c3f6da2369f30f17695922c4b867732fa42e39"
+    },
+    {
+      "path": "assets/audio-source/vcsl/49-conga-01.ogg",
+      "size": 5692,
+      "sha256": "ec6c2d741ae2725b1de40566c4814b5ee40ee591167b41c8dde16a251a5d5b0d"
+    },
+    {
+      "path": "assets/audio-source/vcsl/49-conga-02.ogg",
+      "size": 5067,
+      "sha256": "32c5856b94b31d6d8f91c51eff4233830c212fad25d57d523dede2ca911d0b19"
+    },
+    {
+      "path": "assets/audio-source/vcsl/49-conga-03.ogg",
+      "size": 5767,
+      "sha256": "b0143191288ea9322213e2e1db1810fd2c7dc4c4fea88ecc851dd9130c3ada16"
+    },
+    {
+      "path": "assets/audio-source/vcsl/49-conga-04.ogg",
+      "size": 7352,
+      "sha256": "37f31dc879af77ff0588397afe474130aadb78d70a455ffa5b0cff8005f559ef"
+    },
+    {
+      "path": "assets/audio-source/vcsl/50-rope-snare-01.ogg",
+      "size": 12914,
+      "sha256": "82ce9ca4c585381fc1d49a899e18a25687e12b3d361302bd35159ac2aba0cbb9"
+    },
+    {
+      "path": "assets/audio-source/vcsl/50-rope-snare-02.ogg",
+      "size": 11558,
+      "sha256": "13859f916d198fef46fb3bb1520cf98f65a71b873f4a8f82951a08fc3e803bb8"
+    },
+    {
+      "path": "assets/audio-source/vcsl/50-rope-snare-03.ogg",
+      "size": 11369,
+      "sha256": "9da8b7b0ed591449e479fb7dc8f369a0fccb26d37d456ae19d1656b823f967c9"
+    },
+    {
+      "path": "assets/audio-source/vcsl/50-rope-snare-04.ogg",
+      "size": 14612,
+      "sha256": "aeee4257cf80cb5fc5121cdb00d98235e0116f19a1500f0cb7c0a2d4f51ca2fd"
+    },
+    {
+      "path": "assets/audio-source/vcsl/51-cajon-01.ogg",
+      "size": 7692,
+      "sha256": "9cde7e74352544a7add5091197610bec81489459c11850097c69d3668788e592"
+    },
+    {
+      "path": "assets/audio-source/vcsl/51-cajon-02.ogg",
+      "size": 8970,
+      "sha256": "363faac23a398854e83adbff7b90676ad7e93a8c65860282c7423d4a9e160a57"
+    },
+    {
+      "path": "assets/audio-source/vcsl/51-cajon-03.ogg",
+      "size": 6233,
+      "sha256": "22732f3f2674baa7be85d07b043e42d386fd143b8edc4e68e755e4320c412fd2"
+    },
+    {
+      "path": "assets/audio-source/vcsl/51-cajon-04.ogg",
+      "size": 7937,
+      "sha256": "331452197ee654a4ce17804a1f18f9311ff433d873ad9161668d3ea32e0df4f9"
+    },
+    {
+      "path": "assets/audio-source/vcsl/52-tambourine-one-01.ogg",
+      "size": 9793,
+      "sha256": "7eddb6b278902467b0ff90640ad5794520398cb33d75491ee87ee97e5ea185ec"
+    },
+    {
+      "path": "assets/audio-source/vcsl/52-tambourine-one-02.ogg",
+      "size": 11457,
+      "sha256": "d7ef9aebcc83b54329c763e2035046aac6bf4a38e0b98000beec7c6a5f0a5bb1"
+    },
+    {
+      "path": "assets/audio-source/vcsl/52-tambourine-one-03.ogg",
+      "size": 80997,
+      "sha256": "c423a8590a85204ad710a21ab5423edc243baba48845bf06f91c2a988c4ecdc6"
+    },
+    {
+      "path": "assets/audio-source/vcsl/52-tambourine-one-04.ogg",
+      "size": 8361,
+      "sha256": "7f5d0c0fe8d8ad92ba331913a4bc792dd37ca5f8c7589785a7910dd004e9c68d"
+    },
+    {
+      "path": "assets/audio-source/vcsl/53-tambourine-two-01.ogg",
+      "size": 89419,
+      "sha256": "76327ff88f20dc2dd00c0f1b2bc68240060b0e6359410455fcfdd1208451363e"
+    },
+    {
+      "path": "assets/audio-source/vcsl/53-tambourine-two-02.ogg",
+      "size": 7536,
+      "sha256": "81bdbe30eaa7956a70aae76470d3620b1b5bf7758790044dc662a04e4096924e"
+    },
+    {
+      "path": "assets/audio-source/vcsl/53-tambourine-two-03.ogg",
+      "size": 87150,
+      "sha256": "1c5741cee4c7d90fc481dc9cfee8cd7b13f41b8e31015e94361fa2fcac6fc65c"
+    },
+    {
+      "path": "assets/audio-source/vcsl/53-tambourine-two-04.ogg",
+      "size": 6806,
+      "sha256": "34a950ed765228ef2fab85a892ca450113bec696bea1506c0b6f416b2045755d"
+    },
+    {
+      "path": "assets/audio-source/vcsl/54-cabasa-01.ogg",
+      "size": 5673,
+      "sha256": "df407d915ad182f2e1d0ecdd9091285d26e8797a28a3116e699930e51cb6e87c"
+    },
+    {
+      "path": "assets/audio-source/vcsl/54-cabasa-02.ogg",
+      "size": 4871,
+      "sha256": "2d5710124dc5906c4df470eb22f49261fb58cca220dba9b3fc7602ae0d863410"
+    },
+    {
+      "path": "assets/audio-source/vcsl/54-cabasa-03.ogg",
+      "size": 6383,
+      "sha256": "9261c681890cb21f4586e158a0cf4209633f12f4bb685a5709e758b1838c6a4f"
+    },
+    {
+      "path": "assets/audio-source/vcsl/54-cabasa-04.ogg",
+      "size": 5708,
+      "sha256": "e9308844a3e953898545854e5f40c8de1122341b873bc61093c0dc0bff408c9e"
+    },
+    {
+      "path": "assets/audio-source/vcsl/55-large-shaker-01.ogg",
+      "size": 7377,
+      "sha256": "ad900529c3e2c7a69a899da203cfa16d42185dc6fc2621df995a8fb9017573bd"
+    },
+    {
+      "path": "assets/audio-source/vcsl/55-large-shaker-02.ogg",
+      "size": 6976,
+      "sha256": "569f671ae9ec49c0a80744b9b3ac6c7bafb10b38fe21e3caeaaf56e715b76ebc"
+    },
+    {
+      "path": "assets/audio-source/vcsl/55-large-shaker-03.ogg",
+      "size": 8700,
+      "sha256": "152364f368eeae32be395a4dea8efc17a622e3b3c00d7a127642b2fda08e04f0"
+    },
+    {
+      "path": "assets/audio-source/vcsl/55-large-shaker-04.ogg",
+      "size": 7331,
+      "sha256": "4aaafe815b2a72179883e5c7e76bfd4a8102e82c0b6afe8d2db8dfe513b9ef9c"
+    },
+    {
+      "path": "assets/audio-source/vcsl/56-small-shaker-01.ogg",
+      "size": 22727,
+      "sha256": "ed6dbf988cfc29aef22242efae17df55d472d3c7c6376caba2087c1a59156190"
+    },
+    {
+      "path": "assets/audio-source/vcsl/56-small-shaker-02.ogg",
+      "size": 2139,
+      "sha256": "034635925df0c5df29cdff3f485b83aec6fabef4bfb6a04bf73ce9aadea9ea5e"
+    },
+    {
+      "path": "assets/audio-source/vcsl/56-small-shaker-03.ogg",
+      "size": 2576,
+      "sha256": "c56b19c0af3121e7a8a046049724e337572e23f5c27589582ba440ac5b1c6365"
+    },
+    {
+      "path": "assets/audio-source/vcsl/56-small-shaker-04.ogg",
+      "size": 1578,
+      "sha256": "5c82bae854d53eb70f9054e65b0fd4b903853aec451026430bcf3b044b23f5af"
+    },
+    {
+      "path": "assets/audio-source/vcsl/57-sleigh-bells-01.ogg",
+      "size": 17524,
+      "sha256": "2729fdb82b4d3209f28d3d16c6d0f2f0aeadce96293b9007af393e5bb12dc28a"
+    },
+    {
+      "path": "assets/audio-source/vcsl/57-sleigh-bells-02.ogg",
+      "size": 11430,
+      "sha256": "e2efab223b103f455ad0c7861c85242668e4f16a3b3831d46e76dc82efacc944"
+    },
+    {
+      "path": "assets/audio-source/vcsl/57-sleigh-bells-03.ogg",
+      "size": 13935,
+      "sha256": "03d0c415198bf9bc3107c372107adaf9ab85be9ba4b57ed80d423f8b8abfbd7d"
+    },
+    {
+      "path": "assets/audio-source/vcsl/57-sleigh-bells-04.ogg",
+      "size": 16193,
+      "sha256": "e7b5704c38a6b2ec11fc7b567b2b9c09f0e71b9b07a9eb84836550484fb4990d"
+    },
+    {
+      "path": "assets/audio-source/vcsl/58-ratchet-01.ogg",
+      "size": 9068,
+      "sha256": "7c70568eb663fb944b3e8fe3fd5d018908633301dea938aa4fdfee02e00e519b"
+    },
+    {
+      "path": "assets/audio-source/vcsl/58-ratchet-02.ogg",
+      "size": 88115,
+      "sha256": "68b9d99a8b93a3e33ceb5a7da9518e4206ddaf8cfb1dcb5cbf7a6cb9abf2406e"
+    },
+    {
+      "path": "assets/audio-source/vcsl/58-ratchet-03.ogg",
+      "size": 103070,
+      "sha256": "d4e2db5d810f15c127b07bc3bfa933f82141552ac975766458d2aff9236df290"
+    },
+    {
+      "path": "assets/audio-source/vcsl/58-ratchet-04.ogg",
+      "size": 9391,
+      "sha256": "bbbb58274fa2f176d61a654686c45dc14f8af3e4b60a03a7b39e6cad02a81c34"
+    },
+    {
+      "path": "assets/audio-source/vcsl/59-guiro-01.ogg",
+      "size": 9462,
+      "sha256": "ac739784efb883cbcc29bf47237523b193e3bb7ab3dea7782527cc007b3a9b52"
+    },
+    {
+      "path": "assets/audio-source/vcsl/59-guiro-02.ogg",
+      "size": 7611,
+      "sha256": "dd025c1f1abcd8d7e293c7f77b3800746847197b3d98153e1bd9733f7b423233"
+    },
+    {
+      "path": "assets/audio-source/vcsl/59-guiro-03.ogg",
+      "size": 8080,
+      "sha256": "46424292d9121b60dfdbb97c47bfed810394aa951e3193a68eda91a7100ac50e"
+    },
+    {
+      "path": "assets/audio-source/vcsl/59-guiro-04.ogg",
+      "size": 19581,
+      "sha256": "b787b6b7629cec1be03a03a5e3d718ae0e5d63b8de830638900a27329e8eb6d1"
+    },
+    {
+      "path": "assets/audio-source/vcsl/60-ocean-drum-01.ogg",
+      "size": 303339,
+      "sha256": "ae9e59f097adb19720bd913703ca98743338749bbc1a99c310ba83fe5645f265"
+    },
+    {
+      "path": "assets/audio-source/vcsl/60-ocean-drum-02.ogg",
+      "size": 164925,
+      "sha256": "0ddee2b0a88f38881f5e0eb1d1282bf0c09d403305c9e1dce3471bb48fdff836"
+    },
+    {
+      "path": "assets/audio-source/vcsl/60-ocean-drum-03.ogg",
+      "size": 189136,
+      "sha256": "63d2205208936e0873eecba3bbca4c1585f0243995ac30895b883715e310d7c9"
+    },
+    {
+      "path": "assets/audio-source/vcsl/61-bell-tree-01.ogg",
+      "size": 42434,
+      "sha256": "b152c05e41a680130ac3d616c779e99168ec6e9c79781a362e7fba6e20000aea"
+    },
+    {
+      "path": "assets/audio-source/vcsl/61-bell-tree-02.ogg",
+      "size": 34167,
+      "sha256": "5abc314f1e026c563ef24375d651bb79bf064b0360cf3f59457ce7e89cc07ca8"
+    },
+    {
+      "path": "assets/audio-source/vcsl/61-bell-tree-03.ogg",
+      "size": 39532,
+      "sha256": "0f008172157f6b7a29e14bdcda512b12445af5f5865faa4d785b618dca6f7ed9"
+    },
+    {
+      "path": "assets/audio-source/vcsl/61-bell-tree-04.ogg",
+      "size": 39507,
+      "sha256": "ce7944dd02a1c6f5d38921333c7c3f6aecbebf10d2b3c1a27961a84da0452d47"
+    },
+    {
+      "path": "assets/audio-source/vcsl/62-finger-cymbals-01.ogg",
+      "size": 44353,
+      "sha256": "f18772581193d60b1e09956ab0d903bcffd4c29a125cd24cb87ed651bbb08420"
+    },
+    {
+      "path": "assets/audio-source/vcsl/VCSL-README.md",
+      "size": 4070,
+      "sha256": "e360f24c120c9ad734cc8508695e09a61ddc4cae5a59c6c9af33fe501b6c9a5b"
+    },
+    {
+      "path": "assets/audio-source/vcsl/manifest.json",
+      "size": 83680,
+      "sha256": "4d1e6e9247e6d3301188236c7286168fbc455110484c87f13b9acd58135ea8a6"
+    },
+    {
+      "path": "assets/audio/voice-00-dan-tranh.ogg",
+      "size": 161587,
+      "sha256": "07b972f07f38792c55821633a8d2632968ec66607b8f2532e8764019bdfce030"
+    },
+    {
+      "path": "assets/audio/voice-01-dan-tranh-tremolo.ogg",
+      "size": 161587,
+      "sha256": "ce4d3a580ece22c107fce32968cfeebd61ec43cfbc85b876384f31207a0c9f78"
+    },
+    {
+      "path": "assets/audio/voice-02-dan-tranh-gliss.ogg",
+      "size": 161587,
+      "sha256": "8615b42e4bcbea97b8f8ce3bd064c65ec260453114bf7ed8f1eac63eef4d2850"
+    },
+    {
+      "path": "assets/audio/voice-03-psaltery-pluck.ogg",
+      "size": 161587,
+      "sha256": "da51bb736f9f5ae19d6914328afede017a7dca83b18ef92fba7e9d8bc464b950"
+    },
+    {
+      "path": "assets/audio/voice-04-concert-harp.ogg",
+      "size": 161587,
+      "sha256": "e0678362bf2f400220da167a6dcdd54970eca787580103f799e1280313161e7d"
+    },
+    {
+      "path": "assets/audio/voice-05-folk-harp.ogg",
+      "size": 161587,
+      "sha256": "4ef144475f275f3002d1456068cbc6defc9887d9ae0490e76561b96a967d733f"
+    },
+    {
+      "path": "assets/audio/voice-06-strumstick.ogg",
+      "size": 161587,
+      "sha256": "536e75724f1941256edc3a83d3d4c5d0a92295406628763cbbf2aea372951129"
+    },
+    {
+      "path": "assets/audio/voice-07-kalimba-kenya.ogg",
+      "size": 161587,
+      "sha256": "7c095c91517faec11f7845b0826f202bef47b9afc7e5d85b3800da2b9bcc7c9d"
+    },
+    {
+      "path": "assets/audio/voice-08-kalimba-tanzania.ogg",
+      "size": 161587,
+      "sha256": "334c776440515f75fbc93575238a884fb64e2a9bda8a8cb8f02aeb196ecca291"
+    },
+    {
+      "path": "assets/audio/voice-09-mbira-mavembe.ogg",
+      "size": 161587,
+      "sha256": "d5e05158cb8df8bec0039fcc6f2d8b11ae230ac344e2989a83c635cf588b6fe4"
+    },
+    {
+      "path": "assets/audio/voice-10-mbira-nyamaropa.ogg",
+      "size": 161587,
+      "sha256": "78bd1b9a815e3a9b280f5314cb8723e646c10e94a53ed836fa5d6eb7f312f677"
+    },
+    {
+      "path": "assets/audio/voice-11-nyunga-nyunga.ogg",
+      "size": 161587,
+      "sha256": "22f5f5cb21c1abd2ce6ed3db7e47af04c11a06a75c6078ef22ec7c49ef8d9b05"
+    },
+    {
+      "path": "assets/audio/voice-12-english-harpsichord.ogg",
+      "size": 161587,
+      "sha256": "e0e463a2ec68e4cd2ee20b4310bf6d488a8a8f6ed2359f85bb767cae04632511"
+    },
+    {
+      "path": "assets/audio/voice-13-psaltery-bow.ogg",
+      "size": 161587,
+      "sha256": "9b2560149444fe5fb9fea602ed9bd0700b752c661c0797f542a69b0e39aeb430"
+    },
+    {
+      "path": "assets/audio/voice-14-wine-glass-fast.ogg",
+      "size": 161587,
+      "sha256": "0d08d761e58910b7962dd25bb57b0c2ebd9e602aa11116c64d9d7021326d4075"
+    },
+    {
+      "path": "assets/audio/voice-15-wine-glass-slow.ogg",
+      "size": 161587,
+      "sha256": "82f5beff39762933b0f0a7f39c348800dd54b86c29b2fba48938e23302d3d07e"
+    },
+    {
+      "path": "assets/audio/voice-16-saxello.ogg",
+      "size": 161587,
+      "sha256": "7281473e7695fe4b424af59292fbd831d4764eb79574053b08ba045da20219d3"
+    },
+    {
+      "path": "assets/audio/voice-17-tenor-sax.ogg",
+      "size": 161587,
+      "sha256": "a25b47d6e10c18c16b9cfba3e7c9aed8bf9f07bf4077cc496182f5923b2cb6d7"
+    },
+    {
+      "path": "assets/audio/voice-18-chromatic-harmonica.ogg",
+      "size": 161587,
+      "sha256": "9100390cc5643ff74f29de3029e8362a1195f4142e7aa60c91851df708583157"
+    },
+    {
+      "path": "assets/audio/voice-19-alto-recorder.ogg",
+      "size": 161587,
+      "sha256": "60f478c3671b3b17000af9478031c786b7b443e7b451733c8fa925d504730a32"
+    },
+    {
+      "path": "assets/audio/voice-20-bass-recorder.ogg",
+      "size": 161587,
+      "sha256": "1348b3aeb75dfc47996a6851b99a9aeda50a023ec0239ad1aa4beb8425714700"
+    },
+    {
+      "path": "assets/audio/voice-21-soprano-recorder.ogg",
+      "size": 161587,
+      "sha256": "07a5a58bd0e034d24c4c1daa87414aa77cc404b2d9e6f385ea1f3b32e3964479"
+    },
+    {
+      "path": "assets/audio/voice-22-tenor-recorder.ogg",
+      "size": 161587,
+      "sha256": "e59c75d82c9a2854fee974a3ad3f5a8f7d1fac2ce7dd30dd11d81abb4ef4593e"
+    },
+    {
+      "path": "assets/audio/voice-23-small-ocarina.ogg",
+      "size": 161587,
+      "sha256": "c0766d214c1864017b19d1dba164ef6b16f39ae925ec4ac76dfb9aa7ab98bea7"
+    },
+    {
+      "path": "assets/audio/voice-24-ocarina.ogg",
+      "size": 161587,
+      "sha256": "addc718ef52cfdaca26cc8c9f628685f19f2cc446257f1af23ad14246ee0df55"
+    },
+    {
+      "path": "assets/audio/voice-25-didgeridoo.ogg",
+      "size": 161587,
+      "sha256": "6ed3a5de74f3ad2adc4fcc5fb0a8947e7b4687cd81135ca12ad36eb8c18f5491"
+    },
+    {
+      "path": "assets/audio/voice-26-balafon.ogg",
+      "size": 161587,
+      "sha256": "3c19be5ced95141deb106b2e44376bd65c899c2a07f57c078aedf56189f5e5b6"
+    },
+    {
+      "path": "assets/audio/voice-27-glockenspiel.ogg",
+      "size": 161587,
+      "sha256": "4ef18c3ebebe9156796f7754670fa7045347e224e8c996fa550c054b7255660f"
+    },
+    {
+      "path": "assets/audio/voice-28-marimba.ogg",
+      "size": 161587,
+      "sha256": "7ac01070008f1d743e6fbb2d74d39c2ceb31dbd2618db340a617ee92022a8df4"
+    },
+    {
+      "path": "assets/audio/voice-29-vibraphone.ogg",
+      "size": 161587,
+      "sha256": "7a20c807c475cb2c2afabf7ad41ec2ee8d89f57bee5033a7a92176228d1a518d"
+    },
+    {
+      "path": "assets/audio/voice-30-xylophone.ogg",
+      "size": 161587,
+      "sha256": "4c83587e24fd551c405fe738baea6986daca90943335ca2d1196e301529c8058"
+    },
+    {
+      "path": "assets/audio/voice-31-slit-drum.ogg",
+      "size": 161587,
+      "sha256": "7754cbb80e6de817e0afc06abacc2b3dd6e955c3340b2d6b00fd5c1557428da1"
+    },
+    {
+      "path": "assets/audio/voice-32-hand-chimes.ogg",
+      "size": 161587,
+      "sha256": "53b8df4233248b3b325b81bf4b1e1f7af545e888f7997c27b9e50b792bbf45e1"
+    },
+    {
+      "path": "assets/audio/voice-33-nepalese-bells.ogg",
+      "size": 161587,
+      "sha256": "d0886ab36ba42a7d9ca2c5cf13fd6b104f5b7e060121e7d699c4ad370013bc6f"
+    },
+    {
+      "path": "assets/audio/voice-34-gong.ogg",
+      "size": 161587,
+      "sha256": "7e6eaecf38bb6bdddd1966b749a03bb8aed5de5e84e00e896a0dbf37bbb5770b"
+    },
+    {
+      "path": "assets/audio/voice-35-tubular-bells.ogg",
+      "size": 161587,
+      "sha256": "eb7d17d1cdc0ed44aea737cd6cac11d673b23dc1f1262ff0d5874c174a952f3a"
+    },
+    {
+      "path": "assets/audio/voice-36-agogo-bells.ogg",
+      "size": 161587,
+      "sha256": "9592869b2162fc38c011413e43685cf4bf462fa848176d3571f49fec9eba1e7f"
+    },
+    {
+      "path": "assets/audio/voice-37-cowbells.ogg",
+      "size": 161587,
+      "sha256": "d774ce359988fed8784e5f004b81f0873bc0e0c4d729e6b6684d6bf6c022e315"
+    },
+    {
+      "path": "assets/audio/voice-38-anvil.ogg",
+      "size": 161587,
+      "sha256": "b0b33fd6e29f0730138e09329cddb15dfe881b9adc88f0e47b8885544ba37c51"
+    },
+    {
+      "path": "assets/audio/voice-39-brake-drum.ogg",
+      "size": 161587,
+      "sha256": "25177407ae334f19e0bb0a553c2281d186193f03c942f2ec9dbf8a8fd79819e4"
+    },
+    {
+      "path": "assets/audio/voice-40-claves.ogg",
+      "size": 161587,
+      "sha256": "c4f27ed45535498c5c4a6348cc23532545a52e86f85289cfbc8dae6ce4a1600d"
+    },
+    {
+      "path": "assets/audio/voice-41-woodblock.ogg",
+      "size": 161587,
+      "sha256": "da1db60117d130ecd4714bf08d19196660eb3f61982e5fd60975e17ba45a17d7"
+    },
+    {
+      "path": "assets/audio/voice-42-frame-drum.ogg",
+      "size": 161587,
+      "sha256": "e73672d37ffc5bca9d90b28a597002115bbb9b34a3785b150572ba749ea07c8e"
+    },
+    {
+      "path": "assets/audio/voice-43-darbuka.ogg",
+      "size": 161587,
+      "sha256": "986828ce7cb23807b6a0ac63c69346b36f507eefa17def23bdaf04db2d4cb4de"
+    },
+    {
+      "path": "assets/audio/voice-44-timpani.ogg",
+      "size": 161587,
+      "sha256": "7abfa47c86e55d0bc4b4fd55311b724443b65431b85594f5c76534debd81be8d"
+    },
+    {
+      "path": "assets/audio/voice-45-bass-drum.ogg",
+      "size": 161587,
+      "sha256": "30e68d7b8b97a45b48a2b489e9b3eba6c6ac64c7b48ef819d358c214af41b3ea"
+    },
+    {
+      "path": "assets/audio/voice-46-clash-cymbals.ogg",
+      "size": 161587,
+      "sha256": "936a99a7a4b87ac5e5d597871e74542f89c2e30db5deefa106754a5b629be24c"
+    },
+    {
+      "path": "assets/audio/voice-47-suspended-cymbal.ogg",
+      "size": 161587,
+      "sha256": "eb67c84c27451c12d01b409e2bbdd2882360a1a41da2ba76e76936bafb00bbba"
+    },
+    {
+      "path": "assets/audio/voice-48-bongos.ogg",
+      "size": 161587,
+      "sha256": "7d9ee8b80783e7c9211a1402fbdc071a69e04c83d8266a1ffa9af161209308fb"
+    },
+    {
+      "path": "assets/audio/voice-49-conga.ogg",
+      "size": 161587,
+      "sha256": "f92f9ae14760903d0367ce735413ceec501ab9221175bbf66d7e785f09ccaaab"
+    },
+    {
+      "path": "assets/audio/voice-50-rope-snare.ogg",
+      "size": 161587,
+      "sha256": "4f73c9811c4148f9448576fe377ce0675753e569d66caffbe990c38423ca87cc"
+    },
+    {
+      "path": "assets/audio/voice-51-cajon.ogg",
+      "size": 161587,
+      "sha256": "e281b88dcae1980d867568c25020ef863631b736a27aadca0806b3edecc3c20f"
+    },
+    {
+      "path": "assets/audio/voice-52-tambourine-one.ogg",
+      "size": 161587,
+      "sha256": "66ba0381228b6e4d82171f56dc58813a045ed8527fc9deaa0b2fe4e29b593490"
+    },
+    {
+      "path": "assets/audio/voice-53-tambourine-two.ogg",
+      "size": 161587,
+      "sha256": "f1bfd7d466ed42fee9413ca7257be286a0410314c4d9fd8137bcc4c9b20666b1"
+    },
+    {
+      "path": "assets/audio/voice-54-cabasa.ogg",
+      "size": 161587,
+      "sha256": "98123bdcfc13113a037ae7c74c6a7b786c0ea7c08240747cfa219efe1c591d19"
+    },
+    {
+      "path": "assets/audio/voice-55-large-shaker.ogg",
+      "size": 161587,
+      "sha256": "1e1c35a2593dde01eece7ab78c286733df251ad65c1ad66af99f1e969b2518c3"
+    },
+    {
+      "path": "assets/audio/voice-56-small-shaker.ogg",
+      "size": 161587,
+      "sha256": "46ca76d0402d9ce7e47a7e91be3f04345472af187df8cdd4f57d1f483ba034b0"
+    },
+    {
+      "path": "assets/audio/voice-57-sleigh-bells.ogg",
+      "size": 161587,
+      "sha256": "b50f3e2b00e41a5771126f21c74c52bec69579555c703b483750a78a0454b5f7"
+    },
+    {
+      "path": "assets/audio/voice-58-ratchet.ogg",
+      "size": 161587,
+      "sha256": "db1bb155c0c93f1c3468c6e16e3bc9f77573b74be3249aec33cf751f80e2b850"
+    },
+    {
+      "path": "assets/audio/voice-59-guiro.ogg",
+      "size": 161587,
+      "sha256": "b00edcbb641c8a85c7fc366896fa3802a231936737cc6a376aa18c0a2544bf9a"
+    },
+    {
+      "path": "assets/audio/voice-60-ocean-drum.ogg",
+      "size": 161587,
+      "sha256": "da40ea8ea8c7f52e2353d778a012f51f638c76b173340709d983abbb8b39a97f"
+    },
+    {
+      "path": "assets/audio/voice-61-bell-tree.ogg",
+      "size": 161587,
+      "sha256": "5cf2f0151a84718ad3b6842eeea3b8a3d862f6cb4d07d2bf0ccf618741387278"
+    },
+    {
+      "path": "assets/audio/voice-62-finger-cymbals.ogg",
+      "size": 161587,
+      "sha256": "112eae0935c4964eb9f4d0d98e5266f06e1bb74e4e86d48cba38b6da02d21e9c"
     },
     {
       "path": "assets/background/mural-texture.jpg",
@@ -627,8 +2087,8 @@
     },
     {
       "path": "config/scene.json",
-      "size": 61574,
-      "sha256": "18df67df9778843c2d8e0d3a7bf9e7023e1fcbd60821c5ff29d754518ad705f7"
+      "size": 77297,
+      "sha256": "b2bdc2c5b429fcbc04e7b02cdba3a7dd0c62f8bfecf2ac2c81bcab7da6d86dbc"
     },
     {
       "path": "docs/CHATGPT_PRO_TASK.md",
@@ -646,44 +2106,49 @@
       "sha256": "4e26e3a184c2879700bebf6fb7e6494b827946a1e8361e383563ef200269f176"
     },
     {
+      "path": "docs/V3_LIVE_AUDIO_REPORT.md",
+      "size": 3224,
+      "sha256": "8cd9b0a04c5a22378fb83f4af7551409890d59cc27dfa15d12d8332e45e2c6f5"
+    },
+    {
       "path": "docs/screenshots/asset-contact-sheet.jpg",
       "size": 621675,
       "sha256": "d37b57a860d9f69bb4d16667703f12de3c9e0f55a61320302815e9962c93ca01"
     },
     {
       "path": "docs/screenshots/e2e-all-awake.png",
-      "size": 3137021,
-      "sha256": "687f09eae5c1d206807a5eccd5c1de5781d1fd4880ca0190b9f0c3e7385c99cb"
+      "size": 3228467,
+      "sha256": "f70456cd650f9ab618a10bca61987f1d40d6c534ccdc07a78525b78b982871c2"
     },
     {
       "path": "docs/screenshots/e2e-auto-1920x1200.png",
-      "size": 2986191,
-      "sha256": "6c6d6a21396f5a62c749eccc856bcb925707d9becb49a9e896e1444e72fb4bf5"
+      "size": 3124978,
+      "sha256": "77523183807150ccd8ec101b8539af24e7a5f16d604461e0d4f40b09b7914518"
     },
     {
       "path": "docs/screenshots/e2e-calibration-debug.png",
-      "size": 389261,
-      "sha256": "3b489a0c14091ea8ed9cb7c8f7e059febab987f28af9da1c9fcf72b236c0eaa5"
+      "size": 389244,
+      "sha256": "cf59b05b683910914332c68c5dc5c5954b023e6bca0c5daac89cdeed849cc16c"
     },
     {
       "path": "docs/screenshots/e2e-camera-permission-denied.png",
-      "size": 1571377,
-      "sha256": "2999380b7c9c11e63277bfa51f6290438e31ab7556385bf15dcb8764d81a013a"
+      "size": 1571699,
+      "sha256": "6add6e91ce30ae611836f991c6eac474fbc640b7cf583dfd6a0dc1ca64acef0f"
     },
     {
       "path": "docs/screenshots/e2e-camera-simulated.png",
-      "size": 274705,
-      "sha256": "41f0dc2d4d873cea4842fa6d2dfe60d4a46ac1397df635e75278d697d2c0fa63"
+      "size": 274813,
+      "sha256": "c895a9a72081b9a7a5f317c83b29b16d1f826440ec1482b0a0c83830851c39da"
     },
     {
       "path": "docs/screenshots/e2e-mobile-390x844.png",
-      "size": 123021,
-      "sha256": "eb5b906eda82e59fd0c5b0b8a0e7a87eba9b16e13214fbe1fcae01e9323dbbea"
+      "size": 122358,
+      "sha256": "fc4a60171e9bf65b67ec2624a642333a9515dd0074048dee459cbdbc223afe55"
     },
     {
       "path": "docs/screenshots/e2e-pointer.png",
-      "size": 3086585,
-      "sha256": "b3b107417c358673f24fc8816c2ef1de4d5e315fb7a52f18e8264b8bebe83176"
+      "size": 3085270,
+      "sha256": "c95b2ebc72e1f6c89853c3a324dbc44daedb722376dc865bdf612b01753fb109"
     },
     {
       "path": "docs/test-results/asset-rebuild-results.json",
@@ -692,63 +2157,63 @@
     },
     {
       "path": "docs/test-results/camera-e2e-results.json",
-      "size": 57242,
-      "sha256": "aa21e7e6dc6766ca0e0936b1b749915e03390b37db24ce0657a8549a7830cdcd"
+      "size": 84726,
+      "sha256": "c9445f5c6503643c7f52e68f445e3558d67439730fefee624da25f1ff076d867"
     },
     {
       "path": "docs/test-results/camera-e2e-server.log",
-      "size": 177,
-      "sha256": "ba690196eac78ea3f18744589aa190d3206cda866bdd1497ea0640dfac99ddf3"
+      "size": 182,
+      "sha256": "75cee44eadc4be0a5d45d5c9453cf19ad5a9cdb97545172f861a85aad9a1197c"
     },
     {
       "path": "docs/test-results/camera-race-e2e-results.json",
-      "size": 10688,
-      "sha256": "2a0863de96a5c86a85600ff136601ba2da4c8d16a9a163d0ebd711bd11d7bca3"
+      "size": 16909,
+      "sha256": "f311c0a3dc7171ccf484f3f6a29b1bffe6254577e96b49f0da83726694a9587d"
     },
     {
       "path": "docs/test-results/camera-race-e2e-server.log",
-      "size": 177,
-      "sha256": "10d9d07ec37c20e2a90667f6f1720cbbd521bf23c08891186b9ed66626174465"
+      "size": 182,
+      "sha256": "8194613511dd9e137650d97721f822be9a55e4b84e6acb3fb475609d1136f9a2"
     },
     {
       "path": "docs/test-results/e2e-results.json",
-      "size": 33046,
-      "sha256": "ec18f6af9c0b707bb697edfa21340b7f4be5dd72d0d0c6f2673024c16a3522c5"
+      "size": 36079,
+      "sha256": "8f85c686fbc12196e3e2f9d2a9fc59b00f9c04c744260102beb8e6d8f6ad06dd"
     },
     {
       "path": "docs/test-results/e2e-server.log",
-      "size": 177,
-      "sha256": "512d438a1ef03f6621bec137e7bda9e7304964d7b2e993511232ef938ea34a48"
+      "size": 182,
+      "sha256": "11b0a246bf3ceaacca737a5a1d4ac5b26bc7de36ecb5a68cf3fa9c03e3d95f70"
     },
     {
       "path": "docs/test-results/reconnect-e2e-results.json",
-      "size": 30132,
-      "sha256": "8f375b626505e1e21426058bb4ea7f7cb086653c5699ed2ee2fab5740aa86ca9"
+      "size": 54707,
+      "sha256": "8e7b843714f9ad21700e15c6c20208365db897db4b4833e9d62f32a35cd65b1e"
     },
     {
       "path": "docs/test-results/reconnect-e2e-server.log",
-      "size": 177,
-      "sha256": "bac960d22d6c14f01b71e3c5cfd67ff44f564394c4bc8e01c2956d6245032539"
+      "size": 182,
+      "sha256": "7e2b84d432fb869bb697f89457d2d18a0d100038da31f775a59070abf37484e5"
     },
     {
       "path": "docs/test-results/run-all-camera_e2e_test.log",
-      "size": 992,
-      "sha256": "1c356f6f7e6c56c2e680c09da268dad3ca9f16b4aa20b1fe4704675bce2c2bdc"
+      "size": 998,
+      "sha256": "733a1b7515531b028e4e9102335003766ed1fefaac4112bca5ba55064265a7b0"
     },
     {
       "path": "docs/test-results/run-all-camera_race_e2e_test.log",
-      "size": 1672,
-      "sha256": "2d65c686d5b95b5e9e182d620397b0d2eb9a6bdffdc64885c16d5c32e33af162"
+      "size": 1678,
+      "sha256": "b654343a186681048810afcbda34264c8b3986de50f48fa974d9de1079b6bb37"
     },
     {
       "path": "docs/test-results/run-all-e2e_test.log",
-      "size": 6955,
-      "sha256": "6813913ba7e7f9f5b30464b22185ae85753a6c6131da2b72d1bc0097dddf06d9"
+      "size": 7021,
+      "sha256": "d221ec4a7eb2dbe32ec3d1e46f74b167e317c10dd26d11bb291dcbe3eddc4f24"
     },
     {
       "path": "docs/test-results/run-all-reconnect_e2e_test.log",
-      "size": 1089,
-      "sha256": "16c156900fd8e95e87dae51560ca673a9236668762c346e58d7073ed416a57d3"
+      "size": 1096,
+      "sha256": "350b3c60aa642304170141a498db96f1b5a97e3bf2cd0b126885aa5cb3b55b8f"
     },
     {
       "path": "docs/test-results/soak-short-results.json",
@@ -762,13 +2227,13 @@
     },
     {
       "path": "package-lock.json",
-      "size": 673,
-      "sha256": "6ce66e1f67f8d03caa36f72f3ee43c84cd67b06d1c70399f8e2da03d9b82385e"
+      "size": 683,
+      "sha256": "1c44d1ff4b120f8efe63bd091c01dde5e00baec9dac3fbbee63a96390581012a"
     },
     {
       "path": "package.json",
-      "size": 1288,
-      "sha256": "301725910cd63bd8055817051c8ba65312529bddbbbdc1cd87ed52901cfa4537"
+      "size": 1351,
+      "sha256": "c5da90c4c108493685e26e6e6e2911fc5a25c466a31aa9d02f00386cf0b059b3"
     },
     {
       "path": "requirements-build.txt",
@@ -782,13 +2247,13 @@
     },
     {
       "path": "server.js",
-      "size": 6784,
-      "sha256": "2bb079274bd595e5d55d5f9f676729377a96d2530a5af4127c0ea387b358a9df"
+      "size": 6812,
+      "sha256": "cc772b14eb612c525af4ae337c41b2efc7cf585bf29284130bdd9a250679b812"
     },
     {
       "path": "src/audio/audio-engine.js",
-      "size": 10628,
-      "sha256": "b0b628233cad52f22642d2bf8a8b2568d3e556ddcb6f3d83eb41291632603eeb"
+      "size": 11183,
+      "sha256": "73655b931502eef4cced8f05c3c907e6a26813bcebbb9ab00555a2bd74e1475a"
     },
     {
       "path": "src/calibration/calibration-controller.js",
@@ -807,8 +2272,8 @@
     },
     {
       "path": "src/core/config-schema.js",
-      "size": 6972,
-      "sha256": "8fd0fe9888bc0d869a343b755fd1eeb3379d7fa9089b542d9398a2e2d0748fca"
+      "size": 7734,
+      "sha256": "494baa44ffdf6e43d0f982a2dba3e6adbcccd0030649ff3e3b67ea8236635fa2"
     },
     {
       "path": "src/core/homography.js",
@@ -852,8 +2317,8 @@
     },
     {
       "path": "src/main.js",
-      "size": 23227,
-      "sha256": "9ebd9d67c8ffbd7f4a2831a8077a82fece2094ca8af826a2224454f1cd6650f7"
+      "size": 23249,
+      "sha256": "784a7e5b1ab3d6d4b019df4a2e2ca272dbbc982b9dde14ab42fa176c0af418c3"
     },
     {
       "path": "src/scene/character-renderer.js",
@@ -952,8 +2417,8 @@
     },
     {
       "path": "tests/e2e/e2e_test.py",
-      "size": 23586,
-      "sha256": "a100d1896136815f7ecd7efafecf50cbc78cf5781968a1f0d6de760518452501"
+      "size": 23591,
+      "sha256": "4f22989eec13136e917b1f12ce14faa916764f2c16af54bda6a438651cc9d27d"
     },
     {
       "path": "tests/e2e/person-detector-harness.html",
@@ -982,13 +2447,13 @@
     },
     {
       "path": "tests/server.test.js",
-      "size": 1578,
-      "sha256": "b1c20871fe994cb9e89bd6b473ba6b996af77a2e9958641ba1584c88c38dbb5f"
+      "size": 1784,
+      "sha256": "883c7a210b234549ce423dc6b86d93429f692c94a157e3d7813f55a0e742935c"
     },
     {
       "path": "tests/unit/audio-engine.test.js",
-      "size": 2443,
-      "sha256": "8d39e6bce31377db0d4f6bdaa53c2e3095e5a56f3e865386dc36fdde9d51061f"
+      "size": 2788,
+      "sha256": "5af2fc2481b42c0b5e87fedf19ced30abf9fe194a5ecb0f2c95ae01afdafebaa"
     },
     {
       "path": "tests/unit/camera-controller.test.js",
@@ -1007,8 +2472,8 @@
     },
     {
       "path": "tests/unit/config.test.js",
-      "size": 2160,
-      "sha256": "696dfc00d36e2b06de3760d248a46865b1124161eb6477b8bc0fee42cd7cf91a"
+      "size": 2457,
+      "sha256": "f4e1402445839cfbb62b54e644506b8383e89f4ea05fc4e2603e00102178c8f0"
     },
     {
       "path": "tests/unit/coordinates.test.js",
@@ -1047,13 +2512,18 @@
     },
     {
       "path": "tools/build_assets.py",
-      "size": 44708,
-      "sha256": "31c0caaefa246f7d89182e60edff3675fdedff877aeba0026bbb7883bb0a76a5"
+      "size": 33981,
+      "sha256": "0bc2c6e2665934d5ee97e3fde4860a047669e410653355a5453d3345d4f78234"
+    },
+    {
+      "path": "tools/build_live_audio.py",
+      "size": 7606,
+      "sha256": "4bdfef5bce4f6b8e3d69236019a6512f4a4d002db15ac75bc283b49caca9bc41"
     },
     {
       "path": "tools/build_manifest.py",
-      "size": 4254,
-      "sha256": "e6ec32be27c29dce5656dea9a594f9025715ab17aa878359d3c3d8dfb24a6263"
+      "size": 4259,
+      "sha256": "b6d00c88cc0a31ea76567e710bef53e3a38555b05dc5f19da61a999f6f73735e"
     },
     {
       "path": "tools/check-syntax.js",
@@ -1066,14 +2536,29 @@
       "sha256": "a8066389fc5d0a044d038a7adf2fc76899dae9e9629730b25d884edcfb9f23b2"
     },
     {
+      "path": "tools/import_vcsl_samples.py",
+      "size": 4924,
+      "sha256": "c04a7d36fdf66377ebcd5af5a51b16818af8c1e0f5181dc6012210ccd28aea71"
+    },
+    {
+      "path": "tools/live_audio_catalog.py",
+      "size": 7918,
+      "sha256": "63275ebee18ecc77a906d1030460a47510e0b3fca36e232576e9469832e75d8d"
+    },
+    {
       "path": "tools/preflight.js",
       "size": 1067,
       "sha256": "c513430e9f76c1aa5138fd94c2b39892b89ab25742a16b9699b609b6dc1813e3"
     },
     {
       "path": "tools/verify_asset_rebuild.py",
-      "size": 11518,
-      "sha256": "9e4c89c201e90e388577879a2b2f16c4a18c6b124f91bae5d21597448990e5b7"
+      "size": 12762,
+      "sha256": "ded2195899d8dd08b95c1c5ebd65d84d37bc1489a7624e8b90a6364518d3e50e"
+    },
+    {
+      "path": "tools/verify_live_audio.py",
+      "size": 4358,
+      "sha256": "007b3c5e1130e8a34c012fe922a5275cc79178bde6d57de4dc3e096c3b4fee53"
     },
     {
       "path": "vendor/mediapipe/vision_bundle.mjs",

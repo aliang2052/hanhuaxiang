@@ -108,18 +108,20 @@ function validLayout(layout) {
 export function validateSceneConfig(scene) {
   const errors = [];
   if (!scene || typeof scene !== 'object') return { valid: false, config: null, errors: ['scene 不是对象'] };
-  if (scene.version !== 3) errors.push('scene.version 必须为 3');
+  if (scene.version !== 4) errors.push('scene.version 必须为 4');
   if (scene.trigger?.rows !== 7 || scene.trigger?.cols !== 9) errors.push('触发平面必须是 9×7 / 63 区');
   if (!Array.isArray(scene.nodes) || scene.nodes.length !== 63) errors.push('nodes 必须包含 63 项');
-  if (!Array.isArray(scene.audioGroups) || scene.audioGroups.length < 17) errors.push('V2 audioGroups 必须包含环境声和至少 16 个独立声部');
+  if (!Array.isArray(scene.audioGroups) || scene.audioGroups.length !== 63) errors.push('V3 audioGroups 必须为 63 个一格一声的独立实录声部');
 
   const assetStats = scene.assetStats;
   if (!assetStats
       || assetStats.distinctBaseSilhouetteCount < 24
       || assetStats.runtimeSpriteCount < 50
       || assetStats.independentHighResSourceCount < 8
-      || assetStats.muralDerivedDistinctSourceCount < 16) {
-    errors.push('assetStats 必须记录至少 24 个不同基础轮廓、50 个运行时素材、8 个独立高分辨率源和 16 个画像石派生源');
+      || assetStats.muralDerivedDistinctSourceCount < 16
+      || assetStats.recordedAudioVoiceCount !== 63
+      || assetStats.sourceRecordingCount < 126) {
+    errors.push('assetStats 必须记录视觉素材，以及 63 个独立实录声部和至少 126 个源录音');
   }
   const structure = scene.visualStructure;
   if (!structure
@@ -142,6 +144,17 @@ export function validateSceneConfig(scene) {
       if (typeof node?.audioGroup !== 'string') errors.push(`节点 ${node?.id} audioGroup 无效`);
     }
     if (ids.size !== 63) errors.push('节点 id 必须完整覆盖 0–62');
+    if (new Set(scene.nodes.map((node) => node.audioGroup)).size !== 63) errors.push('每个节点必须使用不同的独立声部');
+  }
+  if (Array.isArray(scene.audioGroups)) {
+    const groupIds = new Set(scene.audioGroups.map((group) => group?.id));
+    if (groupIds.size !== 63) errors.push('audioGroups id 必须全部唯一');
+    if (scene.audioGroups.some((group) => typeof group?.file !== 'string' || !group.file.endsWith('.ogg'))) {
+      errors.push('V3 声部必须使用浏览器可离线解码的 OGG 实录循环');
+    }
+    if (Array.isArray(scene.nodes) && scene.nodes.some((node) => !groupIds.has(node.audioGroup))) {
+      errors.push('节点引用了不存在的声部');
+    }
   }
 
   const config = errors.length ? null : structuredClone(scene);

@@ -16,7 +16,7 @@ test('health and static files expose production headers', async () => {
     assert.equal(health.status, 200);
     const payload = await health.json();
     assert.equal(payload.ok, true);
-    assert.equal(payload.version, '3.0.0-v2');
+    assert.equal(payload.version, '4.0.0-v3-live');
     const page = await fetch(`${base}/`);
     assert.equal(page.status, 200);
     assert.match(page.headers.get('content-security-policy'), /default-src 'self'/);
@@ -24,6 +24,9 @@ test('health and static files expose production headers', async () => {
     const head = await fetch(`${base}/config/scene.json`, { method: 'HEAD' });
     assert.equal(head.status, 200);
     assert.equal(await head.text(), '');
+    const audio = await fetch(`${base}/assets/audio/voice-00-dan-tranh.ogg`, { method: 'HEAD' });
+    assert.equal(audio.status, 200);
+    assert.equal(audio.headers.get('content-type'), 'audio/ogg');
   });
 });
 
