@@ -7,15 +7,16 @@
 | 类别 | 数量 | 说明 |
 |---|---:|---|
 | 完整画像石壁画源 | 1 | `assets/source-highres/base-mural.png` |
-| 独立高分辨率人物源 | 8 | 琴、笛、琵琶、钟磬、弦乐、鼓、舞者、侍者 |
-| 壁画中提取的不同基础轮廓 / 群像源 | 24 | 来自完整壁画中不同坐标区域，不是对 8 张人物源做镜像 |
-| 不同基础轮廓 / 场景源合计 | 32 | 8 + 24 |
+| 当前干净背景源 | 1 | `assets/source-highres/base-stone-clean-v2.png`，仅保留连续石壁肌理，不包含人物、格线或建筑结构 |
+| 第一批独立高分辨率人物源 | 8 | 琴、笛、琵琶、钟磬、弦乐、鼓、舞者、侍者 |
+| 第二批独立高分辨率人物 / 群像源 | 24 | 位于 `assets/source-highres/independent-v2/`，由三张九宫格母版分别设计并切分去背 |
+| 独立基础轮廓 / 场景源合计 | 32 | 8 + 24；运行时不再使用壁画裁切人物 |
 | 运行时透明 PNG | 60 | 32 单体、12 双人、8 三人、8 大型群像 |
 | 场景节点 | 63 | V3 实际使用 47 个不同文件：46 个单人节点、4 个双人节点、10 个三人节点、3 个中央大型群像节点 |
 | 离线声部 | 63 | 一格一声、无重复 audioGroup，16 秒 Opus 循环 |
 | 实录源样本 | 246 | 取自 63 个不同 VCSL 乐器 / 奏法目录，约 14MB |
 
-不能把它描述为“63 位独立绘制人物”。
+不能把它描述为“63 位独立绘制人物”；准确说法是 32 个独立设计的基础人物 / 群像源，派生为 60 个运行时素材并映射到 63 个节点。
 
 ## 2. 独立高分辨率人物源
 
@@ -34,15 +35,21 @@ assets/source-highres/attendant.png
 
 它们用于提供较干净的独奏人物。发布和商用前，项目方仍应根据所使用生成服务的条款完成授权确认；本报告不替代法律意见。
 
-## 3. 24 个不同壁画派生源
+## 3. 第二批 24 个独立人物 / 群像源
 
-`tools/build_assets.py` 从项目自有的 `base-mural.png` 中按 24 个不同坐标区域提取人物、器物或群像，并进行确定性的背景透明化和裁切。输出位于：
+第二批角色使用三张 3×3 生成母版分别设计，再沿角色之间的纯绿色空隙切分并去除色键背景。最终透明原图位于：
 
 ```text
-assets/source-highres/mural-crops/
+assets/source-highres/independent-v2/
 ```
 
-这些区域包含不同的轮廓和角色类型，例如：
+九宫格母版保存在：
+
+```text
+assets/source-highres/independent-v2/sheets/
+```
+
+这 24 张包含不同的轮廓和角色类型，例如：
 
 - 抚琴台、竖吹乐师、琵琶乐师；
 - 编钟架、击钟者、弦乐和排箫；
@@ -51,13 +58,9 @@ assets/source-highres/mural-crops/
 - 奉盘、进爵、侍立、号角；
 - 宴饮桌、宴饮双人和大型宴饮群像。
 
-它们不是把同一批 8 张人物图片做镜像、缩放或简单排列后冒充新的基础源；但它们确实共享同一张项目自有完整壁画作为上游来源，这一点必须保留在说明中。
+它们不是从 `base-mural.png` 中裁切，也不是把第一批 8 张人物做镜像、缩放或简单重排。构建程序直接读取这 24 张透明原图；旧的 `assets/source-highres/mural-crops/` 仅作为历史备份，不再参与构建或运行。
 
-每个裁切区域及其来源矩形记录在：
-
-```text
-assets/source-highres/mural-crops/manifest.json
-```
+24 张新原图总览位于 `docs/screenshots/independent-24-v2-contact-sheet.jpg`。
 
 ## 4. 60 个运行时素材
 
@@ -74,21 +77,23 @@ assets/source-highres/mural-crops/manifest.json
 assets/sprites/manifest.json
 ```
 
-组合素材可能发生局部镜像、层叠和位置调整；“32 个基础源”统计不把这些镜像和拼组重复计为新的独立轮廓。
+组合素材可能发生局部镜像、层叠和位置调整；“32 个独立基础源”统计不把这些运行时镜像和拼组重复计为新的独立轮廓。
 
 ## 5. 背景与参考视频
 
 背景运行文件：
 
 ```text
-assets/background/mural-texture.jpg
+assets/background/stone-texture-clean-v2.jpg
 ```
 
 其可复现源文件：
 
 ```text
-assets/source-highres/base-mural.png
+assets/source-highres/base-stone-clean-v2.png
 ```
+
+该背景只保留低对比度的暖灰石壁肌理，不包含人物、乐器、宴席、编号、格线、边框或建筑结构。63 个分格、梁柱、边框和中央舞台全部由程序绘制。原始 `base-mural.png` 仅作为历史参考和版本回退保留，不再用于重建任何运行人物。
 
 交付物没有从用户上传的参考视频中抠取人物、纹样、建筑或音乐像素。参考视频只用于研究以下设计原则：
 

@@ -143,8 +143,9 @@ def run_primary(page: Page, base_url: str) -> dict:
           {"configured": initial["distinctSpriteFiles"], "loaded": initial["loadedSpriteFiles"]})
     check("asset diversity metadata records 32 genuinely different base silhouettes",
           initial["assetStats"]["distinctBaseSilhouetteCount"] == 32
-          and initial["assetStats"]["independentHighResSourceCount"] == 8
-          and initial["assetStats"]["muralDerivedDistinctSourceCount"] == 24,
+          and initial["assetStats"]["independentHighResSourceCount"] == 32
+          and initial["assetStats"]["additionalIndependentSourceCount"] == 24
+          and initial["assetStats"]["muralDerivedDistinctSourceCount"] == 0,
           initial["assetStats"])
     structure = initial["sceneStructure"]
     check("dense landscape visual structure",

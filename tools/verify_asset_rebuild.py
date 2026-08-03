@@ -105,14 +105,12 @@ def semantic_digest(path: Path) -> tuple[str, dict[str, object]]:
 
 def generated_relpaths(root: Path) -> list[Path]:
     required = [
-        Path("assets/background/mural-texture.jpg"),
-        Path("assets/source-highres/mural-crops/manifest.json"),
+        Path("assets/background/stone-texture-clean-v2.jpg"),
         Path("assets/sprites/manifest.json"),
         Path("config/scene.json"),
         Path("docs/screenshots/asset-contact-sheet.jpg"),
     ]
     patterns = [
-        "assets/source-highres/mural-crops/*.png",
         "assets/sprites/variants/*.png",
         "assets/audio/*.ogg",
     ]

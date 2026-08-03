@@ -117,11 +117,12 @@ export function validateSceneConfig(scene) {
   if (!assetStats
       || assetStats.distinctBaseSilhouetteCount < 24
       || assetStats.runtimeSpriteCount < 50
-      || assetStats.independentHighResSourceCount < 8
-      || assetStats.muralDerivedDistinctSourceCount < 16
+      || assetStats.independentHighResSourceCount < 32
+      || assetStats.additionalIndependentSourceCount < 24
+      || assetStats.muralDerivedDistinctSourceCount !== 0
       || assetStats.recordedAudioVoiceCount !== 63
       || assetStats.sourceRecordingCount < 126) {
-    errors.push('assetStats 必须记录视觉素材，以及 63 个独立实录声部和至少 126 个源录音');
+    errors.push('assetStats 必须记录 32 个独立视觉源、零壁画裁切源，以及 63 个独立实录声部和至少 126 个源录音');
   }
   const structure = scene.visualStructure;
   if (!structure

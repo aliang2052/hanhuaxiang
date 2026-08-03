@@ -496,12 +496,10 @@ class HanOrchestraApp {
 async function bootstrap() {
   const introCopy = document.querySelector('.intro-copy');
   try {
-    const [sceneRaw, texture] = await Promise.all([
-      loadJson('config/scene.json'),
-      loadImage('assets/background/mural-texture.jpg'),
-    ]);
+    const sceneRaw = await loadJson('config/scene.json');
     const validation = validateSceneConfig(sceneRaw);
     if (!validation.valid) throw new Error(`场景配置无效：${validation.errors.join(' ')}`);
+    const texture = await loadImage(validation.config.background.runtime);
     const app = new HanOrchestraApp(validation.config, texture);
     app.exposeTestApi();
     await app.init();

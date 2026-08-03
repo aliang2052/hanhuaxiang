@@ -25,8 +25,9 @@ test('V3 scene uses the full composition catalog and one live-recorded voice per
   assert.ok(scene.nodes.every((node) => typeof node.secondaryColor === 'string'));
   assert.equal(scene.assetStats.runtimeSpriteCount, 60);
   assert.equal(scene.assetStats.distinctBaseSilhouetteCount, 32);
-  assert.equal(scene.assetStats.independentHighResSourceCount, 8);
-  assert.equal(scene.assetStats.muralDerivedDistinctSourceCount, 24);
+  assert.equal(scene.assetStats.independentHighResSourceCount, 32);
+  assert.equal(scene.assetStats.additionalIndependentSourceCount, 24);
+  assert.equal(scene.assetStats.muralDerivedDistinctSourceCount, 0);
   assert.equal(scene.visualStructure.landscapePanelCount, 63);
   assert.ok(scene.visualStructure.centralStagePanelIds.length >= 5);
   assert.equal(scene.visualStructure.sideBorderCount, 2);

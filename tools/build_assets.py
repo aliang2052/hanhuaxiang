@@ -2,13 +2,14 @@
 """Rebuild project-owned visual/audio outputs without online dependencies.
 
 The immutable inputs are:
-- assets/source-highres/base-mural.png
+- assets/source-highres/base-stone-clean-v2.png
 - eight independently generated transparent character PNGs in assets/source-highres/
+- twenty-four independently generated transparent character/group PNGs in
+  assets/source-highres/independent-v2/
 
-Twenty-four additional *distinct* base silhouettes/groups are deterministically
-extracted from the project-owned mural by crop recipes. Runtime sprites are then
-built from 32 base silhouettes. Use --output-root to build into a temporary tree;
-this is what the non-destructive cross-platform verifier does.
+Runtime sprites are built from 32 independently designed base sources. No
+character is extracted from the mural. Use --output-root to build into a
+temporary tree; this is what the non-destructive cross-platform verifier does.
 """
 from __future__ import annotations
 
@@ -19,13 +20,16 @@ from dataclasses import dataclass
 from pathlib import Path
 
 import numpy as np
-from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageOps
+from PIL import Image, ImageDraw, ImageEnhance, ImageOps
 
 from build_live_audio import build_live_audio
 from live_audio_catalog import ANIMATION_AUDIO_ROLE, LIVE_VOICES, PLAYBACK_GAIN_SCALE
 
 ROOT = Path(__file__).resolve().parents[1]
 INPUT_SOURCE = ROOT / "assets" / "source-highres"
+ADDITIONAL_SOURCE_DIR = INPUT_SOURCE / "independent-v2"
+BACKGROUND_SOURCE_NAME = "base-stone-clean-v2.png"
+BACKGROUND_RUNTIME_NAME = "stone-texture-clean-v2.jpg"
 
 INDEPENDENT_TYPES = ["qin", "flute", "pipa", "bells", "erhu", "drum", "dancer", "attendant"]
 TYPE_META = {
@@ -49,40 +53,37 @@ TYPE_META = {
     "horn": {"label": "角", "audio": "horn", "animation": "horn", "color": "#9c6a35"},
 }
 
-# Coordinates are in the 1672×941 project-owned mural. They deliberately select
-# different poses, instruments, objects and groups; none is a mirror-only variant.
-MURAL_CROP_RECIPES = [
-    {"id": "mural-qin-platform", "kind": "se", "box": [18, 236, 292, 535]},
-    {"id": "mural-standing-reed", "kind": "sheng", "box": [258, 205, 471, 535]},
-    {"id": "mural-pipa-seated", "kind": "pipa", "box": [488, 235, 716, 526]},
-    {"id": "mural-bell-rack-ensemble", "kind": "bells", "box": [650, 205, 1034, 535]},
-    {"id": "mural-bell-striker", "kind": "bells", "box": [754, 261, 960, 529]},
-    {"id": "mural-bowed-string", "kind": "erhu", "box": [968, 226, 1193, 529]},
-    {"id": "mural-panpipe-seated", "kind": "panpipe", "box": [1206, 236, 1410, 529]},
-    {"id": "mural-grand-drum-duo", "kind": "gong", "box": [1372, 201, 1665, 541]},
-    {"id": "mural-drum-player", "kind": "drum", "box": [1490, 228, 1668, 535]},
-    {"id": "mural-left-attendant", "kind": "clapper", "box": [0, 523, 145, 813]},
-    {"id": "mural-ribbon-duo-left", "kind": "dancer", "box": [104, 498, 350, 812]},
-    {"id": "mural-cymbal-dancer", "kind": "cymbal", "box": [290, 500, 505, 808]},
-    {"id": "mural-tray-procession", "kind": "procession", "box": [428, 492, 606, 812]},
-    {"id": "mural-cup-kneeler-left", "kind": "banquet", "box": [548, 540, 735, 811]},
-    {"id": "mural-banquet-table", "kind": "banquet", "box": [626, 486, 1092, 823]},
-    {"id": "mural-banquet-duo", "kind": "banquet", "box": [698, 520, 960, 811]},
-    {"id": "mural-cup-kneeler-right", "kind": "banquet", "box": [945, 520, 1135, 811]},
-    {"id": "mural-standing-server", "kind": "attendant", "box": [1046, 478, 1206, 818]},
-    {"id": "mural-acrobat-ribbon", "kind": "acrobat", "box": [1110, 497, 1329, 814]},
-    {"id": "mural-sleeve-dancer", "kind": "dancer", "box": [1248, 486, 1492, 817]},
-    {"id": "mural-right-procession", "kind": "procession", "box": [1444, 491, 1672, 820]},
-    {"id": "mural-horn-standing", "kind": "horn", "box": [250, 210, 455, 515]},
-    {"id": "mural-ritual-trio", "kind": "procession", "box": [414, 491, 732, 824]},
-    {"id": "mural-dance-banquet-group", "kind": "dancer", "box": [1080, 470, 1510, 832]},
+ADDITIONAL_SOURCE_SPECS = [
+    {"id": "mural-qin-platform", "kind": "se"},
+    {"id": "mural-standing-reed", "kind": "sheng"},
+    {"id": "mural-pipa-seated", "kind": "pipa"},
+    {"id": "mural-bell-rack-ensemble", "kind": "bells"},
+    {"id": "mural-bell-striker", "kind": "bells"},
+    {"id": "mural-bowed-string", "kind": "erhu"},
+    {"id": "mural-panpipe-seated", "kind": "panpipe"},
+    {"id": "mural-grand-drum-duo", "kind": "gong"},
+    {"id": "mural-drum-player", "kind": "drum"},
+    {"id": "mural-left-attendant", "kind": "clapper"},
+    {"id": "mural-ribbon-duo-left", "kind": "dancer"},
+    {"id": "mural-cymbal-dancer", "kind": "cymbal"},
+    {"id": "mural-tray-procession", "kind": "procession"},
+    {"id": "mural-cup-kneeler-left", "kind": "banquet"},
+    {"id": "mural-banquet-table", "kind": "banquet"},
+    {"id": "mural-banquet-duo", "kind": "banquet"},
+    {"id": "mural-cup-kneeler-right", "kind": "banquet"},
+    {"id": "mural-standing-server", "kind": "attendant"},
+    {"id": "mural-acrobat-ribbon", "kind": "acrobat"},
+    {"id": "mural-sleeve-dancer", "kind": "dancer"},
+    {"id": "mural-right-procession", "kind": "procession"},
+    {"id": "mural-horn-standing", "kind": "horn"},
+    {"id": "mural-ritual-trio", "kind": "procession"},
+    {"id": "mural-dance-banquet-group", "kind": "dancer"},
 ]
 
 @dataclass(frozen=True)
 class BuildPaths:
     root: Path
     assets: Path
-    source_crops: Path
     background: Path
     sprites: Path
     audio: Path
@@ -95,14 +96,13 @@ def paths_for(output_root: Path) -> BuildPaths:
     paths = BuildPaths(
         root=output_root,
         assets=output_root / "assets",
-        source_crops=output_root / "assets" / "source-highres" / "mural-crops",
         background=output_root / "assets" / "background",
         sprites=output_root / "assets" / "sprites" / "variants",
         audio=output_root / "assets" / "audio",
         config=output_root / "config",
         docs=output_root / "docs" / "screenshots",
     )
-    for directory in (paths.source_crops, paths.background, paths.sprites, paths.audio, paths.config, paths.docs):
+    for directory in (paths.background, paths.sprites, paths.audio, paths.config, paths.docs):
         directory.mkdir(parents=True, exist_ok=True)
     return paths
 
@@ -113,13 +113,17 @@ def save_png(image: Image.Image, path: Path) -> None:
 
 
 def validate_inputs() -> None:
-    required = [INPUT_SOURCE / "base-mural.png", *[INPUT_SOURCE / f"{name}.png" for name in INDEPENDENT_TYPES]]
+    required = [
+        INPUT_SOURCE / BACKGROUND_SOURCE_NAME,
+        *[INPUT_SOURCE / f"{name}.png" for name in INDEPENDENT_TYPES],
+        *[ADDITIONAL_SOURCE_DIR / f"{spec['id']}.png" for spec in ADDITIONAL_SOURCE_SPECS],
+    ]
     missing = [path.relative_to(ROOT).as_posix() for path in required if not path.is_file()]
     if missing:
         raise SystemExit("Missing immutable source assets:\n- " + "\n- ".join(missing))
-    mural = Image.open(INPUT_SOURCE / "base-mural.png")
-    if mural.width < 1600 or mural.height < 900:
-        raise SystemExit(f"base-mural.png is too small: {mural.size}")
+    background = Image.open(INPUT_SOURCE / BACKGROUND_SOURCE_NAME)
+    if background.width < 1600 or background.height < 900:
+        raise SystemExit(f"{BACKGROUND_SOURCE_NAME} is too small: {background.size}")
     for name in INDEPENDENT_TYPES:
         image = Image.open(INPUT_SOURCE / f"{name}.png")
         if "A" not in image.getbands() or image.getchannel("A").getbbox() is None:
@@ -128,70 +132,35 @@ def validate_inputs() -> None:
             raise SystemExit(f"{name}.png is too small: {image.size}")
 
 
-def rubbing_alpha_crop(mural: Image.Image, box: list[int], target_long_edge: int = 1200) -> Image.Image:
-    crop = mural.crop(tuple(box)).convert("RGB")
-    # Preserve the dark rubbing strokes while removing the pale stone/paper field.
-    gray = np.asarray(ImageOps.grayscale(crop), dtype=np.float32)
-    local = np.asarray(ImageOps.grayscale(crop.filter(ImageFilter.GaussianBlur(radius=5.0))), dtype=np.float32)
-    detail = np.clip(local - gray - 2.0, 0.0, 58.0)
-    darkness = np.clip((188.0 - gray) * 3.05, 0.0, 255.0)
-    alpha = np.clip(darkness * 0.94 + detail * 1.10, 0.0, 255.0).astype(np.uint8)
-    alpha[alpha < 36] = 0
-    # Remove isolated speckle while retaining engraved linework.
-    alpha_image = Image.fromarray(alpha, mode="L").filter(ImageFilter.MedianFilter(size=3))
-    ink = np.asarray(crop, dtype=np.float32)
-    luminance = gray[..., None]
-    neutral = np.clip(16 + luminance * 0.13, 16, 58)
-    rgba = np.concatenate([np.repeat(neutral, 3, axis=2), np.asarray(alpha_image, dtype=np.uint8)[..., None]], axis=2).astype(np.uint8)
-    image = Image.fromarray(rgba, mode="RGBA")
-    bbox = image.getchannel("A").getbbox()
-    if bbox:
-        image = image.crop(bbox)
-    pad = max(18, int(max(image.size) * 0.035))
-    image = ImageOps.expand(image, border=pad, fill=(0, 0, 0, 0))
-    if max(image.size) > target_long_edge:
-        scale = target_long_edge / max(image.size)
-        image = image.resize((max(1, round(image.width * scale)), max(1, round(image.height * scale))), Image.Resampling.LANCZOS)
-    return image
-
-
-def build_mural_crops(paths: BuildPaths) -> list[dict[str, object]]:
-    mural = Image.open(INPUT_SOURCE / "base-mural.png").convert("RGB")
-    for old in paths.source_crops.glob("*.png"):
-        old.unlink()
+def additional_source_catalog() -> list[dict[str, object]]:
     entries: list[dict[str, object]] = []
     semantic_seen: set[bytes] = set()
-    for recipe in MURAL_CROP_RECIPES:
-        image = rubbing_alpha_crop(mural, recipe["box"])
-        pixel_bytes = image.tobytes()
-        if pixel_bytes in semantic_seen:
-            raise RuntimeError(f"duplicate mural crop pixels: {recipe['id']}")
-        semantic_seen.add(pixel_bytes)
-        filename = f"{recipe['id']}.png"
-        save_png(image, paths.source_crops / filename)
-        meta = TYPE_META[str(recipe["kind"])]
+    for spec in ADDITIONAL_SOURCE_SPECS:
+        source_id = str(spec["id"])
+        path = ADDITIONAL_SOURCE_DIR / f"{source_id}.png"
+        image = Image.open(path).convert("RGBA")
+        if image.getchannel("A").getbbox() is None:
+            raise RuntimeError(f"additional source is empty: {path}")
+        if min(image.size) < 360:
+            raise RuntimeError(f"additional source is too small: {path} {image.size}")
+        semantic = image.tobytes()
+        if semantic in semantic_seen:
+            raise RuntimeError(f"duplicate additional source pixels: {source_id}")
+        semantic_seen.add(semantic)
+        meta = TYPE_META[str(spec["kind"])]
         entries.append({
-            "id": recipe["id"],
-            "kind": recipe["kind"],
+            "id": source_id,
+            "kind": spec["kind"],
             "label": meta["label"],
             "audioGroup": meta["audio"],
             "animation": meta["animation"],
             "color": meta["color"],
-            "file": f"assets/source-highres/mural-crops/{filename}",
-            "sourceFile": "assets/source-highres/base-mural.png",
-            "cropBox": recipe["box"],
-            "provenance": "deterministic-distinct-crop-from-project-owned-mural",
+            "file": f"assets/source-highres/independent-v2/{source_id}.png",
+            "inputPath": path,
+            "provenance": "independently-generated-project-owned-source-v2",
             "width": image.width,
             "height": image.height,
         })
-    manifest = {
-        "version": 1,
-        "count": len(entries),
-        "independentSourceCount": len(INDEPENDENT_TYPES),
-        "totalDistinctBaseSilhouetteCount": len(INDEPENDENT_TYPES) + len(entries),
-        "assets": entries,
-    }
-    (paths.source_crops / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return entries
 
 
@@ -256,11 +225,11 @@ def source_path(entry: dict[str, object], paths: BuildPaths) -> Path:
 
 
 def build_background(paths: BuildPaths) -> None:
-    mural = Image.open(INPUT_SOURCE / "base-mural.png").convert("RGB")
+    mural = Image.open(INPUT_SOURCE / BACKGROUND_SOURCE_NAME).convert("RGB")
     mural = ImageEnhance.Contrast(mural).enhance(1.02)
     mural = ImageEnhance.Brightness(mural).enhance(1.02)
     mural = mural.resize((2048, 1152), Image.Resampling.LANCZOS)
-    mural.save(paths.background / "mural-texture.jpg", format="JPEG", quality=91, subsampling=0, optimize=False, progressive=False)
+    mural.save(paths.background / BACKGROUND_RUNTIME_NAME, format="JPEG", quality=91, subsampling=0, optimize=False, progressive=False)
 
 
 def asset_entry(asset_id: str, filename: str, source_entries: list[dict[str, object]], composition: str,
@@ -282,9 +251,9 @@ def asset_entry(asset_id: str, filename: str, source_entries: list[dict[str, obj
     }
 
 
-def build_visuals(paths: BuildPaths, crop_entries: list[dict[str, object]]) -> list[dict[str, object]]:
+def build_visuals(paths: BuildPaths, additional_entries: list[dict[str, object]]) -> list[dict[str, object]]:
     build_background(paths)
-    catalog = [*independent_catalog(), *crop_entries]
+    catalog = [*independent_catalog(), *additional_entries]
     prepared = {str(entry["id"]): prepared_source(source_path(entry, paths)) for entry in catalog}
     by_id = {str(entry["id"]): entry for entry in catalog}
     for old in paths.sprites.glob("*.png"):
@@ -373,11 +342,12 @@ def build_visuals(paths: BuildPaths, crop_entries: list[dict[str, object]]) -> l
     if len(runtime) != 60:
         raise RuntimeError(f"runtime asset count must be 60, got {len(runtime)}")
     runtime_manifest = {
-        "version": 3,
+        "version": 4,
         "count": len(runtime),
         "distinctBaseSilhouetteCount": len(catalog),
-        "independentHighResSourceCount": len(INDEPENDENT_TYPES),
-        "muralDerivedDistinctSourceCount": len(crop_entries),
+        "independentHighResSourceCount": len(catalog),
+        "additionalIndependentSourceCount": len(additional_entries),
+        "muralDerivedDistinctSourceCount": 0,
         "assets": runtime,
     }
     (paths.assets / "sprites" / "manifest.json").parent.mkdir(parents=True, exist_ok=True)
@@ -561,7 +531,6 @@ def build_scene(paths: BuildPaths, runtime: list[dict[str, object]]) -> None:
         pool = pools[composition]
         asset = runtime[pool[pool_cursor[composition] % len(pool)]]
         pool_cursor[composition] += 1
-        clean_independent = str(asset["id"]).startswith("solo-independent-")
         animation = str(asset["animation"])
         audio_role = ANIMATION_AUDIO_ROLE[animation]
         voice_pool = audio_pools[audio_role]
@@ -570,12 +539,11 @@ def build_scene(paths: BuildPaths, runtime: list[dict[str, object]]) -> None:
         voice = voice_pool[audio_cursor[audio_role]]
         audio_cursor[audio_role] += 1
         voice_id = f"voice-{LIVE_VOICES.index(voice):02d}-{voice['slug']}"
-        scale = (1.20 if clean_independent else 1.12) + ((cell_id * 17) % 5) / 100
+        scale = 1.16 + ((cell_id * 17) % 5) / 100
         landscape_rect = CENTRAL_CORE_RECTS[cell_id] if central else rect_only(slot, .008)
-        # Mural crops contain useful archaeological context around the figure.
-        # Cover-fit trims that frame and makes the performer, not the crop box,
-        # dominate the bay. Clean transparent figures keep contain-fit.
-        fit_mode = "contain" if clean_independent else "cover"
+        # All 32 base sources are transparent, independently designed figures or
+        # groups. Contain-fit preserves the complete silhouette without cropping.
+        fit_mode = "contain"
         nodes.append({
             "id": cell_id,
             "triggerRow": cell_id // 9,
@@ -627,7 +595,10 @@ def build_scene(paths: BuildPaths, runtime: list[dict[str, object]]) -> None:
         "name": "汉画像·百戏乐舞 V3 Live",
         "trigger": {"rows": 7, "cols": 9, "coordinateSpace": "normalized-camera-plane"},
         "palette": {"paper": "#cbb28a", "ink": "#21170f", "accent": "#a84429"},
-        "background": {"runtime": "assets/background/mural-texture.jpg", "source": "assets/source-highres/base-mural.png"},
+        "background": {
+            "runtime": f"assets/background/{BACKGROUND_RUNTIME_NAME}",
+            "source": f"assets/source-highres/{BACKGROUND_SOURCE_NAME}",
+        },
         "visualStructure": {
             "layoutVersion": 3,
             "landscapePanelCount": 63,
@@ -639,8 +610,9 @@ def build_scene(paths: BuildPaths, runtime: list[dict[str, object]]) -> None:
         "assetStats": {
             "runtimeSpriteCount": len(runtime),
             "distinctBaseSilhouetteCount": 32,
-            "independentHighResSourceCount": 8,
-            "muralDerivedDistinctSourceCount": 24,
+            "independentHighResSourceCount": 32,
+            "additionalIndependentSourceCount": 24,
+            "muralDerivedDistinctSourceCount": 0,
             "recordedAudioVoiceCount": 63,
             "sourceRecordingCount": 246,
         },
@@ -657,7 +629,7 @@ def build_audio(paths: BuildPaths) -> dict[str, object]:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--visuals", action="store_true", help="rebuild source crops, background, 60 sprites, scene config and contact sheet")
+    parser.add_argument("--visuals", action="store_true", help="rebuild background, 60 sprites, scene config and contact sheet")
     parser.add_argument("--audio", action="store_true", help="rebuild 63 one-cell/one-voice V3 live-recording loops")
     parser.add_argument("--all", action="store_true", help="rebuild all generated outputs")
     parser.add_argument("--output-root", type=Path, default=ROOT, help="write outputs under this root without modifying the project tree")
@@ -667,10 +639,15 @@ def main() -> None:
     everything = args.all or not (args.visuals or args.audio)
     summary: dict[str, object] = {"outputRoot": str(paths.root)}
     if everything or args.visuals:
-        crop_entries = build_mural_crops(paths)
-        runtime = build_visuals(paths, crop_entries)
+        additional_entries = additional_source_catalog()
+        runtime = build_visuals(paths, additional_entries)
         build_scene(paths, runtime)
-        summary.update({"distinctBaseSilhouettes": 32, "muralDerivedSources": len(crop_entries), "runtimeSprites": len(runtime)})
+        summary.update({
+            "distinctBaseSilhouettes": 32,
+            "independentHighResSources": len(INDEPENDENT_TYPES) + len(additional_entries),
+            "muralDerivedSources": 0,
+            "runtimeSprites": len(runtime),
+        })
     if everything or args.audio:
         audio_summary = build_audio(paths)
         summary.update({"audioLoops": audio_summary["voiceCount"], "sourceRecordings": audio_summary["recordingCount"]})
