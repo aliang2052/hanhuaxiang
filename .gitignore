@@ -8,3 +8,12 @@ __pycache__/
 /.venv/
 /.playwright/
 *.zip
+
+# Superseded local visual prototypes kept for reference, not delivery.
+/dancer-demo.css
+/dancer-demo.html
+/dancer-demo.js
+/assets/background/mural-texture-empty-v1.jpg
+/assets/source-highres/base-mural-empty-v1.png
+/assets/source-highres/dancer-parts-v1.png
+/assets/source-highres/dancer-parts-v3/

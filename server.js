@@ -126,7 +126,7 @@ export async function startServer() {
   for (const list of Object.values(os.networkInterfaces())) {
     for (const address of list || []) if (address.family === 'IPv4' && !address.internal) addresses.push(address.address);
   }
-  console.log('\n汉画像·百戏乐舞 V3 Live 已启动');
+  console.log('\n汉画像·百戏乐舞 V4 Motion 已启动');
   console.log(`本机： http://localhost:${port}`);
   for (const address of addresses) console.log(`局域网： http://${address}:${port}`);
   console.log(`健康检查： http://localhost:${port}/health`);

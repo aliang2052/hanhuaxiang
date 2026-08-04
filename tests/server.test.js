@@ -16,7 +16,7 @@ test('health and static files expose production headers', async () => {
     assert.equal(health.status, 200);
     const payload = await health.json();
     assert.equal(payload.ok, true);
-    assert.equal(payload.version, '4.0.0-v3-live');
+    assert.equal(payload.version, '4.1.0-v4-motion');
     const page = await fetch(`${base}/`);
     assert.equal(page.status, 200);
     assert.match(page.headers.get('content-security-policy'), /default-src 'self'/);

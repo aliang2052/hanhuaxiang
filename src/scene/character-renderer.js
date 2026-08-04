@@ -1,5 +1,8 @@
 import { clamp, hashNumber, hexToRgb, smoothstep } from '../core/math.js';
+import { computeCharacterPose, deformCharacterPoint, performanceCue } from './character-motion.js';
 import { getNodeRect } from './scene-layout.js';
+
+export { performanceCue } from './character-motion.js';
 
 function makeCanvas(width, height) {
   if (typeof OffscreenCanvas !== 'undefined') return new OffscreenCanvas(width, height);
@@ -67,18 +70,6 @@ function buildVariant(image, filter) {
   return canvas;
 }
 
-function buildTint(image, color) {
-  const canvas = makeCanvas(image.width, image.height);
-  const ctx = canvas.getContext('2d');
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = color;
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-  ctx.globalCompositeOperation = 'destination-in';
-  ctx.drawImage(image, 0, 0);
-  ctx.globalCompositeOperation = 'source-over';
-  return canvas;
-}
-
 function fitContain(image, rect, scale = 1, yBias = 0) {
   const aspect = image.width / image.height;
   let w = rect.w * scale;
@@ -116,6 +107,48 @@ function fitAsset(image, rect, scale, yBias, mode) {
   return mode === 'cover' ? fitCover(image, rect, scale, yBias) : fitContain(image, rect, scale, yBias);
 }
 
+function expandTriangle(points, pixels = 0.72) {
+  const cx = (points[0].x + points[1].x + points[2].x) / 3;
+  const cy = (points[0].y + points[1].y + points[2].y) / 3;
+  return points.map((point) => {
+    const dx = point.x - cx;
+    const dy = point.y - cy;
+    const length = Math.hypot(dx, dy) || 1;
+    return { x: point.x + dx / length * pixels, y: point.y + dy / length * pixels };
+  });
+}
+
+function drawTexturedTriangle(ctx, image, source, target) {
+  const [s0, s1, s2] = source;
+  const [d0, d1, d2] = target;
+  const denominator = s0.x * (s1.y - s2.y)
+    + s1.x * (s2.y - s0.y)
+    + s2.x * (s0.y - s1.y);
+  if (Math.abs(denominator) < 0.000001) return;
+  const a = (d0.x * (s1.y - s2.y) + d1.x * (s2.y - s0.y) + d2.x * (s0.y - s1.y)) / denominator;
+  const b = (d0.y * (s1.y - s2.y) + d1.y * (s2.y - s0.y) + d2.y * (s0.y - s1.y)) / denominator;
+  const c = (d0.x * (s2.x - s1.x) + d1.x * (s0.x - s2.x) + d2.x * (s1.x - s0.x)) / denominator;
+  const d = (d0.y * (s2.x - s1.x) + d1.y * (s0.x - s2.x) + d2.y * (s1.x - s0.x)) / denominator;
+  const e = (d0.x * (s1.x * s2.y - s2.x * s1.y)
+    + d1.x * (s2.x * s0.y - s0.x * s2.y)
+    + d2.x * (s0.x * s1.y - s1.x * s0.y)) / denominator;
+  const f = (d0.y * (s1.x * s2.y - s2.x * s1.y)
+    + d1.y * (s2.x * s0.y - s0.x * s2.y)
+    + d2.y * (s0.x * s1.y - s1.x * s0.y)) / denominator;
+  const clip = expandTriangle(target);
+
+  ctx.save();
+  ctx.beginPath();
+  ctx.moveTo(clip[0].x, clip[0].y);
+  ctx.lineTo(clip[1].x, clip[1].y);
+  ctx.lineTo(clip[2].x, clip[2].y);
+  ctx.closePath();
+  ctx.clip();
+  ctx.transform(a, b, c, d, e, f);
+  ctx.drawImage(image, 0, 0);
+  ctx.restore();
+}
+
 const EFFECT_ANCHORS = {
   pluck: [0.58, 0.56], harp: [0.54, 0.58], flute: [0.61, 0.37], reed: [0.55, 0.38],
   panpipe: [0.56, 0.39], horn: [0.63, 0.38], strike: [0.57, 0.43], drum: [0.55, 0.48],
@@ -123,127 +156,6 @@ const EFFECT_ANCHORS = {
   dance: [0.50, 0.48], acrobat: [0.50, 0.48], procession: [0.52, 0.50], banquet: [0.53, 0.53],
   serve: [0.54, 0.48],
 };
-
-export function performanceCue(node, now) {
-  const period = Math.max(0.25, Number(node.beatPeriod) || 1);
-  const seconds = Math.max(0, now * 0.001 + (Number(node.beatOffset) || 0));
-  const phase = (seconds % period) / period;
-  const attack = Math.exp(-phase * (node.animation === 'dance' || node.animation === 'acrobat' ? 8 : 15));
-  const release = Math.exp(-phase * 3.1);
-  return { phase, attack, release, period, beat: Math.floor(seconds / period) };
-}
-
-function animationTransform(node, activation, now) {
-  const t = now * 0.001 + (node.phase || 0);
-  const strength = activation * (node.motion || 1);
-  const cue = performanceCue(node, now);
-  const result = { dx: 0, dy: 0, rotation: 0, sx: 1, sy: 1, upperDx: 0, upperDy: 0, upperRotation: 0 };
-  switch (node.animation) {
-    case 'pluck':
-      result.dy = Math.sin(t * 1.8) * 0.003 * strength;
-      result.upperDx = (Math.sin(t * 7.4) * 0.008 + cue.attack * 0.026) * strength;
-      result.upperRotation = (Math.sin(t * 4.7) * 0.009 - cue.attack * 0.025) * strength;
-      break;
-    case 'flute':
-      result.rotation = Math.sin(t * 1.25) * 0.009 * strength;
-      result.upperDy = Math.sin(t * 3.1) * 0.009 * strength;
-      break;
-    case 'strike': {
-      const beat = cue.attack;
-      result.upperDy = -beat * 0.045 * strength;
-      result.upperRotation = -beat * 0.045 * strength;
-      result.sy = 1 + beat * 0.012;
-      break;
-    }
-    case 'bow':
-      result.upperDx = (Math.sin(t * 4.9) * 0.022 + cue.attack * 0.012) * strength;
-      result.upperRotation = Math.sin(t * 2.45) * 0.02 * strength;
-      result.rotation = Math.sin(t * 1.15) * 0.006 * strength;
-      break;
-    case 'drum': {
-      const beat = cue.attack;
-      result.upperDx = beat * 0.025 * strength;
-      result.upperDy = beat * 0.028 * strength;
-      result.upperRotation = beat * 0.055 * strength;
-      break;
-    }
-    case 'dance':
-      result.dx = Math.sin(t * 1.3) * 0.018 * strength;
-      result.dy = (Math.cos(t * 2.1) * 0.008 - cue.attack * 0.012) * strength;
-      result.rotation = (Math.sin(t * 1.65) * 0.035 + (cue.beat % 2 ? -1 : 1) * cue.attack * 0.018) * strength;
-      result.sx = 1 + Math.sin(t * 2.4) * 0.014 * strength;
-      result.upperRotation = Math.sin(t * 2.9) * 0.055 * strength;
-      break;
-    case 'serve':
-      result.dy = Math.sin(t * 1.15) * 0.005 * strength;
-      result.rotation = Math.sin(t * 0.85) * 0.006 * strength;
-      break;
-    case 'reed':
-      result.upperDy = Math.sin(t * 2.8) * 0.006 * strength;
-      result.rotation = Math.sin(t * 1.05) * 0.008 * strength;
-      result.sy = 1 + Math.sin(t * 1.7) * 0.006 * strength;
-      break;
-    case 'panpipe':
-      result.upperDx = Math.sin(t * 2.4) * 0.009 * strength;
-      result.upperRotation = Math.sin(t * 1.8) * 0.014 * strength;
-      break;
-    case 'harp':
-      result.upperDx = (Math.sin(t * 6.2) * 0.01 + cue.attack * 0.018) * strength;
-      result.upperDy = Math.cos(t * 3.1) * 0.004 * strength;
-      result.rotation = Math.sin(t * 0.9) * 0.006 * strength;
-      break;
-    case 'clapper': {
-      const clap = cue.attack;
-      result.upperDx = clap * 0.035 * strength;
-      result.upperRotation = -clap * 0.04 * strength;
-      break;
-    }
-    case 'cymbal': {
-      const clash = cue.attack;
-      result.upperDx = -clash * 0.028 * strength;
-      result.upperDy = clash * 0.012 * strength;
-      result.sx = 1 + clash * 0.015 * strength;
-      break;
-    }
-    case 'acrobat':
-      result.dx = Math.sin(t * 1.8) * 0.022 * strength;
-      result.dy = Math.cos(t * 2.7) * 0.014 * strength;
-      result.rotation = (Math.sin(t * 2.1) * 0.055 + cue.attack * 0.026) * strength;
-      result.sy = 1 + Math.sin(t * 3.2) * 0.018 * strength;
-      break;
-    case 'procession':
-      result.dx = Math.sin(t * 1.15) * 0.012 * strength;
-      result.dy = Math.abs(Math.sin(t * 2.3)) * -0.006 * strength;
-      result.upperRotation = Math.sin(t * 1.4) * 0.015 * strength;
-      break;
-    case 'banquet':
-      result.upperDx = Math.sin(t * 2.2) * 0.012 * strength;
-      result.upperDy = Math.cos(t * 2.2) * 0.006 * strength;
-      result.sy = 1 + Math.sin(t * 1.1) * 0.005 * strength;
-      break;
-    case 'gong': {
-      const hit = cue.attack;
-      result.upperDx = hit * 0.038 * strength;
-      result.upperDy = -hit * 0.028 * strength;
-      result.upperRotation = hit * 0.065 * strength;
-      result.sx = 1 + hit * 0.009;
-      break;
-    }
-    case 'horn':
-      result.rotation = Math.sin(t * 0.85) * 0.012 * strength;
-      result.upperDy = Math.sin(t * 2.6) * 0.007 * strength;
-      result.upperRotation = Math.sin(t * 1.3) * 0.01 * strength;
-      break;
-    case 'sway':
-      result.dx = Math.sin(t * 1.2) * 0.009 * strength;
-      result.rotation = Math.sin(t * 1.05) * 0.012 * strength;
-      break;
-    default:
-      result.sy = 1 + Math.sin(t * 1.5) * 0.008 * strength;
-      result.dy = Math.sin(t * 1.2) * 0.003 * strength;
-  }
-  return result;
-}
 
 export class CharacterRenderer {
   constructor(nodes) {
@@ -253,7 +165,6 @@ export class CharacterRenderer {
     this.idleCache = null;
     this.idleCacheKey = '';
     this.bloomCache = new Map();
-    this.tintCache = new Map();
   }
 
   async load() {
@@ -337,7 +248,7 @@ export class CharacterRenderer {
     const seed = hashNumber(node.id * 7919 + 17);
     const baseScale = (node.scale || 0.9) * (0.94 + seed * 0.08);
     const box = fitAsset(asset.active, rect, baseScale, node.yBias || 0.05, node.fitMode);
-    const transform = animationTransform(node, activation, now);
+    const transform = computeCharacterPose(node, activation, now);
     const cx = box.x + box.w * 0.5;
     const cy = box.y + box.h * (node.pivotY || 0.68);
 
@@ -354,49 +265,53 @@ export class CharacterRenderer {
     const activeAlpha = smoothstep(0, 0.58, activation);
     const cue = performanceCue(node, now);
     this.#drawArticulatedSprite(ctx, node, asset.active, box, transform, activeAlpha * 0.985);
-    this.#drawColorAccent(ctx, node, asset, box, transform, activeAlpha, cue, now);
+    this.#drawColorAccent(ctx, node, box, activeAlpha, cue, now);
     ctx.restore();
   }
 
   #drawArticulatedSprite(ctx, node, image, box, transform, alpha) {
-    const hasUpperMotion = node.composition === 'solo'
-      && Math.abs(transform.upperDx) + Math.abs(transform.upperDy) + Math.abs(transform.upperRotation) > 0.0001;
     ctx.globalAlpha = alpha;
-    if (!hasUpperMotion) {
+    if (transform.meshEnergy < 0.0002) {
       ctx.drawImage(image, box.x, box.y, box.w, box.h);
       return;
     }
-    const clipY = box.y + box.h * (node.upperSplit || 0.58);
-    ctx.save();
-    ctx.beginPath();
-    ctx.rect(box.x - box.w * 0.15, clipY, box.w * 1.3, box.y + box.h - clipY + box.h * 0.08);
-    ctx.clip();
-    ctx.drawImage(image, box.x, box.y, box.w, box.h);
-    ctx.restore();
+    const isSolo = node.composition === 'solo';
+    const columns = isSolo ? 4 : 2;
+    const rows = isSolo ? 5 : 3;
+    const rigAmount = isSolo ? 1 : 0.34;
+    const points = [];
+    for (let row = 0; row <= rows; row += 1) {
+      const v = row / rows;
+      const line = [];
+      for (let column = 0; column <= columns; column += 1) {
+        const u = column / columns;
+        const deformed = deformCharacterPoint(transform, u, v, rigAmount);
+        line.push({
+          source: { x: u * image.width, y: v * image.height },
+          target: { x: box.x + deformed.x * box.w, y: box.y + deformed.y * box.h },
+        });
+      }
+      points.push(line);
+    }
 
-    ctx.save();
-    ctx.beginPath();
-    ctx.rect(box.x - box.w * 0.15, box.y - box.h * 0.08, box.w * 1.3, clipY - box.y + box.h * 0.16);
-    ctx.clip();
-    const upperCx = box.x + box.w * 0.5;
-    const upperCy = clipY;
-    ctx.translate(upperCx + transform.upperDx * box.w, upperCy + transform.upperDy * box.h);
-    ctx.rotate(transform.upperRotation);
-    ctx.translate(-upperCx, -upperCy);
-    ctx.globalAlpha = alpha;
-    ctx.drawImage(image, box.x, box.y, box.w, box.h);
-    ctx.restore();
+    ctx.imageSmoothingEnabled = true;
+    for (let row = 0; row < rows; row += 1) {
+      for (let column = 0; column < columns; column += 1) {
+        const topLeft = points[row][column];
+        const topRight = points[row][column + 1];
+        const bottomLeft = points[row + 1][column];
+        const bottomRight = points[row + 1][column + 1];
+        drawTexturedTriangle(ctx, image,
+          [topLeft.source, topRight.source, bottomRight.source],
+          [topLeft.target, topRight.target, bottomRight.target]);
+        drawTexturedTriangle(ctx, image,
+          [topLeft.source, bottomRight.source, bottomLeft.source],
+          [topLeft.target, bottomRight.target, bottomLeft.target]);
+      }
+    }
   }
 
-  #getTint(asset, color) {
-    const key = `${asset.url}:${color}`;
-    if (this.tintCache.has(key)) return this.tintCache.get(key);
-    const tint = buildTint(asset.source, color);
-    this.tintCache.set(key, tint);
-    return tint;
-  }
-
-  #drawColorAccent(ctx, node, asset, box, transform, activeAlpha, cue, now) {
+  #drawColorAccent(ctx, node, box, activeAlpha, cue, now) {
     if (activeAlpha < 0.015) return;
     const anchor = EFFECT_ANCHORS[node.animation] || [0.52, 0.48];
     const ax = box.x + box.w * anchor[0];
@@ -405,23 +320,12 @@ export class CharacterRenderer {
     const radiusY = box.h * (node.composition === 'solo' ? 0.27 : 0.22);
     const color = node.color || '#c49a3a';
     const secondary = node.secondaryColor || '#e2b951';
-    const tintAlpha = activeAlpha * (0.26 + cue.release * 0.28 + cue.attack * 0.62);
-
-    ctx.save();
-    ctx.beginPath();
-    ctx.ellipse(ax, ay, radiusX * (1 + cue.attack * 0.18), radiusY * (1 + cue.attack * 0.12), 0, 0, Math.PI * 2);
-    ctx.clip();
-    ctx.globalCompositeOperation = 'source-over';
-    ctx.globalAlpha = tintAlpha;
-    this.#drawArticulatedSprite(ctx, node, this.#getTint(asset, color), box, transform, tintAlpha);
-    ctx.restore();
-
     ctx.save();
     ctx.globalCompositeOperation = 'multiply';
     ctx.strokeStyle = secondary;
     ctx.fillStyle = color;
     ctx.lineWidth = Math.max(1, Math.min(box.w, box.h) * 0.012);
-    ctx.globalAlpha = activeAlpha * (0.16 + cue.release * 0.16 + cue.attack * 0.72);
+    ctx.globalAlpha = activeAlpha * (0.1 + cue.release * 0.1 + cue.attack * 0.34);
     if (['strike', 'drum', 'gong', 'cymbal', 'clapper'].includes(node.animation)) {
       const ring = Math.max(3, Math.min(box.w, box.h) * (0.12 + (1 - cue.release) * 0.18));
       ctx.beginPath();

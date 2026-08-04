@@ -592,7 +592,7 @@ def build_scene(paths: BuildPaths, runtime: list[dict[str, object]]) -> None:
     ]
     scene = {
         "version": 4,
-        "name": "汉画像·百戏乐舞 V3 Live",
+        "name": "汉画像·百戏乐舞 V4 Motion",
         "trigger": {"rows": 7, "cols": 9, "coordinateSpace": "normalized-camera-plane"},
         "palette": {"paper": "#cbb28a", "ink": "#21170f", "accent": "#a84429"},
         "background": {

@@ -14,6 +14,15 @@ MANIFEST_SHA = ROOT / "MANIFEST.sha256"
 EXCLUDED_PARTS = {".git", "node_modules", "__pycache__", ".pytest_cache", ".playwright"}
 EXCLUDED_NAMES = {"MANIFEST.json", "MANIFEST.sha256", ".DS_Store"}
 EXCLUDED_SUFFIXES = {".zip", ".pyc", ".pyo"}
+EXCLUDED_PATHS = {
+    "assets/background/mural-texture-empty-v1.jpg",
+    "assets/source-highres/base-mural-empty-v1.png",
+    "assets/source-highres/dancer-parts-v1.png",
+    "dancer-demo.css",
+    "dancer-demo.html",
+    "dancer-demo.js",
+}
+EXCLUDED_PATH_PREFIXES = {"assets/source-highres/dancer-parts-v3/"}
 
 
 def sha256(path: Path) -> str:
@@ -32,6 +41,11 @@ def project_files() -> list[Path]:
         relative = path.relative_to(ROOT)
         if any(part in EXCLUDED_PARTS for part in relative.parts):
             continue
+        relative_posix = relative.as_posix()
+        if relative_posix in EXCLUDED_PATHS:
+            continue
+        if any(relative_posix.startswith(prefix) for prefix in EXCLUDED_PATH_PREFIXES):
+            continue
         if path.name in EXCLUDED_NAMES or path.suffix in EXCLUDED_SUFFIXES:
             continue
         files.append(path)
@@ -39,6 +53,7 @@ def project_files() -> list[Path]:
 
 
 def build() -> dict:
+    package = json.loads((ROOT / "package.json").read_text(encoding="utf-8"))
     entries = []
     total_bytes = 0
     for path in project_files():
@@ -49,7 +64,7 @@ def build() -> dict:
     payload = {
         "schemaVersion": 1,
         "baseline": "ac76d30",
-        "packageVersion": "4.0.0-v3-live",
+        "packageVersion": package["version"],
         "fileCount": len(entries),
         "totalBytes": total_bytes,
         "files": entries,
