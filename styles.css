@@ -87,6 +87,45 @@ input[type="range"] { width: 100%; accent-color: #a64b36; }
 .recognition-metrics dd { margin: 0; overflow: hidden; color: #e4ddca; font: 10px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; text-overflow: ellipsis; white-space: nowrap; }
 .recognition-hint { margin: 8px 0 0; color: var(--warning); font-size: 11px; line-height: 1.55; }
 
+.recognition-monitor-dock {
+  position: absolute;
+  z-index: 18;
+  top: max(58px, calc(env(safe-area-inset-top) + 48px));
+  right: max(14px, env(safe-area-inset-right));
+  width: min(360px, calc(100vw - 28px));
+  padding: 3px;
+  overflow: hidden;
+  background: linear-gradient(145deg, rgba(18,24,23,.91), rgba(22,20,18,.94));
+  border: 1px solid rgba(132,212,190,.28);
+  border-radius: 6px;
+  box-shadow: 0 18px 58px rgba(0,0,0,.38), inset 0 1px 0 rgba(255,255,255,.045);
+  backdrop-filter: blur(18px);
+  pointer-events: auto;
+  touch-action: none;
+  will-change: left, top, transform;
+  transition: left .58s cubic-bezier(.22,.8,.24,1), top .58s cubic-bezier(.22,.8,.24,1), opacity .28s ease, transform .28s ease, box-shadow .28s ease;
+}
+.recognition-monitor-dock[hidden] { display: none; }
+.recognition-monitor-dock .recognition-monitor { margin: 0; padding: 0; border: 0; }
+.recognition-monitor-dock .recognition-head { min-height: 22px; padding: 0 2px; }
+.recognition-monitor-dock .recognition-monitor canvas { margin-top: 1px; border-radius: 3px; }
+.recognition-monitor-dock .recognition-metrics,
+.recognition-monitor-dock .recognition-hint { display: none; }
+.recognition-monitor-dock .recognition-head { cursor: grab; user-select: none; }
+.recognition-monitor-dock.is-dragging { transition: none; box-shadow: 0 24px 72px rgba(0,0,0,.5), 0 0 0 1px rgba(109,255,201,.22); }
+.recognition-monitor-dock.is-dragging .recognition-head { cursor: grabbing; }
+.recognition-monitor-dock.is-relocating { transform: translateY(-3px); box-shadow: 0 24px 74px rgba(0,0,0,.48), 0 0 28px rgba(91,235,198,.18); }
+.recognition-monitor-dock .recognition-head h3::before {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: #6dffc9;
+  box-shadow: 0 0 12px rgba(77,255,196,.76);
+  content: '';
+}
+
 .floating-control, .floating-audio { position: absolute; z-index: 12; bottom: max(18px, env(safe-area-inset-bottom)); width: 44px; height: 44px; padding: 0; border-radius: 50%; background: rgba(31,30,26,.73); backdrop-filter: blur(8px); font-size: 13px; transition: opacity .3s ease; }
 .floating-control { right: max(18px, env(safe-area-inset-right)); }
 .floating-audio { right: calc(max(18px, env(safe-area-inset-right)) + 52px); }
@@ -123,6 +162,7 @@ body.ui-hidden .operator-ui { opacity: 0; pointer-events: none; }
   .brand > span:last-child { display: none; }
   .status-row .status-pill:nth-child(4) { display: none; }
   .control-panel { right: 7px; top: 50px; width: calc(100vw - 14px); max-height: calc(100dvh - 57px); padding: 14px; border-radius: 11px; }
+  .recognition-monitor-dock { right: 7px; top: 50px; width: calc(100vw - 14px); padding: 3px; border-radius: 5px; }
   .field-row { grid-template-columns: 1fr; gap: 0; }
   .button-grid { gap: 7px; }
   .toggle-grid { grid-template-columns: 1fr; }

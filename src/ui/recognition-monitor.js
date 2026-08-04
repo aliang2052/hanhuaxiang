@@ -1,3 +1,5 @@
+import { applyHomography } from '../core/homography.js';
+
 function fitCanvasBuffer(canvas, imageData) {
   if (canvas.width !== imageData.width) canvas.width = imageData.width;
   if (canvas.height !== imageData.height) canvas.height = imageData.height;
@@ -11,14 +13,22 @@ export class RecognitionMonitor {
     this.lastDraw = 0;
   }
 
-  update(snapshot, { mode, activeCount, audio, now, backgroundCountdown = 0 }) {
-    if (this.panel.hidden || now - this.lastDraw < 90) return;
+  update(snapshot, {
+    mode, activeCount, audio, now, backgroundCountdown = 0,
+    planeToCamera = null, gridRows = 7, gridCols = 9,
+  }) {
+    if (!this.panel.isConnected || this.panel.getClientRects().length === 0 || now - this.lastDraw < 90) return;
     this.lastDraw = now;
     const segmentation = snapshot.segmentation;
     const metrics = segmentation?.metrics || {};
     const components = segmentation?.components || [];
     const semantic = snapshot.recognitionMode === 'semantic-person';
-    this.#draw(snapshot.frame, segmentation);
+    this.#draw(snapshot.frame, segmentation, {
+      planeToCamera,
+      rows: gridRows,
+      cols: gridCols,
+      coverages: snapshot.coverages,
+    });
 
     this.people.textContent = String(components.length);
     this.foreground.textContent = String(metrics.foregroundPixels || 0);
@@ -68,11 +78,12 @@ export class RecognitionMonitor {
     this.hint.textContent = hint;
   }
 
-  #draw(frame, segmentation) {
+  #draw(frame, segmentation, grid) {
     const ctx = this.canvas.getContext('2d');
     ctx.fillStyle = '#080808';
     ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     if (!frame) {
+      this.#drawGrid(ctx, grid);
       this.#label(ctx, '等待摄像头画面');
       return;
     }
@@ -82,6 +93,7 @@ export class RecognitionMonitor {
     ctx.drawImage(this.frameBuffer, 0, 0, this.canvas.width, this.canvas.height);
 
     if (!segmentation?.mask) {
+      this.#drawGrid(ctx, grid);
       this.#label(ctx, '尚未生成人物 Mask');
       return;
     }
@@ -96,6 +108,8 @@ export class RecognitionMonitor {
     fitCanvasBuffer(this.maskBuffer, maskImage);
     this.maskBuffer.getContext('2d').putImageData(maskImage, 0, 0);
     ctx.drawImage(this.maskBuffer, 0, 0, this.canvas.width, this.canvas.height);
+
+    this.#drawGrid(ctx, grid);
 
     const sx = this.canvas.width / segmentation.width;
     const sy = this.canvas.height / segmentation.height;
@@ -118,6 +132,75 @@ export class RecognitionMonitor {
       ctx.fillStyle = '#211d17';
       ctx.fillText(label, x + 5, Math.max(15, y - 6));
     });
+  }
+
+  #drawGrid(ctx, { planeToCamera, rows, cols, coverages } = {}) {
+    if (!Array.isArray(planeToCamera) || planeToCamera.length !== 9
+      || !Number.isInteger(rows) || rows <= 0
+      || !Number.isInteger(cols) || cols <= 0) return;
+
+    const project = (u, v) => {
+      const point = applyHomography(planeToCamera, { x: u, y: v });
+      return {
+        x: point.x * this.canvas.width,
+        y: point.y * this.canvas.height,
+      };
+    };
+    const traceLine = (points) => {
+      ctx.beginPath();
+      points.forEach((point, index) => {
+        if (index === 0) ctx.moveTo(point.x, point.y);
+        else ctx.lineTo(point.x, point.y);
+      });
+      ctx.stroke();
+    };
+
+    ctx.save();
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
+
+    for (let row = 0; row < rows; row += 1) {
+      for (let col = 0; col < cols; col += 1) {
+        const coverage = Math.max(0, Math.min(1, Number(coverages?.[row * cols + col]) || 0));
+        if (coverage < 0.004) continue;
+        const corners = [
+          project(col / cols, row / rows),
+          project((col + 1) / cols, row / rows),
+          project((col + 1) / cols, (row + 1) / rows),
+          project(col / cols, (row + 1) / rows),
+        ];
+        ctx.beginPath();
+        ctx.moveTo(corners[0].x, corners[0].y);
+        corners.slice(1).forEach((point) => ctx.lineTo(point.x, point.y));
+        ctx.closePath();
+        ctx.fillStyle = `rgba(236,170,74,${0.06 + coverage * 0.2})`;
+        ctx.fill();
+      }
+    }
+
+    const segments = 12;
+    for (let col = 0; col <= cols; col += 1) {
+      ctx.strokeStyle = col === 0 || col === cols ? 'rgba(244,229,194,.78)' : 'rgba(233,222,195,.42)';
+      ctx.lineWidth = col === 0 || col === cols ? 1.5 : 1;
+      traceLine(Array.from({ length: segments + 1 }, (_, step) => project(col / cols, step / segments)));
+    }
+    for (let row = 0; row <= rows; row += 1) {
+      ctx.strokeStyle = row === 0 || row === rows ? 'rgba(244,229,194,.78)' : 'rgba(233,222,195,.42)';
+      ctx.lineWidth = row === 0 || row === rows ? 1.5 : 1;
+      traceLine(Array.from({ length: segments + 1 }, (_, step) => project(step / segments, row / rows)));
+    }
+
+    ctx.fillStyle = 'rgba(246,234,207,.63)';
+    ctx.font = '8px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    for (let row = 0; row < rows; row += 1) {
+      for (let col = 0; col < cols; col += 1) {
+        const center = project((col + 0.5) / cols, (row + 0.5) / rows);
+        ctx.fillText(String(row * cols + col + 1), center.x, center.y);
+      }
+    }
+    ctx.restore();
   }
 
   #label(ctx, text) {

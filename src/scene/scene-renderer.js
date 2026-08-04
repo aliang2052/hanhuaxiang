@@ -21,7 +21,9 @@ export class SceneRenderer {
     const metrics = getSceneMetrics(this.viewport.cssWidth, this.viewport.cssHeight, this.viewport.orientation);
     this.lastMetrics = metrics;
     this.decorativeRenderer.draw(ctx, metrics, now);
-    const drawn = this.characterRenderer.draw(ctx, metrics, visual, now);
+    const drawn = this.characterRenderer.draw(
+      ctx, metrics, visual, now, options.animationSpeed, options.grayscaleEnabled,
+    );
     this.#drawPersonOverlay(ctx, metrics, options.personSegmentation, options.planeToCamera);
     if (options.showGrid) this.#drawTriggerGrid(ctx, metrics, options.coverages, options.showLabels);
     this.#drawInkVeil(ctx, metrics, now, visual);
@@ -64,10 +66,10 @@ export class SceneRenderer {
         || !segmentation.mask[source - 1] || !segmentation.mask[source + 1]
         || !segmentation.mask[source - segmentation.width]
         || !segmentation.mask[source + segmentation.width];
-      image.data[output] = 45;
-      image.data[output + 1] = 47;
-      image.data[output + 2] = 48;
-      image.data[output + 3] = boundary ? 132 : 68;
+      image.data[output] = 156;
+      image.data[output + 1] = 151;
+      image.data[output + 2] = 142;
+      image.data[output + 3] = boundary ? 96 : 38;
     }
     this.personOverlayContext.putImageData(image, 0, 0);
     ctx.save();

@@ -398,7 +398,7 @@ def main() -> int:
     browser: Browser | None = None
     try:
         health = wait_health(base_url)
-        check("health endpoint before E2E", health.get("ok") is True and health.get("version") == "4.1.0-v4-motion", health)
+        check("health endpoint before E2E", health.get("ok") is True and health.get("version") == "5.0.0-v5-full-keyframes", health)
         with sync_playwright() as playwright:
             browser_path = find_browser(playwright)
             launch_args = ["--autoplay-policy=no-user-gesture-required", "--enable-precise-memory-info"]

@@ -2,6 +2,7 @@ import { AudioEngine } from './audio/audio-engine.js';
 import { CalibrationController } from './calibration/calibration-controller.js';
 import { CalibrationView } from './calibration/calibration-view.js';
 import { ConfigStore } from './config/config-store.js';
+import { applyAudioOverrides } from './config/audio-overrides.js';
 import { validateSceneConfig, validateSettings } from './core/config-schema.js';
 import { DecorativeRenderer } from './scene/decorative-renderer.js';
 import { CharacterRenderer } from './scene/character-renderer.js';
@@ -13,7 +14,7 @@ import { TriggerPlane } from './trigger/trigger-plane.js';
 import { OperatorUI } from './ui/operator-ui.js';
 import { RecognitionMonitor } from './ui/recognition-monitor.js';
 
-const APP_VERSION = '4.1.0-v4-motion';
+const APP_VERSION = '5.0.0-v5-full-keyframes';
 const BASELINE = 'ac76d30';
 
 async function loadJson(url) {
@@ -83,7 +84,7 @@ class HanOrchestraApp {
       },
     });
     this.recognitionMonitor = new RecognitionMonitor({
-      panel: document.getElementById('controlPanel'),
+      panel: document.getElementById('recognitionMonitor'),
       canvas: document.getElementById('recognitionCanvas'),
       health: document.getElementById('recognitionHealth'),
       people: document.getElementById('recognitionPeople'),
@@ -124,7 +125,7 @@ class HanOrchestraApp {
       this.ui.message(`有 ${this.assetLoadResult.errors.length} 个素材加载失败；作品会继续运行。`, 'warning');
     } else {
       const voiceCount = Math.max(0, this.sceneConfig.audioGroups.filter((group) => group.id !== 'ambience').length);
-      this.ui.message(`V4 Motion 已就绪：63 个空间节点、18 类动作骨架、${this.assetLoadResult.loaded} 套人物构图、${voiceCount} 个一格一声实录声部。`, 'success');
+      this.ui.message(`V5 动作样片已就绪：横笛、击鼓、袖舞使用真实逐帧姿势，另有 ${this.assetLoadResult.loaded} 套人物构图与 ${voiceCount} 个一格一声实录声部。`, 'success');
     }
     this.ready = true;
     this.raf = requestAnimationFrame((now) => this.#loop(now));
@@ -377,6 +378,8 @@ class HanOrchestraApp {
     this.lastRenderSnapshot = this.sceneRenderer.render(performanceNow, trigger.visual, {
       showGrid: this.settings.showGrid,
       showLabels: this.settings.showLabels,
+      animationSpeed: this.settings.animationSpeed,
+      grayscaleEnabled: this.settings.grayscaleEnabled,
       coverages: this.lastInputSnapshot.coverages,
       personSegmentation: this.lastInputSnapshot.recognitionMode === 'semantic-person'
         ? this.lastInputSnapshot.segmentation
@@ -406,6 +409,14 @@ class HanOrchestraApp {
       audio: this.audio.snapshot(),
       now,
       backgroundCountdown: this.backgroundCountdown,
+      planeToCamera: this.calibration.mapping.planeToCamera,
+      gridRows: this.triggerPlane.rows,
+      gridCols: this.triggerPlane.cols,
+    });
+    this.ui.updateMonitorAvoidance(this.lastInputSnapshot, {
+      mode: this.input.mode,
+      cameraToPlane: this.calibration.mapping.cameraToPlane,
+      now,
     });
     if (this.debugOpen) this.calibrationView.update(this.lastInputSnapshot, { fps: this.fps });
     this.raf = requestAnimationFrame((next) => this.#loop(next));
@@ -496,8 +507,12 @@ class HanOrchestraApp {
 async function bootstrap() {
   const introCopy = document.querySelector('.intro-copy');
   try {
-    const sceneRaw = await loadJson('config/scene.json');
-    const validation = validateSceneConfig(sceneRaw);
+    const [sceneRaw, audioOverrides] = await Promise.all([
+      loadJson('config/scene.json'),
+      loadJson('config/audio-overrides.json'),
+    ]);
+    const sceneWithAudio = applyAudioOverrides(sceneRaw, audioOverrides);
+    const validation = validateSceneConfig(sceneWithAudio);
     if (!validation.valid) throw new Error(`场景配置无效：${validation.errors.join(' ')}`);
     const texture = await loadImage(validation.config.background.runtime);
     const app = new HanOrchestraApp(validation.config, texture);

@@ -1,23 +1,23 @@
 {
   "ok": true,
-  "timestampUtc": "2026-08-02T00:49:15Z",
-  "durationSeconds": 25.762,
+  "timestampUtc": "2026-08-04T06:42:59Z",
+  "durationSeconds": 28.668,
   "platform": "macOS-15.7.5-x86_64-i386-64bit-Mach-O",
   "python": "3.14.2 (main, Dec  5 2025, 16:49:16) [Clang 17.0.0 (clang-1700.4.4.1)]",
   "browserExecutable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
-  "baseUrl": "http://127.0.0.1:64151",
+  "baseUrl": "http://127.0.0.1:59809",
   "health": {
     "ok": true,
     "app": "han-orchestra-installation",
-    "version": "4.0.0-v3-live",
+    "version": "5.0.0-v5-full-keyframes",
     "baseline": "ac76d30",
-    "uptimeSeconds": 0.1
+    "uptimeSeconds": 0.2
   },
   "checks": [
     {
       "name": "reconnect E2E health endpoint",
       "ok": true,
-      "detail": "{\"app\": \"han-orchestra-installation\", \"baseline\": \"ac76d30\", \"ok\": true, \"uptimeSeconds\": 0.1, \"version\": \"4.0.0-v3-live\"}"
+      "detail": "{\"app\": \"han-orchestra-installation\", \"baseline\": \"ac76d30\", \"ok\": true, \"uptimeSeconds\": 0.2, \"version\": \"5.0.0-v5-full-keyframes\"}"
     },
     {
       "name": "simulated camera starts for reconnect test",
@@ -60,7 +60,7 @@
   "externalRequests": [],
   "reconnect": {
     "before": {
-      "version": "4.0.0-v3-live",
+      "version": "5.0.0-v5-full-keyframes",
       "baseline": "ac76d30",
       "ready": true,
       "entered": true,
@@ -69,9 +69,12 @@
       "distinctSpriteFiles": 47,
       "assetStats": {
         "runtimeSpriteCount": 60,
+        "runtimeMotionSheetCount": 60,
+        "keyframedNodeCount": 63,
         "distinctBaseSilhouetteCount": 32,
-        "independentHighResSourceCount": 8,
-        "muralDerivedDistinctSourceCount": 24,
+        "independentHighResSourceCount": 32,
+        "additionalIndependentSourceCount": 24,
+        "muralDerivedDistinctSourceCount": 0,
         "recordedAudioVoiceCount": 63,
         "sourceRecordingCount": 246
       },
@@ -253,7 +256,7 @@
         0,
         0
       ],
-      "fps": 6.421232876712343,
+      "fps": 1.4267370523612544,
       "viewport": {
         "cssWidth": 960,
         "cssHeight": 600,
@@ -425,8 +428,8 @@
         "muted": false,
         "loadedGroups": 63,
         "requestedGroups": 63,
-        "outputLevel": 5.31923347400976e-05,
-        "transportSeconds": 0.43266666666666653,
+        "outputLevel": 3.7081170820211234e-05,
+        "transportSeconds": 0.7473333333333336,
         "distinctVoiceCount": 63,
         "hallReverb": true,
         "spatialMix": {
@@ -691,12 +694,12 @@
       "lastMessageLevel": "info",
       "runtimeErrors": [],
       "memory": {
-        "usedJSHeapSize": 7062899,
-        "totalJSHeapSize": 11440939
+        "usedJSHeapSize": 6018258,
+        "totalJSHeapSize": 11714566
       }
     },
     "during": {
-      "version": "4.0.0-v3-live",
+      "version": "5.0.0-v5-full-keyframes",
       "baseline": "ac76d30",
       "ready": true,
       "entered": true,
@@ -705,9 +708,12 @@
       "distinctSpriteFiles": 47,
       "assetStats": {
         "runtimeSpriteCount": 60,
+        "runtimeMotionSheetCount": 60,
+        "keyframedNodeCount": 63,
         "distinctBaseSilhouetteCount": 32,
-        "independentHighResSourceCount": 8,
-        "muralDerivedDistinctSourceCount": 24,
+        "independentHighResSourceCount": 32,
+        "additionalIndependentSourceCount": 24,
+        "muralDerivedDistinctSourceCount": 0,
         "recordedAudioVoiceCount": 63,
         "sourceRecordingCount": 246
       },
@@ -889,7 +895,7 @@
         0,
         0
       ],
-      "fps": 4.444444444444445,
+      "fps": 5,
       "viewport": {
         "cssWidth": 960,
         "cssHeight": 600,
@@ -1061,8 +1067,8 @@
         "muted": false,
         "loadedGroups": 63,
         "requestedGroups": 63,
-        "outputLevel": 3.6344245667419136e-05,
-        "transportSeconds": 1.35,
+        "outputLevel": 4.228269727606939e-05,
+        "transportSeconds": 1.3873333333333342,
         "distinctVoiceCount": 63,
         "hallReverb": true,
         "spatialMix": {
@@ -1327,12 +1333,12 @@
       "lastMessageLevel": "info",
       "runtimeErrors": [],
       "memory": {
-        "usedJSHeapSize": 6783815,
-        "totalJSHeapSize": 12717647
+        "usedJSHeapSize": 7848402,
+        "totalJSHeapSize": 11943958
       }
     },
     "recovered": {
-      "version": "4.0.0-v3-live",
+      "version": "5.0.0-v5-full-keyframes",
       "baseline": "ac76d30",
       "ready": true,
       "entered": true,
@@ -1341,9 +1347,12 @@
       "distinctSpriteFiles": 47,
       "assetStats": {
         "runtimeSpriteCount": 60,
+        "runtimeMotionSheetCount": 60,
+        "keyframedNodeCount": 63,
         "distinctBaseSilhouetteCount": 32,
-        "independentHighResSourceCount": 8,
-        "muralDerivedDistinctSourceCount": 24,
+        "independentHighResSourceCount": 32,
+        "additionalIndependentSourceCount": 24,
+        "muralDerivedDistinctSourceCount": 0,
         "recordedAudioVoiceCount": 63,
         "sourceRecordingCount": 246
       },
@@ -1525,7 +1534,7 @@
         0,
         0
       ],
-      "fps": 2.2237046920168964,
+      "fps": 5,
       "viewport": {
         "cssWidth": 960,
         "cssHeight": 600,
@@ -1697,8 +1706,8 @@
         "muted": false,
         "loadedGroups": 63,
         "requestedGroups": 63,
-        "outputLevel": 3.2307458584930406e-05,
-        "transportSeconds": 2.31,
+        "outputLevel": 3.893258059526048e-05,
+        "transportSeconds": 1.520666666666667,
         "distinctVoiceCount": 63,
         "hallReverb": true,
         "spatialMix": {
@@ -1963,13 +1972,13 @@
       "lastMessageLevel": "info",
       "runtimeErrors": [],
       "memory": {
-        "usedJSHeapSize": 6133192,
-        "totalJSHeapSize": 13271760
+        "usedJSHeapSize": 7327538,
+        "totalJSHeapSize": 12405010
       }
     }
   },
   "finalState": {
-    "version": "4.0.0-v3-live",
+    "version": "5.0.0-v5-full-keyframes",
     "baseline": "ac76d30",
     "ready": true,
     "entered": true,
@@ -1978,9 +1987,12 @@
     "distinctSpriteFiles": 47,
     "assetStats": {
       "runtimeSpriteCount": 60,
+      "runtimeMotionSheetCount": 60,
+      "keyframedNodeCount": 63,
       "distinctBaseSilhouetteCount": 32,
-      "independentHighResSourceCount": 8,
-      "muralDerivedDistinctSourceCount": 24,
+      "independentHighResSourceCount": 32,
+      "additionalIndependentSourceCount": 24,
+      "muralDerivedDistinctSourceCount": 0,
       "recordedAudioVoiceCount": 63,
       "sourceRecordingCount": 246
     },
@@ -2025,7 +2037,7 @@
       "semanticPersonOnly": true,
       "silhouetteMask": true
     },
-    "processingMs": 2.200000047683716,
+    "processingMs": 0,
     "foregroundPixels": 0,
     "coverages": [
       0,
@@ -2162,7 +2174,7 @@
       0,
       0
     ],
-    "fps": 2.2237046920168964,
+    "fps": 5,
     "viewport": {
       "cssWidth": 960,
       "cssHeight": 600,
@@ -2334,8 +2346,8 @@
       "muted": false,
       "loadedGroups": 63,
       "requestedGroups": 63,
-      "outputLevel": 2.7499067172167665e-05,
-      "transportSeconds": 2.4806666666666666,
+      "outputLevel": 3.4621521691457225e-05,
+      "transportSeconds": 1.6193333333333335,
       "distinctVoiceCount": 63,
       "hallReverb": true,
       "spatialMix": {
@@ -2600,8 +2612,8 @@
     "lastMessageLevel": "info",
     "runtimeErrors": [],
     "memory": {
-      "usedJSHeapSize": 7216556,
-      "totalJSHeapSize": 13733064
+      "usedJSHeapSize": 8649642,
+      "totalJSHeapSize": 12866314
     }
   }
 }

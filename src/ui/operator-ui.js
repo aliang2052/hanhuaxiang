@@ -1,3 +1,5 @@
+import { applyHomography } from '../core/homography.js';
+
 const MODE_LABELS = { auto: '自动演示', pointer: '鼠标精准 / 多点触摸', camera: '摄像头' };
 
 const byId = (id) => document.getElementById(id);
@@ -11,15 +13,21 @@ export class OperatorUI extends EventTarget {
       modeSelect: byId('modeSelect'), cameraSourceSelect: byId('cameraSourceSelect'), cameraButton: byId('cameraButton'),
       captureBackgroundButton: byId('captureBackgroundButton'), debugButton: byId('debugButton'), fullscreenButton: byId('fullscreenButton'), testAudioButton: byId('testAudioButton'),
       simulationControls: byId('simulationControls'), simulationScenarioSelect: byId('simulationScenarioSelect'), simulateDisconnectButton: byId('simulateDisconnectButton'),
+      animationSpeed: byId('animationSpeed'), animationSpeedOutput: byId('animationSpeedOutput'),
       diffThreshold: byId('diffThreshold'), diffThresholdOutput: byId('diffThresholdOutput'),
       onThreshold: byId('onThreshold'), onThresholdOutput: byId('onThresholdOutput'), offThreshold: byId('offThreshold'), offThresholdOutput: byId('offThresholdOutput'),
-      mirrorToggle: byId('mirrorToggle'), gridToggle: byId('gridToggle'), labelsToggle: byId('labelsToggle'), muteToggle: byId('muteToggle'),
+      mirrorToggle: byId('mirrorToggle'), gridToggle: byId('gridToggle'), labelsToggle: byId('labelsToggle'), grayscaleToggle: byId('grayscaleToggle'), monitorFloatingToggle: byId('monitorFloatingToggle'), muteToggle: byId('muteToggle'),
+      recognitionMonitor: byId('recognitionMonitor'), recognitionMonitorSlot: byId('recognitionMonitorSlot'), recognitionMonitorDock: byId('recognitionMonitorDock'),
       presetSelect: byId('presetSelect'), presetNameInput: byId('presetNameInput'), savePresetButton: byId('savePresetButton'),
       resetCalibrationButton: byId('resetCalibrationButton'), exportCalibrationButton: byId('exportCalibrationButton'), importCalibrationButton: byId('importCalibrationButton'), importCalibrationInput: byId('importCalibrationInput'),
       wakeAllButton: byId('wakeAllButton'), recoverButton: byId('recoverButton'), resetButton: byId('resetButton'), hideUiButton: byId('hideUiButton'),
       panelMessage: byId('panelMessage'), modeStatus: byId('modeStatus'), cameraStatus: byId('cameraStatus'), activeStatus: byId('activeStatus'), fpsStatus: byId('fpsStatus'),
       debugView: byId('debugView'), closeDebug: byId('closeDebug'), debugCaptureButton: byId('debugCaptureButton'), debugResetCalibrationButton: byId('debugResetCalibrationButton'), audioButton: byId('audioButton'),
     };
+    this.monitorDrag = null;
+    this.monitorAvoidArmed = true;
+    this.monitorLastCollisionAt = -Infinity;
+    this.monitorMoveTimer = null;
     this.#bind();
   }
 
@@ -42,12 +50,18 @@ export class OperatorUI extends EventTarget {
     d.testAudioButton.addEventListener('click', () => this.#emit('test-audio'));
     d.simulationScenarioSelect.addEventListener('change', () => this.#emit('simulation-scenario', { scenario: d.simulationScenarioSelect.value }));
     d.simulateDisconnectButton.addEventListener('click', () => this.#emit('simulation-disconnect'));
+    d.animationSpeed.addEventListener('input', () => this.#emit('setting', { key: 'animationSpeed', value: Number(d.animationSpeed.value) }));
     d.diffThreshold.addEventListener('input', () => this.#emit('setting', { key: 'diffThreshold', value: Number(d.diffThreshold.value) }));
     d.onThreshold.addEventListener('input', () => this.#emit('setting', { key: 'onThreshold', value: Number(d.onThreshold.value) / 100 }));
     d.offThreshold.addEventListener('input', () => this.#emit('setting', { key: 'offThreshold', value: Number(d.offThreshold.value) / 100 }));
     d.mirrorToggle.addEventListener('change', () => this.#emit('setting', { key: 'mirror', value: d.mirrorToggle.checked }));
     d.gridToggle.addEventListener('change', () => this.#emit('setting', { key: 'showGrid', value: d.gridToggle.checked }));
     d.labelsToggle.addEventListener('change', () => this.#emit('setting', { key: 'showLabels', value: d.labelsToggle.checked }));
+    d.grayscaleToggle.addEventListener('change', () => this.#emit('setting', { key: 'grayscaleEnabled', value: d.grayscaleToggle.checked }));
+    d.monitorFloatingToggle.addEventListener('change', () => {
+      this.#emit('setting', { key: 'monitorFloating', value: d.monitorFloatingToggle.checked });
+      if (d.monitorFloatingToggle.checked) d.controlPanel.hidden = true;
+    });
     d.muteToggle.addEventListener('change', () => this.#emit('setting', { key: 'muted', value: d.muteToggle.checked }));
     d.audioButton.addEventListener('click', () => this.#emit('toggle-mute'));
     d.presetSelect.addEventListener('change', () => this.#emit('preset-select', { name: d.presetSelect.value }));
@@ -67,19 +81,69 @@ export class OperatorUI extends EventTarget {
     d.resetButton.addEventListener('click', () => this.#emit('reset-settings'));
     d.hideUiButton.addEventListener('click', () => this.#emit('toggle-ui'));
     d.debugCaptureButton.addEventListener('click', () => this.#emit('capture-background'));
+    this.#bindMonitorDrag();
+  }
+
+  #bindMonitorDrag() {
+    const d = this.dom;
+    const handle = d.recognitionMonitor.querySelector('.recognition-head');
+    if (!handle) return;
+    handle.title = '拖动人物监视器';
+    handle.addEventListener('pointerdown', (event) => {
+      if (d.recognitionMonitorDock.hidden || event.button !== 0) return;
+      const rect = d.recognitionMonitorDock.getBoundingClientRect();
+      d.recognitionMonitorDock.style.right = 'auto';
+      d.recognitionMonitorDock.style.left = `${rect.left}px`;
+      d.recognitionMonitorDock.style.top = `${rect.top}px`;
+      d.recognitionMonitorDock.classList.remove('is-relocating');
+      d.recognitionMonitorDock.classList.add('is-dragging');
+      this.monitorDrag = {
+        pointerId: event.pointerId,
+        offsetX: event.clientX - rect.left,
+        offsetY: event.clientY - rect.top,
+      };
+      handle.setPointerCapture(event.pointerId);
+      event.preventDefault();
+    });
+    handle.addEventListener('pointermove', (event) => {
+      if (!this.monitorDrag || this.monitorDrag.pointerId !== event.pointerId) return;
+      const dock = d.recognitionMonitorDock;
+      const margin = 8;
+      const maxLeft = Math.max(margin, window.innerWidth - dock.offsetWidth - margin);
+      const maxTop = Math.max(margin, window.innerHeight - dock.offsetHeight - margin);
+      const left = Math.min(maxLeft, Math.max(margin, event.clientX - this.monitorDrag.offsetX));
+      const top = Math.min(maxTop, Math.max(margin, event.clientY - this.monitorDrag.offsetY));
+      dock.style.left = `${left}px`;
+      dock.style.top = `${top}px`;
+      event.preventDefault();
+    });
+    const finishDrag = (event) => {
+      if (!this.monitorDrag || this.monitorDrag.pointerId !== event.pointerId) return;
+      this.monitorDrag = null;
+      d.recognitionMonitorDock.classList.remove('is-dragging');
+      this.monitorAvoidArmed = false;
+      this.monitorLastCollisionAt = performance.now();
+      if (handle.hasPointerCapture(event.pointerId)) handle.releasePointerCapture(event.pointerId);
+    };
+    handle.addEventListener('pointerup', finishDrag);
+    handle.addEventListener('pointercancel', finishDrag);
   }
 
   applySettings(settings) {
     const d = this.dom;
     d.modeSelect.value = settings.mode;
     d.cameraSourceSelect.value = settings.cameraSource;
+    d.animationSpeed.value = String(settings.animationSpeed);
     d.diffThreshold.value = String(settings.diffThreshold);
     d.onThreshold.value = String(settings.onThreshold * 100);
     d.offThreshold.value = String(settings.offThreshold * 100);
     d.mirrorToggle.checked = settings.mirror;
     d.gridToggle.checked = settings.showGrid;
     d.labelsToggle.checked = settings.showLabels;
+    d.grayscaleToggle.checked = settings.grayscaleEnabled;
+    d.monitorFloatingToggle.checked = settings.monitorFloating;
     d.muteToggle.checked = settings.muted;
+    this.#setMonitorFloating(settings.monitorFloating);
     d.audioButton.textContent = settings.muted ? '静' : '声';
     d.audioButton.title = settings.muted ? '声音已关闭，点击开启' : '声音已开启，点击静音';
     d.audioButton.setAttribute('aria-label', d.audioButton.title);
@@ -88,7 +152,97 @@ export class OperatorUI extends EventTarget {
     d.simulationControls.hidden = settings.cameraSource !== 'simulated';
   }
 
+  #setMonitorFloating(floating) {
+    const d = this.dom;
+    if (floating) {
+      d.recognitionMonitorDock.hidden = false;
+      if (d.recognitionMonitor.parentElement !== d.recognitionMonitorDock) d.recognitionMonitorDock.append(d.recognitionMonitor);
+    } else {
+      if (d.recognitionMonitor.parentElement !== d.recognitionMonitorSlot) d.recognitionMonitorSlot.append(d.recognitionMonitor);
+      d.recognitionMonitorDock.hidden = true;
+    }
+    document.body.classList.toggle('monitor-floating', Boolean(floating));
+  }
+
+  updateMonitorAvoidance(snapshot, { mode, cameraToPlane, now = performance.now() } = {}) {
+    const dock = this.dom.recognitionMonitorDock;
+    if (dock.hidden || this.monitorDrag || mode !== 'camera'
+      || !Array.isArray(cameraToPlane) || cameraToPlane.length !== 9) return;
+    const segmentation = snapshot?.segmentation;
+    if (!segmentation?.width || !segmentation?.height || !Array.isArray(segmentation.components)) return;
+
+    const personRects = segmentation.components.map((component) => {
+      const x0 = component.x / segmentation.width;
+      const y0 = component.y / segmentation.height;
+      const x1 = (component.x + component.w) / segmentation.width;
+      const y1 = (component.y + component.h) / segmentation.height;
+      const points = [
+        applyHomography(cameraToPlane, { x: x0, y: y0 }),
+        applyHomography(cameraToPlane, { x: x1, y: y0 }),
+        applyHomography(cameraToPlane, { x: x1, y: y1 }),
+        applyHomography(cameraToPlane, { x: x0, y: y1 }),
+      ].filter((point) => Number.isFinite(point.x) && Number.isFinite(point.y));
+      if (!points.length) return null;
+      const xs = points.map((point) => point.x * window.innerWidth);
+      const ys = points.map((point) => point.y * window.innerHeight);
+      return {
+        left: Math.min(...xs), right: Math.max(...xs),
+        top: Math.min(...ys), bottom: Math.max(...ys),
+      };
+    }).filter(Boolean);
+
+    const dockRect = dock.getBoundingClientRect();
+    const padding = 10;
+    const colliding = personRects.some((person) => person.right >= dockRect.left - padding
+      && person.left <= dockRect.right + padding
+      && person.bottom >= dockRect.top - padding
+      && person.top <= dockRect.bottom + padding);
+    if (!colliding) {
+      if (now - this.monitorLastCollisionAt > 520) this.monitorAvoidArmed = true;
+      return;
+    }
+    this.monitorLastCollisionAt = now;
+    if (!this.monitorAvoidArmed) return;
+    this.monitorAvoidArmed = false;
+    this.#moveMonitorToOtherSide(personRects);
+  }
+
+  #moveMonitorToOtherSide(personRects) {
+    const dock = this.dom.recognitionMonitorDock;
+    const current = dock.getBoundingClientRect();
+    const margin = 14;
+    const leftEdge = margin;
+    const rightEdge = Math.max(margin, window.innerWidth - current.width - margin);
+    const targetLeft = current.left + current.width / 2 >= window.innerWidth / 2 ? leftEdge : rightEdge;
+    const maxTop = Math.max(margin, window.innerHeight - current.height - margin);
+    const topCandidates = [
+      Math.min(maxTop, Math.max(margin, current.top)),
+      margin,
+      maxTop,
+    ];
+    const overlapArea = (top) => {
+      const candidate = { left: targetLeft, right: targetLeft + current.width, top, bottom: top + current.height };
+      return personRects.reduce((sum, person) => {
+        const width = Math.max(0, Math.min(candidate.right, person.right) - Math.max(candidate.left, person.left));
+        const height = Math.max(0, Math.min(candidate.bottom, person.bottom) - Math.max(candidate.top, person.top));
+        return sum + width * height;
+      }, 0);
+    };
+    const targetTop = topCandidates.sort((a, b) => overlapArea(a) - overlapArea(b))[0];
+
+    dock.style.right = 'auto';
+    dock.style.left = `${current.left}px`;
+    dock.style.top = `${current.top}px`;
+    void dock.offsetWidth;
+    dock.classList.add('is-relocating');
+    dock.style.left = `${targetLeft}px`;
+    dock.style.top = `${targetTop}px`;
+    clearTimeout(this.monitorMoveTimer);
+    this.monitorMoveTimer = setTimeout(() => dock.classList.remove('is-relocating'), 680);
+  }
+
   #updateOutputs(settings) {
+    this.dom.animationSpeedOutput.value = `${settings.animationSpeed.toFixed(2)}×`;
     this.dom.diffThresholdOutput.value = String(Math.round(settings.diffThreshold));
     this.dom.onThresholdOutput.value = `${(settings.onThreshold * 100).toFixed(1)}%`;
     this.dom.offThresholdOutput.value = `${(settings.offThreshold * 100).toFixed(1)}%`;

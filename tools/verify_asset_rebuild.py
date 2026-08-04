@@ -112,6 +112,7 @@ def generated_relpaths(root: Path) -> list[Path]:
     ]
     patterns = [
         "assets/sprites/variants/*.png",
+        "assets/sprites/motion-v2/*.png",
         "assets/audio/*.ogg",
     ]
     relpaths = set(required)

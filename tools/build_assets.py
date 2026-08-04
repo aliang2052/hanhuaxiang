@@ -30,6 +30,19 @@ INPUT_SOURCE = ROOT / "assets" / "source-highres"
 ADDITIONAL_SOURCE_DIR = INPUT_SOURCE / "independent-v2"
 BACKGROUND_SOURCE_NAME = "base-stone-clean-v2.png"
 BACKGROUND_RUNTIME_NAME = "stone-texture-clean-v2.jpg"
+MOTION_SOURCE_DIR = INPUT_SOURCE / "motion-v2"
+MOTION_COLUMNS = 3
+MOTION_ROWS = 3
+MOTION_FRAME_COUNT = MOTION_COLUMNS * MOTION_ROWS
+MOTION_FPS = {
+    "drum": 9.0,
+    "gong": 9.0,
+    "clapper": 9.0,
+    "cymbal": 9.0,
+    "dance": 8.0,
+    "acrobat": 8.0,
+    "procession": 7.0,
+}
 
 INDEPENDENT_TYPES = ["qin", "flute", "pipa", "bells", "erhu", "drum", "dancer", "attendant"]
 TYPE_META = {
@@ -86,6 +99,7 @@ class BuildPaths:
     assets: Path
     background: Path
     sprites: Path
+    motion: Path
     audio: Path
     config: Path
     docs: Path
@@ -98,11 +112,12 @@ def paths_for(output_root: Path) -> BuildPaths:
         assets=output_root / "assets",
         background=output_root / "assets" / "background",
         sprites=output_root / "assets" / "sprites" / "variants",
+        motion=output_root / "assets" / "sprites" / "motion-v2",
         audio=output_root / "assets" / "audio",
         config=output_root / "config",
         docs=output_root / "docs" / "screenshots",
     )
-    for directory in (paths.background, paths.sprites, paths.audio, paths.config, paths.docs):
+    for directory in (paths.background, paths.sprites, paths.motion, paths.audio, paths.config, paths.docs):
         directory.mkdir(parents=True, exist_ok=True)
     return paths
 
@@ -117,6 +132,8 @@ def validate_inputs() -> None:
         INPUT_SOURCE / BACKGROUND_SOURCE_NAME,
         *[INPUT_SOURCE / f"{name}.png" for name in INDEPENDENT_TYPES],
         *[ADDITIONAL_SOURCE_DIR / f"{spec['id']}.png" for spec in ADDITIONAL_SOURCE_SPECS],
+        *[MOTION_SOURCE_DIR / f"independent-{name}-9f.png" for name in INDEPENDENT_TYPES],
+        *[MOTION_SOURCE_DIR / f"{spec['id']}-9f.png" for spec in ADDITIONAL_SOURCE_SPECS],
     ]
     missing = [path.relative_to(ROOT).as_posix() for path in required if not path.is_file()]
     if missing:
@@ -130,6 +147,16 @@ def validate_inputs() -> None:
             raise SystemExit(f"{name}.png must be a visible RGBA sprite")
         if min(image.size) < 512:
             raise SystemExit(f"{name}.png is too small: {image.size}")
+    motion_paths = [
+        *[MOTION_SOURCE_DIR / f"independent-{name}-9f.png" for name in INDEPENDENT_TYPES],
+        *[MOTION_SOURCE_DIR / f"{spec['id']}-9f.png" for spec in ADDITIONAL_SOURCE_SPECS],
+    ]
+    for path in motion_paths:
+        image = Image.open(path).convert("RGBA")
+        if image.getchannel("A").getbbox() is None:
+            raise SystemExit(f"motion sheet must contain visible alpha: {path}")
+        if image.width % MOTION_COLUMNS or image.height % MOTION_ROWS:
+            raise SystemExit(f"motion sheet grid is not evenly divisible: {path} {image.size}")
 
 
 def additional_source_catalog() -> list[dict[str, object]]:
@@ -204,6 +231,11 @@ def runtime_ready(image: Image.Image, max_dimension: int = 960) -> Image.Image:
 
 
 def compose_group(items: list[tuple[Image.Image, float, float, float, bool]], size: tuple[int, int]) -> Image.Image:
+    canvas = compose_group_canvas(items, size)
+    return crop_frame_sequence([canvas], border=24)[0]
+
+
+def compose_group_canvas(items: list[tuple[Image.Image, float, float, float, bool]], size: tuple[int, int]) -> Image.Image:
     canvas = Image.new("RGBA", size, (0, 0, 0, 0))
     for image, center_x, bottom_y, scale, mirror in items:
         sprite = ImageOps.mirror(image) if mirror else image
@@ -211,10 +243,97 @@ def compose_group(items: list[tuple[Image.Image, float, float, float, bool]], si
         x = round(center_x * size[0] - target.width / 2)
         y = round(bottom_y * size[1] - target.height)
         canvas.alpha_composite(target, (x, y))
-    bbox = canvas.getchannel("A").getbbox()
-    if bbox:
-        canvas = canvas.crop(bbox)
-    return ImageOps.expand(canvas, border=24, fill=(0, 0, 0, 0))
+    return canvas
+
+
+def crop_frame_sequence(frames: list[Image.Image], border: int = 18) -> list[Image.Image]:
+    """Crop every keyframe to one union alpha box so the camera never jitters."""
+    if not frames:
+        raise RuntimeError("motion frame sequence is empty")
+    if len({frame.size for frame in frames}) != 1:
+        raise RuntimeError("motion frame sequence must use a stable canvas")
+    boxes = [frame.getchannel("A").getbbox() for frame in frames]
+    visible = [box for box in boxes if box is not None]
+    if not visible:
+        raise RuntimeError("motion frame sequence contains no visible pixels")
+    union = (
+        min(box[0] for box in visible),
+        min(box[1] for box in visible),
+        max(box[2] for box in visible),
+        max(box[3] for box in visible),
+    )
+    return [ImageOps.expand(frame.crop(union), border=border, fill=(0, 0, 0, 0)) for frame in frames]
+
+
+def prepared_motion_source(source_id: str, target_height: int = 760) -> list[Image.Image]:
+    sheet_path = MOTION_SOURCE_DIR / f"{source_id}-9f.png"
+    sheet = Image.open(sheet_path).convert("RGBA")
+    cell_width = sheet.width // MOTION_COLUMNS
+    cell_height = sheet.height // MOTION_ROWS
+    frames = [
+        sheet.crop((column * cell_width, row * cell_height, (column + 1) * cell_width, (row + 1) * cell_height))
+        for row in range(MOTION_ROWS)
+        for column in range(MOTION_COLUMNS)
+    ]
+    frames = crop_frame_sequence(frames)
+    if frames[0].height > target_height:
+        scale = target_height / frames[0].height
+        size = (max(1, round(frames[0].width * scale)), target_height)
+        frames = [frame.resize(size, Image.Resampling.LANCZOS) for frame in frames]
+    return frames
+
+
+def compose_motion_group(
+    prepared: dict[str, list[Image.Image]],
+    items: list[tuple[str, float, float, float, bool]],
+    size: tuple[int, int],
+) -> list[Image.Image]:
+    frames = []
+    for frame_index in range(MOTION_FRAME_COUNT):
+        frames.append(compose_group_canvas([
+            (prepared[source_id][frame_index], center_x, bottom_y, scale, mirror)
+            for source_id, center_x, bottom_y, scale, mirror in items
+        ], size))
+    return crop_frame_sequence(frames, border=24)
+
+
+def motion_cell_size(composition: str) -> tuple[int, int]:
+    return {
+        "solo": (320, 320),
+        "duo": (430, 320),
+        "trio": (520, 320),
+        "ensemble": (620, 320),
+    }[composition]
+
+
+def motion_clip_for(asset_id: str, animation: str) -> dict[str, object]:
+    return {
+        "file": f"assets/sprites/motion-v2/{asset_id}-9f.png",
+        "columns": MOTION_COLUMNS,
+        "rows": MOTION_ROWS,
+        "frames": MOTION_FRAME_COUNT,
+        "fps": MOTION_FPS.get(animation, 8.0),
+    }
+
+
+def save_motion_sheet(paths: BuildPaths, asset_id: str, animation: str, composition: str,
+                      frames: list[Image.Image]) -> dict[str, object]:
+    frames = crop_frame_sequence(frames)
+    cell_width, cell_height = motion_cell_size(composition)
+    sheet = Image.new("RGBA", (cell_width * MOTION_COLUMNS, cell_height * MOTION_ROWS), (0, 0, 0, 0))
+    source_width, source_height = frames[0].size
+    scale = min((cell_width - 16) / source_width, (cell_height - 16) / source_height, 1.0)
+    frame_size = (max(1, round(source_width * scale)), max(1, round(source_height * scale)))
+    for frame_index, frame in enumerate(frames):
+        rendered = frame.resize(frame_size, Image.Resampling.LANCZOS) if frame.size != frame_size else frame
+        column = frame_index % MOTION_COLUMNS
+        row = frame_index // MOTION_COLUMNS
+        x = column * cell_width + (cell_width - rendered.width) // 2
+        y = row * cell_height + cell_height - rendered.height - 8
+        sheet.alpha_composite(rendered, (x, y))
+    clip = motion_clip_for(asset_id, animation)
+    save_png(sheet, paths.root / str(clip["file"]))
+    return clip
 
 
 def source_path(entry: dict[str, object], paths: BuildPaths) -> Path:
@@ -233,7 +352,7 @@ def build_background(paths: BuildPaths) -> None:
 
 
 def asset_entry(asset_id: str, filename: str, source_entries: list[dict[str, object]], composition: str,
-                width: int, height: int, mirrored: bool = False) -> dict[str, object]:
+                width: int, height: int, motion_clip: dict[str, object], mirrored: bool = False) -> dict[str, object]:
     dominant = source_entries[0]
     return {
         "id": asset_id,
@@ -248,6 +367,7 @@ def asset_entry(asset_id: str, filename: str, source_entries: list[dict[str, obj
         "mirrored": mirrored,
         "width": width,
         "height": height,
+        "motionClip": motion_clip,
     }
 
 
@@ -255,8 +375,11 @@ def build_visuals(paths: BuildPaths, additional_entries: list[dict[str, object]]
     build_background(paths)
     catalog = [*independent_catalog(), *additional_entries]
     prepared = {str(entry["id"]): prepared_source(source_path(entry, paths)) for entry in catalog}
+    motion_prepared = {str(entry["id"]): prepared_motion_source(str(entry["id"])) for entry in catalog}
     by_id = {str(entry["id"]): entry for entry in catalog}
     for old in paths.sprites.glob("*.png"):
+        old.unlink()
+    for old in paths.motion.glob("*.png"):
         old.unlink()
     runtime: list[dict[str, object]] = []
 
@@ -266,7 +389,9 @@ def build_visuals(paths: BuildPaths, additional_entries: list[dict[str, object]]
         image = runtime_ready(prepared[source_id])
         filename = f"solo-{source_id}.png"
         save_png(image, paths.sprites / filename)
-        runtime.append(asset_entry(filename[:-4], filename, [entry], "solo", image.width, image.height))
+        asset_id = filename[:-4]
+        motion_clip = save_motion_sheet(paths, asset_id, str(entry["animation"]), "solo", motion_prepared[source_id])
+        runtime.append(asset_entry(asset_id, filename, [entry], "solo", image.width, image.height, motion_clip))
 
     duo_ids = [
         ("independent-qin", "mural-standing-reed"),
@@ -284,14 +409,18 @@ def build_visuals(paths: BuildPaths, additional_entries: list[dict[str, object]]
     ]
     for index, ids in enumerate(duo_ids, 1):
         entries = [by_id[item] for item in ids]
-        image = compose_group([
-            (prepared[ids[0]], 0.32, 0.96, 0.96, False),
-            (prepared[ids[1]], 0.68, 0.96, 0.94, index % 3 == 0),
-        ], (1120, 860))
+        layout = [
+            (ids[0], 0.32, 0.96, 0.96, False),
+            (ids[1], 0.68, 0.96, 0.94, index % 3 == 0),
+        ]
+        image = compose_group([(prepared[item], x, y, scale, mirror) for item, x, y, scale, mirror in layout], (1120, 860))
         image = runtime_ready(image)
         filename = f"duo-{index:02d}-{'-'.join(item.replace('independent-', '').replace('mural-', '') for item in ids)}.png"
         save_png(image, paths.sprites / filename)
-        runtime.append(asset_entry(filename[:-4], filename, entries, "duo", image.width, image.height))
+        asset_id = filename[:-4]
+        frames = compose_motion_group(motion_prepared, layout, (1120, 860))
+        motion_clip = save_motion_sheet(paths, asset_id, str(entries[0]["animation"]), "duo", frames)
+        runtime.append(asset_entry(asset_id, filename, entries, "duo", image.width, image.height, motion_clip))
 
     trio_ids = [
         ("mural-qin-platform", "mural-standing-reed", "mural-pipa-seated"),
@@ -305,15 +434,19 @@ def build_visuals(paths: BuildPaths, additional_entries: list[dict[str, object]]
     ]
     for index, ids in enumerate(trio_ids, 1):
         entries = [by_id[item] for item in ids]
-        image = compose_group([
-            (prepared[ids[0]], 0.22, 0.97, 0.86, False),
-            (prepared[ids[1]], 0.50, 0.93, 0.96, index % 2 == 0),
-            (prepared[ids[2]], 0.78, 0.97, 0.86, False),
-        ], (1340, 920))
+        layout = [
+            (ids[0], 0.22, 0.97, 0.86, False),
+            (ids[1], 0.50, 0.93, 0.96, index % 2 == 0),
+            (ids[2], 0.78, 0.97, 0.86, False),
+        ]
+        image = compose_group([(prepared[item], x, y, scale, mirror) for item, x, y, scale, mirror in layout], (1340, 920))
         image = runtime_ready(image)
         filename = f"trio-{index:02d}.png"
         save_png(image, paths.sprites / filename)
-        runtime.append(asset_entry(filename[:-4], filename, entries, "trio", image.width, image.height))
+        asset_id = filename[:-4]
+        frames = compose_motion_group(motion_prepared, layout, (1340, 920))
+        motion_clip = save_motion_sheet(paths, asset_id, str(entries[0]["animation"]), "trio", frames)
+        runtime.append(asset_entry(asset_id, filename, entries, "trio", image.width, image.height, motion_clip))
 
     ensemble_ids = [
         ("mural-qin-platform", "mural-standing-reed", "mural-pipa-seated", "mural-bell-striker"),
@@ -329,25 +462,29 @@ def build_visuals(paths: BuildPaths, additional_entries: list[dict[str, object]]
         entries = [by_id[item] for item in ids]
         count = len(ids)
         centers = np.linspace(0.16, 0.84, count)
-        items = []
+        layout = []
         for item_index, source_id in enumerate(ids):
             scale = 0.76 if count >= 5 else (0.78 if item_index in (0, count - 1) else 0.88)
-            items.append((prepared[source_id], float(centers[item_index]), 0.97 if item_index % 2 == 0 else 0.93, scale, bool((index + item_index) % 4 == 0)))
-        image = compose_group(items, (1540, 980))
+            layout.append((source_id, float(centers[item_index]), 0.97 if item_index % 2 == 0 else 0.93, scale, bool((index + item_index) % 4 == 0)))
+        image = compose_group([(prepared[item], x, y, scale, mirror) for item, x, y, scale, mirror in layout], (1540, 980))
         image = runtime_ready(image)
         filename = f"ensemble-{index:02d}.png"
         save_png(image, paths.sprites / filename)
-        runtime.append(asset_entry(filename[:-4], filename, entries, "ensemble", image.width, image.height))
+        asset_id = filename[:-4]
+        frames = compose_motion_group(motion_prepared, layout, (1540, 980))
+        motion_clip = save_motion_sheet(paths, asset_id, str(entries[0]["animation"]), "ensemble", frames)
+        runtime.append(asset_entry(asset_id, filename, entries, "ensemble", image.width, image.height, motion_clip))
 
     if len(runtime) != 60:
         raise RuntimeError(f"runtime asset count must be 60, got {len(runtime)}")
     runtime_manifest = {
-        "version": 4,
+        "version": 5,
         "count": len(runtime),
         "distinctBaseSilhouetteCount": len(catalog),
         "independentHighResSourceCount": len(catalog),
         "additionalIndependentSourceCount": len(additional_entries),
         "muralDerivedDistinctSourceCount": 0,
+        "motionClips": {str(asset["id"]): asset["motionClip"] for asset in runtime},
         "assets": runtime,
     }
     (paths.assets / "sprites" / "manifest.json").parent.mkdir(parents=True, exist_ok=True)
@@ -544,7 +681,7 @@ def build_scene(paths: BuildPaths, runtime: list[dict[str, object]]) -> None:
         # All 32 base sources are transparent, independently designed figures or
         # groups. Contain-fit preserves the complete silhouette without cropping.
         fit_mode = "contain"
-        nodes.append({
+        node = {
             "id": cell_id,
             "triggerRow": cell_id // 9,
             "triggerCol": cell_id % 9,
@@ -572,7 +709,9 @@ def build_scene(paths: BuildPaths, runtime: list[dict[str, object]]) -> None:
             "fitMode": fit_mode,
             "landscape": {key: round(float(value), 6) for key, value in landscape_rect.items()},
             "portrait": portrait_node_rect(portrait[portrait_bay_id], portrait_slot),
-        })
+        }
+        node["motionClip"] = asset["motionClip"]
+        nodes.append(node)
 
     used_groups = [str(node["audioGroup"]) for node in nodes]
     expected_groups = [f"voice-{index:02d}-{voice['slug']}" for index, voice in enumerate(LIVE_VOICES)]
@@ -592,7 +731,7 @@ def build_scene(paths: BuildPaths, runtime: list[dict[str, object]]) -> None:
     ]
     scene = {
         "version": 4,
-        "name": "汉画像·百戏乐舞 V4 Motion",
+        "name": "汉画像·百戏乐舞 V5 Full Keyframes",
         "trigger": {"rows": 7, "cols": 9, "coordinateSpace": "normalized-camera-plane"},
         "palette": {"paper": "#cbb28a", "ink": "#21170f", "accent": "#a84429"},
         "background": {
@@ -609,6 +748,8 @@ def build_scene(paths: BuildPaths, runtime: list[dict[str, object]]) -> None:
         },
         "assetStats": {
             "runtimeSpriteCount": len(runtime),
+            "runtimeMotionSheetCount": len(runtime),
+            "keyframedNodeCount": 63,
             "distinctBaseSilhouetteCount": 32,
             "independentHighResSourceCount": 32,
             "additionalIndependentSourceCount": 24,

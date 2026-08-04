@@ -1,4 +1,4 @@
-PASS reconnect E2E health endpoint: {"app": "han-orchestra-installation", "baseline": "ac76d30", "ok": true, "uptimeSeconds": 0.1, "version": "4.0.0-v3-live"}
+PASS reconnect E2E health endpoint: {"app": "han-orchestra-installation", "baseline": "ac76d30", "ok": true, "uptimeSeconds": 0.2, "version": "5.0.0-v5-full-keyframes"}
 PASS simulated camera starts for reconnect test: true
 PASS simulated disconnect request is accepted: true
 PASS camera enters disconnected or reconnecting state: {"getUserMediaCalls": 0, "message": "", "permanentError": false, "reconnectAttempts": 1, "reconnectFailuresTotal": 0, "reconnectSuccesses": 0, "retryable": false, "source": "simulated", "sourceGeneration": 0, "state": "reconnecting", "transportState": "reconnecting"}
@@ -6,4 +6,4 @@ PASS simulated camera reconnects without page crash: {"getUserMediaCalls": 0, "m
 PASS reconnect phase has no external requests: []
 PASS reconnect phase has no console/page errors: []
 PASS reconnect phase renderer remains alive: 63
-RECONNECT E2E PASSED: 8 behavioral checks in 25.762s
+RECONNECT E2E PASSED: 8 behavioral checks in 28.668s

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { validateSceneConfig, validateSettings } from '../../src/core/config-schema.js';
+import { DEFAULT_SETTINGS, validateSceneConfig, validateSettings } from '../../src/core/config-schema.js';
 
 const scene = JSON.parse(fs.readFileSync(new URL('../../config/scene.json', import.meta.url), 'utf8'));
 
@@ -23,7 +23,13 @@ test('V3 scene uses the full composition catalog and one live-recorded voice per
   assert.ok(scene.nodes.some((node) => node.composition === 'ensemble'));
   assert.ok(scene.nodes.every((node) => Number(node.beatPeriod) >= 0.25));
   assert.ok(scene.nodes.every((node) => typeof node.secondaryColor === 'string'));
+  const keyframeNodes = scene.nodes.filter((node) => node.motionClip);
+  assert.equal(keyframeNodes.length, 63);
+  assert.ok(new Set(keyframeNodes.map((node) => node.motionClip.file)).size >= 40);
+  assert.ok(keyframeNodes.every((node) => node.motionClip.frames === 9));
   assert.equal(scene.assetStats.runtimeSpriteCount, 60);
+  assert.equal(scene.assetStats.runtimeMotionSheetCount, 60);
+  assert.equal(scene.assetStats.keyframedNodeCount, 63);
   assert.equal(scene.assetStats.distinctBaseSilhouetteCount, 32);
   assert.equal(scene.assetStats.independentHighResSourceCount, 32);
   assert.equal(scene.assetStats.additionalIndependentSourceCount, 24);
@@ -40,4 +46,16 @@ test('settings validation clamps corrupted values and repairs threshold ordering
   assert.equal(result.settings.diffThreshold, 140);
   assert.ok(result.settings.offThreshold < result.settings.onThreshold);
   assert.ok(result.errors.length >= 1);
+});
+
+test('grayscale is enabled by default and remains compatible with settings saved before the toggle existed', () => {
+  const legacy = structuredClone(DEFAULT_SETTINGS);
+  delete legacy.grayscaleEnabled;
+  const migrated = validateSettings(legacy);
+  assert.equal(migrated.valid, true, migrated.errors.join('\n'));
+  assert.equal(migrated.settings.grayscaleEnabled, true);
+
+  const disabled = validateSettings({ ...DEFAULT_SETTINGS, grayscaleEnabled: false });
+  assert.equal(disabled.valid, true, disabled.errors.join('\n'));
+  assert.equal(disabled.settings.grayscaleEnabled, false);
 });

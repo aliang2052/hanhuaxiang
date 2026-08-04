@@ -1,15 +1,15 @@
 {
   "ok": true,
-  "timestampUtc": "2026-08-02T00:46:58Z",
-  "durationSeconds": 78.445,
+  "timestampUtc": "2026-08-04T06:40:14Z",
+  "durationSeconds": 88.526,
   "platform": "macOS-15.7.5-x86_64-i386-64bit-Mach-O",
   "python": "3.14.2 (main, Dec  5 2025, 16:49:16) [Clang 17.0.0 (clang-1700.4.4.1)]",
   "browserExecutable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
-  "baseUrl": "http://127.0.0.1:63799",
+  "baseUrl": "http://127.0.0.1:58877",
   "health": {
     "ok": true,
     "app": "han-orchestra-installation",
-    "version": "4.0.0-v3-live",
+    "version": "5.0.0-v5-full-keyframes",
     "baseline": "ac76d30",
     "uptimeSeconds": 0.1
   },
@@ -17,7 +17,7 @@
     {
       "name": "health endpoint before E2E",
       "ok": true,
-      "detail": "{\"app\": \"han-orchestra-installation\", \"baseline\": \"ac76d30\", \"ok\": true, \"uptimeSeconds\": 0.1, \"version\": \"4.0.0-v3-live\"}"
+      "detail": "{\"app\": \"han-orchestra-installation\", \"baseline\": \"ac76d30\", \"ok\": true, \"uptimeSeconds\": 0.1, \"version\": \"5.0.0-v5-full-keyframes\"}"
     },
     {
       "name": "permission denial returns false",
@@ -52,7 +52,7 @@
     {
       "name": "asset diversity metadata records 32 genuinely different base silhouettes",
       "ok": true,
-      "detail": "{\"distinctBaseSilhouetteCount\": 32, \"independentHighResSourceCount\": 8, \"muralDerivedDistinctSourceCount\": 24, \"recordedAudioVoiceCount\": 63, \"runtimeSpriteCount\": 60, \"sourceRecordingCount\": 246}"
+      "detail": "{\"additionalIndependentSourceCount\": 24, \"distinctBaseSilhouetteCount\": 32, \"independentHighResSourceCount\": 32, \"keyframedNodeCount\": 63, \"muralDerivedDistinctSourceCount\": 0, \"recordedAudioVoiceCount\": 63, \"runtimeMotionSheetCount\": 60, \"runtimeSpriteCount\": 60, \"sourceRecordingCount\": 246}"
     },
     {
       "name": "dense landscape visual structure",
@@ -67,27 +67,27 @@
     {
       "name": "12-second 63-node stress keeps every node active",
       "ok": true,
-      "detail": "{\"active\": 63, \"fps\": 32.894736842105544, \"heap\": 4840721, \"runtimeErrors\": []}"
+      "detail": "{\"active\": 63, \"fps\": 58.08325266214908, \"heap\": 5495212, \"runtimeErrors\": []}"
     },
     {
       "name": "12-second 63-node stress has no runtime errors",
       "ok": true,
-      "detail": "{\"active\": 63, \"fps\": 32.894736842105544, \"heap\": 4840721, \"runtimeErrors\": []}"
+      "detail": "{\"active\": 63, \"fps\": 58.08325266214908, \"heap\": 5495212, \"runtimeErrors\": []}"
     },
     {
       "name": "stress FPS does not collapse",
       "ok": true,
-      "detail": "{\"average\": 34.25, \"median\": 32.89, \"minimum\": 0.95, \"samplesBelow12\": 1, \"tailAverage\": 34.02}"
+      "detail": "{\"average\": 48.32, \"median\": 52, \"minimum\": 18, \"samplesBelow12\": 0, \"tailAverage\": 55.36}"
     },
     {
       "name": "short stress has no sustained >96 MiB heap growth",
       "ok": true,
-      "detail": "{\"first\": 5387933, \"growthBytes\": -547212, \"last\": 4840721}"
+      "detail": "{\"first\": 6404286, \"growthBytes\": -909074, \"last\": 5495212}"
     },
     {
       "name": "auto demo activates a local subset",
       "ok": true,
-      "detail": "{\"active\": 18, \"coverageCells\": 21}"
+      "detail": "{\"active\": 12, \"coverageCells\": 17}"
     },
     {
       "name": "mouse precisely selects one real visual panel",
@@ -354,88 +354,88 @@
     "stress": {
       "samples": [
         {
-          "fps": 59.83246908655747,
+          "fps": 46,
           "active": 63,
-          "heap": 4791217,
+          "heap": 5433130,
           "runtimeErrors": []
         },
         {
-          "fps": 0.9528346831824679,
+          "fps": 58.08325266214908,
           "active": 63,
-          "heap": 5387933,
+          "heap": 6404286,
           "runtimeErrors": []
         },
         {
-          "fps": 34,
+          "fps": 50,
           "active": 63,
-          "heap": 6326801,
+          "heap": 4784099,
           "runtimeErrors": []
         },
         {
-          "fps": 20.50230650948234,
+          "fps": 18,
           "active": 63,
-          "heap": 4926793,
+          "heap": 5008295,
           "runtimeErrors": []
         },
         {
-          "fps": 26.342748426752554,
+          "fps": 52,
           "active": 63,
-          "heap": 6186877,
-          "runtimeErrors": []
-        },
-        {
-          "fps": 28,
-          "active": 63,
-          "heap": 4843769,
-          "runtimeErrors": []
-        },
-        {
-          "fps": 44.89524442966401,
-          "active": 63,
-          "heap": 5692709,
+          "heap": 6491419,
           "runtimeErrors": []
         },
         {
           "fps": 60,
           "active": 63,
-          "heap": 5134001,
+          "heap": 6185315,
           "runtimeErrors": []
         },
         {
           "fps": 60,
           "active": 63,
-          "heap": 6061405,
+          "heap": 6441971,
           "runtimeErrors": []
         },
         {
-          "fps": 44,
+          "fps": 25.383639090804284,
           "active": 63,
-          "heap": 5639537,
+          "heap": 4891268,
           "runtimeErrors": []
         },
         {
-          "fps": 25.16453735965938,
+          "fps": 42,
           "active": 63,
-          "heap": 4928969,
+          "heap": 6444456,
           "runtimeErrors": []
         },
         {
-          "fps": 32.894736842105544,
+          "fps": 47.99040191961622,
           "active": 63,
-          "heap": 4840721,
+          "heap": 6174720,
+          "runtimeErrors": []
+        },
+        {
+          "fps": 60,
+          "active": 63,
+          "heap": 6372736,
+          "runtimeErrors": []
+        },
+        {
+          "fps": 58.08325266214908,
+          "active": 63,
+          "heap": 5495212,
           "runtimeErrors": []
         }
       ],
-      "minimumFps": 0.9528346831824679,
-      "medianFps": 32.894736842105544,
-      "averageFps": 34.25021893189512,
-      "tailAverageFps": 34.019758067254976,
-      "samplesBelow12": 1,
-      "heapGrowth": -547212
+      "minimumFps": 18,
+      "medianFps": 52,
+      "averageFps": 48.321867848610786,
+      "tailAverageFps": 55.357884860588435,
+      "samplesBelow12": 0,
+      "heapGrowth": -909074
     }
   },
   "permissionDenied": {
-    "version": "4.0.0-v3-live",
+    "version": "5.0.0-v5-full-keyframes",
     "baseline": "ac76d30",
     "ready": true,
     "entered": false,
@@ -444,9 +444,12 @@
     "distinctSpriteFiles": 47,
     "assetStats": {
       "runtimeSpriteCount": 60,
+      "runtimeMotionSheetCount": 60,
+      "keyframedNodeCount": 63,
       "distinctBaseSilhouetteCount": 32,
-      "independentHighResSourceCount": 8,
-      "muralDerivedDistinctSourceCount": 24,
+      "independentHighResSourceCount": 32,
+      "additionalIndependentSourceCount": 24,
+      "muralDerivedDistinctSourceCount": 0,
       "recordedAudioVoiceCount": 63,
       "sourceRecordingCount": 246
     },
@@ -628,7 +631,7 @@
       0,
       0
     ],
-    "fps": 2.7897893709024912,
+    "fps": 3.0003000300029985,
     "viewport": {
       "cssWidth": 1280,
       "cssHeight": 800,
@@ -813,94 +816,94 @@
     "lastMessageLevel": "error",
     "runtimeErrors": [],
     "memory": {
-      "usedJSHeapSize": 4928324,
-      "totalJSHeapSize": 10036600
+      "usedJSHeapSize": 5714512,
+      "totalJSHeapSize": 10309604
     }
   },
   "stress": {
     "samples": [
       {
-        "fps": 59.83246908655747,
+        "fps": 46,
         "active": 63,
-        "heap": 4791217,
+        "heap": 5433130,
         "runtimeErrors": []
       },
       {
-        "fps": 0.9528346831824679,
+        "fps": 58.08325266214908,
         "active": 63,
-        "heap": 5387933,
+        "heap": 6404286,
         "runtimeErrors": []
       },
       {
-        "fps": 34,
+        "fps": 50,
         "active": 63,
-        "heap": 6326801,
+        "heap": 4784099,
         "runtimeErrors": []
       },
       {
-        "fps": 20.50230650948234,
+        "fps": 18,
         "active": 63,
-        "heap": 4926793,
+        "heap": 5008295,
         "runtimeErrors": []
       },
       {
-        "fps": 26.342748426752554,
+        "fps": 52,
         "active": 63,
-        "heap": 6186877,
-        "runtimeErrors": []
-      },
-      {
-        "fps": 28,
-        "active": 63,
-        "heap": 4843769,
-        "runtimeErrors": []
-      },
-      {
-        "fps": 44.89524442966401,
-        "active": 63,
-        "heap": 5692709,
+        "heap": 6491419,
         "runtimeErrors": []
       },
       {
         "fps": 60,
         "active": 63,
-        "heap": 5134001,
+        "heap": 6185315,
         "runtimeErrors": []
       },
       {
         "fps": 60,
         "active": 63,
-        "heap": 6061405,
+        "heap": 6441971,
         "runtimeErrors": []
       },
       {
-        "fps": 44,
+        "fps": 25.383639090804284,
         "active": 63,
-        "heap": 5639537,
+        "heap": 4891268,
         "runtimeErrors": []
       },
       {
-        "fps": 25.16453735965938,
+        "fps": 42,
         "active": 63,
-        "heap": 4928969,
+        "heap": 6444456,
         "runtimeErrors": []
       },
       {
-        "fps": 32.894736842105544,
+        "fps": 47.99040191961622,
         "active": 63,
-        "heap": 4840721,
+        "heap": 6174720,
+        "runtimeErrors": []
+      },
+      {
+        "fps": 60,
+        "active": 63,
+        "heap": 6372736,
+        "runtimeErrors": []
+      },
+      {
+        "fps": 58.08325266214908,
+        "active": 63,
+        "heap": 5495212,
         "runtimeErrors": []
       }
     ],
-    "minimumFps": 0.9528346831824679,
-    "medianFps": 32.894736842105544,
-    "averageFps": 34.25021893189512,
-    "tailAverageFps": 34.019758067254976,
-    "samplesBelow12": 1,
-    "heapGrowth": -547212
+    "minimumFps": 18,
+    "medianFps": 52,
+    "averageFps": 48.321867848610786,
+    "tailAverageFps": 55.357884860588435,
+    "samplesBelow12": 0,
+    "heapGrowth": -909074
   },
   "finalState": {
-    "version": "4.0.0-v3-live",
+    "version": "5.0.0-v5-full-keyframes",
     "baseline": "ac76d30",
     "ready": true,
     "entered": true,
@@ -909,9 +912,12 @@
     "distinctSpriteFiles": 47,
     "assetStats": {
       "runtimeSpriteCount": 60,
+      "runtimeMotionSheetCount": 60,
+      "keyframedNodeCount": 63,
       "distinctBaseSilhouetteCount": 32,
-      "independentHighResSourceCount": 8,
-      "muralDerivedDistinctSourceCount": 24,
+      "independentHighResSourceCount": 32,
+      "additionalIndependentSourceCount": 24,
+      "muralDerivedDistinctSourceCount": 0,
       "recordedAudioVoiceCount": 63,
       "sourceRecordingCount": 246
     },
@@ -1093,7 +1099,7 @@
       0,
       0
     ],
-    "fps": 4.497751124437781,
+    "fps": 15.482872072769368,
     "viewport": {
       "cssWidth": 1920,
       "cssHeight": 1200,
@@ -1148,7 +1154,7 @@
               "y": 0.95
             }
           ],
-          "updatedAt": "2026-08-02T00:46:56.207Z"
+          "updatedAt": "2026-08-04T06:40:11.874Z"
         }
       ],
       "maxError": 3.1401849173675503e-16,
@@ -1267,8 +1273,8 @@
       "muted": false,
       "loadedGroups": 63,
       "requestedGroups": 63,
-      "outputLevel": 3.530203145880146e-05,
-      "transportSeconds": 30.998000000000005,
+      "outputLevel": 4.1717278595072434e-05,
+      "transportSeconds": 32.55533333333334,
       "distinctVoiceCount": 63,
       "hallReverb": true,
       "spatialMix": {
@@ -1533,8 +1539,8 @@
     "lastMessageLevel": "error",
     "runtimeErrors": [],
     "memory": {
-      "usedJSHeapSize": 5429857,
-      "totalJSHeapSize": 14415721
+      "usedJSHeapSize": 12022172,
+      "totalJSHeapSize": 20330116
     }
   }
 }

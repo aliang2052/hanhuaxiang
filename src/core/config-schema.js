@@ -13,9 +13,12 @@ export const DEFAULT_SETTINGS = Object.freeze({
   offThreshold: 0.024,
   onFrames: 2,
   offFrames: 6,
+  animationSpeed: 0.65,
   mirror: true,
   showGrid: false,
   showLabels: false,
+  grayscaleEnabled: true,
+  monitorFloating: false,
   muted: false,
   debugOverlays: true,
   autoPaused: false,
@@ -65,9 +68,13 @@ export function validateSettings(candidate, defaults = DEFAULT_SETTINGS) {
   settings.offThreshold = finiteNumber(candidate, 'offThreshold', settings.offThreshold, errors);
   settings.onFrames = finiteNumber(candidate, 'onFrames', settings.onFrames, errors);
   settings.offFrames = finiteNumber(candidate, 'offFrames', settings.offFrames, errors);
+  settings.animationSpeed = candidate.animationSpeed === undefined
+    ? defaults.animationSpeed
+    : finiteNumber(candidate, 'animationSpeed', settings.animationSpeed, errors);
 
-  for (const key of ['mirror', 'showGrid', 'showLabels', 'muted', 'debugOverlays', 'autoPaused']) {
+  for (const key of ['mirror', 'showGrid', 'showLabels', 'grayscaleEnabled', 'monitorFloating', 'muted', 'debugOverlays', 'autoPaused']) {
     if (typeof candidate[key] === 'boolean') settings[key] = candidate[key];
+    else if (['grayscaleEnabled', 'monitorFloating'].includes(key) && candidate[key] === undefined) settings[key] = defaults[key];
     else errors.push(`${key} 无效`);
   }
 
@@ -77,6 +84,7 @@ export function validateSettings(candidate, defaults = DEFAULT_SETTINGS) {
   settings.offThreshold = Math.min(settings.onThreshold * 0.95, Math.max(0.0005, settings.offThreshold));
   settings.onFrames = Math.round(Math.min(20, Math.max(1, settings.onFrames)));
   settings.offFrames = Math.round(Math.min(60, Math.max(1, settings.offFrames)));
+  settings.animationSpeed = Math.min(1.5, Math.max(0.25, settings.animationSpeed));
 
   const camera = candidate.camera && typeof candidate.camera === 'object' ? candidate.camera : {};
   settings.camera = { ...cloneDefaults(defaults).camera, ...camera };
@@ -117,6 +125,8 @@ export function validateSceneConfig(scene) {
   if (!assetStats
       || assetStats.distinctBaseSilhouetteCount < 24
       || assetStats.runtimeSpriteCount < 50
+      || assetStats.runtimeMotionSheetCount !== 60
+      || assetStats.keyframedNodeCount !== 63
       || assetStats.independentHighResSourceCount < 32
       || assetStats.additionalIndependentSourceCount < 24
       || assetStats.muralDerivedDistinctSourceCount !== 0
@@ -140,6 +150,21 @@ export function validateSceneConfig(scene) {
       if (!Number.isInteger(node?.id) || node.id < 0 || node.id >= 63) errors.push(`节点 id 无效：${node?.id}`);
       else ids.add(node.id);
       if (typeof node?.sprite !== 'string' || !node.sprite.startsWith('assets/')) errors.push(`节点 ${node?.id} sprite 无效`);
+      if (node?.motionClip === undefined) {
+        errors.push(`节点 ${node?.id} 缺少 motionClip`);
+      } else {
+        const clip = node.motionClip;
+        const gridCapacity = Number(clip?.columns) * Number(clip?.rows);
+        if (typeof clip?.file !== 'string' || !clip.file.startsWith('assets/sprites/motion-v2/')) {
+          errors.push(`节点 ${node?.id} motionClip.file 无效`);
+        }
+        if (!Number.isInteger(clip?.columns) || clip.columns < 1
+            || !Number.isInteger(clip?.rows) || clip.rows < 1
+            || !Number.isInteger(clip?.frames) || clip.frames < 2 || clip.frames > gridCapacity
+            || !Number.isFinite(clip?.fps) || clip.fps < 1 || clip.fps > 30) {
+          errors.push(`节点 ${node?.id} motionClip 网格或帧率无效`);
+        }
+      }
       if (!validLayout(node?.landscape)) errors.push(`节点 ${node?.id} 缺少有效 landscape 布局`);
       if (!validLayout(node?.portrait)) errors.push(`节点 ${node?.id} 缺少有效 portrait 布局`);
       if (typeof node?.audioGroup !== 'string') errors.push(`节点 ${node?.id} audioGroup 无效`);

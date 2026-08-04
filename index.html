@@ -67,20 +67,22 @@
         <button id="testAudioButton" type="button">测试声音</button>
       </div>
 
-      <section id="recognitionMonitor" class="panel-section recognition-monitor" aria-label="人物识别监视器">
-        <div class="recognition-head">
-          <h3>人物检测监视器</h3>
-          <span id="recognitionHealth" data-state="idle">等待摄像头</span>
-        </div>
-        <canvas id="recognitionCanvas" width="480" height="270" aria-label="摄像头人物像素轮廓预览"></canvas>
-        <dl class="recognition-metrics">
-          <div><dt>识别人物</dt><dd id="recognitionPeople">0</dd></div>
-          <div><dt>人物像素</dt><dd id="recognitionForeground">0</dd></div>
-          <div><dt>触发格子</dt><dd id="recognitionActive">0 / 63</dd></div>
-          <div><dt>音频链路</dt><dd id="recognitionAudio">未初始化</dd></div>
-        </dl>
-        <p id="recognitionHint" class="recognition-hint">切换到实体摄像头后会加载离线人物模型。</p>
-      </section>
+      <div id="recognitionMonitorSlot">
+        <section id="recognitionMonitor" class="panel-section recognition-monitor" aria-label="人物识别监视器">
+          <div class="recognition-head">
+            <h3>人物检测监视器</h3>
+            <span id="recognitionHealth" data-state="idle">等待摄像头</span>
+          </div>
+          <canvas id="recognitionCanvas" width="480" height="270" aria-label="摄像头人物像素轮廓预览"></canvas>
+          <dl class="recognition-metrics">
+            <div><dt>识别人物</dt><dd id="recognitionPeople">0</dd></div>
+            <div><dt>人物像素</dt><dd id="recognitionForeground">0</dd></div>
+            <div><dt>触发格子</dt><dd id="recognitionActive">0 / 63</dd></div>
+            <div><dt>音频链路</dt><dd id="recognitionAudio">未初始化</dd></div>
+          </dl>
+          <p id="recognitionHint" class="recognition-hint">切换到实体摄像头后会加载离线人物模型。</p>
+        </section>
+      </div>
 
       <section id="simulationControls" class="panel-section">
         <h3>模拟摄像头验收</h3>
@@ -100,6 +102,10 @@
       <section class="panel-section">
         <h3>触发参数</h3>
         <label class="slider-field">
+          <span>人物动画速度 <output id="animationSpeedOutput">0.65×</output></span>
+          <input id="animationSpeed" type="range" min="0.25" max="1.5" step="0.05" value="0.65" />
+        </label>
+        <label class="slider-field">
           <span>模拟前景灵敏度 <output id="diffThresholdOutput">48</output></span>
           <input id="diffThreshold" type="range" min="12" max="140" value="48" />
         </label>
@@ -115,6 +121,8 @@
           <label><input id="mirrorToggle" type="checkbox" checked /> 镜像实体摄像头</label>
           <label><input id="gridToggle" type="checkbox" /> 显示触发平面</label>
           <label><input id="labelsToggle" type="checkbox" /> 显示编号</label>
+          <label><input id="grayscaleToggle" type="checkbox" checked /> 人物灰度处理</label>
+          <label><input id="monitorFloatingToggle" type="checkbox" /> 监视器悬浮右上角</label>
           <label><input id="muteToggle" type="checkbox" /> 静音</label>
         </div>
       </section>
@@ -145,6 +153,8 @@
       </div>
       <p id="panelMessage" class="panel-message" data-level="info">H：隐藏界面　D：调试标定　F：全屏　M：静音　A：唤醒全部</p>
     </aside>
+
+    <div id="recognitionMonitorDock" class="recognition-monitor-dock operator-ui" hidden aria-label="悬浮人物识别监视器"></div>
 
     <section id="debugView" class="debug-view" hidden aria-label="摄像头调试和标定">
       <div class="debug-head">

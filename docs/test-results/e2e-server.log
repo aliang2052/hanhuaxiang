@@ -1,6 +1,7 @@
 
-汉画像·百戏乐舞 V3 Live 已启动
-本机： http://localhost:63799
-局域网： http://192.168.5.28:63799
-健康检查： http://localhost:63799/health
+汉画像·百戏乐舞 V4 Motion 已启动
+本机： http://localhost:58877
+局域网： http://192.168.31.214:58877
+健康检查： http://localhost:58877/health
 按 Ctrl+C 停止。
+

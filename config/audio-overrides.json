@@ -1,0 +1,223 @@
+{
+  "schemaVersion": 1,
+  "description": "36 operator-selected local audition previews replace the closest matching runtime voices; the other 27 voices retain the existing project audio.",
+  "distributionNotice": "These audition previews were supplied for local use. Confirm distribution rights before publishing or redistributing the project.",
+  "overrides": [
+    {
+      "groupId": "voice-26-balafon",
+      "label": "编钟·编磬试听",
+      "file": "assets/audio-auditions/01-bianzhong-bianqing.ogg",
+      "sourceFile": "01-bianzhong-bianqing.mp3"
+    },
+    {
+      "groupId": "voice-01-dan-tranh-tremolo",
+      "label": "古琴试听",
+      "file": "assets/audio-auditions/02-guqin.ogg",
+      "sourceFile": "02-guqin.mp3"
+    },
+    {
+      "groupId": "voice-00-dan-tranh",
+      "label": "古筝试听",
+      "file": "assets/audio-auditions/03-guzheng.ogg",
+      "sourceFile": "03-guzheng.mp3"
+    },
+    {
+      "groupId": "voice-19-alto-recorder",
+      "label": "南箫试听",
+      "file": "assets/audio-auditions/04-nanxiao.ogg",
+      "sourceFile": "04-nanxiao.mp3"
+    },
+    {
+      "groupId": "voice-23-small-ocarina",
+      "label": "埙试听",
+      "file": "assets/audio-auditions/05-xun.ogg",
+      "sourceFile": "05-xun.mp3"
+    },
+    {
+      "groupId": "voice-21-soprano-recorder",
+      "label": "笙试听",
+      "file": "assets/audio-auditions/06-sheng.ogg",
+      "sourceFile": "06-sheng.mp3"
+    },
+    {
+      "groupId": "voice-25-didgeridoo",
+      "label": "管子试听",
+      "file": "assets/audio-auditions/07-guanzi.ogg",
+      "sourceFile": "07-guanzi.mp3"
+    },
+    {
+      "groupId": "voice-58-ratchet",
+      "label": "唢呐试听",
+      "file": "assets/audio-auditions/08-suona.ogg",
+      "sourceFile": "08-suona.mp3"
+    },
+    {
+      "groupId": "voice-02-dan-tranh-gliss",
+      "label": "琵琶试听",
+      "file": "assets/audio-auditions/09-pipa.ogg",
+      "sourceFile": "09-pipa.mp3"
+    },
+    {
+      "groupId": "voice-06-strumstick",
+      "label": "三弦试听",
+      "file": "assets/audio-auditions/10-sanxian.ogg",
+      "sourceFile": "10-sanxian.mp3"
+    },
+    {
+      "groupId": "voice-03-psaltery-pluck",
+      "label": "柳琴试听",
+      "file": "assets/audio-auditions/11-liuqin.ogg",
+      "sourceFile": "11-liuqin.mp3"
+    },
+    {
+      "groupId": "voice-27-glockenspiel",
+      "label": "扬琴试听",
+      "file": "assets/audio-auditions/12-yangqin.ogg",
+      "sourceFile": "12-yangqin.mp3"
+    },
+    {
+      "groupId": "voice-13-psaltery-bow",
+      "label": "京胡试听",
+      "file": "assets/audio-auditions/13-jinghu.ogg",
+      "sourceFile": "13-jinghu.mp3"
+    },
+    {
+      "groupId": "voice-24-ocarina",
+      "label": "竹笛试听",
+      "file": "assets/audio-auditions/14-mini-dizi-free.ogg",
+      "sourceFile": "14-mini-dizi-free.mp3"
+    },
+    {
+      "groupId": "voice-35-tubular-bells",
+      "label": "民乐团标准配置",
+      "file": "assets/audio-auditions/15-orchestra-standard.ogg",
+      "sourceFile": "15-orchestra-standard.mp3"
+    },
+    {
+      "groupId": "voice-62-finger-cymbals",
+      "label": "民乐团全编制一",
+      "file": "assets/audio-auditions/16-orchestra-full-1.ogg",
+      "sourceFile": "16-orchestra-full-1.mp3"
+    },
+    {
+      "groupId": "voice-05-folk-harp",
+      "label": "民乐团全编制二",
+      "file": "assets/audio-auditions/17-orchestra-full-2.ogg",
+      "sourceFile": "17-orchestra-full-2.mp3"
+    },
+    {
+      "groupId": "voice-28-marimba",
+      "label": "编钟自由版",
+      "file": "assets/audio-auditions/18-bianzhong-free-1.0.ogg",
+      "sourceFile": "18-bianzhong-free-1.0.mp3"
+    },
+    {
+      "groupId": "voice-48-bongos",
+      "label": "混合乐团·情人小径",
+      "file": "assets/audio-auditions/19-mixed-orchestra-lovers-pathway.ogg",
+      "sourceFile": "19-mixed-orchestra-lovers-pathway.mp3"
+    },
+    {
+      "groupId": "voice-20-bass-recorder",
+      "label": "中国吹管一",
+      "file": "assets/audio-auditions/20-chinese-winds-1.ogg",
+      "sourceFile": "20-chinese-winds-1.mp3"
+    },
+    {
+      "groupId": "voice-22-tenor-recorder",
+      "label": "中国吹管·箫",
+      "file": "assets/audio-auditions/21-chinese-winds-xiao.ogg",
+      "sourceFile": "21-chinese-winds-xiao.mp3"
+    },
+    {
+      "groupId": "voice-57-sleigh-bells",
+      "label": "中国吹管三",
+      "file": "assets/audio-auditions/22-chinese-winds-3.ogg",
+      "sourceFile": "22-chinese-winds-3.mp3"
+    },
+    {
+      "groupId": "voice-53-tambourine-two",
+      "label": "中国吹管四",
+      "file": "assets/audio-auditions/23-chinese-winds-4.ogg",
+      "sourceFile": "23-chinese-winds-4.mp3"
+    },
+    {
+      "groupId": "voice-15-wine-glass-slow",
+      "label": "二胡慢板",
+      "file": "assets/audio-auditions/24-erhu-slow-orchestral.ogg",
+      "sourceFile": "24-erhu-slow-orchestral.mp3"
+    },
+    {
+      "groupId": "voice-16-saxello",
+      "label": "二胡快板",
+      "file": "assets/audio-auditions/25-erhu-fast-pop.ogg",
+      "sourceFile": "25-erhu-fast-pop.mp3"
+    },
+    {
+      "groupId": "voice-17-tenor-sax",
+      "label": "二胡·赛马",
+      "file": "assets/audio-auditions/26-erhu-horse-race.ogg",
+      "sourceFile": "26-erhu-horse-race.mp3"
+    },
+    {
+      "groupId": "voice-04-concert-harp",
+      "label": "古筝·游记",
+      "file": "assets/audio-auditions/27-guzheng-travelog.ogg",
+      "sourceFile": "27-guzheng-travelog.mp3"
+    },
+    {
+      "groupId": "voice-08-kalimba-tanzania",
+      "label": "古筝合奏",
+      "file": "assets/audio-auditions/29-guzheng-ensemble.ogg",
+      "sourceFile": "29-guzheng-ensemble.mp3"
+    },
+    {
+      "groupId": "voice-07-kalimba-kenya",
+      "label": "琵琶故事一",
+      "file": "assets/audio-auditions/30-pipa-story-1.ogg",
+      "sourceFile": "30-pipa-story-1.mp3"
+    },
+    {
+      "groupId": "voice-09-mbira-mavembe",
+      "label": "琵琶故事二",
+      "file": "assets/audio-auditions/31-pipa-story-2.ogg",
+      "sourceFile": "31-pipa-story-2.mp3"
+    },
+    {
+      "groupId": "voice-18-chromatic-harmonica",
+      "label": "马头琴试听",
+      "file": "assets/audio-auditions/34-matouqin.ogg",
+      "sourceFile": "34-matouqin.mp3"
+    },
+    {
+      "groupId": "voice-55-large-shaker",
+      "label": "笛子二胡·部落",
+      "file": "assets/audio-auditions/35-dizi-erhu-buluo.ogg",
+      "sourceFile": "35-dizi-erhu-buluo.mp3"
+    },
+    {
+      "groupId": "voice-14-wine-glass-fast",
+      "label": "迷你二胡试听",
+      "file": "assets/audio-auditions/36-mini-erhu-free.ogg",
+      "sourceFile": "36-mini-erhu-free.mp3"
+    },
+    {
+      "groupId": "voice-49-conga",
+      "label": "乐团·邻家女孩",
+      "file": "assets/audio-auditions/37-orchestra-girl-next-door.ogg",
+      "sourceFile": "37-orchestra-girl-next-door.mp3"
+    },
+    {
+      "groupId": "voice-50-rope-snare",
+      "label": "乐团·圣诞淘气鬼",
+      "file": "assets/audio-auditions/38-orchestra-xmas-rascals.ogg",
+      "sourceFile": "38-orchestra-xmas-rascals.mp3"
+    },
+    {
+      "groupId": "voice-52-tambourine-one",
+      "label": "乐团·时钟王国",
+      "file": "assets/audio-auditions/39-orchestra-clock-kingdom.ogg",
+      "sourceFile": "39-orchestra-clock-kingdom.mp3"
+    }
+  ]
+}

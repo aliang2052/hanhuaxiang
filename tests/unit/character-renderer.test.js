@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { computeOpaqueBounds, performanceCue } from '../../src/scene/character-renderer.js';
+import { activePalette, computeOpaqueBounds, performanceCue, selectMotionFrame } from '../../src/scene/character-renderer.js';
 import { MOTION_ACTIONS, computeCharacterPose, deformCharacterPoint } from '../../src/scene/character-motion.js';
 
 test('sprite normalization measures the visible person instead of transparent canvas padding', () => {
@@ -17,6 +17,23 @@ test('sprite normalization ignores fully transparent images and faint edge noise
   const pixels = new Uint8ClampedArray(6 * 5 * 4);
   pixels[3] = 4;
   assert.equal(computeOpaqueBounds(pixels, 6, 5), null);
+});
+
+test('keyframe motion selects every frame and loops deterministically', () => {
+  const clip = { frames: 9, fps: 9 };
+  assert.deepEqual(
+    Array.from({ length: 9 }, (_, index) => selectMotionFrame(clip, index * 1000 / 9, 0)),
+    [0, 1, 2, 3, 4, 5, 6, 7, 8],
+  );
+  assert.equal(selectMotionFrame(clip, 1000, 0), 0);
+  assert.equal(selectMotionFrame(clip, 0, Math.PI * 2 / 9), 1);
+});
+
+test('active animation families use distinct high-energy neon palettes', () => {
+  const palettes = ['drum', 'flute', 'dance', 'bow', 'serve'].map(activePalette);
+  assert.equal(new Set(palettes.map((palette) => palette.primary)).size, palettes.length);
+  assert.ok(palettes.every((palette) => /^#[0-9a-f]{6}$/i.test(palette.primary)));
+  assert.ok(palettes.every((palette) => palette.filter.includes('saturate')));
 });
 
 test('performance cue has a deterministic attack at the shared transport beat', () => {

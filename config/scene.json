@@ -1,6 +1,6 @@
 {
   "version": 4,
-  "name": "汉画像·百戏乐舞 V4 Motion",
+  "name": "汉画像·百戏乐舞 V5 Full Keyframes",
   "trigger": {
     "rows": 7,
     "cols": 9,
@@ -31,6 +31,8 @@
   },
   "assetStats": {
     "runtimeSpriteCount": 60,
+    "runtimeMotionSheetCount": 60,
+    "keyframedNodeCount": 63,
     "distinctBaseSilhouetteCount": 32,
     "independentHighResSourceCount": 32,
     "additionalIndependentSourceCount": 24,
@@ -645,6 +647,13 @@
         "y": 0.1076,
         "w": 0.08526,
         "h": 0.0819
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/trio-01-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -684,6 +693,13 @@
         "y": 0.1013,
         "w": 0.08526,
         "h": 0.0882
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-independent-qin-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -723,6 +739,13 @@
         "y": 0.1076,
         "w": 0.08526,
         "h": 0.0819
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/trio-02-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -762,6 +785,13 @@
         "y": 0.1076,
         "w": 0.08526,
         "h": 0.0819
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-independent-flute-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -801,6 +831,13 @@
         "y": 0.1013,
         "w": 0.08526,
         "h": 0.0882
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/trio-03-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -840,6 +877,13 @@
         "y": 0.1076,
         "w": 0.08526,
         "h": 0.0819
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/trio-04-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 9.0
       }
     },
     {
@@ -879,6 +923,13 @@
         "y": 0.1076,
         "w": 0.08526,
         "h": 0.0819
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-independent-pipa-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -918,6 +969,13 @@
         "y": 0.1013,
         "w": 0.08526,
         "h": 0.0882
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/trio-05-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 7.0
       }
     },
     {
@@ -957,6 +1015,13 @@
         "y": 0.1076,
         "w": 0.08526,
         "h": 0.0819
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/duo-01-qin-standing-reed-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -996,6 +1061,13 @@
         "y": 0.2246,
         "w": 0.091818,
         "h": 0.0819
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/trio-06-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -1035,6 +1107,13 @@
         "y": 0.2183,
         "w": 0.091818,
         "h": 0.0882
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/trio-07-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -1074,6 +1153,13 @@
         "y": 0.2246,
         "w": 0.091818,
         "h": 0.0819
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/trio-08-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -1113,6 +1199,13 @@
         "y": 0.2246,
         "w": 0.072143,
         "h": 0.0819
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-independent-bells-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -1152,6 +1245,13 @@
         "y": 0.2183,
         "w": 0.072143,
         "h": 0.0882
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-independent-erhu-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -1191,6 +1291,13 @@
         "y": 0.2246,
         "w": 0.072143,
         "h": 0.0819
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-independent-drum-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 9.0
       }
     },
     {
@@ -1230,6 +1337,13 @@
         "y": 0.2246,
         "w": 0.091818,
         "h": 0.0819
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-independent-dancer-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -1269,6 +1383,13 @@
         "y": 0.2183,
         "w": 0.091818,
         "h": 0.0882
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/duo-02-pipa-seated-bell-striker-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -1308,6 +1429,13 @@
         "y": 0.2246,
         "w": 0.091818,
         "h": 0.0819
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-independent-attendant-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -1347,6 +1475,13 @@
         "y": 0.3428,
         "w": 0.08526,
         "h": 0.0897
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/ensemble-01-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -1386,6 +1521,13 @@
         "y": 0.3359,
         "w": 0.08526,
         "h": 0.0966
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-mural-qin-platform-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -1425,6 +1567,13 @@
         "y": 0.3428,
         "w": 0.08526,
         "h": 0.0897
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/duo-03-bowed-string-panpipe-seated-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -1464,6 +1613,13 @@
         "y": 0.3428,
         "w": 0.08526,
         "h": 0.0897
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-mural-standing-reed-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -1503,6 +1659,13 @@
         "y": 0.3359,
         "w": 0.08526,
         "h": 0.0966
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-mural-pipa-seated-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -1542,6 +1705,13 @@
         "y": 0.3428,
         "w": 0.08526,
         "h": 0.0897
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-mural-bell-rack-ensemble-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -1581,6 +1751,13 @@
         "y": 0.3428,
         "w": 0.08526,
         "h": 0.0897
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-mural-bell-striker-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -1620,6 +1797,13 @@
         "y": 0.3359,
         "w": 0.08526,
         "h": 0.0966
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-mural-bowed-string-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -1659,6 +1843,13 @@
         "y": 0.3428,
         "w": 0.08526,
         "h": 0.0897
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-mural-panpipe-seated-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -1698,6 +1889,13 @@
         "y": 0.4734,
         "w": 0.071938,
         "h": 0.1131
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-mural-grand-drum-duo-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 9.0
       }
     },
     {
@@ -1737,6 +1935,13 @@
         "y": 0.4647,
         "w": 0.071938,
         "h": 0.1218
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-mural-drum-player-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 9.0
       }
     },
     {
@@ -1776,6 +1981,13 @@
         "y": 0.4734,
         "w": 0.071938,
         "h": 0.1131
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-mural-left-attendant-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 9.0
       }
     },
     {
@@ -1815,6 +2027,13 @@
         "y": 0.4734,
         "w": 0.111904,
         "h": 0.1131
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/trio-01-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -1854,6 +2073,13 @@
         "y": 0.4647,
         "w": 0.111904,
         "h": 0.1218
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-mural-ribbon-duo-left-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -1893,6 +2119,13 @@
         "y": 0.4734,
         "w": 0.111904,
         "h": 0.1131
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-mural-cymbal-dancer-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 9.0
       }
     },
     {
@@ -1932,6 +2165,13 @@
         "y": 0.4734,
         "w": 0.071938,
         "h": 0.1131
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-mural-tray-procession-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 7.0
       }
     },
     {
@@ -1971,6 +2211,13 @@
         "y": 0.4647,
         "w": 0.071938,
         "h": 0.1218
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-mural-cup-kneeler-left-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -2010,6 +2257,13 @@
         "y": 0.4734,
         "w": 0.071938,
         "h": 0.1131
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-mural-banquet-table-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -2049,6 +2303,13 @@
         "y": 0.6268,
         "w": 0.08526,
         "h": 0.0897
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-mural-banquet-duo-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -2088,6 +2349,13 @@
         "y": 0.6199,
         "w": 0.08526,
         "h": 0.0966
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-mural-cup-kneeler-right-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -2127,6 +2395,13 @@
         "y": 0.6268,
         "w": 0.08526,
         "h": 0.0897
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-mural-standing-server-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -2166,6 +2441,13 @@
         "y": 0.6268,
         "w": 0.08526,
         "h": 0.0897
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-mural-acrobat-ribbon-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -2205,6 +2487,13 @@
         "y": 0.6199,
         "w": 0.08526,
         "h": 0.0966
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-mural-sleeve-dancer-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -2244,6 +2533,13 @@
         "y": 0.6268,
         "w": 0.08526,
         "h": 0.0897
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-mural-right-procession-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 7.0
       }
     },
     {
@@ -2283,6 +2579,13 @@
         "y": 0.6268,
         "w": 0.08526,
         "h": 0.0897
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/ensemble-02-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -2322,6 +2625,13 @@
         "y": 0.6199,
         "w": 0.08526,
         "h": 0.0966
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-mural-horn-standing-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -2361,6 +2671,13 @@
         "y": 0.6268,
         "w": 0.08526,
         "h": 0.0897
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-mural-ritual-trio-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 7.0
       }
     },
     {
@@ -2400,6 +2717,13 @@
         "y": 0.7526,
         "w": 0.091818,
         "h": 0.0819
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-mural-dance-banquet-group-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -2439,6 +2763,13 @@
         "y": 0.7463,
         "w": 0.091818,
         "h": 0.0882
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-independent-qin-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -2478,6 +2809,13 @@
         "y": 0.7526,
         "w": 0.091818,
         "h": 0.0819
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-independent-flute-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -2517,6 +2855,13 @@
         "y": 0.7526,
         "w": 0.072143,
         "h": 0.0819
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-independent-pipa-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -2556,6 +2901,13 @@
         "y": 0.7463,
         "w": 0.072143,
         "h": 0.0882
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-independent-bells-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -2595,6 +2947,13 @@
         "y": 0.7526,
         "w": 0.072143,
         "h": 0.0819
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-independent-erhu-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -2634,6 +2993,13 @@
         "y": 0.7526,
         "w": 0.091818,
         "h": 0.0819
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-independent-drum-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 9.0
       }
     },
     {
@@ -2673,6 +3039,13 @@
         "y": 0.7463,
         "w": 0.091818,
         "h": 0.0882
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-independent-dancer-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -2712,6 +3085,13 @@
         "y": 0.7526,
         "w": 0.091818,
         "h": 0.0819
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-independent-attendant-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -2751,6 +3131,13 @@
         "y": 0.8696,
         "w": 0.08526,
         "h": 0.0819
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-mural-qin-platform-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -2790,6 +3177,13 @@
         "y": 0.8633,
         "w": 0.08526,
         "h": 0.0882
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/ensemble-03-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -2829,6 +3223,13 @@
         "y": 0.8696,
         "w": 0.08526,
         "h": 0.0819
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/trio-02-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -2868,6 +3269,13 @@
         "y": 0.8696,
         "w": 0.08526,
         "h": 0.0819
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-mural-standing-reed-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -2907,6 +3315,13 @@
         "y": 0.8633,
         "w": 0.08526,
         "h": 0.0882
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-mural-pipa-seated-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -2946,6 +3361,13 @@
         "y": 0.8696,
         "w": 0.08526,
         "h": 0.0819
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-mural-bell-rack-ensemble-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -2985,6 +3407,13 @@
         "y": 0.8696,
         "w": 0.08526,
         "h": 0.0819
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/duo-04-grand-drum-duo-cymbal-dancer-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 9.0
       }
     },
     {
@@ -3024,6 +3453,13 @@
         "y": 0.8633,
         "w": 0.08526,
         "h": 0.0882
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-mural-bell-striker-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     },
     {
@@ -3063,6 +3499,13 @@
         "y": 0.8696,
         "w": 0.08526,
         "h": 0.0819
+      },
+      "motionClip": {
+        "file": "assets/sprites/motion-v2/solo-mural-bowed-string-9f.png",
+        "columns": 3,
+        "rows": 3,
+        "frames": 9,
+        "fps": 8.0
       }
     }
   ]
