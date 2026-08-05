@@ -12,8 +12,7 @@
     "accent": "#a84429"
   },
   "background": {
-    "runtime": "assets/background/stone-texture-clean-v2.jpg",
-    "source": "assets/source-highres/base-stone-clean-v2.png"
+    "runtime": "assets/background/stone-texture-clean-v2.jpg"
   },
   "visualStructure": {
     "layoutVersion": 3,
@@ -30,105 +29,100 @@
     "description": "dense three-tier portrait-stone orchestra wall with bay-local solos, ensembles and a central ritual stage"
   },
   "assetStats": {
-    "runtimeSpriteCount": 60,
-    "runtimeMotionSheetCount": 60,
+    "runtimeSpriteCount": 47,
+    "runtimeMotionSheetCount": 47,
     "keyframedNodeCount": 63,
-    "distinctBaseSilhouetteCount": 32,
-    "independentHighResSourceCount": 32,
-    "additionalIndependentSourceCount": 24,
-    "muralDerivedDistinctSourceCount": 0,
-    "recordedAudioVoiceCount": 63,
-    "sourceRecordingCount": 246
+    "recordedAudioVoiceCount": 63
   },
   "audioGroups": [
     {
       "id": "voice-00-dan-tranh",
-      "label": "筝·越南十六弦",
-      "file": "assets/audio/voice-00-dan-tranh.ogg",
+      "label": "古筝试听",
+      "file": "assets/audio-auditions/03-guzheng.ogg",
       "gain": 0.81,
       "reverbSend": 0.1,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "pluck"
     },
     {
       "id": "voice-01-dan-tranh-tremolo",
-      "label": "筝·轮指",
-      "file": "assets/audio/voice-01-dan-tranh-tremolo.ogg",
+      "label": "古琴试听",
+      "file": "assets/audio-auditions/02-guqin.ogg",
       "gain": 0.738,
       "reverbSend": 0.12,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "pluck"
     },
     {
       "id": "voice-02-dan-tranh-gliss",
-      "label": "筝·刮奏",
-      "file": "assets/audio/voice-02-dan-tranh-gliss.ogg",
+      "label": "琵琶试听",
+      "file": "assets/audio-auditions/09-pipa.ogg",
       "gain": 0.702,
       "reverbSend": 0.14,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "pluck"
     },
     {
       "id": "voice-03-psaltery-pluck",
-      "label": "拨弦诗琴",
-      "file": "assets/audio/voice-03-psaltery-pluck.ogg",
+      "label": "柳琴试听",
+      "file": "assets/audio-auditions/11-liuqin.ogg",
       "gain": 0.774,
       "reverbSend": 0.11,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "pluck"
     },
     {
       "id": "voice-04-concert-harp",
-      "label": "音乐会竖琴",
-      "file": "assets/audio/voice-04-concert-harp.ogg",
+      "label": "古筝·游记",
+      "file": "assets/audio-auditions/27-guzheng-travelog.ogg",
       "gain": 0.738,
       "reverbSend": 0.12,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "pluck"
     },
     {
       "id": "voice-05-folk-harp",
-      "label": "民间竖琴",
-      "file": "assets/audio/voice-05-folk-harp.ogg",
+      "label": "民乐团全编制二",
+      "file": "assets/audio-auditions/17-orchestra-full-2.ogg",
       "gain": 0.756,
       "reverbSend": 0.1,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "pluck"
     },
     {
       "id": "voice-06-strumstick",
-      "label": "三弦拨奏",
-      "file": "assets/audio/voice-06-strumstick.ogg",
+      "label": "三弦试听",
+      "file": "assets/audio-auditions/10-sanxian.ogg",
       "gain": 0.774,
       "reverbSend": 0.08,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "pluck"
     },
     {
       "id": "voice-07-kalimba-kenya",
-      "label": "肯尼亚拇指琴",
-      "file": "assets/audio/voice-07-kalimba-kenya.ogg",
+      "label": "琵琶故事一",
+      "file": "assets/audio-auditions/30-pipa-story-1.ogg",
       "gain": 0.72,
       "reverbSend": 0.09,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "pluck"
     },
     {
       "id": "voice-08-kalimba-tanzania",
-      "label": "坦桑尼亚拇指琴",
-      "file": "assets/audio/voice-08-kalimba-tanzania.ogg",
+      "label": "古筝合奏",
+      "file": "assets/audio-auditions/29-guzheng-ensemble.ogg",
       "gain": 0.72,
       "reverbSend": 0.09,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "pluck"
     },
     {
       "id": "voice-09-mbira-mavembe",
-      "label": "马文贝姆比拉",
-      "file": "assets/audio/voice-09-mbira-mavembe.ogg",
+      "label": "琵琶故事二",
+      "file": "assets/audio-auditions/31-pipa-story-2.ogg",
       "gain": 0.738,
       "reverbSend": 0.09,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "pluck"
     },
     {
@@ -160,146 +154,146 @@
     },
     {
       "id": "voice-13-psaltery-bow",
-      "label": "弓奏诗琴",
-      "file": "assets/audio/voice-13-psaltery-bow.ogg",
+      "label": "京胡试听",
+      "file": "assets/audio-auditions/13-jinghu.ogg",
       "gain": 0.72,
       "reverbSend": 0.12,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "sustain"
     },
     {
       "id": "voice-14-wine-glass-fast",
-      "label": "水晶杯快摩",
-      "file": "assets/audio/voice-14-wine-glass-fast.ogg",
+      "label": "迷你二胡试听",
+      "file": "assets/audio-auditions/36-mini-erhu-free.ogg",
       "gain": 0.63,
       "reverbSend": 0.16,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "sustain"
     },
     {
       "id": "voice-15-wine-glass-slow",
-      "label": "水晶杯慢摩",
-      "file": "assets/audio/voice-15-wine-glass-slow.ogg",
+      "label": "二胡慢板",
+      "file": "assets/audio-auditions/24-erhu-slow-orchestral.ogg",
       "gain": 0.63,
       "reverbSend": 0.17,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "sustain"
     },
     {
       "id": "voice-16-saxello",
-      "label": "萨克斯洛",
-      "file": "assets/audio/voice-16-saxello.ogg",
+      "label": "二胡快板",
+      "file": "assets/audio-auditions/25-erhu-fast-pop.ogg",
       "gain": 0.648,
       "reverbSend": 0.1,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "sustain"
     },
     {
       "id": "voice-17-tenor-sax",
-      "label": "次中音萨克斯",
-      "file": "assets/audio/voice-17-tenor-sax.ogg",
+      "label": "二胡·赛马",
+      "file": "assets/audio-auditions/26-erhu-horse-race.ogg",
       "gain": 0.63,
       "reverbSend": 0.09,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "sustain"
     },
     {
       "id": "voice-18-chromatic-harmonica",
-      "label": "半音阶口琴",
-      "file": "assets/audio/voice-18-chromatic-harmonica.ogg",
+      "label": "马头琴试听",
+      "file": "assets/audio-auditions/34-matouqin.ogg",
       "gain": 0.612,
       "reverbSend": 0.09,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "sustain"
     },
     {
       "id": "voice-19-alto-recorder",
-      "label": "中音木笛",
-      "file": "assets/audio/voice-19-alto-recorder.ogg",
+      "label": "南箫试听",
+      "file": "assets/audio-auditions/04-nanxiao.ogg",
       "gain": 0.666,
       "reverbSend": 0.11,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "wind"
     },
     {
       "id": "voice-20-bass-recorder",
-      "label": "低音木笛",
-      "file": "assets/audio/voice-20-bass-recorder.ogg",
+      "label": "中国吹管一",
+      "file": "assets/audio-auditions/20-chinese-winds-1.ogg",
       "gain": 0.684,
       "reverbSend": 0.11,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "wind"
     },
     {
       "id": "voice-21-soprano-recorder",
-      "label": "高音木笛",
-      "file": "assets/audio/voice-21-soprano-recorder.ogg",
+      "label": "笙试听",
+      "file": "assets/audio-auditions/06-sheng.ogg",
       "gain": 0.63,
       "reverbSend": 0.12,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "wind"
     },
     {
       "id": "voice-22-tenor-recorder",
-      "label": "次中音木笛",
-      "file": "assets/audio/voice-22-tenor-recorder.ogg",
+      "label": "中国吹管·箫",
+      "file": "assets/audio-auditions/21-chinese-winds-xiao.ogg",
       "gain": 0.666,
       "reverbSend": 0.11,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "wind"
     },
     {
       "id": "voice-23-small-ocarina",
-      "label": "小陶笛",
-      "file": "assets/audio/voice-23-small-ocarina.ogg",
+      "label": "埙试听",
+      "file": "assets/audio-auditions/05-xun.ogg",
       "gain": 0.63,
       "reverbSend": 0.13,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "wind"
     },
     {
       "id": "voice-24-ocarina",
-      "label": "陶笛",
-      "file": "assets/audio/voice-24-ocarina.ogg",
+      "label": "竹笛试听",
+      "file": "assets/audio-auditions/14-mini-dizi-free.ogg",
       "gain": 0.648,
       "reverbSend": 0.13,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "wind"
     },
     {
       "id": "voice-25-didgeridoo",
-      "label": "迪吉里杜管",
-      "file": "assets/audio/voice-25-didgeridoo.ogg",
+      "label": "管子试听",
+      "file": "assets/audio-auditions/07-guanzi.ogg",
       "gain": 0.648,
       "reverbSend": 0.08,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "wind"
     },
     {
       "id": "voice-26-balafon",
-      "label": "传统巴拉风木琴",
-      "file": "assets/audio/voice-26-balafon.ogg",
+      "label": "编钟·编磬试听",
+      "file": "assets/audio-auditions/01-bianzhong-bianqing.ogg",
       "gain": 0.72,
       "reverbSend": 0.1,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "strike"
     },
     {
       "id": "voice-27-glockenspiel",
-      "label": "钢片琴",
-      "file": "assets/audio/voice-27-glockenspiel.ogg",
+      "label": "扬琴试听",
+      "file": "assets/audio-auditions/12-yangqin.ogg",
       "gain": 0.594,
       "reverbSend": 0.16,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "strike"
     },
     {
       "id": "voice-28-marimba",
-      "label": "马林巴",
-      "file": "assets/audio/voice-28-marimba.ogg",
+      "label": "编钟自由版",
+      "file": "assets/audio-auditions/18-bianzhong-free-1.0.ogg",
       "gain": 0.702,
       "reverbSend": 0.11,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "strike"
     },
     {
@@ -358,11 +352,11 @@
     },
     {
       "id": "voice-35-tubular-bells",
-      "label": "管钟",
-      "file": "assets/audio/voice-35-tubular-bells.ogg",
+      "label": "民乐团标准配置",
+      "file": "assets/audio-auditions/15-orchestra-standard.ogg",
       "gain": 0.594,
       "reverbSend": 0.17,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "strike"
     },
     {
@@ -475,29 +469,29 @@
     },
     {
       "id": "voice-48-bongos",
-      "label": "邦戈鼓",
-      "file": "assets/audio/voice-48-bongos.ogg",
+      "label": "混合乐团·情人小径",
+      "file": "assets/audio-auditions/19-mixed-orchestra-lovers-pathway.ogg",
       "gain": 0.612,
       "reverbSend": 0.06,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "movement"
     },
     {
       "id": "voice-49-conga",
-      "label": "康加鼓",
-      "file": "assets/audio/voice-49-conga.ogg",
+      "label": "乐团·邻家女孩",
+      "file": "assets/audio-auditions/37-orchestra-girl-next-door.ogg",
       "gain": 0.612,
       "reverbSend": 0.06,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "movement"
     },
     {
       "id": "voice-50-rope-snare",
-      "label": "绳索军鼓",
-      "file": "assets/audio/voice-50-rope-snare.ogg",
+      "label": "乐团·圣诞淘气鬼",
+      "file": "assets/audio-auditions/38-orchestra-xmas-rascals.ogg",
       "gain": 0.54,
       "reverbSend": 0.07,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "movement"
     },
     {
@@ -511,20 +505,20 @@
     },
     {
       "id": "voice-52-tambourine-one",
-      "label": "铃鼓一",
-      "file": "assets/audio/voice-52-tambourine-one.ogg",
+      "label": "乐团·时钟王国",
+      "file": "assets/audio-auditions/39-orchestra-clock-kingdom.ogg",
       "gain": 0.522,
       "reverbSend": 0.09,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "movement"
     },
     {
       "id": "voice-53-tambourine-two",
-      "label": "铃鼓二",
-      "file": "assets/audio/voice-53-tambourine-two.ogg",
+      "label": "中国吹管四",
+      "file": "assets/audio-auditions/23-chinese-winds-4.ogg",
       "gain": 0.522,
       "reverbSend": 0.09,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "movement"
     },
     {
@@ -538,11 +532,11 @@
     },
     {
       "id": "voice-55-large-shaker",
-      "label": "大沙锤",
-      "file": "assets/audio/voice-55-large-shaker.ogg",
+      "label": "笛子二胡·部落",
+      "file": "assets/audio-auditions/35-dizi-erhu-buluo.ogg",
       "gain": 0.468,
       "reverbSend": 0.06,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "movement"
     },
     {
@@ -556,20 +550,20 @@
     },
     {
       "id": "voice-57-sleigh-bells",
-      "label": "串铃",
-      "file": "assets/audio/voice-57-sleigh-bells.ogg",
+      "label": "中国吹管三",
+      "file": "assets/audio-auditions/22-chinese-winds-3.ogg",
       "gain": 0.468,
       "reverbSend": 0.1,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "movement"
     },
     {
       "id": "voice-58-ratchet",
-      "label": "棘轮响器",
-      "file": "assets/audio/voice-58-ratchet.ogg",
+      "label": "唢呐试听",
+      "file": "assets/audio-auditions/08-suona.ogg",
       "gain": 0.486,
       "reverbSend": 0.06,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "movement"
     },
     {
@@ -601,11 +595,11 @@
     },
     {
       "id": "voice-62-finger-cymbals",
-      "label": "指钹",
-      "file": "assets/audio/voice-62-finger-cymbals.ogg",
+      "label": "民乐团全编制一",
+      "file": "assets/audio-auditions/16-orchestra-full-1.ogg",
       "gain": 0.45,
       "reverbSend": 0.14,
-      "source": "VCSL CC0 live recording",
+      "source": "Operator-provided local audition preview",
       "role": "movement"
     }
   ],
@@ -625,12 +619,12 @@
       "animation": "harp",
       "color": "#aa7b2f",
       "secondaryColor": "#ddb753",
-      "beatPeriod": 1.0,
+      "beatPeriod": 1,
       "beatOffset": 0,
       "scale": 1.16,
       "yBias": -0.016,
       "mirror": false,
-      "phase": 0.0,
+      "phase": 0,
       "motion": 0.72,
       "upperSplit": 0.46,
       "pivotY": 0.61,
@@ -653,7 +647,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -671,10 +665,10 @@
       "animation": "pluck",
       "color": "#c49a3a",
       "secondaryColor": "#e1bd54",
-      "beatPeriod": 1.0,
+      "beatPeriod": 1,
       "beatOffset": 0,
       "scale": 1.18,
-      "yBias": 0.0,
+      "yBias": 0,
       "mirror": false,
       "phase": 3.88322,
       "motion": 1.265,
@@ -699,7 +693,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -717,7 +711,7 @@
       "animation": "strike",
       "color": "#d0a13b",
       "secondaryColor": "#f2c85b",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.2,
       "yBias": 0.016,
@@ -745,7 +739,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -763,7 +757,7 @@
       "animation": "flute",
       "color": "#3f8779",
       "secondaryColor": "#72b7a6",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.17,
       "yBias": -0.008,
@@ -791,7 +785,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -809,7 +803,7 @@
       "animation": "panpipe",
       "color": "#4d8c83",
       "secondaryColor": "#70b6ad",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.19,
       "yBias": 0.008,
@@ -837,7 +831,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -883,7 +877,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 9.0
+        "fps": 9
       }
     },
     {
@@ -901,10 +895,10 @@
       "animation": "pluck",
       "color": "#b84b35",
       "secondaryColor": "#e1bd54",
-      "beatPeriod": 1.0,
+      "beatPeriod": 1,
       "beatOffset": 0,
       "scale": 1.18,
-      "yBias": 0.0,
+      "yBias": 0,
       "mirror": false,
       "phase": 4.44978,
       "motion": 0.902,
@@ -929,7 +923,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -947,7 +941,7 @@
       "animation": "procession",
       "color": "#6c8c45",
       "secondaryColor": "#9bb65d",
-      "beatPeriod": 1.0,
+      "beatPeriod": 1,
       "beatOffset": 0,
       "scale": 1.2,
       "yBias": 0.016,
@@ -975,7 +969,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 7.0
+        "fps": 7
       }
     },
     {
@@ -993,7 +987,7 @@
       "animation": "pluck",
       "color": "#c49a3a",
       "secondaryColor": "#e1bd54",
-      "beatPeriod": 1.0,
+      "beatPeriod": 1,
       "beatOffset": 0,
       "scale": 1.17,
       "yBias": -0.008,
@@ -1021,7 +1015,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -1039,7 +1033,7 @@
       "animation": "banquet",
       "color": "#537e85",
       "secondaryColor": "#78a9af",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.19,
       "yBias": 0.008,
@@ -1067,7 +1061,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -1113,7 +1107,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -1131,10 +1125,10 @@
       "animation": "bow",
       "color": "#426f89",
       "secondaryColor": "#6ea3bd",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.18,
-      "yBias": 0.0,
+      "yBias": 0,
       "mirror": false,
       "phase": 5.01633,
       "motion": 1.311,
@@ -1159,7 +1153,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -1177,7 +1171,7 @@
       "animation": "strike",
       "color": "#d0a13b",
       "secondaryColor": "#f2c85b",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.2,
       "yBias": 0.016,
@@ -1205,7 +1199,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -1223,7 +1217,7 @@
       "animation": "bow",
       "color": "#426f89",
       "secondaryColor": "#6ea3bd",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.17,
       "yBias": -0.008,
@@ -1251,7 +1245,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -1297,7 +1291,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 9.0
+        "fps": 9
       }
     },
     {
@@ -1343,7 +1337,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -1361,10 +1355,10 @@
       "animation": "pluck",
       "color": "#b84b35",
       "secondaryColor": "#e1bd54",
-      "beatPeriod": 1.0,
+      "beatPeriod": 1,
       "beatOffset": 0,
       "scale": 1.18,
-      "yBias": 0.0,
+      "yBias": 0,
       "mirror": false,
       "phase": 5.58289,
       "motion": 0.947,
@@ -1389,7 +1383,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -1407,7 +1401,7 @@
       "animation": "serve",
       "color": "#66874f",
       "secondaryColor": "#9bb365",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.2,
       "yBias": 0.016,
@@ -1435,7 +1429,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -1453,7 +1447,7 @@
       "animation": "harp",
       "color": "#aa7b2f",
       "secondaryColor": "#ddb753",
-      "beatPeriod": 1.0,
+      "beatPeriod": 1,
       "beatOffset": 0,
       "scale": 1.17,
       "yBias": -0.008,
@@ -1481,7 +1475,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -1499,7 +1493,7 @@
       "animation": "harp",
       "color": "#aa7b2f",
       "secondaryColor": "#ddb753",
-      "beatPeriod": 1.0,
+      "beatPeriod": 1,
       "beatOffset": 0,
       "scale": 1.19,
       "yBias": 0.008,
@@ -1527,7 +1521,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -1545,7 +1539,7 @@
       "animation": "bow",
       "color": "#426f89",
       "secondaryColor": "#6ea3bd",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.16,
       "yBias": -0.016,
@@ -1573,7 +1567,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -1591,10 +1585,10 @@
       "animation": "reed",
       "color": "#78913f",
       "secondaryColor": "#9eb45b",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.18,
-      "yBias": 0.0,
+      "yBias": 0,
       "mirror": false,
       "phase": 6.14944,
       "motion": 1.356,
@@ -1619,7 +1613,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -1637,7 +1631,7 @@
       "animation": "pluck",
       "color": "#b84b35",
       "secondaryColor": "#e1bd54",
-      "beatPeriod": 1.0,
+      "beatPeriod": 1,
       "beatOffset": 0,
       "scale": 1.2,
       "yBias": 0.016,
@@ -1665,7 +1659,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -1683,7 +1677,7 @@
       "animation": "strike",
       "color": "#d0a13b",
       "secondaryColor": "#f2c85b",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.17,
       "yBias": -0.008,
@@ -1711,7 +1705,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -1729,7 +1723,7 @@
       "animation": "strike",
       "color": "#d0a13b",
       "secondaryColor": "#f2c85b",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.19,
       "yBias": 0.008,
@@ -1757,7 +1751,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -1775,7 +1769,7 @@
       "animation": "bow",
       "color": "#426f89",
       "secondaryColor": "#6ea3bd",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.16,
       "yBias": -0.016,
@@ -1803,7 +1797,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -1821,10 +1815,10 @@
       "animation": "panpipe",
       "color": "#4d8c83",
       "secondaryColor": "#70b6ad",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.18,
-      "yBias": 0.0,
+      "yBias": 0,
       "mirror": false,
       "phase": 0.43281,
       "motion": 0.993,
@@ -1849,7 +1843,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -1867,7 +1861,7 @@
       "animation": "gong",
       "color": "#c35a28",
       "secondaryColor": "#ef6e35",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.2,
       "yBias": 0.016,
@@ -1895,7 +1889,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 9.0
+        "fps": 9
       }
     },
     {
@@ -1941,7 +1935,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 9.0
+        "fps": 9
       }
     },
     {
@@ -1987,7 +1981,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 9.0
+        "fps": 9
       }
     },
     {
@@ -2005,7 +1999,7 @@
       "animation": "harp",
       "color": "#aa7b2f",
       "secondaryColor": "#ddb753",
-      "beatPeriod": 1.0,
+      "beatPeriod": 1,
       "beatOffset": 0,
       "scale": 1.16,
       "yBias": -0.016,
@@ -2033,7 +2027,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -2054,7 +2048,7 @@
       "beatPeriod": 0.5,
       "beatOffset": 0,
       "scale": 1.18,
-      "yBias": 0.0,
+      "yBias": 0,
       "mirror": false,
       "phase": 0.99936,
       "motion": 1.402,
@@ -2079,7 +2073,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -2097,7 +2091,7 @@
       "animation": "cymbal",
       "color": "#d2a33e",
       "secondaryColor": "#f0c75c",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.2,
       "yBias": 0.016,
@@ -2125,7 +2119,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 9.0
+        "fps": 9
       }
     },
     {
@@ -2143,7 +2137,7 @@
       "animation": "procession",
       "color": "#6c8c45",
       "secondaryColor": "#9bb65d",
-      "beatPeriod": 1.0,
+      "beatPeriod": 1,
       "beatOffset": 0,
       "scale": 1.17,
       "yBias": -0.008,
@@ -2171,7 +2165,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 7.0
+        "fps": 7
       }
     },
     {
@@ -2189,7 +2183,7 @@
       "animation": "banquet",
       "color": "#537e85",
       "secondaryColor": "#78a9af",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.19,
       "yBias": 0.008,
@@ -2217,7 +2211,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -2235,7 +2229,7 @@
       "animation": "banquet",
       "color": "#537e85",
       "secondaryColor": "#78a9af",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.16,
       "yBias": -0.016,
@@ -2263,7 +2257,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -2281,10 +2275,10 @@
       "animation": "banquet",
       "color": "#537e85",
       "secondaryColor": "#78a9af",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.18,
-      "yBias": 0.0,
+      "yBias": 0,
       "mirror": false,
       "phase": 1.56592,
       "motion": 1.038,
@@ -2309,7 +2303,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -2327,7 +2321,7 @@
       "animation": "banquet",
       "color": "#537e85",
       "secondaryColor": "#78a9af",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.2,
       "yBias": 0.016,
@@ -2355,7 +2349,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -2373,7 +2367,7 @@
       "animation": "serve",
       "color": "#66874f",
       "secondaryColor": "#9bb365",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.17,
       "yBias": -0.008,
@@ -2401,7 +2395,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -2447,7 +2441,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -2493,7 +2487,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -2511,10 +2505,10 @@
       "animation": "procession",
       "color": "#6c8c45",
       "secondaryColor": "#9bb65d",
-      "beatPeriod": 1.0,
+      "beatPeriod": 1,
       "beatOffset": 0,
       "scale": 1.18,
-      "yBias": 0.0,
+      "yBias": 0,
       "mirror": false,
       "phase": 2.13247,
       "motion": 1.447,
@@ -2539,7 +2533,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 7.0
+        "fps": 7
       }
     },
     {
@@ -2557,7 +2551,7 @@
       "animation": "strike",
       "color": "#d0a13b",
       "secondaryColor": "#f2c85b",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.2,
       "yBias": 0.016,
@@ -2585,7 +2579,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -2603,7 +2597,7 @@
       "animation": "horn",
       "color": "#9c6a35",
       "secondaryColor": "#c99755",
-      "beatPeriod": 4.0,
+      "beatPeriod": 4,
       "beatOffset": 0,
       "scale": 1.17,
       "yBias": -0.008,
@@ -2631,7 +2625,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -2649,7 +2643,7 @@
       "animation": "procession",
       "color": "#6c8c45",
       "secondaryColor": "#9bb65d",
-      "beatPeriod": 1.0,
+      "beatPeriod": 1,
       "beatOffset": 0,
       "scale": 1.19,
       "yBias": 0.008,
@@ -2677,7 +2671,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 7.0
+        "fps": 7
       }
     },
     {
@@ -2723,7 +2717,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -2741,10 +2735,10 @@
       "animation": "pluck",
       "color": "#c49a3a",
       "secondaryColor": "#e1bd54",
-      "beatPeriod": 1.0,
+      "beatPeriod": 1,
       "beatOffset": 0,
       "scale": 1.18,
-      "yBias": 0.0,
+      "yBias": 0,
       "mirror": false,
       "phase": 2.69903,
       "motion": 1.084,
@@ -2769,7 +2763,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -2787,7 +2781,7 @@
       "animation": "flute",
       "color": "#3f8779",
       "secondaryColor": "#72b7a6",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.2,
       "yBias": 0.016,
@@ -2815,7 +2809,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -2833,7 +2827,7 @@
       "animation": "pluck",
       "color": "#b84b35",
       "secondaryColor": "#e1bd54",
-      "beatPeriod": 1.0,
+      "beatPeriod": 1,
       "beatOffset": 0,
       "scale": 1.17,
       "yBias": -0.008,
@@ -2861,7 +2855,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -2879,7 +2873,7 @@
       "animation": "strike",
       "color": "#d0a13b",
       "secondaryColor": "#f2c85b",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.19,
       "yBias": 0.008,
@@ -2907,7 +2901,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -2925,7 +2919,7 @@
       "animation": "bow",
       "color": "#426f89",
       "secondaryColor": "#6ea3bd",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.16,
       "yBias": -0.016,
@@ -2953,7 +2947,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -2974,7 +2968,7 @@
       "beatPeriod": 0.5,
       "beatOffset": 0,
       "scale": 1.18,
-      "yBias": 0.0,
+      "yBias": 0,
       "mirror": false,
       "phase": 3.26558,
       "motion": 0.72,
@@ -2999,7 +2993,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 9.0
+        "fps": 9
       }
     },
     {
@@ -3045,7 +3039,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -3063,7 +3057,7 @@
       "animation": "serve",
       "color": "#66874f",
       "secondaryColor": "#9bb365",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.17,
       "yBias": -0.008,
@@ -3091,7 +3085,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -3109,7 +3103,7 @@
       "animation": "harp",
       "color": "#aa7b2f",
       "secondaryColor": "#ddb753",
-      "beatPeriod": 1.0,
+      "beatPeriod": 1,
       "beatOffset": 0,
       "scale": 1.19,
       "yBias": 0.008,
@@ -3137,7 +3131,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -3183,7 +3177,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -3201,10 +3195,10 @@
       "animation": "strike",
       "color": "#d0a13b",
       "secondaryColor": "#f2c85b",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.18,
-      "yBias": 0.0,
+      "yBias": 0,
       "mirror": false,
       "phase": 3.83214,
       "motion": 1.129,
@@ -3229,7 +3223,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -3247,7 +3241,7 @@
       "animation": "reed",
       "color": "#78913f",
       "secondaryColor": "#9eb45b",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.2,
       "yBias": 0.016,
@@ -3275,7 +3269,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -3293,7 +3287,7 @@
       "animation": "pluck",
       "color": "#b84b35",
       "secondaryColor": "#e1bd54",
-      "beatPeriod": 1.0,
+      "beatPeriod": 1,
       "beatOffset": 0,
       "scale": 1.17,
       "yBias": -0.008,
@@ -3321,7 +3315,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -3339,7 +3333,7 @@
       "animation": "strike",
       "color": "#d0a13b",
       "secondaryColor": "#f2c85b",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.19,
       "yBias": 0.008,
@@ -3367,7 +3361,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -3385,7 +3379,7 @@
       "animation": "gong",
       "color": "#c35a28",
       "secondaryColor": "#ef6e35",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.16,
       "yBias": -0.016,
@@ -3413,7 +3407,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 9.0
+        "fps": 9
       }
     },
     {
@@ -3431,10 +3425,10 @@
       "animation": "strike",
       "color": "#d0a13b",
       "secondaryColor": "#f2c85b",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.18,
-      "yBias": 0.0,
+      "yBias": 0,
       "mirror": false,
       "phase": 4.39869,
       "motion": 0.765,
@@ -3459,7 +3453,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     },
     {
@@ -3477,7 +3471,7 @@
       "animation": "bow",
       "color": "#426f89",
       "secondaryColor": "#6ea3bd",
-      "beatPeriod": 2.0,
+      "beatPeriod": 2,
       "beatOffset": 0,
       "scale": 1.2,
       "yBias": 0.016,
@@ -3505,7 +3499,7 @@
         "columns": 3,
         "rows": 3,
         "frames": 9,
-        "fps": 8.0
+        "fps": 8
       }
     }
   ]

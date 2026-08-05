@@ -2,7 +2,6 @@ import { AudioEngine } from './audio/audio-engine.js';
 import { CalibrationController } from './calibration/calibration-controller.js';
 import { CalibrationView } from './calibration/calibration-view.js';
 import { ConfigStore } from './config/config-store.js';
-import { applyAudioOverrides } from './config/audio-overrides.js';
 import { validateSceneConfig, validateSettings } from './core/config-schema.js';
 import { DecorativeRenderer } from './scene/decorative-renderer.js';
 import { CharacterRenderer } from './scene/character-renderer.js';
@@ -32,14 +31,19 @@ async function loadImage(url) {
 }
 
 function modeLabel(mode) {
-  return ({ auto: '自动演示', pointer: '鼠标精准 / 多点触摸', camera: '摄像头' })[mode] || mode;
+  return ({ auto: '自动演示', pointer: '鼠标模式', camera: '人脸模式' })[mode] || mode;
 }
 
 class HanOrchestraApp {
   constructor(sceneConfig, textureImage) {
     this.sceneConfig = sceneConfig;
     this.configStore = new ConfigStore();
-    this.settings = this.configStore.loadSettings();
+    const storedSettings = this.configStore.loadSettings();
+    this.settings = {
+      ...storedSettings,
+      mode: 'pointer',
+      cameraSource: 'hardware',
+    };
     this.ui = new OperatorUI();
     this.ui.applySettings(this.settings);
     this.triggerPlane = new TriggerPlane(sceneConfig.trigger.rows, sceneConfig.trigger.cols);
@@ -163,6 +167,23 @@ class HanOrchestraApp {
 
   #bindUi() {
     this.ui.addEventListener('enter', () => this.enter());
+    this.ui.addEventListener('input-mode', async (event) => {
+      if (event.detail.mode === 'pointer') {
+        this.input.stop();
+        this.setMode('pointer');
+        return;
+      }
+      this.settings.cameraSource = 'hardware';
+      this.setMode('camera');
+      const ok = await this.input.setCameraSource('hardware');
+      this.#persistSettings();
+      this.ui.applySettings(this.settings);
+      if (!ok) {
+        this.#message(this.input.cameraMessage || '未能获得摄像头权限，请在浏览器地址栏允许访问。', 'error');
+        return;
+      }
+      this.#message('摄像头与离线人像分割模型均已启动，只使用真实人物轮廓。', 'success');
+    });
     this.ui.addEventListener('mode', (event) => this.setMode(event.detail.mode));
     this.ui.addEventListener('camera-source', async (event) => {
       this.settings.cameraSource = event.detail.source;
@@ -507,12 +528,8 @@ class HanOrchestraApp {
 async function bootstrap() {
   const introCopy = document.querySelector('.intro-copy');
   try {
-    const [sceneRaw, audioOverrides] = await Promise.all([
-      loadJson('config/scene.json'),
-      loadJson('config/audio-overrides.json'),
-    ]);
-    const sceneWithAudio = applyAudioOverrides(sceneRaw, audioOverrides);
-    const validation = validateSceneConfig(sceneWithAudio);
+    const scene = await loadJson('config/scene.json');
+    const validation = validateSceneConfig(scene);
     if (!validation.valid) throw new Error(`场景配置无效：${validation.errors.join(' ')}`);
     const texture = await loadImage(validation.config.background.runtime);
     const app = new HanOrchestraApp(validation.config, texture);

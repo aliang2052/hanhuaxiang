@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/Users/sniper/Desktop/temp/hanhuaxiang/tests/e2e/e2e_test.py", line 24, in <module>
-    from playwright.sync_api import Browser, BrowserContext, Page, Playwright, sync_playwright
-ModuleNotFoundError: No module named 'playwright'

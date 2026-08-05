@@ -1,6 +1,6 @@
 import { applyHomography } from '../core/homography.js';
 
-const MODE_LABELS = { auto: '自动演示', pointer: '鼠标精准 / 多点触摸', camera: '摄像头' };
+const MODE_LABELS = { auto: '自动演示', pointer: '鼠标模式', camera: '人脸模式' };
 
 const byId = (id) => document.getElementById(id);
 
@@ -10,6 +10,7 @@ export class OperatorUI extends EventTarget {
     this.dom = {
       intro: byId('intro'), enterButton: byId('enterButton'), topBar: byId('topBar'),
       controlPanel: byId('controlPanel'), openPanel: byId('openPanel'), closePanel: byId('closePanel'),
+      pointerModeButton: byId('pointerModeButton'), faceModeButton: byId('faceModeButton'),
       modeSelect: byId('modeSelect'), cameraSourceSelect: byId('cameraSourceSelect'), cameraButton: byId('cameraButton'),
       captureBackgroundButton: byId('captureBackgroundButton'), debugButton: byId('debugButton'), fullscreenButton: byId('fullscreenButton'), testAudioButton: byId('testAudioButton'),
       simulationControls: byId('simulationControls'), simulationScenarioSelect: byId('simulationScenarioSelect'), simulateDisconnectButton: byId('simulateDisconnectButton'),
@@ -25,6 +26,8 @@ export class OperatorUI extends EventTarget {
       debugView: byId('debugView'), closeDebug: byId('closeDebug'), debugCaptureButton: byId('debugCaptureButton'), debugResetCalibrationButton: byId('debugResetCalibrationButton'), audioButton: byId('audioButton'),
     };
     this.monitorDrag = null;
+    this.monitorResize = null;
+    this.monitorPreferredWidth = 360;
     this.monitorAvoidArmed = true;
     this.monitorLastCollisionAt = -Infinity;
     this.monitorMoveTimer = null;
@@ -40,6 +43,8 @@ export class OperatorUI extends EventTarget {
     d.enterButton.addEventListener('click', () => this.#emit('enter'));
     d.openPanel.addEventListener('click', () => { d.controlPanel.hidden = false; });
     d.closePanel.addEventListener('click', () => { d.controlPanel.hidden = true; });
+    d.pointerModeButton.addEventListener('click', () => this.#emit('input-mode', { mode: 'pointer' }));
+    d.faceModeButton.addEventListener('click', () => this.#emit('input-mode', { mode: 'face' }));
     d.modeSelect.addEventListener('change', () => this.#emit('mode', { mode: d.modeSelect.value }));
     d.cameraSourceSelect.addEventListener('change', () => this.#emit('camera-source', { source: d.cameraSourceSelect.value }));
     d.cameraButton.addEventListener('click', () => this.#emit('camera-start'));
@@ -82,13 +87,19 @@ export class OperatorUI extends EventTarget {
     d.hideUiButton.addEventListener('click', () => this.#emit('toggle-ui'));
     d.debugCaptureButton.addEventListener('click', () => this.#emit('capture-background'));
     this.#bindMonitorDrag();
+    this.#bindMonitorResize();
+    window.addEventListener('resize', () => {
+      if (this.monitorResize) return;
+      this.#applyMonitorWidth(this.monitorPreferredWidth);
+      this.#keepMonitorInViewport();
+    });
   }
 
   #bindMonitorDrag() {
     const d = this.dom;
     const handle = d.recognitionMonitor.querySelector('.recognition-head');
     if (!handle) return;
-    handle.title = '拖动人物监视器';
+    handle.title = '拖动标题移动，拖动边缘缩放';
     handle.addEventListener('pointerdown', (event) => {
       if (d.recognitionMonitorDock.hidden || event.button !== 0) return;
       const rect = d.recognitionMonitorDock.getBoundingClientRect();
@@ -129,10 +140,109 @@ export class OperatorUI extends EventTarget {
     handle.addEventListener('pointercancel', finishDrag);
   }
 
+  #bindMonitorResize() {
+    const dock = this.dom.recognitionMonitorDock;
+    for (const handle of dock.querySelectorAll('[data-resize]')) {
+      handle.title = '拖动缩放人物监视器';
+      handle.addEventListener('pointerdown', (event) => {
+        if (dock.hidden || event.button !== 0) return;
+        const rect = dock.getBoundingClientRect();
+        const direction = handle.dataset.resize;
+        dock.style.right = 'auto';
+        dock.style.left = `${rect.left}px`;
+        dock.style.top = `${rect.top}px`;
+        dock.classList.remove('is-relocating');
+        dock.classList.add('is-resizing');
+        this.monitorResize = {
+          pointerId: event.pointerId,
+          direction,
+          startX: event.clientX,
+          startY: event.clientY,
+          startWidth: rect.width,
+          startHeight: rect.height,
+          startLeft: rect.left,
+          startTop: rect.top,
+          startRight: rect.right,
+          startBottom: rect.bottom,
+        };
+        handle.setPointerCapture(event.pointerId);
+        event.stopPropagation();
+        event.preventDefault();
+      });
+
+      handle.addEventListener('pointermove', (event) => {
+        const state = this.monitorResize;
+        if (!state || state.pointerId !== event.pointerId) return;
+        const horizontalDelta = state.direction.includes('e')
+          ? event.clientX - state.startX
+          : state.direction.includes('w') ? state.startX - event.clientX : null;
+        const widthPerHeight = state.startWidth / Math.max(1, state.startHeight);
+        const verticalDelta = state.direction.includes('s')
+          ? (event.clientY - state.startY) * widthPerHeight
+          : state.direction.includes('n') ? (state.startY - event.clientY) * widthPerHeight : null;
+        const candidates = [horizontalDelta, verticalDelta].filter(Number.isFinite);
+        const delta = candidates.reduce((strongest, value) => (
+          Math.abs(value) > Math.abs(strongest) ? value : strongest
+        ), candidates[0] || 0);
+        const width = this.#clampMonitorWidth(state.startWidth + delta);
+        dock.style.width = `${width}px`;
+
+        const resized = dock.getBoundingClientRect();
+        if (state.direction.includes('w')) dock.style.left = `${state.startRight - resized.width}px`;
+        if (state.direction.includes('n')) dock.style.top = `${state.startBottom - resized.height}px`;
+        this.#keepMonitorInViewport();
+        event.stopPropagation();
+        event.preventDefault();
+      });
+
+      const finishResize = (event) => {
+        if (!this.monitorResize || this.monitorResize.pointerId !== event.pointerId) return;
+        this.monitorResize = null;
+        dock.classList.remove('is-resizing');
+        this.monitorPreferredWidth = Math.round(dock.getBoundingClientRect().width);
+        this.monitorAvoidArmed = false;
+        this.monitorLastCollisionAt = performance.now();
+        if (handle.hasPointerCapture(event.pointerId)) handle.releasePointerCapture(event.pointerId);
+        this.#emit('setting', { key: 'monitorWidth', value: this.monitorPreferredWidth });
+      };
+      handle.addEventListener('pointerup', finishResize);
+      handle.addEventListener('pointercancel', finishResize);
+    }
+  }
+
+  #clampMonitorWidth(width) {
+    const viewportMaximum = Math.max(160, window.innerWidth - 16);
+    const maximum = Math.min(720, viewportMaximum);
+    const minimum = Math.min(220, maximum);
+    return Math.round(Math.min(maximum, Math.max(minimum, Number(width) || 360)));
+  }
+
+  #applyMonitorWidth(width) {
+    this.monitorPreferredWidth = Math.round(Number(width) || 360);
+    this.dom.recognitionMonitorDock.style.width = `${this.#clampMonitorWidth(this.monitorPreferredWidth)}px`;
+  }
+
+  #keepMonitorInViewport() {
+    const dock = this.dom.recognitionMonitorDock;
+    if (dock.hidden || !dock.style.left) return;
+    const rect = dock.getBoundingClientRect();
+    const margin = 8;
+    const left = Math.min(Math.max(margin, rect.left), Math.max(margin, window.innerWidth - rect.width - margin));
+    const top = Math.min(Math.max(margin, rect.top), Math.max(margin, window.innerHeight - rect.height - margin));
+    dock.style.left = `${left}px`;
+    dock.style.top = `${top}px`;
+  }
+
   applySettings(settings) {
     const d = this.dom;
     d.modeSelect.value = settings.mode;
     d.cameraSourceSelect.value = settings.cameraSource;
+    const pointerActive = settings.mode === 'pointer';
+    const faceActive = settings.mode === 'camera' && settings.cameraSource === 'hardware';
+    d.pointerModeButton.classList.toggle('is-active', pointerActive);
+    d.faceModeButton.classList.toggle('is-active', faceActive);
+    d.pointerModeButton.setAttribute('aria-pressed', String(pointerActive));
+    d.faceModeButton.setAttribute('aria-pressed', String(faceActive));
     d.animationSpeed.value = String(settings.animationSpeed);
     d.diffThreshold.value = String(settings.diffThreshold);
     d.onThreshold.value = String(settings.onThreshold * 100);
@@ -143,6 +253,7 @@ export class OperatorUI extends EventTarget {
     d.grayscaleToggle.checked = settings.grayscaleEnabled;
     d.monitorFloatingToggle.checked = settings.monitorFloating;
     d.muteToggle.checked = settings.muted;
+    this.#applyMonitorWidth(settings.monitorWidth);
     this.#setMonitorFloating(settings.monitorFloating);
     d.audioButton.textContent = settings.muted ? '静' : '声';
     d.audioButton.title = settings.muted ? '声音已关闭，点击开启' : '声音已开启，点击静音';
@@ -166,7 +277,7 @@ export class OperatorUI extends EventTarget {
 
   updateMonitorAvoidance(snapshot, { mode, cameraToPlane, now = performance.now() } = {}) {
     const dock = this.dom.recognitionMonitorDock;
-    if (dock.hidden || this.monitorDrag || mode !== 'camera'
+    if (dock.hidden || this.monitorDrag || this.monitorResize || mode !== 'camera'
       || !Array.isArray(cameraToPlane) || cameraToPlane.length !== 9) return;
     const segmentation = snapshot?.segmentation;
     if (!segmentation?.width || !segmentation?.height || !Array.isArray(segmentation.components)) return;
@@ -258,6 +369,9 @@ export class OperatorUI extends EventTarget {
     this.dom.activeStatus.textContent = `${activeCount} / 63`;
     this.dom.fpsStatus.textContent = `${Number(fps || 0).toFixed(0)} FPS`;
     this.dom.cameraButton.textContent = camera.transportState === 'live' ? '摄像头已启动' : camera.state === 'requesting' ? '正在请求权限…' : '启动摄像头';
+    const faceRequesting = camera.source === 'hardware' && camera.state === 'requesting';
+    this.dom.faceModeButton.classList.toggle('is-requesting', faceRequesting);
+    this.dom.faceModeButton.setAttribute('aria-busy', String(faceRequesting));
     if (camera.source === 'hardware') {
       this.dom.captureBackgroundButton.textContent = detector?.state === 'error' ? '重试人物模型' : detector?.ready ? '人物模型已启用' : '加载人物模型';
       this.dom.captureBackgroundButton.disabled = Boolean(detector?.ready || detector?.state === 'loading');

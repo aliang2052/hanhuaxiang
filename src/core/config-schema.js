@@ -5,8 +5,8 @@ export const SETTINGS_SCHEMA_VERSION = 2;
 
 export const DEFAULT_SETTINGS = Object.freeze({
   schemaVersion: SETTINGS_SCHEMA_VERSION,
-  mode: 'auto',
-  cameraSource: 'simulated',
+  mode: 'pointer',
+  cameraSource: 'hardware',
   diffThreshold: 42,
   chromaThreshold: 24,
   onThreshold: 0.055,
@@ -19,6 +19,7 @@ export const DEFAULT_SETTINGS = Object.freeze({
   showLabels: false,
   grayscaleEnabled: true,
   monitorFloating: false,
+  monitorWidth: 360,
   muted: false,
   debugOverlays: true,
   autoPaused: false,
@@ -71,6 +72,9 @@ export function validateSettings(candidate, defaults = DEFAULT_SETTINGS) {
   settings.animationSpeed = candidate.animationSpeed === undefined
     ? defaults.animationSpeed
     : finiteNumber(candidate, 'animationSpeed', settings.animationSpeed, errors);
+  settings.monitorWidth = candidate.monitorWidth === undefined
+    ? defaults.monitorWidth
+    : finiteNumber(candidate, 'monitorWidth', settings.monitorWidth, errors);
 
   for (const key of ['mirror', 'showGrid', 'showLabels', 'grayscaleEnabled', 'monitorFloating', 'muted', 'debugOverlays', 'autoPaused']) {
     if (typeof candidate[key] === 'boolean') settings[key] = candidate[key];
@@ -85,6 +89,7 @@ export function validateSettings(candidate, defaults = DEFAULT_SETTINGS) {
   settings.onFrames = Math.round(Math.min(20, Math.max(1, settings.onFrames)));
   settings.offFrames = Math.round(Math.min(60, Math.max(1, settings.offFrames)));
   settings.animationSpeed = Math.min(1.5, Math.max(0.25, settings.animationSpeed));
+  settings.monitorWidth = Math.round(Math.min(720, Math.max(220, settings.monitorWidth)));
 
   const camera = candidate.camera && typeof candidate.camera === 'object' ? candidate.camera : {};
   settings.camera = { ...cloneDefaults(defaults).camera, ...camera };
@@ -123,16 +128,11 @@ export function validateSceneConfig(scene) {
 
   const assetStats = scene.assetStats;
   if (!assetStats
-      || assetStats.distinctBaseSilhouetteCount < 24
-      || assetStats.runtimeSpriteCount < 50
-      || assetStats.runtimeMotionSheetCount !== 60
+      || assetStats.runtimeSpriteCount !== 47
+      || assetStats.runtimeMotionSheetCount !== 47
       || assetStats.keyframedNodeCount !== 63
-      || assetStats.independentHighResSourceCount < 32
-      || assetStats.additionalIndependentSourceCount < 24
-      || assetStats.muralDerivedDistinctSourceCount !== 0
-      || assetStats.recordedAudioVoiceCount !== 63
-      || assetStats.sourceRecordingCount < 126) {
-    errors.push('assetStats 必须记录 32 个独立视觉源、零壁画裁切源，以及 63 个独立实录声部和至少 126 个源录音');
+      || assetStats.recordedAudioVoiceCount !== 63) {
+    errors.push('assetStats 必须记录当前使用的 47 套人物构图、47 套动作表和 63 个独立声部');
   }
   const structure = scene.visualStructure;
   if (!structure

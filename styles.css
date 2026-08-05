@@ -56,6 +56,16 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .panel-kicker { margin: 0 0 5px; }
 .icon-button { min-width: 36px; padding: 4px 9px; font-size: 26px; line-height: 1; border-radius: 50%; }
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+.input-mode-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-bottom: 10px; }
+.input-mode-button { display: flex; align-items: center; gap: 11px; min-height: 68px; padding: 12px 14px; text-align: left; }
+.input-mode-button strong, .input-mode-button small { display: block; }
+.input-mode-button strong { font-size: 15px; letter-spacing: .04em; }
+.input-mode-button small { margin-top: 4px; color: var(--muted); font-size: 10px; line-height: 1.35; }
+.input-mode-icon { display: grid; flex: 0 0 34px; width: 34px; height: 34px; place-items: center; border: 1px solid rgba(235,228,208,.2); border-radius: 50%; color: #d8cfb8; font: 20px ui-sans-serif, system-ui, sans-serif; }
+.input-mode-button.is-active { border-color: rgba(214,143,99,.78); background: linear-gradient(145deg, rgba(163,68,50,.38), rgba(111,54,40,.22)); box-shadow: inset 0 0 0 1px rgba(229,166,124,.18); }
+.input-mode-button.is-active .input-mode-icon { border-color: rgba(234,176,134,.72); color: #f2d3b6; background: rgba(164,73,49,.28); }
+.input-mode-button.is-requesting { animation: mode-requesting 1.1s ease-in-out infinite alternate; }
+@keyframes mode-requesting { to { border-color: rgba(226,189,127,.78); box-shadow: 0 0 18px rgba(197,139,80,.18); } }
 .field, .slider-field { display: grid; gap: 7px; margin: 10px 0; color: #d3ccb8; font-size: 13px; }
 .field select, .inline-form input { width: 100%; min-width: 0; padding: 10px; border: 1px solid var(--line); border-radius: 8px; background: #2c2a25; }
 .button-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
@@ -114,7 +124,21 @@ input[type="range"] { width: 100%; accent-color: #a64b36; }
 .recognition-monitor-dock .recognition-head { cursor: grab; user-select: none; }
 .recognition-monitor-dock.is-dragging { transition: none; box-shadow: 0 24px 72px rgba(0,0,0,.5), 0 0 0 1px rgba(109,255,201,.22); }
 .recognition-monitor-dock.is-dragging .recognition-head { cursor: grabbing; }
+.recognition-monitor-dock.is-resizing { transition: none; box-shadow: 0 24px 72px rgba(0,0,0,.5), 0 0 0 1px rgba(109,255,201,.3); }
 .recognition-monitor-dock.is-relocating { transform: translateY(-3px); box-shadow: 0 24px 74px rgba(0,0,0,.48), 0 0 28px rgba(91,235,198,.18); }
+.monitor-resize-handle { position: absolute; z-index: 3; display: block; touch-action: none; }
+.monitor-resize-handle-n, .monitor-resize-handle-s { left: 12px; right: 12px; height: 10px; cursor: ns-resize; }
+.monitor-resize-handle-n { top: -3px; }
+.monitor-resize-handle-s { bottom: -3px; }
+.monitor-resize-handle-e, .monitor-resize-handle-w { top: 12px; bottom: 12px; width: 10px; cursor: ew-resize; }
+.monitor-resize-handle-e { right: -3px; }
+.monitor-resize-handle-w { left: -3px; }
+.monitor-resize-handle-ne, .monitor-resize-handle-se,
+.monitor-resize-handle-sw, .monitor-resize-handle-nw { width: 16px; height: 16px; }
+.monitor-resize-handle-ne { top: -3px; right: -3px; cursor: nesw-resize; }
+.monitor-resize-handle-se { right: -3px; bottom: -3px; cursor: nwse-resize; }
+.monitor-resize-handle-sw { bottom: -3px; left: -3px; cursor: nesw-resize; }
+.monitor-resize-handle-nw { top: -3px; left: -3px; cursor: nwse-resize; }
 .recognition-monitor-dock .recognition-head h3::before {
   display: inline-block;
   width: 7px;
@@ -162,7 +186,7 @@ body.ui-hidden .operator-ui { opacity: 0; pointer-events: none; }
   .brand > span:last-child { display: none; }
   .status-row .status-pill:nth-child(4) { display: none; }
   .control-panel { right: 7px; top: 50px; width: calc(100vw - 14px); max-height: calc(100dvh - 57px); padding: 14px; border-radius: 11px; }
-  .recognition-monitor-dock { right: 7px; top: 50px; width: calc(100vw - 14px); padding: 3px; border-radius: 5px; }
+  .recognition-monitor-dock { right: 7px; top: 50px; max-width: calc(100vw - 14px); padding: 3px; border-radius: 5px; }
   .field-row { grid-template-columns: 1fr; gap: 0; }
   .button-grid { gap: 7px; }
   .toggle-grid { grid-template-columns: 1fr; }

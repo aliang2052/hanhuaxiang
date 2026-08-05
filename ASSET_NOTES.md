@@ -2,21 +2,16 @@
 
 ## 1. 数量
 
-当前交付的事实统计：
+当前精简运行版的事实统计：
 
 | 类别 | 数量 | 说明 |
 |---|---:|---|
-| 完整画像石壁画源 | 1 | `assets/source-highres/base-mural.png` |
-| 当前干净背景源 | 1 | `assets/source-highres/base-stone-clean-v2.png`，仅保留连续石壁肌理，不包含人物、格线或建筑结构 |
-| 第一批独立高分辨率人物源 | 8 | 琴、笛、琵琶、钟磬、弦乐、鼓、舞者、侍者 |
-| 第二批独立高分辨率人物 / 群像源 | 24 | 位于 `assets/source-highres/independent-v2/`，由三张九宫格母版分别设计并切分去背 |
-| 独立基础轮廓 / 场景源合计 | 32 | 8 + 24；运行时不再使用壁画裁切人物 |
-| 运行时透明 PNG | 60 | 32 单体、12 双人、8 三人、8 大型群像 |
-| 场景节点 | 63 | V3 实际使用 47 个不同文件：46 个单人节点、4 个双人节点、10 个三人节点、3 个中央大型群像节点 |
-| 离线声部 | 63 | 一格一声、无重复 audioGroup，16 秒 Opus 循环 |
-| 实录源样本 | 246 | 取自 63 个不同 VCSL 乐器 / 奏法目录，约 14MB |
+| 运行时人物构图 | 47 | 63 个节点当前实际引用的透明 PNG |
+| 运行时动作表 | 47 | 与人物构图一一对应的九帧动作表 |
+| 场景节点 | 63 | 46 个单人节点、4 个双人节点、10 个三人节点、3 个中央大型群像节点 |
+| 离线声部 | 63 | 36 段试听音色加 27 段 VCSL 补充音色 |
 
-不能把它描述为“63 位独立绘制人物”；准确说法是 32 个独立设计的基础人物 / 群像源，派生为 60 个运行时素材并映射到 63 个节点。
+不能把它描述为“63 位独立绘制人物”；当前运行版使用 47 套构图映射到 63 个节点。以下章节保留设计来源记录，其中提到的高清母版路径已从精简运行版移除。
 
 ## 2. 独立高分辨率人物源
 
@@ -107,31 +102,11 @@ assets/source-highres/base-stone-clean-v2.png
 
 ## 6. V3 Live 音频来源
 
-V3 Live 使用 Versilian Community Sample Library（VCSL）的真实乐器录音。VCSL 由 Versilian Studios LLC 与贡献者建设，并以 CC0 1.0 发布，可修改、商用和重新分发。项目精选了 63 个不同乐器 / 奏法目录中的 246 个 OGG 样本；完整原始路径、哈希与许可信息记录在 `assets/audio-source/vcsl/manifest.json`，上游说明保存在 `assets/audio-source/vcsl/VCSL-README.md`。
+V3 Live 使用 Versilian Community Sample Library（VCSL）的真实乐器录音。VCSL 由 Versilian Studios LLC 与贡献者建设，并以 CC0 1.0 发布，可修改、商用和重新分发。原始路径、哈希与许可信息保存在 `licenses/vcsl-manifest.json`，上游说明保存在 `licenses/VCSL-README.md`。
 
 构建脚本只对真实录音进行确定性节奏编排、单声道舞台化、峰值保护和 Opus 编码，不添加合成振荡器或伪造的乐器噪声。它们是真实演奏采样，但仍不应宣传为“真实出土汉代乐器录音”：部分音色来自相近的世界乐器，另有少量现代萨克斯、口琴和西洋打击乐。运行时不发起网络请求。
 
-## 7. 重建与跨平台一致性
-
-```bash
-python3 -m pip install -r requirements-dev.txt
-npm run assets
-```
-
-`tools/verify_asset_rebuild.py` 在两个临时输出目录重建全部生成文件，不触碰交付树，并将 shipped outputs 与 rebuild A / B 比较。
-
-一致性合同：
-
-- PNG：解码后 RGBA 像素完全一致；
-- JPEG：块平均、5-bit 量化后的 RGB 语义哈希一致；
-- OGG：解码为单声道 48 kHz PCM 后，语义 SHA-256 一致（不受 Ogg 流序列号影响）；
-- JSON：字节 SHA-256 一致；
-- 同一平台的 rebuild A / B：PNG、JPEG、JSON 等确定性输出字节一致；
-- 验证后 MANIFEST、Git 状态和工作树保持不变。
-
-因此不能再写“跨平台 PNG/JPEG 文件字节必然完全一致”。正确表述是像素 / 语义可复现；同平台字节可复现。
-
-## 8. 发布前审查
+## 7. 发布前审查
 
 正式公开展览或商业发布前仍应完成：
 

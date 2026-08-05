@@ -19,7 +19,7 @@
       <h1>汉画像·百戏乐舞</h1>
       <p class="intro-copy">身体经过不同空间，会逐步唤醒画像石中的乐师、舞者和礼乐声部。</p>
       <button id="enterButton" class="primary" type="button">进入作品</button>
-      <p class="small">作品会铺满当前浏览器窗口。默认进入自动演示，操作员可切换指针、模拟摄像头或实体摄像头。</p>
+      <p class="small">作品会铺满当前浏览器窗口。可使用鼠标触发，或点击人脸模式授权摄像头。</p>
     </section>
 
     <header id="topBar" class="top-bar operator-ui" aria-label="运行状态">
@@ -41,27 +41,36 @@
         <button id="closePanel" class="icon-button" type="button" aria-label="关闭控制面板">×</button>
       </div>
 
-      <div class="field-row">
-        <label class="field">
-          <span>触发来源</span>
+      <div class="input-mode-grid" role="group" aria-label="互动模式">
+        <button id="pointerModeButton" class="input-mode-button" type="button" aria-pressed="false">
+          <span class="input-mode-icon" aria-hidden="true">↖</span>
+          <span><strong>鼠标模式</strong><small>点击画格触发人物</small></span>
+        </button>
+        <button id="faceModeButton" class="input-mode-button" type="button" aria-pressed="false">
+          <span class="input-mode-icon" aria-hidden="true">◉</span>
+          <span><strong>人脸模式</strong><small>点击授权摄像头</small></span>
+        </button>
+      </div>
+
+      <div class="legacy-input-controls" hidden aria-hidden="true">
+        <label>
           <select id="modeSelect">
             <option value="auto">自动演示</option>
             <option value="pointer">鼠标精准 / 多点触摸</option>
             <option value="camera">摄像头</option>
           </select>
         </label>
-        <label class="field">
-          <span>摄像头来源</span>
+        <label>
           <select id="cameraSourceSelect">
             <option value="simulated">内置模拟摄像头</option>
             <option value="hardware">实体摄像头</option>
           </select>
         </label>
+        <button id="cameraButton" type="button">启动摄像头</button>
+        <button id="captureBackgroundButton" type="button">加载人物模型</button>
       </div>
 
       <div class="button-grid">
-        <button id="cameraButton" type="button">启动摄像头</button>
-        <button id="captureBackgroundButton" type="button">加载人物模型</button>
         <button id="debugButton" type="button">打开调试与标定</button>
         <button id="fullscreenButton" type="button">全屏投影</button>
         <button id="testAudioButton" type="button">测试声音</button>
@@ -154,7 +163,16 @@
       <p id="panelMessage" class="panel-message" data-level="info">H：隐藏界面　D：调试标定　F：全屏　M：静音　A：唤醒全部</p>
     </aside>
 
-    <div id="recognitionMonitorDock" class="recognition-monitor-dock operator-ui" hidden aria-label="悬浮人物识别监视器"></div>
+    <div id="recognitionMonitorDock" class="recognition-monitor-dock operator-ui" hidden aria-label="悬浮人物识别监视器">
+      <span class="monitor-resize-handle monitor-resize-handle-n" data-resize="n" aria-hidden="true"></span>
+      <span class="monitor-resize-handle monitor-resize-handle-e" data-resize="e" aria-hidden="true"></span>
+      <span class="monitor-resize-handle monitor-resize-handle-s" data-resize="s" aria-hidden="true"></span>
+      <span class="monitor-resize-handle monitor-resize-handle-w" data-resize="w" aria-hidden="true"></span>
+      <span class="monitor-resize-handle monitor-resize-handle-ne" data-resize="ne" aria-hidden="true"></span>
+      <span class="monitor-resize-handle monitor-resize-handle-se" data-resize="se" aria-hidden="true"></span>
+      <span class="monitor-resize-handle monitor-resize-handle-sw" data-resize="sw" aria-hidden="true"></span>
+      <span class="monitor-resize-handle monitor-resize-handle-nw" data-resize="nw" aria-hidden="true"></span>
+    </div>
 
     <section id="debugView" class="debug-view" hidden aria-label="摄像头调试和标定">
       <div class="debug-head">
